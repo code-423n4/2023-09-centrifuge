@@ -63,26 +63,25 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Sponsorname audit details
-- Total Prize Pool: XXX XXX USDC (Notion: Total award pool)
-  - HM awards: XXX XXX USDC (Notion: HM (main) pool)
-  - Analysis awards: XXX XXX USDC (Notion: Analysis pool)
-  - QA awards: XXX XXX USDC (Notion: QA pool)
-  - Bot Race awards: XXX XXX USDC (Notion: Bot Race pool)
-  - Gas awards: XXX XXX USDC (Notion: Gas pool)
-  - Judge awards: XXX XXX USDC (Notion: Judge Fee)
-  - Lookout awards: XXX XXX USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
+# Centrifuge audit details
+- Total Prize Pool: $60,000 USDC (Notion: Total award pool)
+  - HM awards: $41,250 USDC (Notion: HM (main) pool)
+  - Analysis awards: $2,500 USDC (Notion: Analysis pool)
+  - QA awards: $1,250 USDC (Notion: QA pool)
+  - Bot Race awards: $3,750 USDC (Notion: Bot Race pool)
+  - Gas awards: $1,250 USDC (Notion: Gas pool)
+  - Judge awards: $6,000 USDC (Notion: Judge Fee)
+  - Lookout awards: $3,500 USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
   - Scout awards: $500 USDC (Notion: Scout fee - but usually $500 USDC)
-  - (this line can be removed if there is no mitigation) Mitigation Review: XXX XXX USDC (*Opportunity goes to top 3 certified wardens based on placement in this audit.*)
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/YYYY-MM-AuditName/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2023-09-centrifuge/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts TBD XXX XXX XX 20:00 UTC (ex. `Starts March 22, 2023 20:00 UTC`)
-- Ends TBD XXX XXX XX 20:00 UTC (ex. `Ends March 30, 2023 20:00 UTC`)
+- Starts September 8, 2023 20:00 UTC 
+- Ends September 14,2023 20:00 UTC 
 
 ## Automated Findings / Publicly Known Issues
 
-Automated findings output for the audit can be found [here](bot-report.md) within 24 hours of audit opening.
+Automated findings output for the audit can be found [here](https://github.com/code-423n4/2023-09-centrifuge/blob/main/bot-report.md) within 24 hours of audit opening.
 
 *Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
 
