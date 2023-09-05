@@ -65,11 +65,11 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 # Centrifuge audit details
 - Total Prize Pool: $60,000 USDC (Notion: Total award pool)
-  - HM awards: $41,250 USDC (Notion: HM (main) pool)
+  - HM awards: $42,500 USDC (Notion: HM (main) pool)
   - Analysis awards: $2,500 USDC (Notion: Analysis pool)
   - QA awards: $1,250 USDC (Notion: QA pool)
   - Bot Race awards: $3,750 USDC (Notion: Bot Race pool)
-  - Gas awards: $1,250 USDC (Notion: Gas pool)
+  - Gas awards: $0 USDC (Notion: Gas pool)
   - Judge awards: $6,000 USDC (Notion: Judge Fee)
   - Lookout awards: $3,500 USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
   - Scout awards: $500 USDC (Notion: Scout fee - but usually $500 USDC)
