@@ -11,15 +11,15 @@
 
 
 # Centrifuge audit details
-- Total Prize Pool: $60,000 USDC (Notion: Total award pool)
-  - HM awards: $42,500 USDC (Notion: HM (main) pool)
-  - Analysis awards: $2,500 USDC (Notion: Analysis pool)
-  - QA awards: $1,250 USDC (Notion: QA pool)
-  - Bot Race awards: $3,750 USDC (Notion: Bot Race pool)
-  - Gas awards: $0 USDC (Notion: Gas pool)
-  - Judge awards: $6,000 USDC (Notion: Judge Fee)
-  - Lookout awards: $3,500 USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
-  - Scout awards: $500 USDC (Notion: Scout fee - but usually $500 USDC)
+- Total Prize Pool: $60,000 USDC
+  - HM awards: $42,500 USDC
+  - Analysis awards: $2,500 USDC
+  - QA awards: $1,250 USDC
+  - Bot Race awards: $3,750 USDC
+  - Gas awards: $0 USDC 
+  - Judge awards: $6,000 USDC
+  - Lookout awards: $3,500 USDC 
+  - Scout awards: $500 USDC 
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-09-centrifuge/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
@@ -113,26 +113,26 @@ The full relationships of `wards` can be seen below.
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
-| [src/LiquidityPool.sol](src/LiquidityPool.sol) | 225 | A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools | SafeMath |
-| [src/InvestmentManager.sol](src/InvestmentManager.sol) | 527 | Main contract LiquidityPools interact with for both incoming and outgoing investment transactions. | SafeMath, SafeTransfer |
-| [src/PoolManager.sol](src/PoolManager.sol) | 261 | Manages which pools & tranches exist | SafeTransfer |
-| [src/Escrow.sol](src/Escrow.sol) | 17 | Token holding contract | SafeTransfer |
-| [src/UserEscrow.sol](src/UserEscrow.sol) | 30 | Token holding contract with locked destinations | SafeTransfer |
-| [src/Root.sol](src/Root.sol) | 66 | Core contract that is a ward on all other deployed contracts |  |
-| [src/admins/PauseAdmin.sol](src/admins/PauseAdmin.sol) | 30 | Simple pausing contract |  |
-| [src/admins/DelayedAdmin.sol](src/admins/DelayedAdmin.sol) | 24 | Admin contract that can trigger the timelock on Root |  |
-| [src/token/Tranche.sol](src/token/Tranche.sol) | 76 | Tranche token contract that inherits from ERC20 |  |
-| [src/token/ERC20.sol](src/token/ERC20.sol) | 183 | ERC20 implementation with mint/burn & permit functionality |  |
-| [src/token/RestrictionManager.sol](src/token/RestrictionManager.sol) | 49 | ERC1404 based contract that checks transfer restrictions |  |
-| [src/gateway/Gateway.sol](src/gateway/Gateway.sol) | 328 | Incoming & outgoing message parsing |  |
-| [src/gateway/Messages.sol](src/gateway/Messages.sol) | 619 | Message encoding & decoding |  |
-| [src/gateway/routers/axelar/Router.sol](src/gateway/routers/axelar/Router.sol) | 88 | Routing contract that integrates with Axelar |  |
-| [src/util/Auth.sol](src/util/Auth.sol) | 18 | Simple authentication contract |  |
-| [src/util/BytesLib.sol](src/util/BytesLib.sol) | 79 | Bytes utilities lib | solidity-bytes-utils |
-| [src/util/Context.sol](src/util/Context.sol) | 6 | ERC2771 base contract | OZ Context |
-| [src/util/Factory.sol](src/util/Factory.sol) | 93 | Factory contract for deploying LPs and tranche tokens |  |
-| [src/util/MathLib.sol](src/util/MathLib.sol) | 55 | Math utilities lib | SafeTransfer |
-| [src/util/SafeTransferLib.sol](src/util/SafeTransferLib.sol) | 17 | Safe transfer lib | SafeTransfer |
+| [src/LiquidityPool.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/LiquidityPool.sol) | 225 | A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools | SafeMath |
+| [src/InvestmentManager.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/InvestmentManager.sol) | 527 | Main contract LiquidityPools interact with for both incoming and outgoing investment transactions. | SafeMath, SafeTransfer |
+| [src/PoolManager.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/PoolManager.sol) | 261 | Manages which pools & tranches exist | SafeTransfer |
+| [src/Escrow.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/Escrow.sol) | 17 | Token holding contract | SafeTransfer |
+| [src/UserEscrow.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/UserEscrow.sol) | 30 | Token holding contract with locked destinations | SafeTransfer |
+| [src/Root.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/Root.sol) | 66 | Core contract that is a ward on all other deployed contracts |  |
+| [src/admins/PauseAdmin.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/admins/PauseAdmin.sol) | 30 | Simple pausing contract |  |
+| [src/admins/DelayedAdmin.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/admins/DelayedAdmin.sol) | 24 | Admin contract that can trigger the timelock on Root |  |
+| [src/token/Tranche.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/token/Tranche.sol) | 76 | Tranche token contract that inherits from ERC20 |  |
+| [src/token/ERC20.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/token/ERC20.sol) | 183 | ERC20 implementation with mint/burn & permit functionality |  |
+| [src/token/RestrictionManager.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/token/RestrictionManager.sol) | 49 | ERC1404 based contract that checks transfer restrictions |  |
+| [src/gateway/Gateway.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/Gateway.sol) | 328 | Incoming & outgoing message parsing |  |
+| [src/gateway/Messages.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/Messages.sol) | 619 | Message encoding & decoding |  |
+| [src/gateway/routers/axelar/Router.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/axelar/Router.sol) | 88 | Routing contract that integrates with Axelar |  |
+| [src/util/Auth.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Auth.sol) | 18 | Simple authentication contract |  |
+| [src/util/BytesLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/BytesLib.sol) | 79 | Bytes utilities lib | solidity-bytes-utils |
+| [src/util/Context.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Context.sol) | 6 | ERC2771 base contract | OZ Context |
+| [src/util/Factory.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Factory.sol) | 93 | Factory contract for deploying LPs and tranche tokens |  |
+| [src/util/MathLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/MathLib.sol) | 55 | Math utilities lib | SafeTransfer |
+| [src/util/SafeTransferLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/SafeTransferLib.sol) | 17 | Safe transfer lib | SafeTransfer |
 
 > [!NOTE]  
 > `src/LiquidityPool.sol`, `src/InvestmentManager.sol`, `src/PoolManager.sol`, and `src/token/Tranche.sol` contain the key business logic for Liquidity Pools.
@@ -141,8 +141,8 @@ The full relationships of `wards` can be seen below.
 
 ## Out of scope
 
-- The [XCM router](src/gateway/routers/xcm/Router.sol) implementation.
-- While the [Axelar router](src/gateway/routers/axelar/Router.sol) implementation is in scope, any issues in the Axelar gateway or other external contracts from Axelar are out of scope.
+- The [XCM router](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/xcm/Router.sol) implementation.
+- While the [Axelar router](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/axelar/Router.sol) implementation is in scope, any issues in the Axelar gateway or other external contracts from Axelar are out of scope.
 - Rebase and fee-on-transfer tokens are not supported.
 - A malicious router and any ward on the `DelayedAdmin` can trigger become ward on any contract and abuse the system, but should not be able to get additional wards before `root.delay` (the timelock should be enforced).
 - Removing an investor from the memberlist in the Restriction Manager locks their tokens. This is expected behaviour.
