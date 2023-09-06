@@ -153,7 +153,7 @@ The full relationships of `wards` can be seen below.
 
 ## Scoping Details 
 ```
-- If you have a public code repo, please share it here: https://github.com/centrifuge/liquidity-pools
+- If you have a public code repo, please share it here: N/A
 - How many contracts are in scope?: 20
 - Total SLoC for these contracts?: 2791
 - How many external imports are there?:  0
