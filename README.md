@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/code-423n4/2023-09-centrifuge">
-    <img alt="Centrifuge" src="images/header.png">
+    <img alt="Centrifuge" src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png">
   </a>
 
   <p align="center">
