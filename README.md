@@ -1,67 +1,14 @@
-# ✨ So you want to run an audit
+<p align="center">
+  <a href="https://github.com/code-423n4/2023-09-centrifuge">
+    <img alt="Centrifuge" src="images/header.png">
+  </a>
 
-This `README.md` contains a set of checklists for our audit collaboration.
+  <p align="center">
+    The institutional ecosystem for onchain credit.
+    <br />
+    <a href="https://centrifuge.io/" target="_blank"><strong>View our website »</strong></a> &nbsp; <a href="https://docs.centrifuge.io/" target="_blank"><strong>Read the documentation »</strong></a> &nbsp; <a href="https://app.centrifuge.io/" target="_blank"><strong>Try the app »</strong></a>
+  </p>
 
-Your audit will use two repos: 
-- **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit) 
-
-Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Audit setup
-
-## 🐺 C4: Set up repos
-- [ ] Create a new private repo named `YYYY-MM-sponsorname` using this repo as a template.
-- [ ] Rename this repo to reflect audit date (if applicable)
-- [ ] Rename auditt H1 below
-- [ ] Update pot sizes
-- [ ] Fill in start and end times in audit bullets below
-- [ ] Add link to submission form in audit details below
-- [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
-- [ ] Add matching info to the Code4rena site
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
-- [ ] Delete this checklist.
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-
----
-
-## ⭐️ Sponsor: Edit this README
-
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
-
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2022-08-foundation#readme))
-  - [ ] When linking, please **provide all links as full absolute links** versus relative links
-  - [ ] All information should be provided in markdown format (HTML does not render on Code4rena.com)
-- [ ] Under the "Scope" heading, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Review the Gas award pool amount. This can be adjusted up or down, based on your preference - just flag it for Code4rena staff so we can update the pool totals across all comms channels.
-- [ ] Ensure that all links and image/file paths in this README use absolute paths, not relative paths. 
-- [ ] Optional / nice to have: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] See also: [this checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
 
 # Centrifuge audit details
 - Total Prize Pool: $60,000 USDC (Notion: Total award pool)
@@ -85,55 +32,151 @@ Automated findings output for the audit can be found [here](https://github.com/c
 
 *Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
 
-[ ⭐️ ↓SPONSORS ADD INFO HERE↓ ]
-
 # Overview
+Founded in 2017, Centrifuge is the institutional platform for credit onchain. Centrifuge was the first protocol where MakerDAO minted DAI against a real-world asset, the first onchain securitization, and Centrifuge launched the RWA Market with Aave. Centrifuge’s multi-chain strategy allows investors to access native RWA yields on the network of their choice.
 
-*Please provide some context about the code being audited, and identify any areas of specific concern in reviewing the code. (This is a good place to link to your docs, if you have them.)*
+Centrifuge works based on a hub-and-spoke model. RWA pools are managed by borrowers on Centrifuge Chain, an application specific blockchain built purposely for managing real world assets. Liquidity Pools are deployed on any other L1 or L2 where there is demand for RWA, and each Liquidity Pool deployment communicates directly with Centrifuge Chain using messaging layers.
+
+## High level contract overview
+<a href="https://github.com/centrifuge/liquidity-pools">
+  <img src="images/contracts.png">
+</a>
+
+Investors can invest in multiple tranches for each RWA pool. Each of these tranches is a separate deployment of an Liquidity Pool and a Tranche Token.
+- [**Liquidity Pool**](https://github.com/centrifuge/liquidity-pools/blob/main/src/LiquidityPool.sol): A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools.
+- [**Tranche Token**](https://github.com/centrifuge/liquidity-pools/blob/main/src/token/Tranche.sol): An [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token for the tranche, linked to a [`RestrictionManager`](https://github.com/centrifuge/liquidity-pools/blob/main/src/token/RestrictionManager.sol) that manages transfer restrictions. Prices for tranche tokens are computed on Centrifuge.
+
+The deployment of these tranches and the management of investments is controlled by the underlying InvestmentManager, TokenManager, Gateway, and Routers.
+- [**Investment Manager**](https://github.com/centrifuge/liquidity-pools/blob/main/src/InvestmentManager.sol): The core business logic contract that handles pool creation, tranche deployment, managing investments and sending tokens to the [`Escrow`](https://github.com/centrifuge/liquidity-pools/blob/main/src/Escrow.sol) and [`UserEscrow`](https://github.com/centrifuge/liquidity-pools/blob/main/src/UserEscrow.sol), and more.
+- [**Pool Manager**](https://github.com/centrifuge/liquidity-pools/blob/main/src/PoolManager.sol): The second business logic contract that handles currency bookkeeping, and transferring tranche tokens as well as currencies.
+- [**Gateway**](https://github.com/centrifuge/liquidity-pools/blob/main/src/routers/Gateway.sol): Intermediary contract that encodes and decodes messages using [`Messages`](https://github.com/centrifuge/liquidity-pools/blob/main/src/Messages.sol) and handles routing to/from Centrifuge.
+- [**Routers**](https://github.com/centrifuge/liquidity-pools/tree/main/src/routers): Contracts that handle communication of messages to and from Centrifuge Chain.
+
+> [!NOTE]  
+> The coding style of the `liquidity-pools` code base is heavily inspired by [MakerDAO's coding style](https://github.com/makerdao/pe-checklists/blob/master/core/standards.md). Composition over inheritance, no upgradeable proxies but rather using contract migrations, and as few depenencies as possible. Authentication uses the `ward` pattern, in which addresses can be `relied` or `denied` to get access. Key parameter updates of contracts are executed through `file` methods.
+
+## How it works
+Using the Centrifuge protocol, issuers can launch pools of real-world assets. Each pool can have 1 or more tranches that investors can buy. The purpose of these tranches is to give investors different kinds of risk exposure and yield on the same asset class. Each pool has 1 pool currency. The decimals of this pool currency define the decimals of the tranche tokens that are issued per tranche. Both deposit (also known as investments) and redemptions in tranches of Centrifuge pool happen asynchronously, through an epoch mechanism. Prices for tranches are calculated on Centrifuge Chain based on the Net Asset Value of the real world assets in the pool. More information on this can be found in the [documentation](https://docs.centrifuge.io/getting-started/securitization/).
+
+<img src="images/tranching.png">
+
+Because of the epoch mechanism, as well as the fact that Liquidity Pools communicate with Centrifuge Chain through messaging layers, deposits and redemptions cannot be executed atomatically, and rather are executed asynchronously. A key goal if Liquidity Pools is to increase composability of Centrifuge assets, by leveraging ERC4626. However, ERC4626 assumes atomic deposits and withdrawals, thus the Liquidity Pool contracts are extended with methods for requesting deposits & redemptions. There is also support for permits when requesting deposits/redemptions. More details on this in `Sample deposit & redemption flows` below.
+
+The communication between Liquidity Pools and Centrifuge Chain uses external general message passing protocols. Messages are encoded using a compacted ABI encoding scheme, as implemented in `src/gateway/Messages.sol`.
+
+### Multiple currency support
+While there is 1 native pool currency, Liquidity Pools (acronym: LP) are built to support deposits in multiple currencies. Each Liquidity Pool is linked to 1 currency (asset) and 1 tranche token (share), but Liquidity Pools can be deployed linked to the same tranche token (share). The Liquidity Pool contract therefore passes through the ERC20 methods to the underlying share implementation. To support this, the ERC20 of the tranche token uses ERC2771 context, and the tranche token contract ensures that all Liquidity Pools are considered trusted forwarders for this.
+
+The other challenge with supporting multiple currencies is that the decimals between the tranche token (which is based on the native pool currency decimals) and the investment currency (or asset) can differ. Therefore, all price calculations and conversions between shares and assets (or tranche tokens and currencies) need to account for these differences. This is accomplished by normalizing all balances and prices to 18 decimal fixed point integers, doing the calculations using these normalized values, and then unnormalizing back to the intended decimals. Currencies with more than 18 decimals are not supported and blocked in the contracts.
+
+### Liquidity management
+When investors deposit in a currency that is not equivalent to the native pool currency, this needs to be swapped in order to execute the investment. And vice versa for redemptions. These swaps occur on Centrifuge Chain. These swaps also guarantee that sufficient liquidity is in the escrow contract to fulfill any orders. Note that locking, for example, USDC in Liquidity Pools on Ethereum, leads to Wrapped Ethereum LP on USDC, which will be non-fungible with USDC locked in Liquidity Pools on Arbitrum, which leads to Wrapped Arbitrum LP on USDC.
+
+An example flow for how this works is visualized below:
+
+<img src="images/liquidity_flow1.png">
+<img src="images/liquidity_flow2.png">
+
+### Sample deposit & redemption flows
+TODO
+
+### Access setup
+The `Root` contract is a `ward` on all other contracts. The `PauseAdmin` can instanteneously pause the protocol. The `DelayedAdmin` can make itself `ward` on any contract through `Root.relyContract`, but this needs to go through the timelock specified in `Root.delay`. The `Root.delay` will initially be set to 48 hours.
+
+By default, all actions in Liquidity Pools should occur through messages coming in from a router, that was transported from Centrifuge Chain. This includes any upgrades, which can be triggered through a `ScheduleUpgrade` message. This also calls `Root.relyContract`, and also is protected by the timelock.
+
+Some possible emergency scenarios are described below:
+
+**Someone gains control over a router and triggers a malicious `ScheduleUpgrade` message**
+
+* Within 48h, the pause admin calls `pause()` to block further incoming messages from the router. The delayed admin calls `cancelRely()` to cancel the scheduled rely from the router exploiter.
+* The delayed admin submits a `scheduleRely()` to remove the router from the gateway contract 48h later.
+* After 48h, the router is removed and cannot interact with the system anymore.
+
+**Someone controls 1 pause admin and triggers a malicious `pause()`**
+
+* The delayed admin is a `ward` on the pause admin and can trigger `PauseAdmin.removePauser`.
+* It can then trigger `root.unpause()`.
+
+**Someone gains control over a router and triggers a malicious `Transfer` message**
+
+This scenario is not fully protected, as funds currently locked in the `Escrow` contract can be transferred out. However, there are two important factors that reduce the capital at stake.
+
+1. As described in `Liquidity management`, liquidity is constantly transferred between different blockchains. Since funds are actually withdrawn from the pool by a borrower, this leads to most funds not being stuck in the Escrow. In practice, only funds currently in process of being invested are in the `Escrow` contract.
+2. For tokens that have been `requestRedeem()`ed, but not yet withdrawn, these are held in the `UserEscrow` contract. The key design principle of this contract is that once tokens are transferred in, they are locked to a specific destination, and can only be transferred out to this destination. Even a `ward` on the `UserEscrow` contract cannot transfer tokens to any other destination.
+
+The full relationships of `wards` can be seen below.
+
+<img src="images/wards.png">
 
 # Scope
 
-*List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
-
-*For line of code counts, we recommend running prettier with a 100-character line length, and using [cloc](https://github.com/AlDanial/cloc).* 
-
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| [src/LiquidityPool.sol](src/LiquidityPool.sol) | 225 | A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools | SafeMath |
+| [src/InvestmentManager.sol](src/InvestmentManager.sol) | 527 | Main contract LiquidityPools interact with for both incoming and outgoing investment transactions. | SafeMath, SafeTransfer |
+| [src/PoolManager.sol](src/PoolManager.sol) | 261 | Manages which pools & tranches exist | SafeTransfer |
+| [src/Escrow.sol](src/Escrow.sol) | 17 | Token holding contract | SafeTransfer |
+| [src/UserEscrow.sol](src/UserEscrow.sol) | 30 | Token holding contract with locked destinations | SafeTransfer |
+| [src/Root.sol](src/Root.sol) | 66 | Core contract that is a ward on all other deployed contracts |  |
+| [src/admins/PauseAdmin.sol](src/admins/PauseAdmin.sol) | 30 | Simple pausing contract |  |
+| [src/admins/DelayedAdmin.sol](src/admins/DelayedAdmin.sol) | 24 | Admin contract that can trigger the timelock on Root |  |
+| [src/token/Tranche.sol](src/token/Tranche.sol) | 76 | Tranche token contract that inherits from ERC20 |  |
+| [src/token/ERC20.sol](src/token/ERC20.sol) | 183 | ERC20 implementation with mint/burn & permit functionality |  |
+| [src/token/RestrictionManager.sol](src/token/RestrictionManager.sol) | 49 | ERC1404 based contract that checks transfer restrictions |  |
+| [src/gateway/Gateway.sol](src/gateway/Gateway.sol) | 328 | Incoming & outgoing message parsing |  |
+| [src/gateway/Messages.sol](src/gateway/Messages.sol) | 619 | Message encoding & decoding |  |
+| [src/gateway/routers/axelar/Router.sol](src/gateway/routers/axelar/Router.sol) | 88 | Routing contract that integrates with Axelar |  |
+| [src/util/Auth.sol](src/util/Auth.sol) | 18 | Simple authentication contract |  |
+| [src/util/BytesLib.sol](src/util/BytesLib.sol) | 79 | Bytes utilities lib | solidity-bytes-utils |
+| [src/util/Context.sol](src/util/Context.sol) | 6 | ERC2771 base contract | OZ Context |
+| [src/util/Factory.sol](src/util/Factory.sol) | 93 | Factory contract for deploying LPs and tranche tokens |  |
+| [src/util/MathLib.sol](src/util/MathLib.sol) | 55 | Math utilities lib | SafeTransfer |
+| [src/util/SafeTransferLib.sol](src/util/SafeTransferLib.sol) | 17 | Safe transfer lib | SafeTransfer |
+
+> [!NOTE]  
+> `src/LiquidityPool.sol`, `src/InvestmentManager.sol`, `src/PoolManager.sol`, and `src/token/Tranche.sol` contain the key business logic for Liquidity Pools.
+> `src/gateway/Messages.sol` is a large file but contains only repetitive encoding/decoding functions.
+> `src/token/ERC20.sol` as well as all files excluding `Factory.sol` in the `src/util` directory are imported libaries.
 
 ## Out of scope
 
-*List any files/contracts that are out of scope for this audit.*
+- The [XCM router](src/gateway/routers/xcm/Router.sol) implementation.
+- While the [Axelar router](src/gateway/routers/axelar/Router.sol) implementation is in scope, any issues in the Axelar gateway or other external contracts from Axelar are out of scope.
+- Rebase and fee-on-transfer tokens are not supported.
+- A malicious router and any ward on the `DelayedAdmin` can trigger become ward on any contract and abuse the system, but should not be able to get additional wards before `root.delay` (the timelock should be enforced).
+- Removing an investor from the memberlist in the Restriction Manager locks their tokens. This is expected behaviour.
+- Since Centrifuge Chain uses `uint128` for calculations and all messages use `uint128` types for values, only `uint128` values are supported (anything larger should revert).
+- Deployments scripts (all files in `scripts`) are out of scope.
 
 # Additional Context
 
-*Describe any novel or unique curve logic or mathematical models implemented in the contracts*
-
-*Sponsor, please confirm/edit the information below.*
-
 ## Scoping Details 
 ```
-- If you have a public code repo, please share it here:  
-- How many contracts are in scope?:   
-- Total SLoC for these contracts?:  
-- How many external imports are there?:  
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  
-- Does most of your code generally use composition or inheritance?:   
-- How many external calls?:   
-- What is the overall line coverage percentage provided by your tests?:
-- Is this an upgrade of an existing system?:
-- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): 
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   
-- Please describe required context:   
-- Does it use an oracle?:  
-- Describe any novel or unique curve logic or mathematical models your code uses: 
-- Is this either a fork of or an alternate implementation of another project?:   
-- Does it use a side-chain?:
-- Describe any specific areas you would like addressed:
+- If you have a public code repo, please share it here: https://github.com/centrifuge/liquidity-pools
+- How many contracts are in scope?: 20
+- Total SLoC for these contracts?: 2791
+- How many external imports are there?:  0
+- How many separate interfaces and struct definitions are there for the contracts within scope?: 2 interfaces, 3 structs
+- Does most of your code generally use composition or inheritance?:  Composition
+- How many external calls?: Only ERC20 transfers
+- What is the overall line coverage percentage provided by your tests?: 80%
+- Is this an upgrade of an existing system?: No
+- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): Timelock, DeFi, Multi-chain
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: No
+- Please describe required context: Liquidity Pools interact with Centrifuge Chain over general message passing protocols, but auditors can assume Centrifuge Chain is a blackbox
+- Does it use an oracle?:  No
+- Describe any novel or unique curve logic or mathematical models your code uses: None
+- Is this either a fork of or an alternate implementation of another project?:   No
+- Does it use a side-chain?: No
+- Describe any specific areas you would like addressed: Loss of funds, stuck funds, bypass of timelock, price manipulation
 ```
 
 # Tests
+Make sure Foundry is installed.
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
-
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+```sh
+git clone https://github.com/code-423n4/2023-09-centrifuge.git
+cd 2023-09-centrifuge
+forge test
+```
