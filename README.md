@@ -74,8 +74,8 @@ When investors deposit in a currency that is not equivalent to the native pool c
 
 An example flow for how this works is visualized below:
 
-<img src="images/liquidity_flow1.png">
-<img src="images/liquidity_flow2.png">
+<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png">
+<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png">
 
 ### Sample deposit & redemption flows
 TODO
@@ -107,7 +107,7 @@ This scenario is not fully protected, as funds currently locked in the `Escrow` 
 
 The full relationships of `wards` can be seen below.
 
-<img src="images/wards.png">
+<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png">
 
 # Scope
 
