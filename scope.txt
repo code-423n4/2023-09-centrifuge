@@ -13,8 +13,6 @@ src/gateway/Gateway.sol
 src/gateway/Messages.sol
 src/gateway/routers/axelar/Router.sol
 src/util/Auth.sol
-src/util/BytesLib.sol
 src/util/Context.sol
 src/util/Factory.sol
-src/util/MathLib.sol
 src/util/SafeTransferLib.sol
