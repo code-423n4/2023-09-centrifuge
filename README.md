@@ -1,4 +1,4 @@
-![Centrifuge audit contest.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png)
+![Centrifuge audit contest.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png?raw=true)
 
 # Centrifuge audit details
 - Total Prize Pool: $60,000 USDC
@@ -28,7 +28,7 @@ Founded in 2017, Centrifuge is the institutional platform for credit onchain. Ce
 Centrifuge works based on a hub-and-spoke model. RWA pools are managed by borrowers on Centrifuge Chain, an application specific blockchain built purposely for managing real world assets. Liquidity Pools are deployed on any other L1 or L2 where there is demand for RWA, and each Liquidity Pool deployment communicates directly with Centrifuge Chain using messaging layers.
 
 ## High level contract overview
-![Contract overview.](images/contracts.png)
+![Contract overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/contracts.png?raw=true)
 
 Investors can invest in multiple tranches for each RWA pool. Each of these tranches is a separate deployment of an Liquidity Pool and a Tranche Token.
 - [**Liquidity Pool**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/LiquidityPool.sol): A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools.
@@ -82,22 +82,22 @@ This scenario is not fully protected, as funds currently locked in the `Escrow` 
 
 The full relationships of `wards` can be seen below.
 
-![Wards.](images/wards.png)
+![Wards.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png?raw=true)
 
 ### User flows
 #### How pools and tranches are created and deployed
-![Pool creation flow.](images/pool_creation_flow.png)
+![Pool creation flow.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/pool_creation_flow.png?raw=true)
 
 #### How users can invest
-![Simple investment flow.](images/investment_flow.png)
+![Simple investment flow.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/investment_flow.png?raw=true)
 
 #### How liquidity is managed
 When investors deposit in a currency that is not equivalent to the native pool currency, this needs to be swapped in order to execute the investment. And vice versa for redemptions. These swaps occur on Centrifuge Chain. These swaps also guarantee that sufficient liquidity is in the escrow contract to fulfill any orders. Note that locking, for example, USDC in Liquidity Pools on Ethereum, leads to Wrapped Ethereum LP on USDC, which will be non-fungible with USDC locked in Liquidity Pools on Arbitrum, which leads to Wrapped Arbitrum LP on USDC.
 
 An example flow for how this works is visualized below:
 
-![Liquidity overview.](images/liquidity_flow1.png)
-![Liquidity overview.](images/liquidity_flow2.png)
+![Liquidity overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png?raw=true)
+![Liquidity overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png?raw=true)
 
 # Scope
 
