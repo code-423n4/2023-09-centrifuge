@@ -4,14 +4,14 @@ The institutional ecosystem for onchain credit.
 [**View our website »**](https://centrifuge.io/)   [**Read the documentation »**](https://docs.centrifuge.io/)   [**Try the app »**](https://app.centrifuge.io/)
 
 # Centrifuge audit details
-- Total Prize Pool: $60,000 USDC
-  - HM awards: $42,500 USDC
-  - Analysis awards: $2,500 USDC
-  - QA awards: $1,250 USDC
-  - Bot Race awards: $3,750 USDC
+- Total Prize Pool: $70,000 USDC
+  - HM awards: $49,300 USDC
+  - Analysis awards: $2,900 USDC
+  - QA awards: $1,450 USDC
+  - Bot Race awards: $4,350 USDC
   - Gas awards: $0 USDC 
-  - Judge awards: $6,000 USDC
-  - Lookout awards: $3,500 USDC 
+  - Judge awards: $7,000 USDC
+  - Lookout awards: $4,500 USDC 
   - Scout awards: $500 USDC 
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-09-centrifuge/submit)
