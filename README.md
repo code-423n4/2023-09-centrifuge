@@ -1,13 +1,7 @@
-<p align="center">
-  <a href="https://github.com/code-423n4/2023-09-centrifuge">
-    <img alt="Centrifuge" src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png">
-  </a>
+[![Centrifuge](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png?raw=true)](https://github.com/code-423n4/2023-09-centrifuge)
 
-  <p align="center">
-    The institutional ecosystem for onchain credit.
-    <br />
-    <a href="https://centrifuge.io/" target="_blank"><strong>View our website »</strong></a> &nbsp; <a href="https://docs.centrifuge.io/" target="_blank"><strong>Read the documentation »</strong></a> &nbsp; <a href="https://app.centrifuge.io/" target="_blank"><strong>Try the app »</strong></a>
-  </p>
+The institutional ecosystem for onchain credit.  
+[**View our website »**](https://centrifuge.io/)   [**Read the documentation »**](https://docs.centrifuge.io/)   [**Try the app »**](https://app.centrifuge.io/)
 
 
 # Centrifuge audit details
@@ -38,9 +32,7 @@ Founded in 2017, Centrifuge is the institutional platform for credit onchain. Ce
 Centrifuge works based on a hub-and-spoke model. RWA pools are managed by borrowers on Centrifuge Chain, an application specific blockchain built purposely for managing real world assets. Liquidity Pools are deployed on any other L1 or L2 where there is demand for RWA, and each Liquidity Pool deployment communicates directly with Centrifuge Chain using messaging layers.
 
 ## High level contract overview
-<a href="https://github.com/centrifuge/liquidity-pools">
-  <img src="images/contracts.png">
-</a>
+[![](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/contracts.png?raw=true)](https://github.com/centrifuge/liquidity-pools)
 
 Investors can invest in multiple tranches for each RWA pool. Each of these tranches is a separate deployment of an Liquidity Pool and a Tranche Token.
 - [**Liquidity Pool**](https://github.com/centrifuge/liquidity-pools/blob/main/src/LiquidityPool.sol): A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools.
@@ -58,7 +50,7 @@ The deployment of these tranches and the management of investments is controlled
 ## How it works
 Using the Centrifuge protocol, issuers can launch pools of real-world assets. Each pool can have 1 or more tranches that investors can buy. The purpose of these tranches is to give investors different kinds of risk exposure and yield on the same asset class. Each pool has 1 pool currency. The decimals of this pool currency define the decimals of the tranche tokens that are issued per tranche. Both deposit (also known as investments) and redemptions in tranches of Centrifuge pool happen asynchronously, through an epoch mechanism. Prices for tranches are calculated on Centrifuge Chain based on the Net Asset Value of the real world assets in the pool. More information on this can be found in the [documentation](https://docs.centrifuge.io/getting-started/securitization/).
 
-<img src="images/tranching.png">
+![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/tranching.png?raw=true)
 
 Because of the epoch mechanism, as well as the fact that Liquidity Pools communicate with Centrifuge Chain through messaging layers, deposits and redemptions cannot be executed atomatically, and rather are executed asynchronously. A key goal if Liquidity Pools is to increase composability of Centrifuge assets, by leveraging ERC4626. However, ERC4626 assumes atomic deposits and withdrawals, thus the Liquidity Pool contracts are extended with methods for requesting deposits & redemptions. There is also support for permits when requesting deposits/redemptions. More details on this in `Sample deposit & redemption flows` below.
 
@@ -74,8 +66,8 @@ When investors deposit in a currency that is not equivalent to the native pool c
 
 An example flow for how this works is visualized below:
 
-<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png">
-<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png">
+![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png?raw=true)
+![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png?raw=true)
 
 ### Sample deposit & redemption flows
 TODO
@@ -107,7 +99,7 @@ This scenario is not fully protected, as funds currently locked in the `Escrow` 
 
 The full relationships of `wards` can be seen below.
 
-<img src="https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png">
+![](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png?raw=true)
 
 # Scope
 
