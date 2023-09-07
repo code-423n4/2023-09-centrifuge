@@ -1,4 +1,7 @@
-![Centrifuge audit contest.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png?raw=true)
+[![Centrifuge](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/header.png?raw=true)](https://github.com/code-423n4/2023-09-centrifuge)
+
+The institutional ecosystem for onchain credit.  
+[**View our website »**](https://centrifuge.io/)   [**Read the documentation »**](https://docs.centrifuge.io/)   [**Try the app »**](https://app.centrifuge.io/)
 
 # Centrifuge audit details
 - Total Prize Pool: $60,000 USDC
