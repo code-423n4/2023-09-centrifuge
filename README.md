@@ -143,7 +143,7 @@ An example flow for how this works is visualized below:
 ## Scoping Details 
 ```
 - If you have a public code repo, please share it here: N/A
-- How many contracts are in scope?: 20
+- How many contracts are in scope?: 18
 - Total SLoC for these contracts?: 2657
 - How many external imports are there?:  0
 - How many separate interfaces and struct definitions are there for the contracts within scope?: 2 interfaces, 3 structs
