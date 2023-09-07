@@ -3,7 +3,6 @@
 The institutional ecosystem for onchain credit.  
 [**View our website »**](https://centrifuge.io/)   [**Read the documentation »**](https://docs.centrifuge.io/)   [**Try the app »**](https://app.centrifuge.io/)
 
-
 # Centrifuge audit details
 - Total Prize Pool: $60,000 USDC
   - HM awards: $42,500 USDC
@@ -32,17 +31,17 @@ Founded in 2017, Centrifuge is the institutional platform for credit onchain. Ce
 Centrifuge works based on a hub-and-spoke model. RWA pools are managed by borrowers on Centrifuge Chain, an application specific blockchain built purposely for managing real world assets. Liquidity Pools are deployed on any other L1 or L2 where there is demand for RWA, and each Liquidity Pool deployment communicates directly with Centrifuge Chain using messaging layers.
 
 ## High level contract overview
-[![](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/contracts.png?raw=true)](https://github.com/centrifuge/liquidity-pools)
+![Contract overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/contracts.png?raw=true)
 
 Investors can invest in multiple tranches for each RWA pool. Each of these tranches is a separate deployment of an Liquidity Pool and a Tranche Token.
-- [**Liquidity Pool**](https://github.com/centrifuge/liquidity-pools/blob/main/src/LiquidityPool.sol): A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools.
-- [**Tranche Token**](https://github.com/centrifuge/liquidity-pools/blob/main/src/token/Tranche.sol): An [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token for the tranche, linked to a [`RestrictionManager`](https://github.com/centrifuge/liquidity-pools/blob/main/src/token/RestrictionManager.sol) that manages transfer restrictions. Prices for tranche tokens are computed on Centrifuge.
+- [**Liquidity Pool**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/LiquidityPool.sol): A [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/) compatible contract that enables investors to deposit and withdraw stablecoins to invest in tranches of pools.
+- [**Tranche Token**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/token/Tranche.sol): An [ERC-20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) token for the tranche, linked to a [`RestrictionManager`](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/token/RestrictionManager.sol) that manages transfer restrictions. Prices for tranche tokens are computed on Centrifuge.
 
 The deployment of these tranches and the management of investments is controlled by the underlying InvestmentManager, TokenManager, Gateway, and Routers.
-- [**Investment Manager**](https://github.com/centrifuge/liquidity-pools/blob/main/src/InvestmentManager.sol): The core business logic contract that handles pool creation, tranche deployment, managing investments and sending tokens to the [`Escrow`](https://github.com/centrifuge/liquidity-pools/blob/main/src/Escrow.sol) and [`UserEscrow`](https://github.com/centrifuge/liquidity-pools/blob/main/src/UserEscrow.sol), and more.
-- [**Pool Manager**](https://github.com/centrifuge/liquidity-pools/blob/main/src/PoolManager.sol): The second business logic contract that handles currency bookkeeping, and transferring tranche tokens as well as currencies.
-- [**Gateway**](https://github.com/centrifuge/liquidity-pools/blob/main/src/routers/Gateway.sol): Intermediary contract that encodes and decodes messages using [`Messages`](https://github.com/centrifuge/liquidity-pools/blob/main/src/Messages.sol) and handles routing to/from Centrifuge.
-- [**Routers**](https://github.com/centrifuge/liquidity-pools/tree/main/src/routers): Contracts that handle communication of messages to and from Centrifuge Chain.
+- [**Investment Manager**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/InvestmentManager.sol): The core business logic contract that handles pool creation, tranche deployment, managing investments and sending tokens to the [`Escrow`](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/Escrow.sol) and [`UserEscrow`](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/UserEscrow.sol), and more.
+- [**Pool Manager**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/PoolManager.sol): The second business logic contract that handles currency bookkeeping, and transferring tranche tokens as well as currencies.
+- [**Gateway**](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/routers/Gateway.sol): Intermediary contract that encodes and decodes messages using [`Messages`](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/Messages.sol) and handles routing to/from Centrifuge.
+- [**Routers**](https://github.com/code-423n4/2023-09-centrifuge/tree/main/src/routers): Contracts that handle communication of messages to and from Centrifuge Chain.
 
 > [!NOTE]  
 > The coding style of the `liquidity-pools` code base is heavily inspired by [MakerDAO's coding style](https://github.com/makerdao/pe-checklists/blob/master/core/standards.md). Composition over inheritance, no upgradeable proxies but rather using contract migrations, and as few depenencies as possible. Authentication uses the `ward` pattern, in which addresses can be `relied` or `denied` to get access. Key parameter updates of contracts are executed through `file` methods.
@@ -50,9 +49,7 @@ The deployment of these tranches and the management of investments is controlled
 ## How it works
 Using the Centrifuge protocol, issuers can launch pools of real-world assets. Each pool can have 1 or more tranches that investors can buy. The purpose of these tranches is to give investors different kinds of risk exposure and yield on the same asset class. Each pool has 1 pool currency. The decimals of this pool currency define the decimals of the tranche tokens that are issued per tranche. Both deposit (also known as investments) and redemptions in tranches of Centrifuge pool happen asynchronously, through an epoch mechanism. Prices for tranches are calculated on Centrifuge Chain based on the Net Asset Value of the real world assets in the pool. More information on this can be found in the [documentation](https://docs.centrifuge.io/getting-started/securitization/).
 
-![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/tranching.png?raw=true)
-
-Because of the epoch mechanism, as well as the fact that Liquidity Pools communicate with Centrifuge Chain through messaging layers, deposits and redemptions cannot be executed atomatically, and rather are executed asynchronously. A key goal if Liquidity Pools is to increase composability of Centrifuge assets, by leveraging ERC4626. However, ERC4626 assumes atomic deposits and withdrawals, thus the Liquidity Pool contracts are extended with methods for requesting deposits & redemptions. There is also support for permits when requesting deposits/redemptions. More details on this in `Sample deposit & redemption flows` below.
+Because of the epoch mechanism, as well as the fact that Liquidity Pools communicate with Centrifuge Chain through messaging layers, deposits and redemptions cannot be executed atomatically, and rather are executed asynchronously. A key goal if Liquidity Pools is to increase composability of Centrifuge assets, by leveraging ERC4626. However, ERC4626 assumes atomic deposits and withdrawals, thus the Liquidity Pool contracts are extended with methods for requesting deposits & redemptions. There is also support for permits when requesting deposits/redemptions. More details on this in `User flows` below.
 
 The communication between Liquidity Pools and Centrifuge Chain uses external general message passing protocols. Messages are encoded using a compacted ABI encoding scheme, as implemented in `src/gateway/Messages.sol`.
 
@@ -60,17 +57,6 @@ The communication between Liquidity Pools and Centrifuge Chain uses external gen
 While there is 1 native pool currency, Liquidity Pools (acronym: LP) are built to support deposits in multiple currencies. Each Liquidity Pool is linked to 1 currency (asset) and 1 tranche token (share), but Liquidity Pools can be deployed linked to the same tranche token (share). The Liquidity Pool contract therefore passes through the ERC20 methods to the underlying share implementation. To support this, the ERC20 of the tranche token uses ERC2771 context, and the tranche token contract ensures that all Liquidity Pools are considered trusted forwarders for this.
 
 The other challenge with supporting multiple currencies is that the decimals between the tranche token (which is based on the native pool currency decimals) and the investment currency (or asset) can differ. Therefore, all price calculations and conversions between shares and assets (or tranche tokens and currencies) need to account for these differences. This is accomplished by normalizing all balances and prices to 18 decimal fixed point integers, doing the calculations using these normalized values, and then unnormalizing back to the intended decimals. Currencies with more than 18 decimals are not supported and blocked in the contracts.
-
-### Liquidity management
-When investors deposit in a currency that is not equivalent to the native pool currency, this needs to be swapped in order to execute the investment. And vice versa for redemptions. These swaps occur on Centrifuge Chain. These swaps also guarantee that sufficient liquidity is in the escrow contract to fulfill any orders. Note that locking, for example, USDC in Liquidity Pools on Ethereum, leads to Wrapped Ethereum LP on USDC, which will be non-fungible with USDC locked in Liquidity Pools on Arbitrum, which leads to Wrapped Arbitrum LP on USDC.
-
-An example flow for how this works is visualized below:
-
-![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png?raw=true)
-![img](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png?raw=true)
-
-### Sample deposit & redemption flows
-TODO
 
 ### Access setup
 The `Root` contract is a `ward` on all other contracts. The `PauseAdmin` can instanteneously pause the protocol. The `DelayedAdmin` can make itself `ward` on any contract through `Root.relyContract`, but this needs to go through the timelock specified in `Root.delay`. The `Root.delay` will initially be set to 48 hours.
@@ -99,9 +85,28 @@ This scenario is not fully protected, as funds currently locked in the `Escrow` 
 
 The full relationships of `wards` can be seen below.
 
-![](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png?raw=true)
+![Wards.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/wards.png?raw=true)
+
+### User flows
+#### How pools and tranches are created and deployed
+![Pool creation flow.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/pool_creation_flow.png?raw=true)
+
+#### How users can invest
+![Simple investment flow.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/investment_flow.png?raw=true)
+
+#### How liquidity is managed
+When investors deposit in a currency that is not equivalent to the native pool currency, this needs to be swapped in order to execute the investment. And vice versa for redemptions. These swaps occur on Centrifuge Chain. These swaps also guarantee that sufficient liquidity is in the escrow contract to fulfill any orders. Note that locking, for example, USDC in Liquidity Pools on Ethereum, leads to Wrapped Ethereum LP on USDC, which will be non-fungible with USDC locked in Liquidity Pools on Arbitrum, which leads to Wrapped Arbitrum LP on USDC.
+
+An example flow for how this works is visualized below:
+
+![Liquidity overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow1.png?raw=true)
+![Liquidity overview.](https://github.com/code-423n4/2023-09-centrifuge/blob/main/images/liquidity_flow2.png?raw=true)
 
 # Scope
+
+> [!WARNING]  
+> `src/gateway/Messages.sol` is a large file but contains only repetitive encoding/decoding functions.
+> All files excluding `Factory.sol` in the `src/util` directory are imported libaries.
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
@@ -123,11 +128,6 @@ The full relationships of `wards` can be seen below.
 | [src/util/Context.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Context.sol) | 6 | ERC2771 base contract | OZ Context |
 | [src/util/Factory.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Factory.sol) | 93 | Factory contract for deploying LPs and tranche tokens |  |
 | [src/util/SafeTransferLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/SafeTransferLib.sol) | 17 | Safe transfer lib | SafeTransfer |
-
-> [!NOTE]  
-> `src/LiquidityPool.sol`, `src/InvestmentManager.sol`, `src/PoolManager.sol`, and `src/token/Tranche.sol` contain the key business logic for Liquidity Pools.
-> `src/gateway/Messages.sol` is a large file but contains only repetitive encoding/decoding functions.
-> `src/token/ERC20.sol` as well as all files excluding `Factory.sol` in the `src/util` directory are imported libaries.
 
 ## Out of scope
 
