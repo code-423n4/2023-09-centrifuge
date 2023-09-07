@@ -120,10 +120,8 @@ The full relationships of `wards` can be seen below.
 | [src/gateway/Messages.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/Messages.sol) | 619 | Message encoding & decoding |  |
 | [src/gateway/routers/axelar/Router.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/axelar/Router.sol) | 88 | Routing contract that integrates with Axelar |  |
 | [src/util/Auth.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Auth.sol) | 18 | Simple authentication contract |  |
-| [src/util/BytesLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/BytesLib.sol) | 79 | Bytes utilities lib | solidity-bytes-utils |
 | [src/util/Context.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Context.sol) | 6 | ERC2771 base contract | OZ Context |
 | [src/util/Factory.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/Factory.sol) | 93 | Factory contract for deploying LPs and tranche tokens |  |
-| [src/util/MathLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/MathLib.sol) | 55 | Math utilities lib | SafeTransfer |
 | [src/util/SafeTransferLib.sol](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/util/SafeTransferLib.sol) | 17 | Safe transfer lib | SafeTransfer |
 
 > [!NOTE]  
@@ -133,6 +131,8 @@ The full relationships of `wards` can be seen below.
 
 ## Out of scope
 
+- `src/util/BytesLib.sol`
+- `src/util/MathLib.sol`
 - The [XCM router](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/xcm/Router.sol) implementation.
 - While the [Axelar router](https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/routers/axelar/Router.sol) implementation is in scope, any issues in the Axelar gateway or other external contracts from Axelar are out of scope.
 - Rebase and fee-on-transfer tokens are not supported.
@@ -146,8 +146,8 @@ The full relationships of `wards` can be seen below.
 ## Scoping Details 
 ```
 - If you have a public code repo, please share it here: N/A
-- How many contracts are in scope?: 20
-- Total SLoC for these contracts?: 2791
+- How many contracts are in scope?: 18
+- Total SLoC for these contracts?: 2657
 - How many external imports are there?:  0
 - How many separate interfaces and struct definitions are there for the contracts within scope?: 2 interfaces, 3 structs
 - Does most of your code generally use composition or inheritance?:  Composition
