@@ -140,6 +140,7 @@ An example flow for how this works is visualized below:
 - Removing an investor from the memberlist in the Restriction Manager locks their tokens. This is expected behaviour.
 - Since Centrifuge Chain uses `uint128` for calculations and all messages use `uint128` types for values, only `uint128` values are supported (anything larger should revert).
 - Deployments scripts (all files in `scripts`) are out of scope.
+- Some dust can be stuck in the escrow due to rounding. This is expected behaviour.
 
 # Additional Context
 
