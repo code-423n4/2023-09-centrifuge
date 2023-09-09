@@ -7921,4 +7921,9022 @@ File: src/Root.sol
 98:      function denyContract(address target, address user) public auth {
 
 ```
-*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L43-L43), [54](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L54-L54), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L59-L59), [65](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L65-L65), [70](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L70-L70), [75](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L75-L75), [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L90-L90), [98](ht
+*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L43-L43), [54](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L54-L54), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L59-L59), [65](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L65-L65), [70](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L70-L70), [75](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L75-L75), [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L90-L90), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L98-L98)
+
+```solidity
+File: src/UserEscrow.sol
+
+29:      function transferIn(address token, address source, address destination, uint256 amount) external auth {
+
+36:      function transferOut(address token, address destination, address receiver, uint256 amount) external auth {
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L29-L29), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L36-L36)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+26:      function pause() public auth {
+
+30:      function unpause() public auth {
+
+34:      function scheduleRely(address target) public auth {
+
+38:      function cancelRely(address target) public auth {
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L26-L26), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L30-L30), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L34-L34), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L38-L38)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+34:      function addPauser(address user) external auth {
+
+39:      function removePauser(address user) external auth {
+
+45:      function pause() public canPause {
+
+```
+*GitHub*: [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L34-L34), [39](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L39-L39), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L45-L45)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+130:     function file(bytes32 what, address data) public auth {
+
+137:     function addIncomingRouter(address router) public auth {
+
+142:     function removeIncomingRouter(address router) public auth {
+
+147:     function updateOutgoingRouter(address router) public auth {
+
+153      function transferTrancheTokensToCentrifuge(
+154          uint64 poolId,
+155          bytes16 trancheId,
+156          address sender,
+157          bytes32 destinationAddress,
+158          uint128 amount
+159:     ) public onlyPoolManager pauseable {
+
+172      function transferTrancheTokensToEVM(
+173          uint64 poolId,
+174          bytes16 trancheId,
+175          address sender,
+176          uint64 destinationChainId,
+177          address destinationAddress,
+178          uint128 amount
+179:     ) public onlyPoolManager pauseable {
+
+192      function transfer(uint128 token, address sender, bytes32 receiver, uint128 amount)
+193          public
+194          onlyPoolManager
+195          pauseable
+196:     {
+
+200      function increaseInvestOrder(
+201          uint64 poolId,
+202          bytes16 trancheId,
+203          address investor,
+204          uint128 currency,
+205          uint128 currencyAmount
+206:     ) public onlyInvestmentManager pauseable {
+
+212      function decreaseInvestOrder(
+213          uint64 poolId,
+214          bytes16 trancheId,
+215          address investor,
+216          uint128 currency,
+217          uint128 currencyAmount
+218:     ) public onlyInvestmentManager pauseable {
+
+224      function increaseRedeemOrder(
+225          uint64 poolId,
+226          bytes16 trancheId,
+227          address investor,
+228          uint128 currency,
+229          uint128 trancheTokenAmount
+230:     ) public onlyInvestmentManager pauseable {
+
+238      function decreaseRedeemOrder(
+239          uint64 poolId,
+240          bytes16 trancheId,
+241          address investor,
+242          uint128 currency,
+243          uint128 trancheTokenAmount
+244:     ) public onlyInvestmentManager pauseable {
+
+252      function collectInvest(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+253          public
+254          onlyInvestmentManager
+255          pauseable
+256:     {
+
+260      function collectRedeem(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+261          public
+262          onlyInvestmentManager
+263          pauseable
+264:     {
+
+268      function cancelInvestOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+269          public
+270          onlyInvestmentManager
+271          pauseable
+272:     {
+
+276      function cancelRedeemOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+277          public
+278          onlyInvestmentManager
+279          pauseable
+280:     {
+
+285:     function handle(bytes calldata message) external onlyIncomingRouter pauseable {
+
+```
+*GitHub*: [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L130-L130), [137](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L137-L137), [142](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L142-L142), [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147-L147), [153](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L153-L159), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L172-L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L192-L196), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L200-L206), [212](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L212-L218), [224](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L224-L230), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L238-L244), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L252-L256), [260](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L260-L264), [268](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L268-L272), [276](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L276-L280), [285](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L285-L285)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+62:      function file(bytes32 what, address data) external auth {
+
+73       function execute(
+74           bytes32 commandId,
+75           string calldata sourceChain,
+76           string calldata sourceAddress,
+77           bytes calldata payload
+78:      ) public onlyCentrifugeChainOrigin(sourceChain, sourceAddress) {
+
+89:      function send(bytes calldata message) public onlyGateway {
+
+```
+*GitHub*: [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L62-L62), [73](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L73-L78), [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L89-L89)
+
+```solidity
+File: src/token/ERC20.sol
+
+57:      function rely(address user) external auth {
+
+62:      function deny(address user) external auth {
+
+79:      function DOMAIN_SEPARATOR() external view returns (bytes32) {
+
+83:      function file(bytes32 what, string memory data) external auth {
+
+91:      function transfer(address to, uint256 value) public virtual returns (bool) {
+
+106:     function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+
+131:     function approve(address spender, uint256 value) external returns (bool) {
+
+139:     function increaseAllowance(address spender, uint256 addedValue) external returns (bool) {
+
+148:     function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool) {
+
+162:     function mint(address to, uint256 value) public virtual auth {
+
+172:     function burn(address from, uint256 value) external auth {
+
+216:     function permit(address owner, address spender, uint256 value, uint256 deadline, bytes memory signature) public {
+
+239      function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+240          external
+241:     {
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L57-L57), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L62-L62), [79](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L79-L79), [83](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L83-L83), [91](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L91-L91), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L106-L106), [131](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L131-L131), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L139-L139), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L148-L148), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L162-L162), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L172-L172), [216](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L216-L216), [239](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L239-L241)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+28:      function detectTransferRestriction(address from, address to, uint256 value) public view returns (uint8) {
+
+36:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+45:      function member(address user) public view {
+
+49:      function hasMember(address user) public view returns (bool) {
+
+57:      function updateMember(address user, uint256 validUntil) public auth {
+
+62:      function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L28-L28), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L36-L36), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L45-L45), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L49-L49), [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L57-L57), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62-L62)
+
+```solidity
+File: src/token/Tranche.sol
+
+42:      function file(bytes32 what, address data) public auth {
+
+48:      function addLiquidityPool(address liquidityPool) public auth {
+
+53:      function removeLiquidityPool(address liquidityPool) public auth {
+
+76:      function detectTransferRestriction(address from, address to, uint256 value) public view returns (uint8) {
+
+80:      function checkTransferRestriction(address from, address to, uint256 value) public view returns (bool) {
+
+84:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+88:      function SUCCESS_CODE() public view returns (uint8) {
+
+93:      function isTrustedForwarder(address forwarder) public view returns (bool) {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L42-L42), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L48-L48), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L53-L53), [76](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L76-L76), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L80-L80), [84](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L84-L84), [88](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L88-L88), [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L93-L93)
+
+```solidity
+File: src/util/Auth.sol
+
+14:      function rely(address user) external auth {
+
+20:      function deny(address user) external auth {
+
+```
+*GitHub*: [14](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L14-L14), [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L20-L20)
+
+```solidity
+File: src/util/Factory.sol
+
+36       function newLiquidityPool(
+37           uint64 poolId,
+38           bytes16 trancheId,
+39           address currency,
+40           address trancheToken,
+41           address investmentManager,
+42           address[] calldata wards
+43:      ) public auth returns (address) {
+
+81       function newTrancheToken(
+82           uint64 poolId,
+83           bytes16 trancheId,
+84           string memory name,
+85           string memory symbol,
+86           uint8 decimals,
+87           address[] calldata trancheTokenWards,
+88           address[] calldata restrictionManagerWards
+89:      ) public auth returns (address) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L36-L43), [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L81-L89)
+
+</details>
+
+
+
+
+### [N&#x2011;65] Missing event and or timelock for critical parameter change
+Events help non-contract tools to track changes, and timelocks prevent users from being surprised by changes
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+57       function updateMember(address user, uint256 validUntil) public auth {
+58           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+59           members[user] = validUntil;
+60:      }
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L57-L60)
+
+
+### [N&#x2011;66] Setters should prevent re-setting of the same value
+This especially problematic when the setter also emits the same value, which may be confusing to offline parsers
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+324      function updatePrice(uint128 price) public auth {
+325          latestPrice = price;
+326          lastPriceUpdate = block.timestamp;
+327          emit UpdatePrice(price);
+328:     }
+
+```
+*GitHub*: [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L324-L328)
+
+```solidity
+File: src/PoolManager.sol
+
+168      function addPool(uint64 poolId) public onlyGateway {
+169          Pool storage pool = pools[poolId];
+170          require(pool.createdAt == 0, "PoolManager/pool-already-added");
+171          pool.poolId = poolId;
+172          pool.createdAt = block.timestamp;
+173          emit PoolAdded(poolId);
+174:     }
+
+192      function addTranche(
+193          uint64 poolId,
+194          bytes16 trancheId,
+195          string memory tokenName,
+196          string memory tokenSymbol,
+197          uint8 decimals
+198      ) public onlyGateway {
+199          Pool storage pool = pools[poolId];
+200          require(pool.createdAt != 0, "PoolManager/invalid-pool");
+201          Tranche storage tranche = pool.tranches[trancheId];
+202          require(tranche.createdAt == 0, "PoolManager/tranche-already-exists");
+203  
+204          tranche.poolId = poolId;
+205          tranche.trancheId = trancheId;
+206          tranche.decimals = decimals;
+207          tranche.tokenName = tokenName;
+208          tranche.tokenSymbol = tokenSymbol;
+209          tranche.createdAt = block.timestamp;
+210  
+211          emit TrancheAdded(poolId, trancheId);
+212:     }
+
+238      function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+239          // Currency index on the Centrifuge side should start at 1
+240          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+241          require(currencyIdToAddress[currency] == address(0), "PoolManager/currency-id-in-use");
+242          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+243          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+244  
+245          currencyIdToAddress[currency] = currencyAddress;
+246          currencyAddressToId[currencyAddress] = currency;
+247  
+248          // Enable taking the currency out of escrow in case of redemptions
+249          EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+250  
+251          // Enable taking the currency out of escrow in case of decrease invest orders
+252          EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+253  
+254          emit CurrencyAdded(currency, currencyAddress);
+255:     }
+
+```
+*GitHub*: [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168-L174), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L192-L212), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238-L255)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+147      function updateOutgoingRouter(address router) public auth {
+148          outgoingRouter = RouterLike(router);
+149          emit UpdateOutgoingRouter(router);
+150:     }
+
+```
+*GitHub*: [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147-L150)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+57       function updateMember(address user, uint256 validUntil) public auth {
+58           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+59           members[user] = validUntil;
+60:      }
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L57-L60)
+
+
+### [N&#x2011;67] Assembly block creates dirty bits
+Writing data to the free memory pointer without later updating the free memory pointer will cause there to be dirty bits at that memory location. Not updating the free memory pointer will make it [harder](https://docs.soliditylang.org/en/latest/ir-breaking-changes.html#cleanup) for the optimizer to reason about whether the memory needs to be cleaned before use, which will lead to worse optimizations. Update the free memory pointer and annotate the block (`assembly (\"memory-safe\") { ... }`) to avoid this issue.
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+340              assembly {
+341                  let ptr := mload(0x40)
+342                  let size := returndatasize()
+343                  returndatacopy(ptr, 0, size)
+344                  revert(ptr, size)
+345:             }
+
+```
+*GitHub*: [340](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L340-L345)
+
+```solidity
+File: src/token/ERC20.sol
+
+201              assembly {
+202                  r := mload(add(signature, 0x20))
+203                  s := mload(add(signature, 0x40))
+204                  v := byte(0, mload(add(signature, 0x60)))
+205:             }
+
+```
+*GitHub*: [201](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L201-L205)
+
+
+### [N&#x2011;68] Polymorphic functions make security audits more time-consuming and error-prone
+The instances below point to one of two functions with the same name. Consider naming each function differently, in order to make code navigation and analysis easier.
+
+*There are 5 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+313:     function mint(address, uint256) public auth {
+
+```
+*GitHub*: [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L313-L313)
+
+```solidity
+File: src/gateway/Messages.sol
+
+205      function formatUpdateMember(uint64 poolId, bytes16 trancheId, bytes32 member, uint64 validUntil)
+206          internal
+207          pure
+208          returns (bytes memory)
+209:     {
+
+332      function formatTransferTrancheTokens(
+333          uint64 poolId,
+334          bytes16 trancheId,
+335          bytes32 sender,
+336          bytes9 destinationDomain,
+337          address destinationAddress,
+338          uint128 amount
+339:     ) internal pure returns (bytes memory) {
+
+840:     function formatDomain(Domain domain, uint64 chainId) public pure returns (bytes9) {
+
+```
+*GitHub*: [205](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L205-L209), [332](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L332-L339), [840](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L840-L840)
+
+```solidity
+File: src/token/ERC20.sol
+
+239      function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+240          external
+241:     {
+
+```
+*GitHub*: [239](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L239-L241)
+
+
+### [N&#x2011;69] Interfaces should be defined in separate files from their usage
+The interfaces below should be defined in separate files, so that it's easier for future projects to import them, and to avoid duplication later on if they need to be used elsewhere in the project
+
+*There are 25 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+8:   interface GatewayLike {
+
+23:  interface ERC20Like {
+
+31:  interface LiquidityPoolLike is ERC20Like {
+
+41:  interface PoolManagerLike {
+
+49:  interface EscrowLike {
+
+53:  interface UserEscrowLike {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L8-L8), [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L23-L23), [31](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L31-L31), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L41-L41), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L49-L49), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L53-L53)
+
+```solidity
+File: src/LiquidityPool.sol
+
+9:   interface ERC20PermitLike {
+
+16:  interface TrancheTokenLike is IERC20, ERC20PermitLike {
+
+20:  interface InvestmentManagerLike {
+
+```
+*GitHub*: [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L9-L9), [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L16-L16), [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L20-L20)
+
+```solidity
+File: src/PoolManager.sol
+
+11:  interface GatewayLike {
+
+34:  interface InvestmentManagerLike {
+
+40:  interface EscrowLike {
+
+44:  interface ERC2771Like {
+
+48:  interface AuthLike {
+
+```
+*GitHub*: [11](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L11-L11), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L34-L34), [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L40-L40), [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L44-L44), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L48-L48)
+
+```solidity
+File: src/Root.sol
+
+6:   interface AuthLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L6-L6)
+
+```solidity
+File: src/UserEscrow.sol
+
+7:   interface ERC20Like {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L7-L7)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+7:   interface InvestmentManagerLike {
+
+41:  interface PoolManagerLike {
+
+64:  interface RouterLike {
+
+72:  interface RootLike {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L7-L7), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L41-L41), [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L64-L64), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L72-L72)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+6:   interface AxelarGatewayLike {
+
+18:  interface GatewayLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L6-L6), [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L18-L18)
+
+```solidity
+File: src/token/ERC20.sol
+
+8:   interface IERC1271 {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L8-L8)
+
+```solidity
+File: src/token/Tranche.sol
+
+12:  interface ERC1404Like {
+
+```
+*GitHub*: [12](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L12-L12)
+
+```solidity
+File: src/util/Factory.sol
+
+9:   interface RootLike {
+
+```
+*GitHub*: [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L9-L9)
+
+</details>
+
+
+
+
+### [N&#x2011;70] Consider moving `msg.sender` checks to a common authorization `modifier`
+
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+473:         require(lPool.checkTransferRestriction(msg.sender, user, 0), "InvestmentManager/trancheTokens-not-a-member");
+
+```
+*GitHub*: [473](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L473-L473)
+
+
+### [N&#x2011;71] Consider disallowing transfers to `address(this)`
+
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/gateway/Gateway.sol
+
+192      function transfer(uint128 token, address sender, bytes32 receiver, uint128 amount)
+193          public
+194          onlyPoolManager
+195          pauseable
+196:     {
+
+```
+*GitHub*: [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L192-L196)
+
+```solidity
+File: src/token/Tranche.sol
+
+59:      function transfer(address to, uint256 value) public override restricted(_msgSender(), to, value) returns (bool) {
+
+```
+*GitHub*: [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L59-L59)
+
+
+### [N&#x2011;72] Consider bounding input array length
+The functions below take in an unbounded array, and make function calls for entries in the array. While the function will revert if it eventually runs out of gas, it may be a nicer user experience to `require()` that the length of the array is below some reasonable maximum, so that the user doesn't have to use up a full transaction's gas only to see that the transaction reverts.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+64           for (uint256 i = 0; i < userLength; i++) {
+65               updateMember(users[i], validUntil);
+66:          }
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L64-L66)
+
+```solidity
+File: src/util/Factory.sol
+
+47           for (uint256 i = 0; i < wards.length; i++) {
+48               liquidityPool.rely(wards[i]);
+49:          }
+
+103          for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+104              token.rely(trancheTokenWards[i]);
+105:         }
+
+117          for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+118              restrictionManager.rely(restrictionManagerWards[i]);
+119:         }
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47-L49), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103-L105), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117-L119)
+
+
+### [N&#x2011;73] Named imports of parent contracts are missing
+
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit ERC20Like
+31:  interface LiquidityPoolLike is ERC20Like {
+
+```
+*GitHub*: [31](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L31-L31)
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit ERC20PermitLike
+16:  interface TrancheTokenLike is IERC20, ERC20PermitLike {
+
+```
+*GitHub*: [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L16-L16)
+
+```solidity
+File: src/token/Tranche.sol
+
+/// @audit ERC1404Like
+23:  contract TrancheToken is ERC20, ERC1404Like {
+
+```
+*GitHub*: [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L23-L23)
+
+
+### [N&#x2011;74] Complex casting
+Consider whether the number of casts is really necessary, or whether using a different type would be more appropriate. Alternatively, add comments to explain in detail why the casts are necessary, and any implicit reasons why the cast does not introduce an overflow.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+313      function mint(address, uint256) public auth {
+314:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+318      function burn(address, uint256) public auth {
+319:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+```
+*GitHub*: [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L313-L314), [318](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L318-L319)
+
+```solidity
+File: src/gateway/Messages.sol
+
+836      function formatDomain(Domain domain) public pure returns (bytes9) {
+837:         return bytes9(bytes1(uint8(domain)));
+
+840      function formatDomain(Domain domain, uint64 chainId) public pure returns (bytes9) {
+841:         return bytes9(BytesLib.slice(abi.encodePacked(uint8(domain), chainId), 0, 9));
+
+```
+*GitHub*: [836](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L836-L837), [840](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L840-L841)
+
+
+### [N&#x2011;75] Events may be emitted out of order due to reentrancy
+Ensure that events follow the best practice of check-effects-interaction, and are emitted before external calls
+
+*There are 17 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit transferFrom() prior to emission
+479:         emit DepositProcessed(liquidityPool, user, currencyAmount);
+
+```
+*GitHub*: [479](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L479-L479)
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit processDeposit() prior to emission
+143:         emit Deposit(address(this), receiver, assets, shares);
+
+/// @audit processMint() prior to emission
+151:         emit Deposit(address(this), receiver, assets, shares);
+
+/// @audit processWithdraw() prior to emission
+182:         emit Withdraw(address(this), receiver, owner, assets, sharesRedeemed);
+
+/// @audit processRedeem() prior to emission
+206:         emit Withdraw(address(this), receiver, owner, currencyPayout, shares);
+
+/// @audit requestDeposit() prior to emission
+216:         emit DepositRequested(owner, assets);
+
+/// @audit permit() prior to emission
+225:         emit DepositRequested(owner, assets);
+
+/// @audit requestRedeem() prior to emission
+233:         emit RedeemRequested(owner, shares);
+
+/// @audit permit() prior to emission
+242:         emit RedeemRequested(owner, shares);
+
+/// @audit collectDeposit() prior to emission
+261:         emit DepositCollected(receiver);
+
+/// @audit collectRedeem() prior to emission
+267:         emit RedeemCollected(receiver);
+
+```
+*GitHub*: [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L143-L143), [151](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L151-L151), [182](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L182-L182), [206](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L206-L206), [216](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L216-L216), [225](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L225-L225), [233](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L233-L233), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L242-L242), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L261-L261), [267](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L267-L267)
+
+```solidity
+File: src/PoolManager.sol
+
+/// @audit approve() prior to emission
+254:         emit CurrencyAdded(currency, currencyAddress);
+
+/// @audit newTrancheToken() prior to emission
+303:         emit TrancheTokenDeployed(poolId, trancheId);
+
+/// @audit newLiquidityPool() prior to emission
+331:         emit LiquidityPoolDeployed(poolId, trancheId, liquidityPool);
+
+```
+*GitHub*: [254](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L254-L254), [303](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L303-L303), [331](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L331-L331)
+
+```solidity
+File: src/Root.sol
+
+/// @audit rely() prior to emission
+92:          emit RelyContract(target, user);
+
+/// @audit deny() prior to emission
+100:         emit DenyContract(target, user);
+
+```
+*GitHub*: [92](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L92-L92), [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L100-L100)
+
+```solidity
+File: src/UserEscrow.sol
+
+/// @audit null() prior to emission
+49:          emit TransferOut(token, receiver, amount);
+
+```
+*GitHub*: [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L49-L49)
+
+
+### [N&#x2011;76] Missing checks constructor/initializer assignments
+Consider whether reasonable bounds checks for variables would be useful
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+86:          poolId = poolId_;
+
+```
+*GitHub*: [86](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L86-L86)
+
+```solidity
+File: src/Root.sol
+
+36:          delay = _delay;
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L36-L36)
+
+```solidity
+File: src/token/ERC20.sol
+
+43:          decimals = decimals_;
+
+```
+*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L43-L43)
+
+
+### [N&#x2011;77] Missing checks for state variable assignments
+Consider whether reasonable bounds checks for variables would be useful
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+325:         latestPrice = price;
+
+```
+*GitHub*: [325](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L325-L325)
+
+
+### [N&#x2011;78] Missing checks for empty bytes when updating bytes state variables
+Unless the code is attempting to 'delete' the state variable, the caller shouldn't have to write `""` to the state variable
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+205:         tranche.trancheId = trancheId;
+
+```
+*GitHub*: [205](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L205-L205)
+
+
+### [N&#x2011;79] State and local variables should be named using lowerCamelCase
+The Solidity style guide [says](https://docs.soliditylang.org/en/latest/style-guide.html#local-and-state-variable-names) to use mixedCase for local and state variable names. Note that while OpenZeppelin may not follow this advice, it still is the recommended way of naming variables.
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/Root.sol
+
+17:      uint256 private MAX_DELAY = 4 weeks;
+
+```
+*GitHub*: [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L17-L17)
+
+## Gas Optimizations
+
+
+### [G&#x2011;01] Enable IR-based code generation
+By using `--via-ir` or `{"viaIR": true}`, the compiler is able to use more advanced [multi-function optimizations](https://docs.soliditylang.org/en/v0.8.17/ir-breaking-changes.html#solidity-ir-based-codegen-changes), for extra gas savings.
+
+*There is one instance of this issue:*
+
+```solidity
+File: Various Files
+
+
+```
+
+
+### [G&#x2011;02] Multiple `address`/ID mappings can be combined into a single `mapping` of an `address`/ID to a `struct`, where appropriate
+Saves a storage slot for the mapping. Depending on the circumstances and sizes of types, can avoid a Gsset (**20000 gas**) per mapping combined. Reads and subsequent writes can also be cheaper when a function requires both values and they both fit in the same storage slot. Finally, if both fields are accessed in the same function, can save **~42 gas per access** due to [not having to recalculate the key's keccak256 hash](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0) (Gkeccak256 - 30 gas) and that calculation's associated stack operations.
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+25        mapping(address => uint256) public balanceOf;
+26        mapping(address => mapping(address => uint256)) public allowance;
+27:       mapping(address => uint256) public nonces;
+
+```
+*GitHub*: [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L25-L27)
+
+
+### [G&#x2011;03] State variables can be packed into fewer storage slots by truncating timestamp bytes
+By using a `uint32` rather than a larger type for variables that track timestamps, one can save gas by using fewer storage slots per struct, at the expense of the protocol breaking after the year 2106 (when `uint32` wraps). If this is an acceptable tradeoff, if variables occupying the same slot are both written the same function or by the constructor, avoids a separate Gsset (**20000 gas**). Reads of the variables can also be cheaper
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/Root.sol
+
+/// @audit Variable ordering with 3 slots instead of the current 4:
+///           uint256(32):MAX_DELAY, mapping(32):schedule, uint32(4):delay, bool(1):paused
+17:       uint256 private MAX_DELAY = 4 weeks;
+
+```
+*GitHub*: [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L17)
+
+
+### [G&#x2011;04] State variables should be cached in stack variables rather than re-reading them from storage
+The instances below point to the second+ access of a state variable within a function. Caching of a state variable replaces each Gwarmaccess (**100 gas**) with a much cheaper stack read. Other less obvious fixes/optimizations include having local memory caches of state variable structs, or having local caches of state variable contracts/addresses.
+
+*There are 28 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit gateway on line 129
+138:          gateway.increaseInvestOrder(
+
+/// @audit gateway on line 161
+169:          gateway.increaseRedeemOrder(
+
+/// @audit poolManager on line 124
+130:                  lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset())
+
+/// @audit poolManager on line 130
+139:              lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset()), _currencyAmount
+
+/// @audit poolManager on line 154
+162:                  lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset())
+
+/// @audit poolManager on line 162
+170:              lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset()), _trancheTokenAmount
+
+/// @audit poolManager on line 227
+228:          address liquidityPool = poolManager.getLiquidityPool(poolId, trancheId, currency);
+
+/// @audit poolManager on line 243
+244:          address liquidityPool = poolManager.getLiquidityPool(poolId, trancheId, _currency);
+
+/// @audit poolManager on line 264
+265:          address liquidityPool = poolManager.getLiquidityPool(poolId, trancheId, _currency);
+
+/// @audit poolManager on line 286
+287:          address liquidityPool = poolManager.getLiquidityPool(poolId, trancheId, _currency);
+
+/// @audit poolManager on line 303
+304:          address liquidityPool = poolManager.getLiquidityPool(poolId, trancheId, _currency);
+
+```
+*GitHub*: [138](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L138), [169](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L169), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L130), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L139), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L162), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L170), [228](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L228), [244](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L244), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L265), [287](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L287), [304](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L304)
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit investmentManager on line 223
+224:          investmentManager.requestDeposit(assets, owner);
+
+/// @audit investmentManager on line 240
+241:          investmentManager.requestRedeem(shares, owner);
+
+```
+*GitHub*: [224](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L224), [241](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L241)
+
+```solidity
+File: src/PoolManager.sol
+
+/// @audit investmentManager on line 249
+252:          EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+
+/// @audit investmentManager on line 317
+319:              poolId, trancheId, currency, tranche.token, address(investmentManager), liquidityPoolWards
+
+/// @audit investmentManager on line 319
+323:          AuthLike(address(investmentManager)).rely(liquidityPool);
+
+/// @audit investmentManager on line 323
+328:          EscrowLike(escrow).approve(liquidityPool, address(investmentManager), type(uint256).max); // Approve investment manager on tranche token for coordinating transfers
+
+```
+*GitHub*: [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L252), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L319), [323](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L323), [328](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L328)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+/// @audit investmentManager on line 311
+322:              investmentManager.handleExecutedDecreaseInvestOrder(poolId, trancheId, investor, currency, currencyPayout);
+
+/// @audit investmentManager on line 322
+326:              investmentManager.handleExecutedDecreaseRedeemOrder(
+
+/// @audit investmentManager on line 326
+338:              investmentManager.handleExecutedCollectInvest(
+
+/// @audit investmentManager on line 338
+350:              investmentManager.handleExecutedCollectRedeem(
+
+/// @audit poolManager on line 288
+291:              poolManager.addPool(poolId);
+
+/// @audit poolManager on line 291
+294:              poolManager.allowPoolCurrency(poolId, currency);
+
+/// @audit poolManager on line 294
+304:              poolManager.addTranche(poolId, trancheId, tokenName, tokenSymbol, decimals);
+
+/// @audit poolManager on line 304
+307:              poolManager.updateMember(poolId, trancheId, user, validUntil);
+
+/// @audit poolManager on line 307
+314:              poolManager.handleTransfer(currency, recipient, amount);
+
+/// @audit poolManager on line 314
+318:              poolManager.handleTransferTrancheTokens(poolId, trancheId, destinationAddress, amount);
+
+/// @audit poolManager on line 318
+362:              poolManager.updateTrancheTokenMetadata(poolId, trancheId, tokenName, tokenSymbol);
+
+```
+*GitHub*: [322](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L322), [326](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L326), [338](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L338), [350](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L350), [291](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L291), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L294), [304](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L304), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L307), [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L314), [318](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L318), [362](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L362)
+
+
+### [G&#x2011;05] Multiple accesses of a mapping/array should use a local variable cache
+The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping's value in a local `storage` or `calldata` variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves **~42 gas per access** due to not having to recalculate the key's keccak256 hash (Gkeccak256 - **30 gas**) and that calculation's associated stack operations. Caching an array's struct avoids recalculating the array offsets into memory/calldata
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+/// @audit pools[poolId] on line 308
+314:          require(pools[poolId].createdAt != 0, "PoolManager/pool-does-not-exist");
+
+```
+*GitHub*: [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L314)
+
+
+### [G&#x2011;06] The result of function calls should be cached rather than re-calling the function
+The instances below point to the second+ call of the function within a single function
+
+*There are 15 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit lPool.poolId() on line 124
+126:          _isAllowedToInvest(lPool.poolId(), lPool.trancheId(), currency, user);
+
+/// @audit lPool.poolId() on line 124
+/// @audit lPool.trancheId() on line 126
+/// @audit lPool.asset() on line 120
+130:                  lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset())
+
+/// @audit lPool.poolId() on line 124
+/// @audit lPool.trancheId() on line 126
+/// @audit lPool.asset() on line 120
+139:              lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset()), _currencyAmount
+
+/// @audit lPool.poolId() on line 154
+/// @audit lPool.asset() on line 154
+157:          _isAllowedToInvest(lPool.poolId(), lPool.trancheId(), lPool.asset(), user);
+
+/// @audit lPool.poolId() on line 154
+/// @audit lPool.trancheId() on line 157
+/// @audit lPool.asset() on line 154
+162:                  lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset())
+
+/// @audit lPool.poolId() on line 154
+/// @audit lPool.trancheId() on line 157
+/// @audit lPool.asset() on line 154
+170:              lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset()), _trancheTokenAmount
+
+```
+*GitHub*: [126](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L126), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L130), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L130), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L130), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L139), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L139), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L139), [157](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L157), [157](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L157), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L162), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L162), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L162), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L170), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L170), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L170)
+
+
+### [G&#x2011;07] Calculations should be memoized rather than re-calculating them
+
+
+*There are 10 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit BytesLib.toUint128() on line 256
+257:          price = BytesLib.toUint128(_msg, 41);
+
+/// @audit BytesLib.toUint128() on line 286
+289:          amount = BytesLib.toUint128(_msg, 81);
+
+/// @audit BytesLib.toUint128() on line 299
+301:          amount = BytesLib.toUint128(_msg, 81);
+
+/// @audit BytesLib.toUint128() on line 396
+397:          amount = BytesLib.toUint128(_msg, 73);
+
+/// @audit BytesLib.toUint128() on line 582
+583:          trancheTokenPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit BytesLib.toUint128() on line 610
+611:          trancheTokensPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit BytesLib.toUint128() on line 652
+653:          currencyPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit BytesLib.toUint128() on line 652
+654:          trancheTokensPayout = BytesLib.toUint128(_msg, 89);
+
+/// @audit BytesLib.toUint128() on line 695
+696:          currencyPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit BytesLib.toUint128() on line 695
+697:          trancheTokensPayout = BytesLib.toUint128(_msg, 89);
+
+```
+*GitHub*: [257](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L257), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L289), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L301), [397](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L397), [583](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L583), [611](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L611), [653](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L653), [654](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L654), [696](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L696), [697](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L697)
+
+
+### [G&#x2011;08] `internal` functions only called once can be inlined to save gas
+Not inlining costs **20 to 40 gas** because of two extra `JUMP` instructions and additional stack operations needed for function calls.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+619:      function _decreaseDepositLimits(address user, address liquidityPool, uint128 _currency, uint128 trancheTokens)
+
+635:      function _decreaseRedemptionLimits(address user, address liquidityPool, uint128 _currency, uint128 trancheTokens)
+
+```
+*GitHub*: [619](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L619), [635](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L635)
+
+```solidity
+File: src/token/ERC20.sol
+
+196:      function _isValidSignature(address signer, bytes32 digest, bytes memory signature) internal view returns (bool) {
+
+```
+*GitHub*: [196](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L196)
+
+```solidity
+File: src/util/Factory.sol
+
+111:      function _newRestrictionManager(address[] calldata restrictionManagerWards) internal returns (address memberList) {
+
+```
+*GitHub*: [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L111)
+
+
+### [G&#x2011;09] Add `unchecked {}` for subtractions where the operands cannot underflow because of a previous `require()` or `if`-statement
+`require(a <= b); x = b - a` => `require(a <= b); unchecked { x = b - a }`
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+/// @audit check on line 94
+97:               balanceOf[_msgSender()] = balance - value;
+
+/// @audit check on line 109
+122:              balanceOf[from] = balance - value;
+
+/// @audit check on line 114
+116:                      allowance[from][_msgSender()] = allowed - value;
+
+/// @audit check on line 150
+152:              allowed = allowed - subtractedValue;
+
+/// @audit check on line 174
+188:              balanceOf[from] = balance - value; // note: we don't need overflow checks b/c require(balance >= value) and balance <= totalSupply
+
+/// @audit check on line 179
+182:                      allowance[from][_msgSender()] = allowed - value;
+
+```
+*GitHub*: [97](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L97), [122](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L122), [116](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L116), [152](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L152), [188](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L188), [182](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L182)
+
+
+### [G&#x2011;10] `<array>.length` should not be looked up in every loop of a `for`-loop
+The overheads outlined below are _PER LOOP_, excluding the first loop
+* storage arrays incur a Gwarmaccess (**100 gas**)
+* memory arrays use `MLOAD` (**3 gas**)
+* calldata arrays use `CALLDATALOAD` (**3 gas**)
+
+Caching the length changes each of these to a `DUP<N>` (**3 gas**), and gets rid of the extra `DUP<N>` needed to store the stack offset
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/util/Factory.sol
+
+47:           for (uint256 i = 0; i < wards.length; i++) {
+
+103:          for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+
+117:          for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117)
+
+
+### [G&#x2011;11] `++i`/`i++` should be `unchecked{++i}`/`unchecked{i++}` when it is not possible for them to overflow, as is the case when used in `for`- and `while`-loops
+The `unchecked` keyword is new in solidity version 0.8.0, so this only applies to that version or higher, which these instances are. This saves **30-40 gas [per loop](https://gist.github.com/hrkrshnn/ee8fabd532058307229d65dcd5836ddc#the-increment-in-for-loop-post-condition-can-be-made-unchecked)**
+
+*There are 7 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+848:          for (uint256 i = 0; i < 128; i++) {
+
+869:          for (uint8 j = 0; j < i; j++) {
+
+893:          for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+
+```
+*GitHub*: [848](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L848), [869](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L869), [893](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L893)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+64:           for (uint256 i = 0; i < userLength; i++) {
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L64)
+
+```solidity
+File: src/util/Factory.sol
+
+47:           for (uint256 i = 0; i < wards.length; i++) {
+
+103:          for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+
+117:          for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117)
+
+
+### [G&#x2011;12] `require()`/`revert()` strings longer than 32 bytes cost extra gas
+Each extra memory word of bytes past the original 32 [incurs an MSTORE](https://gist.github.com/hrkrshnn/ee8fabd532058307229d65dcd5836ddc#consider-having-short-revert-strings) which costs **3 gas**
+
+*There are 47 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+98:           require(msg.sender == address(gateway), "InvestmentManager/not-the-gateway");
+
+106:          else revert("InvestmentManager/file-unrecognized-param");
+
+229:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+245:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+266:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+288:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+289:          require(_currency == LiquidityPoolLike(liquidityPool).asset(), "InvestmentManager/not-tranche-currency");
+
+305:          require(address(liquidityPool) != address(0), "InvestmentManager/tranche-does-not-exist");
+
+312           require(
+313               LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+314               "InvestmentManager/trancheTokens-transfer-failed"
+315:          );
+
+430           require(
+431               (_currencyAmount <= orderbook[user][liquidityPool].maxDeposit && _currencyAmount != 0),
+432               "InvestmentManager/amount-exceeds-deposit-limits"
+433:          );
+
+436:          require(depositPrice != 0, "LiquidityPool/deposit-token-price-0");
+
+454           require(
+455               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxMint && _trancheTokenAmount != 0),
+456               "InvestmentManager/amount-exceeds-mint-limits"
+457:          );
+
+460:          require(depositPrice != 0, "LiquidityPool/deposit-token-price-0");
+
+473:          require(lPool.checkTransferRestriction(msg.sender, user, 0), "InvestmentManager/trancheTokens-not-a-member");
+
+474           require(
+475               lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+476               "InvestmentManager/trancheTokens-transfer-failed"
+477:          );
+
+496           require(
+497               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxRedeem && _trancheTokenAmount != 0),
+498               "InvestmentManager/amount-exceeds-redeem-limits"
+499:          );
+
+502:          require(redeemPrice != 0, "LiquidityPool/redeem-token-price-0");
+
+522           require(
+523               (_currencyAmount <= orderbook[user][liquidityPool].maxWithdraw && _currencyAmount != 0),
+524               "InvestmentManager/amount-exceeds-withdraw-limits"
+525:          );
+
+528:          require(redeemPrice != 0, "LiquidityPool/redeem-token-price-0");
+
+656:          require(liquidityPool != address(0), "InvestmentManager/unknown-liquidity-pool");
+
+668:              revert("InvestmentManager/uint128-overflow");
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L98), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L106), [229](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L229), [245](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L245), [266](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L266), [288](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L288), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L289), [305](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L305), [312](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L312-L315), [430](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L430-L433), [436](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L436), [454](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L454-L457), [460](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L460), [473](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L473), [474](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L474-L477), [496](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L496-L499), [502](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L502), [522](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L522-L525), [528](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L528), [656](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L656), [668](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L668)
+
+```solidity
+File: src/LiquidityPool.sol
+
+105:          else revert("LiquidityPool/file-unrecognized-param");
+
+```
+*GitHub*: [105](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L105)
+
+```solidity
+File: src/PoolManager.sol
+
+123:          else revert("PoolManager/file-unrecognized-param");
+
+202:          require(tranche.createdAt == 0, "PoolManager/tranche-already-exists");
+
+240:          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+
+242:          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+
+243:          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+
+282:          require(tranche.token == address(0), "PoolManager/tranche-already-deployed");
+
+309:          require(tranche.token != address(0), "PoolManager/tranche-does-not-exist"); // Tranche must have been added
+
+310:          require(isAllowedAsPoolCurrency(poolId, currency), "PoolManager/currency-not-supported"); // Currency must be supported by pool
+
+313:          require(liquidityPool == address(0), "PoolManager/liquidityPool-already-deployed");
+
+348:          require(pools[poolId].allowedCurrencies[currencyAddress], "PoolManager/pool-currency-not-allowed");
+
+```
+*GitHub*: [123](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L123), [202](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L202), [240](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L240), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L242), [243](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L243), [282](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L282), [309](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L309), [310](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L310), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L313), [348](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L348)
+
+```solidity
+File: src/UserEscrow.sol
+
+38            require(
+39                /// @dev transferOut can only be initiated by the destination address or an authorized admin.
+40                ///      The check is just an additional protection to secure destination funds in case of compromized auth.
+41                ///      Since userEscrow is not able to decrease the allowance for the receiver,
+42                ///      a transfer is only possible in case receiver has received the full allowance from destination address.
+43                receiver == destination || (ERC20Like(token).allowance(destination, receiver) == type(uint256).max),
+44                "UserEscrow/receiver-has-no-allowance"
+45:           );
+
+```
+*GitHub*: [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L38-L45)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+29:           require(pausers[msg.sender] == 1, "PauseAdmin/not-authorized-to-pause");
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L29)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+110:          require(msg.sender == address(investmentManager), "Gateway/only-investment-manager-allowed-to-call");
+
+115:          require(msg.sender == address(poolManager), "Gateway/only-pool-manager-allowed-to-call");
+
+120:          require(incomingRouters[msg.sender], "Gateway/only-router-allowed-to-call");
+
+```
+*GitHub*: [110](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L110), [115](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L115), [120](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L120)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+45            require(
+46                keccak256(bytes(axelarCentrifugeChainId)) == keccak256(bytes(sourceChain)),
+47                "AxelarRouter/invalid-source-chain"
+48:           );
+
+49            require(
+50                keccak256(bytes(axelarCentrifugeChainAddress)) == keccak256(bytes(sourceAddress)),
+51                "AxelarRouter/invalid-source-address"
+52:           );
+
+57:           require(msg.sender == address(gateway), "AxelarRouter/only-gateway-allowed-to-call");
+
+66:               revert("AxelarRouter/file-unrecognized-param");
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L45-L48), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L49-L52), [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L57), [66](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L66)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+46:           require((members[user] >= block.timestamp), "RestrictionManager/destination-not-a-member");
+
+58:           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L46), [58](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L58)
+
+```solidity
+File: src/token/Tranche.sol
+
+44:           else revert("TrancheToken/file-unrecognized-param");
+
+```
+*GitHub*: [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L44)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+18:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+
+28:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+
+38:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-approve-failed");
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L18), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L28), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L38)
+
+</details>
+
+
+
+
+### [G&#x2011;13] Optimize names to save gas
+`public`/`external` function names and `public` member variable names can be optimized to save gas. See [this](https://gist.github.com/IllIllI000/a5d8b486a8259f9f77891a919febd1a9) link for an example of how it works. Below are the interfaces/abstract contracts that can be optimized so that the most frequently-called functions use the least amount of gas possible during method lookup. Method IDs that have two leading zero bytes can save **128 gas** each during deployment, and renaming functions to have lower method IDs will save **22 gas** per call, [per sorted position shifted](https://medium.com/joyso/solidity-how-does-function-name-affect-gas-consumption-in-smart-contract-47d270d8ac92)
+
+*There are 29 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit increaseInvestOrder(), decreaseInvestOrder(), increaseRedeemOrder(), decreaseRedeemOrder(), collectInvest(), collectRedeem(), cancelInvestOrder(), cancelRedeemOrder()
+8:    interface GatewayLike {
+
+/// @audit poolId(), trancheId(), hasMember(), updatePrice(), checkTransferRestriction(), latestPrice()
+31:   interface LiquidityPoolLike is ERC20Like {
+
+/// @audit currencyIdToAddress(), currencyAddressToId(), getTrancheToken(), getLiquidityPool(), isAllowedAsPoolCurrency()
+41:   interface PoolManagerLike {
+
+/// @audit transferIn(), transferOut()
+53:   interface UserEscrowLike {
+
+/// @audit file(), requestDeposit(), requestRedeem(), decreaseDepositRequest(), decreaseRedeemRequest(), collectDeposit(), collectRedeem(), updateTrancheTokenPrice(), handleExecutedCollectInvest(), handleExecutedCollectRedeem(), handleExecutedDecreaseInvestOrder(), handleExecutedDecreaseRedeemOrder(), totalAssets(), convertToShares(), convertToAssets(), maxDeposit(), maxMint(), maxWithdraw(), maxRedeem(), previewDeposit(), previewMint(), previewWithdraw(), previewRedeem(), processDeposit(), processMint(), processRedeem(), processWithdraw(), calculateDepositPrice(), calculateRedeemPrice(), _calculatePrice()
+69:   contract InvestmentManager is Auth {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L8), [31](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L31), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L41), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L53), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L69)
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit processDeposit(), processMint(), processWithdraw(), processRedeem(), maxDeposit(), maxMint(), maxWithdraw(), maxRedeem(), totalAssets(), convertToShares(), convertToAssets(), previewDeposit(), previewMint(), previewWithdraw(), previewRedeem(), requestRedeem(), requestDeposit(), collectDeposit(), collectRedeem(), decreaseDepositRequest(), decreaseRedeemRequest()
+20:   interface InvestmentManagerLike {
+
+/// @audit file(), requestDeposit(), requestDepositWithPermit(), requestRedeem(), requestRedeemWithPermit(), decreaseDepositRequest(), decreaseRedeemRequest(), collectDeposit(), collectRedeem(), updatePrice(), checkTransferRestriction()
+52:   contract LiquidityPool is Auth, IERC4626 {
+
+```
+*GitHub*: [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L20), [52](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L52)
+
+```solidity
+File: src/PoolManager.sol
+
+/// @audit transferTrancheTokensToCentrifuge(), transferTrancheTokensToEVM(), transfer()
+11:   interface GatewayLike {
+
+/// @audit liquidityPools(), getTrancheToken(), userEscrow()
+34:   interface InvestmentManagerLike {
+
+/// @audit file(), transfer(), transferTrancheTokensToCentrifuge(), transferTrancheTokensToEVM(), addPool(), allowPoolCurrency(), addTranche(), updateTrancheTokenMetadata(), updateMember(), addCurrency(), handleTransfer(), handleTransferTrancheTokens(), deployTranche(), deployLiquidityPool(), getTrancheToken(), getLiquidityPool(), isAllowedAsPoolCurrency()
+78:   contract PoolManager is Auth {
+
+```
+*GitHub*: [11](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L11), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L34), [78](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L78)
+
+```solidity
+File: src/Root.sol
+
+/// @audit rely(), deny()
+6:    interface AuthLike {
+
+/// @audit file(), scheduleRely(), cancelRely(), executeScheduledRely(), relyContract(), denyContract()
+15:   contract Root is Auth {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L6), [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L15)
+
+```solidity
+File: src/UserEscrow.sol
+
+/// @audit transferIn(), transferOut()
+15:   contract UserEscrow is Auth {
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L15)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+/// @audit scheduleRely(), cancelRely()
+12:   contract DelayedAdmin is Auth {
+
+```
+*GitHub*: [12](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L12)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+/// @audit addPauser(), removePauser()
+10:   contract PauseAdmin is Auth {
+
+```
+*GitHub*: [10](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L10)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+/// @audit updateTrancheTokenPrice(), handleExecutedDecreaseInvestOrder(), handleExecutedDecreaseRedeemOrder(), handleExecutedCollectInvest(), handleExecutedCollectRedeem()
+7:    interface InvestmentManagerLike {
+
+/// @audit addPool(), allowPoolCurrency(), addTranche(), updateMember(), updateTrancheTokenMetadata(), addCurrency(), handleTransfer(), handleTransferTrancheTokens()
+41:   interface PoolManagerLike {
+
+/// @audit scheduleRely(), cancelRely()
+72:   interface RootLike {
+
+/// @audit file(), addIncomingRouter(), removeIncomingRouter(), updateOutgoingRouter(), transferTrancheTokensToCentrifuge(), transferTrancheTokensToEVM(), transfer(), increaseInvestOrder(), decreaseInvestOrder(), increaseRedeemOrder(), decreaseRedeemOrder(), collectInvest(), collectRedeem(), cancelInvestOrder(), cancelRedeemOrder(), handle()
+84:   contract Gateway is Auth {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L7), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L41), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L72), [84](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L84)
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit formatDomain(), formatDomain()
+8:    library Messages {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L8)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+/// @audit callContract(), validateContractCall()
+6:    interface AxelarGatewayLike {
+
+/// @audit file(), execute(), send()
+24:   contract AxelarRouter is Auth {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L6), [24](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L24)
+
+```solidity
+File: src/token/ERC20.sol
+
+/// @audit rely(), deny(), file(), permit()
+16:   contract ERC20 is Context {
+
+```
+*GitHub*: [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L16)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+/// @audit updateMember(), members(), hasMember()
+6:    interface MemberlistLike {
+
+/// @audit detectTransferRestriction(), messageForTransferRestriction(), member(), hasMember(), updateMember(), updateMembers()
+14:   contract RestrictionManager is Auth {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L6), [14](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L14)
+
+```solidity
+File: src/token/Tranche.sol
+
+/// @audit file(), restrictionManager()
+7:    interface TrancheTokenLike is IERC20 {
+
+/// @audit detectTransferRestriction(), messageForTransferRestriction(), SUCCESS_CODE()
+12:   interface ERC1404Like {
+
+/// @audit file(), addLiquidityPool(), removeLiquidityPool(), detectTransferRestriction(), checkTransferRestriction(), messageForTransferRestriction(), SUCCESS_CODE(), isTrustedForwarder()
+23:   contract TrancheToken is ERC20, ERC1404Like {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L7), [12](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L12), [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L23)
+
+```solidity
+File: src/util/Auth.sol
+
+/// @audit rely(), deny()
+7:    contract Auth {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L7)
+
+</details>
+
+
+
+
+### [G&#x2011;14] Remove unused local variable
+
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/gateway/Gateway.sol
+
+/// @audit _price
+302:                  uint128 _price
+
+```
+*GitHub*: [302](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L302)
+
+
+### [G&#x2011;15] `++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)
+Saves **5 gas per loop**
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+848:          for (uint256 i = 0; i < 128; i++) {
+
+864:              i++;
+
+869:          for (uint8 j = 0; j < i; j++) {
+
+890:              i++;
+
+893:          for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+
+```
+*GitHub*: [848](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L848), [864](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L864), [869](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L869), [890](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L890), [893](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L893)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+64:           for (uint256 i = 0; i < userLength; i++) {
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L64)
+
+```solidity
+File: src/util/Factory.sol
+
+47:           for (uint256 i = 0; i < wards.length; i++) {
+
+103:          for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+
+117:          for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117)
+
+
+### [G&#x2011;16] Usage of `uints`/`ints` smaller than 32 bytes (256 bits) incurs overhead
+> When using elements that are smaller than 32 bytes, your contract’s gas usage may be higher. This is because the EVM operates on 32 bytes at a time. Therefore, if the element is smaller than that, the EVM must use more operations in order to reduce the size of the element from 32 bytes to the desired size.
+
+https://docs.soliditylang.org/en/v0.8.11/internals/layout_in_storage.html
+Each operation involving a `uint8` costs an extra [**22-28 gas**](https://gist.github.com/IllIllI000/9388d20c70f9a4632eb3ca7836f54977) (depending on whether the other operand is also a variable of type `uint8`) as compared to ones involving `uint256`, due to the compiler having to clear the higher bits of the memory word before operating on the `uint8`, as well as the associated stack operations of doing so. Use a larger size then downcast where needed
+
+*There are 53 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit uint128 trancheTokenAmount
+602:          trancheTokenAmount = _fromPriceDecimals(currencyAmountInPriceDecimals, trancheTokenDecimals, liquidityPool);
+
+/// @audit uint128 currencyAmount
+616:          currencyAmount = _fromPriceDecimals(currencyAmountInPriceDecimals, currencyDecimals, liquidityPool);
+
+/// @audit uint128 value
+670:              value = uint128(_value);
+
+/// @audit uint128 value
+692:          value = _toUint128(_value / 10 ** (PRICE_DECIMALS - decimals));
+
+/// @audit uint8 currencyDecimals
+701:          currencyDecimals = ERC20Like(LiquidityPoolLike(liquidityPool).asset()).decimals();
+
+/// @audit uint8 trancheTokenDecimals
+702:          trancheTokenDecimals = LiquidityPoolLike(liquidityPool).decimals();
+
+```
+*GitHub*: [602](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L602), [616](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L616), [670](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L670), [692](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L692), [701](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L701), [702](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L702)
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit uint128 currency
+88:           currency = BytesLib.toUint128(_msg, 1);
+
+/// @audit uint64 poolId
+107:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint64 poolId
+126:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+127:          currency = BytesLib.toUint128(_msg, 9);
+
+/// @audit uint64 poolId
+179:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint8 decimals
+183:          decimals = BytesLib.toUint8(_msg, 185);
+
+/// @audit uint128 price
+184:          price = BytesLib.toUint128(_msg, 186);
+
+/// @audit uint64 poolId
+222:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint64 validUntil
+225:          validUntil = BytesLib.toUint64(_msg, 57);
+
+/// @audit uint64 poolId
+254:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currencyId
+256:          currencyId = BytesLib.toUint128(_msg, 25);
+
+/// @audit uint128 price
+257:          price = BytesLib.toUint128(_msg, 41);
+
+/// @audit uint128 currency
+286:          currency = BytesLib.toUint128(_msg, 1);
+
+/// @audit uint128 amount
+289:          amount = BytesLib.toUint128(_msg, 81);
+
+/// @audit uint128 currency
+299:          currency = BytesLib.toUint128(_msg, 1);
+
+/// @audit uint128 amount
+301:          amount = BytesLib.toUint128(_msg, 81);
+
+/// @audit uint64 poolId
+356:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 amount
+361:          amount = BytesLib.toUint128(_msg, 98);
+
+/// @audit uint64 poolId
+393:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+396:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint128 amount
+397:          amount = BytesLib.toUint128(_msg, 73);
+
+/// @audit uint64 poolId
+521:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+524:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint64 poolId
+552:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+555:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint64 poolId
+579:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+582:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint128 trancheTokenPayout
+583:          trancheTokenPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit uint64 poolId
+607:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+610:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint128 trancheTokensPayout
+611:          trancheTokensPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit uint64 poolId
+649:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+652:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint128 currencyPayout
+653:          currencyPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit uint128 trancheTokensPayout
+654:          trancheTokensPayout = BytesLib.toUint128(_msg, 89);
+
+/// @audit uint64 poolId
+692:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+695:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint128 currencyPayout
+696:          currencyPayout = BytesLib.toUint128(_msg, 73);
+
+/// @audit uint128 trancheTokensPayout
+697:          trancheTokensPayout = BytesLib.toUint128(_msg, 89);
+
+/// @audit uint64 poolId
+760:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint64 poolId
+779:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+782:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint64 poolId
+798:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 currency
+801:          currency = BytesLib.toUint128(_msg, 57);
+
+/// @audit uint64 poolId
+829:          poolId = BytesLib.toUint64(_msg, 1);
+
+/// @audit uint128 investmentLimit
+831:          investmentLimit = BytesLib.toUint128(_msg, 25);
+
+/// @audit uint8 i
+893:          for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+
+```
+*GitHub*: [88](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L88), [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L107), [126](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L126), [127](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L127), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L179), [183](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L183), [184](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L184), [222](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L222), [225](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L225), [254](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L254), [256](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L256), [257](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L257), [286](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L286), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L289), [299](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L299), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L301), [356](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L356), [361](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L361), [393](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L393), [396](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L396), [397](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L397), [521](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L521), [524](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L524), [552](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L552), [555](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L555), [579](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L579), [582](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L582), [583](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L583), [607](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L607), [610](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L610), [611](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L611), [649](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L649), [652](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L652), [653](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L653), [654](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L654), [692](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L692), [695](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L695), [696](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L696), [697](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L697), [760](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L760), [779](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L779), [782](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L782), [798](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L798), [801](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L801), [829](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L829), [831](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L831), [893](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L893)
+
+
+### [G&#x2011;17] Using `private` rather than `public` for constants, saves gas
+If needed, the values can be read from the verified contract source code, or if there are multiple values there can be a single getter function that [returns a tuple](https://github.com/code-423n4/2022-08-frax/blob/90f55a9ce4e25bceed3a74290b854341d8de6afa/src/contracts/FraxlendPair.sol#L156-L178) of the values of all currently-public constants. Saves **3406-3606 gas** in deployment gas due to the compiler not having to create non-payable getter functions for deployment calldata, not having to store the bytes of the value outside of where it's used, and not adding another entry to the method ID table
+
+*There are 11 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+74:       uint8 public constant PRICE_DECIMALS = 18;
+
+```
+*GitHub*: [74](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L74)
+
+```solidity
+File: src/LiquidityPool.sol
+
+55:       uint64 public immutable poolId;
+
+56:       bytes16 public immutable trancheId;
+
+```
+*GitHub*: [55](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L55), [56](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L56)
+
+```solidity
+File: src/token/ERC20.sol
+
+21:       string public constant version = "3";
+
+22:       uint8 public immutable decimals;
+
+30:       uint256 public immutable deploymentChainId;
+
+32        bytes32 public constant PERMIT_TYPEHASH =
+33:           keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+
+```
+*GitHub*: [21](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L21), [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L22), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L30), [32](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L32-L33)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+15:       uint8 public constant SUCCESS_CODE = 0;
+
+16:       uint8 public constant DESTINATION_NOT_A_MEMBER_RESTRICTION_CODE = 1;
+
+17:       string public constant SUCCESS_MESSAGE = "RestrictionManager/transfer-allowed";
+
+18:       string public constant DESTINATION_NOT_A_MEMBER_RESTRICTION_MESSAGE = "RestrictionManager/destination-not-a-member";
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L15), [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L16), [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L17), [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L18)
+
+
+### [G&#x2011;18] Use custom errors rather than `revert()`/`require()` strings to save gas
+Custom errors are available from solidity version 0.8.4. Custom errors save [**~50 gas**](https://gist.github.com/IllIllI000/ad1bd0d29a0101b25e57c293b4b0c746) each time they're hit by [avoiding having to allocate and store the revert string](https://blog.soliditylang.org/2021/04/21/custom-errors/#errors-in-depth). Not defining the strings also save deployment gas
+
+*There are 92 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+98:           require(msg.sender == address(gateway), "InvestmentManager/not-the-gateway");
+
+177:          require(liquidityPool.checkTransferRestriction(address(0), user, 0), "InvestmentManager/not-a-member");
+
+190:          require(liquidityPool.checkTransferRestriction(address(0), user, 0), "InvestmentManager/not-a-member");
+
+202:          require(liquidityPool.checkTransferRestriction(address(0), user, 0), "InvestmentManager/not-a-member");
+
+213:          require(liquidityPool.checkTransferRestriction(address(0), user, 0), "InvestmentManager/not-a-member");
+
+229:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+242:          require(currencyPayout != 0, "InvestmentManager/zero-invest");
+
+245:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+263:          require(trancheTokensPayout != 0, "InvestmentManager/zero-redeem");
+
+266:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+284:          require(currencyPayout != 0, "InvestmentManager/zero-payout");
+
+288:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+289:          require(_currency == LiquidityPoolLike(liquidityPool).asset(), "InvestmentManager/not-tranche-currency");
+
+301:          require(trancheTokenPayout != 0, "InvestmentManager/zero-payout");
+
+305:          require(address(liquidityPool) != address(0), "InvestmentManager/tranche-does-not-exist");
+
+307           require(
+308               LiquidityPoolLike(liquidityPool).checkTransferRestriction(address(0), user, 0),
+309               "InvestmentManager/not-a-member"
+310:          );
+
+312           require(
+313               LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+314               "InvestmentManager/trancheTokens-transfer-failed"
+315:          );
+
+430           require(
+431               (_currencyAmount <= orderbook[user][liquidityPool].maxDeposit && _currencyAmount != 0),
+432               "InvestmentManager/amount-exceeds-deposit-limits"
+433:          );
+
+436:          require(depositPrice != 0, "LiquidityPool/deposit-token-price-0");
+
+454           require(
+455               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxMint && _trancheTokenAmount != 0),
+456               "InvestmentManager/amount-exceeds-mint-limits"
+457:          );
+
+460:          require(depositPrice != 0, "LiquidityPool/deposit-token-price-0");
+
+473:          require(lPool.checkTransferRestriction(msg.sender, user, 0), "InvestmentManager/trancheTokens-not-a-member");
+
+474           require(
+475               lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+476               "InvestmentManager/trancheTokens-transfer-failed"
+477:          );
+
+496           require(
+497               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxRedeem && _trancheTokenAmount != 0),
+498               "InvestmentManager/amount-exceeds-redeem-limits"
+499:          );
+
+502:          require(redeemPrice != 0, "LiquidityPool/redeem-token-price-0");
+
+522           require(
+523               (_currencyAmount <= orderbook[user][liquidityPool].maxWithdraw && _currencyAmount != 0),
+524               "InvestmentManager/amount-exceeds-withdraw-limits"
+525:          );
+
+528:          require(redeemPrice != 0, "LiquidityPool/redeem-token-price-0");
+
+656:          require(liquidityPool != address(0), "InvestmentManager/unknown-liquidity-pool");
+
+657           require(
+658               LiquidityPoolLike(liquidityPool).checkTransferRestriction(address(0), user, 0),
+659               "InvestmentManager/not-a-member"
+660:          );
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L98), [177](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L177), [190](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L190), [202](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L202), [213](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L213), [229](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L229), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L242), [245](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L245), [263](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L263), [266](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L266), [284](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L284), [288](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L288), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L289), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L301), [305](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L305), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L307-L310), [312](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L312-L315), [430](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L430-L433), [436](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L436), [454](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L454-L457), [460](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L460), [473](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L473), [474](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L474-L477), [496](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L496-L499), [502](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L502), [522](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L522-L525), [528](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L528), [656](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L656), [657](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L657-L660)
+
+```solidity
+File: src/LiquidityPool.sol
+
+98:           require(msg.sender == owner, "LiquidityPool/no-approval");
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L98)
+
+```solidity
+File: src/PoolManager.sol
+
+115:          require(msg.sender == address(gateway), "PoolManager/not-the-gateway");
+
+130:          require(currency != 0, "PoolManager/unknown-currency");
+
+143:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+157:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+170:          require(pool.createdAt == 0, "PoolManager/pool-already-added");
+
+181:          require(pool.createdAt != 0, "PoolManager/invalid-pool");
+
+184:          require(currencyAddress != address(0), "PoolManager/unknown-currency");
+
+200:          require(pool.createdAt != 0, "PoolManager/invalid-pool");
+
+202:          require(tranche.createdAt == 0, "PoolManager/tranche-already-exists");
+
+221:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+229:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+240:          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+
+241:          require(currencyIdToAddress[currency] == address(0), "PoolManager/currency-id-in-use");
+
+242:          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+
+243:          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+
+259:          require(currencyAddress != address(0), "PoolManager/unknown-currency");
+
+270:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+272           require(
+273               MemberlistLike(address(trancheToken.restrictionManager())).hasMember(destinationAddress),
+274               "PoolManager/not-a-member"
+275:          );
+
+282:          require(tranche.token == address(0), "PoolManager/tranche-already-deployed");
+
+283:          require(tranche.createdAt != 0, "PoolManager/tranche-not-added");
+
+309:          require(tranche.token != address(0), "PoolManager/tranche-does-not-exist"); // Tranche must have been added
+
+310:          require(isAllowedAsPoolCurrency(poolId, currency), "PoolManager/currency-not-supported"); // Currency must be supported by pool
+
+313:          require(liquidityPool == address(0), "PoolManager/liquidityPool-already-deployed");
+
+314:          require(pools[poolId].createdAt != 0, "PoolManager/pool-does-not-exist");
+
+347:          require(currency != 0, "PoolManager/unknown-currency"); // Currency index on the Centrifuge side should start at 1
+
+348:          require(pools[poolId].allowedCurrencies[currencyAddress], "PoolManager/pool-currency-not-allowed");
+
+```
+*GitHub*: [115](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L115), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L130), [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L143), [157](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L157), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L170), [181](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L181), [184](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L184), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L200), [202](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L202), [221](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L221), [229](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L229), [240](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L240), [241](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L241), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L242), [243](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L243), [259](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L259), [270](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L270), [272](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L272-L275), [282](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L282), [283](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L283), [309](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L309), [310](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L310), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L313), [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L314), [347](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L347), [348](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L348)
+
+```solidity
+File: src/Root.sol
+
+45:               require(data <= MAX_DELAY, "Root/delay-too-long");
+
+76:           require(schedule[target] != 0, "Root/target-not-scheduled");
+
+77:           require(schedule[target] < block.timestamp, "Root/target-not-ready");
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L45), [76](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L76), [77](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L77)
+
+```solidity
+File: src/UserEscrow.sol
+
+37:           require(destinations[token][destination] >= amount, "UserEscrow/transfer-failed");
+
+38            require(
+39                /// @dev transferOut can only be initiated by the destination address or an authorized admin.
+40                ///      The check is just an additional protection to secure destination funds in case of compromized auth.
+41                ///      Since userEscrow is not able to decrease the allowance for the receiver,
+42                ///      a transfer is only possible in case receiver has received the full allowance from destination address.
+43                receiver == destination || (ERC20Like(token).allowance(destination, receiver) == type(uint256).max),
+44                "UserEscrow/receiver-has-no-allowance"
+45:           );
+
+```
+*GitHub*: [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L37), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L38-L45)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+29:           require(pausers[msg.sender] == 1, "PauseAdmin/not-authorized-to-pause");
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L29)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+110:          require(msg.sender == address(investmentManager), "Gateway/only-investment-manager-allowed-to-call");
+
+115:          require(msg.sender == address(poolManager), "Gateway/only-pool-manager-allowed-to-call");
+
+120:          require(incomingRouters[msg.sender], "Gateway/only-router-allowed-to-call");
+
+125:          require(!root.paused(), "Gateway/paused");
+
+```
+*GitHub*: [110](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L110), [115](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L115), [120](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L120), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L125)
+
+```solidity
+File: src/gateway/Messages.sol
+
+860:          require(_bytes128.length == 128, "Input should be 128 bytes");
+
+```
+*GitHub*: [860](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L860)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+44:           require(msg.sender == address(axelarGateway), "AxelarRouter/invalid-origin");
+
+45            require(
+46                keccak256(bytes(axelarCentrifugeChainId)) == keccak256(bytes(sourceChain)),
+47                "AxelarRouter/invalid-source-chain"
+48:           );
+
+49            require(
+50                keccak256(bytes(axelarCentrifugeChainAddress)) == keccak256(bytes(sourceAddress)),
+51                "AxelarRouter/invalid-source-address"
+52:           );
+
+57:           require(msg.sender == address(gateway), "AxelarRouter/only-gateway-allowed-to-call");
+
+80            require(
+81                axelarGateway.validateContractCall(commandId, sourceChain, sourceAddress, payloadHash),
+82                "Router/not-approved-by-gateway"
+83:           );
+
+```
+*GitHub*: [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L44), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L45-L48), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L49-L52), [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L57), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L80-L83)
+
+```solidity
+File: src/token/ERC20.sol
+
+53:           require(wards[_msgSender()] == 1, "Auth/not-authorized");
+
+92:           require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+94:           require(balance >= value, "ERC20/insufficient-balance");
+
+107:          require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+109:          require(balance >= value, "ERC20/insufficient-balance");
+
+114:                  require(allowed >= value, "ERC20/insufficient-allowance");
+
+150:          require(allowed >= subtractedValue, "ERC20/insufficient-allowance");
+
+163:          require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+174:          require(balance >= value, "ERC20/insufficient-balance");
+
+179:                  require(allowed >= value, "ERC20/insufficient-allowance");
+
+217:          require(block.timestamp <= deadline, "ERC20/permit-expired");
+
+218:          require(owner != address(0), "ERC20/invalid-owner");
+
+233:          require(_isValidSignature(owner, digest, signature), "ERC20/invalid-permit");
+
+```
+*GitHub*: [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L53), [92](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L92), [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L94), [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L107), [109](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L109), [114](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L114), [150](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L150), [163](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L163), [174](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L174), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L179), [217](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L217), [218](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L218), [233](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L233)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+46:           require((members[user] >= block.timestamp), "RestrictionManager/destination-not-a-member");
+
+58:           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L46), [58](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L58)
+
+```solidity
+File: src/token/Tranche.sol
+
+37:           require(restrictionCode == restrictionManager.SUCCESS_CODE(), messageForTransferRestriction(restrictionCode));
+
+```
+*GitHub*: [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L37)
+
+```solidity
+File: src/util/Auth.sol
+
+27:           require(wards[msg.sender] == 1, "Auth/not-authorized");
+
+```
+*GitHub*: [27](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L27)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+18:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+
+28:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+
+38:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-approve-failed");
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L18), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L28), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L38)
+
+</details>
+
+
+
+
+### [G&#x2011;19] Functions guaranteed to revert when called by normal users can be marked `payable`
+If a function modifier such as `onlyOwner` is used, the function will revert if a normal user tries to pay the function. Marking the function as `payable` will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are 
+`CALLVALUE`(2),`DUP1`(3),`ISZERO`(3),`PUSH2`(3),`JUMPI`(10),`PUSH1`(3),`DUP1`(3),`REVERT`(0),`JUMPDEST`(1),`POP`(2), which costs an average of about **21 gas per call** to the function, in addition to the extra deployment cost
+
+*There are 80 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+23:       function approve(address token, address spender, uint256 value) external auth {
+
+```
+*GitHub*: [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L23)
+
+```solidity
+File: src/InvestmentManager.sol
+
+103:      function file(bytes32 what, address data) external auth {
+
+117:      function requestDeposit(uint256 currencyAmount, address user) public auth {
+
+148:      function requestRedeem(uint256 trancheTokenAmount, address user) public auth {
+
+174:      function decreaseDepositRequest(uint256 _currencyAmount, address user) public auth {
+
+187:      function decreaseRedeemRequest(uint256 _trancheTokenAmount, address user) public auth {
+
+200:      function collectDeposit(address user) public auth {
+
+211:      function collectRedeem(address user) public auth {
+
+223       function updateTrancheTokenPrice(uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+224           public
+225:          onlyGateway
+
+234       function handleExecutedCollectInvest(
+235           uint64 poolId,
+236           bytes16 trancheId,
+237           address recipient,
+238           uint128 currency,
+239           uint128 currencyPayout,
+240           uint128 trancheTokensPayout
+241:      ) public onlyGateway {
+
+255       function handleExecutedCollectRedeem(
+256           uint64 poolId,
+257           bytes16 trancheId,
+258           address recipient,
+259           uint128 currency,
+260           uint128 currencyPayout,
+261           uint128 trancheTokensPayout
+262:      ) public onlyGateway {
+
+277       function handleExecutedDecreaseInvestOrder(
+278           uint64 poolId,
+279           bytes16 trancheId,
+280           address user,
+281           uint128 currency,
+282           uint128 currencyPayout
+283:      ) public onlyGateway {
+
+294       function handleExecutedDecreaseRedeemOrder(
+295           uint64 poolId,
+296           bytes16 trancheId,
+297           address user,
+298           uint128 currency,
+299           uint128 trancheTokenPayout
+300:      ) public onlyGateway {
+
+325:      function convertToShares(uint256 _assets, address liquidityPool) public view auth returns (uint256 shares) {
+
+338:      function convertToAssets(uint256 _shares, address liquidityPool) public view auth returns (uint256 assets) {
+
+427:      function processDeposit(address user, uint256 currencyAmount) public auth returns (uint256 trancheTokenAmount) {
+
+451:      function processMint(address user, uint256 trancheTokenAmount) public auth returns (uint256 currencyAmount) {
+
+489       function processRedeem(uint256 trancheTokenAmount, address receiver, address user)
+490           public
+491           auth
+492:          returns (uint256 currencyAmount)
+
+515       function processWithdraw(uint256 currencyAmount, address receiver, address user)
+516           public
+517           auth
+518:          returns (uint256 trancheTokenAmount)
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L117), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L148), [174](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L174), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L187), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L200), [211](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L211), [223](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L223-L225), [234](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L234-L241), [255](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L255-L262), [277](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L277-L283), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L294-L300), [325](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L325), [338](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L338), [427](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L427), [451](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L451), [489](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L489-L492), [515](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L515-L518)
+
+```solidity
+File: src/LiquidityPool.sol
+
+103:      function file(bytes32 what, address data) public auth {
+
+313:      function mint(address, uint256) public auth {
+
+318:      function burn(address, uint256) public auth {
+
+324:      function updatePrice(uint128 price) public auth {
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L103), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L313), [318](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L318), [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L324)
+
+```solidity
+File: src/PoolManager.sol
+
+120:      function file(bytes32 what, address data) external auth {
+
+168:      function addPool(uint64 poolId) public onlyGateway {
+
+179:      function allowPoolCurrency(uint64 poolId, uint128 currency) public onlyGateway {
+
+192       function addTranche(
+193           uint64 poolId,
+194           bytes16 trancheId,
+195           string memory tokenName,
+196           string memory tokenSymbol,
+197           uint8 decimals
+198:      ) public onlyGateway {
+
+214       function updateTrancheTokenMetadata(
+215           uint64 poolId,
+216           bytes16 trancheId,
+217           string memory tokenName,
+218           string memory tokenSymbol
+219:      ) public onlyGateway {
+
+227:      function updateMember(uint64 poolId, bytes16 trancheId, address user, uint64 validUntil) public onlyGateway {
+
+238:      function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+
+257:      function handleTransfer(uint128 currency, address recipient, uint128 amount) public onlyGateway {
+
+265       function handleTransferTrancheTokens(uint64 poolId, bytes16 trancheId, address destinationAddress, uint128 amount)
+266           public
+267:          onlyGateway
+
+```
+*GitHub*: [120](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L120), [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L192-L198), [214](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L214-L219), [227](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L227), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238), [257](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L257), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L265-L267)
+
+```solidity
+File: src/Root.sol
+
+43:       function file(bytes32 what, uint256 data) external auth {
+
+54:       function pause() external auth {
+
+59:       function unpause() external auth {
+
+65:       function scheduleRely(address target) external auth {
+
+70:       function cancelRely(address target) external auth {
+
+90:       function relyContract(address target, address user) public auth {
+
+98:       function denyContract(address target, address user) public auth {
+
+```
+*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L43), [54](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L54), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L59), [65](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L65), [70](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L70), [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L90), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L98)
+
+```solidity
+File: src/UserEscrow.sol
+
+29:       function transferIn(address token, address source, address destination, uint256 amount) external auth {
+
+36:       function transferOut(address token, address destination, address receiver, uint256 amount) external auth {
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L29), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L36)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+26:       function pause() public auth {
+
+30:       function unpause() public auth {
+
+34:       function scheduleRely(address target) public auth {
+
+38:       function cancelRely(address target) public auth {
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L26), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L30), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L34), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L38)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+34:       function addPauser(address user) external auth {
+
+39:       function removePauser(address user) external auth {
+
+```
+*GitHub*: [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L34), [39](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L39)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+130:      function file(bytes32 what, address data) public auth {
+
+137:      function addIncomingRouter(address router) public auth {
+
+142:      function removeIncomingRouter(address router) public auth {
+
+147:      function updateOutgoingRouter(address router) public auth {
+
+153       function transferTrancheTokensToCentrifuge(
+154           uint64 poolId,
+155           bytes16 trancheId,
+156           address sender,
+157           bytes32 destinationAddress,
+158           uint128 amount
+159:      ) public onlyPoolManager pauseable {
+
+172       function transferTrancheTokensToEVM(
+173           uint64 poolId,
+174           bytes16 trancheId,
+175           address sender,
+176           uint64 destinationChainId,
+177           address destinationAddress,
+178           uint128 amount
+179:      ) public onlyPoolManager pauseable {
+
+192       function transfer(uint128 token, address sender, bytes32 receiver, uint128 amount)
+193           public
+194           onlyPoolManager
+195:          pauseable
+
+200       function increaseInvestOrder(
+201           uint64 poolId,
+202           bytes16 trancheId,
+203           address investor,
+204           uint128 currency,
+205           uint128 currencyAmount
+206:      ) public onlyInvestmentManager pauseable {
+
+212       function decreaseInvestOrder(
+213           uint64 poolId,
+214           bytes16 trancheId,
+215           address investor,
+216           uint128 currency,
+217           uint128 currencyAmount
+218:      ) public onlyInvestmentManager pauseable {
+
+224       function increaseRedeemOrder(
+225           uint64 poolId,
+226           bytes16 trancheId,
+227           address investor,
+228           uint128 currency,
+229           uint128 trancheTokenAmount
+230:      ) public onlyInvestmentManager pauseable {
+
+238       function decreaseRedeemOrder(
+239           uint64 poolId,
+240           bytes16 trancheId,
+241           address investor,
+242           uint128 currency,
+243           uint128 trancheTokenAmount
+244:      ) public onlyInvestmentManager pauseable {
+
+252       function collectInvest(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+253           public
+254           onlyInvestmentManager
+255:          pauseable
+
+260       function collectRedeem(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+261           public
+262           onlyInvestmentManager
+263:          pauseable
+
+268       function cancelInvestOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+269           public
+270           onlyInvestmentManager
+271:          pauseable
+
+276       function cancelRedeemOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+277           public
+278           onlyInvestmentManager
+279:          pauseable
+
+285:      function handle(bytes calldata message) external onlyIncomingRouter pauseable {
+
+```
+*GitHub*: [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L130), [137](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L137), [142](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L142), [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147), [153](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L153-L159), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L172-L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L192-L195), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L200-L206), [212](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L212-L218), [224](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L224-L230), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L238-L244), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L252-L255), [260](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L260-L263), [268](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L268-L271), [276](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L276-L279), [285](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L285)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+62:       function file(bytes32 what, address data) external auth {
+
+73        function execute(
+74            bytes32 commandId,
+75            string calldata sourceChain,
+76            string calldata sourceAddress,
+77            bytes calldata payload
+78:       ) public onlyCentrifugeChainOrigin(sourceChain, sourceAddress) {
+
+89:       function send(bytes calldata message) public onlyGateway {
+
+```
+*GitHub*: [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L62), [73](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L73-L78), [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L89)
+
+```solidity
+File: src/token/ERC20.sol
+
+57:       function rely(address user) external auth {
+
+62:       function deny(address user) external auth {
+
+83:       function file(bytes32 what, string memory data) external auth {
+
+162:      function mint(address to, uint256 value) public virtual auth {
+
+172:      function burn(address from, uint256 value) external auth {
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L57), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L62), [83](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L83), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L162), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L172)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+57:       function updateMember(address user, uint256 validUntil) public auth {
+
+62:       function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L57), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62)
+
+```solidity
+File: src/token/Tranche.sol
+
+42:       function file(bytes32 what, address data) public auth {
+
+48:       function addLiquidityPool(address liquidityPool) public auth {
+
+53:       function removeLiquidityPool(address liquidityPool) public auth {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L42), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L48), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L53)
+
+```solidity
+File: src/util/Auth.sol
+
+14:       function rely(address user) external auth {
+
+20:       function deny(address user) external auth {
+
+```
+*GitHub*: [14](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L14), [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L20)
+
+```solidity
+File: src/util/Factory.sol
+
+36        function newLiquidityPool(
+37            uint64 poolId,
+38            bytes16 trancheId,
+39            address currency,
+40            address trancheToken,
+41            address investmentManager,
+42            address[] calldata wards
+43:       ) public auth returns (address) {
+
+81        function newTrancheToken(
+82            uint64 poolId,
+83            bytes16 trancheId,
+84            string memory name,
+85            string memory symbol,
+86            uint8 decimals,
+87            address[] calldata trancheTokenWards,
+88            address[] calldata restrictionManagerWards
+89:       ) public auth returns (address) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L36-L43), [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L81-L89)
+
+</details>
+
+
+
+
+### [G&#x2011;20] Constructors can be marked `payable`
+Payable functions cost less gas to execute, since the compiler does not have to add extra checks to ensure that a payment wasn't provided. A constructor can safely be marked as payable, since only the deployer would be able to pass funds, and the project itself would not pass any funds.
+
+*There are 15 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+17        constructor() {
+18:           wards[msg.sender] = 1;
+
+```
+*GitHub*: [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L17-L18)
+
+```solidity
+File: src/InvestmentManager.sol
+
+88:       constructor(address escrow_, address userEscrow_) {
+
+```
+*GitHub*: [88](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L88)
+
+```solidity
+File: src/LiquidityPool.sol
+
+85:       constructor(uint64 poolId_, bytes16 trancheId_, address asset_, address share_, address investmentManager_) {
+
+```
+*GitHub*: [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85)
+
+```solidity
+File: src/PoolManager.sol
+
+104:      constructor(address escrow_, address liquidityPoolFactory_, address trancheTokenFactory_) {
+
+```
+*GitHub*: [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L104)
+
+```solidity
+File: src/Root.sol
+
+34:       constructor(address _escrow, uint256 _delay) {
+
+```
+*GitHub*: [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L34)
+
+```solidity
+File: src/UserEscrow.sol
+
+23        constructor() {
+24:           wards[msg.sender] = 1;
+
+```
+*GitHub*: [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L23-L24)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+18:       constructor(address root_) {
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L18)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+21:       constructor(address root_) {
+
+```
+*GitHub*: [21](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L21)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+98:       constructor(address root_, address investmentManager_, address poolManager_, address router_) {
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L98)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+36:       constructor(address axelarGateway_) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L36)
+
+```solidity
+File: src/token/ERC20.sol
+
+42:       constructor(uint8 decimals_) {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L42)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+22        constructor() {
+23:           wards[msg.sender] = 1;
+
+```
+*GitHub*: [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L22-L23)
+
+```solidity
+File: src/token/Tranche.sol
+
+33:       constructor(uint8 decimals_) ERC20(decimals_) {}
+
+```
+*GitHub*: [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L33)
+
+```solidity
+File: src/util/Factory.sol
+
+29:       constructor(address _root) {
+
+74:       constructor(address _root) {
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L29), [74](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L74)
+
+</details>
+
+
+
+
+### [G&#x2011;21] Don't use `_msgSender()` if not supporting EIP-2771
+Use `msg.sender` if the code does not implement [EIP-2771 trusted forwarder](https://eips.ethereum.org/EIPS/eip-2771) support
+
+*There are 22 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+44:           wards[_msgSender()] = 1;
+
+45:           emit Rely(_msgSender());
+
+53:           require(wards[_msgSender()] == 1, "Auth/not-authorized");
+
+93:           uint256 balance = balanceOf[_msgSender()];
+
+97:               balanceOf[_msgSender()] = balance - value;
+
+101:          emit Transfer(_msgSender(), to, value);
+
+111:          if (from != _msgSender()) {
+
+112:              uint256 allowed = allowance[from][_msgSender()];
+
+116:                      allowance[from][_msgSender()] = allowed - value;
+
+132:          allowance[_msgSender()][spender] = value;
+
+134:          emit Approval(_msgSender(), spender, value);
+
+140:          uint256 newValue = allowance[_msgSender()][spender] + addedValue;
+
+141:          allowance[_msgSender()][spender] = newValue;
+
+143:          emit Approval(_msgSender(), spender, newValue);
+
+149:          uint256 allowed = allowance[_msgSender()][spender];
+
+154:          allowance[_msgSender()][spender] = allowed;
+
+156:          emit Approval(_msgSender(), spender, allowed);
+
+176:          if (from != _msgSender()) {
+
+177:              uint256 allowed = allowance[from][_msgSender()];
+
+182:                      allowance[from][_msgSender()] = allowed - value;
+
+```
+*GitHub*: [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L44), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L45), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L53), [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L93), [97](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L97), [101](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L101), [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L111), [112](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L112), [116](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L116), [132](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L132), [134](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L134), [140](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L140), [141](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L141), [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L143), [149](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L149), [154](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L154), [156](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L156), [176](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L176), [177](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L177), [182](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L182)
+
+```solidity
+File: src/token/Tranche.sol
+
+59:       function transfer(address to, uint256 value) public override restricted(_msgSender(), to, value) returns (bool) {
+
+72:       function mint(address to, uint256 value) public override restricted(_msgSender(), to, value) {
+
+```
+*GitHub*: [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L59), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L72)
+
+
+### [G&#x2011;22] Using globals directly is cheaper than assigning them to variables
+Using the [global](https://docs.soliditylang.org/en/v0.8.14/cheatsheet.html#global-variables) directly saves **5 [gas](https://gist.github.com/IllIllI000/0a38d74d0af20412471a43f1e4fcf8be)**
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+118:         address liquidityPool = msg.sender;
+
+149:         address liquidityPool = msg.sender;
+
+428:         address liquidityPool = msg.sender;
+
+452:         address liquidityPool = msg.sender;
+
+494:         address liquidityPool = msg.sender;
+
+520:         address liquidityPool = msg.sender;
+
+```
+*GitHub*: [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L118-L118), [149](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L149-L149), [428](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L428-L428), [452](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L452-L452), [494](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L494-L494), [520](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L520-L520)
+
+
+### [G&#x2011;23] `>=` costs less gas than `>`
+The compiler uses opcodes `GT` and `ISZERO` for solidity code that uses `>`, but only requires `LT` for `>=`, [which saves **3 gas**](https://gist.github.com/IllIllI000/3dc79d25acccfa16dee4e83ffdc6ffde). If `<` is being used, the condition can be inverted.
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+623:         if (lpValues.maxDeposit < _currency) {
+
+628:         if (lpValues.maxMint < trancheTokens) {
+
+639:         if (lpValues.maxWithdraw < _currency) {
+
+644:         if (lpValues.maxRedeem < trancheTokens) {
+
+667:         if (_value > type(uint128).max) {
+
+```
+*GitHub*: [623](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L623-L623), [628](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L628-L628), [639](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L639-L639), [644](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L644-L644), [667](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L667-L667)
+
+```solidity
+File: src/gateway/Messages.sol
+
+849:             if (i < temp.length) {
+
+```
+*GitHub*: [849](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L849-L849)
+
+
+### [G&#x2011;24] `keccak256()` should only need to be called on a specific string literal once
+It should be saved to an immutable variable, and the variable used instead. If the hash is being used as a part of a function selector, the cast to `bytes4` should also only be done once
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+33:          keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+
+70:                  keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
+
+```
+*GitHub*: [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L33-L33), [70](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L70-L70)
+
+
+### [G&#x2011;25] Use assembly to emit events, in order to save gas
+Using the [scratch space](https://github.com/Vectorized/solady/blob/30558f5402f02351b96eeb6eaf32bcea29773841/src/tokens/ERC1155.sol#L501-L504) for event arguments (two words or fewer) will save gas over needing Solidity's full abi memory expansion used for emitting normally.
+
+*There are 50 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+19:          emit Rely(msg.sender);
+
+```
+*GitHub*: [19](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L19-L19)
+
+```solidity
+File: src/InvestmentManager.sol
+
+93:          emit Rely(msg.sender);
+
+107:         emit File(what, data);
+
+```
+*GitHub*: [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L93-L93), [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L107-L107)
+
+```solidity
+File: src/LiquidityPool.sol
+
+93:          emit Rely(msg.sender);
+
+106:         emit File(what, data);
+
+216:         emit DepositRequested(owner, assets);
+
+225:         emit DepositRequested(owner, assets);
+
+233:         emit RedeemRequested(owner, shares);
+
+242:         emit RedeemRequested(owner, shares);
+
+261:         emit DepositCollected(receiver);
+
+267:         emit RedeemCollected(receiver);
+
+327:         emit UpdatePrice(price);
+
+```
+*GitHub*: [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L93-L93), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L106-L106), [216](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L216-L216), [225](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L225-L225), [233](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L233-L233), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L242-L242), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L261-L261), [267](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L267-L267), [327](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L327-L327)
+
+```solidity
+File: src/PoolManager.sol
+
+110:         emit Rely(msg.sender);
+
+124:         emit File(what, data);
+
+173:         emit PoolAdded(poolId);
+
+187:         emit PoolCurrencyAllowed(currency, poolId);
+
+211:         emit TrancheAdded(poolId, trancheId);
+
+254:         emit CurrencyAdded(currency, currencyAddress);
+
+303:         emit TrancheTokenDeployed(poolId, trancheId);
+
+```
+*GitHub*: [110](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L110-L110), [124](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L124-L124), [173](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L173-L173), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L187-L187), [211](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L211-L211), [254](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L254-L254), [303](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L303-L303)
+
+```solidity
+File: src/Root.sol
+
+39:          emit Rely(msg.sender);
+
+50:          emit File(what, data);
+
+67:          emit RelyScheduled(target, schedule[target]);
+
+72:          emit RelyCancelled(target);
+
+80:          emit Rely(target);
+
+92:          emit RelyContract(target, user);
+
+100:         emit DenyContract(target, user);
+
+```
+*GitHub*: [39](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L39-L39), [50](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L50-L50), [67](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L67-L67), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L72-L72), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L80-L80), [92](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L92-L92), [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L100-L100)
+
+```solidity
+File: src/UserEscrow.sol
+
+25:          emit Rely(msg.sender);
+
+```
+*GitHub*: [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L25-L25)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+22:          emit Rely(msg.sender);
+
+```
+*GitHub*: [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L22-L22)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+25:          emit Rely(msg.sender);
+
+36:          emit AddPauser(user);
+
+41:          emit RemovePauser(user);
+
+```
+*GitHub*: [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L25-L25), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L36-L36), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L41-L41)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+106:         emit Rely(msg.sender);
+
+134:         emit File(what, data);
+
+139:         emit AddIncomingRouter(router);
+
+144:         emit RemoveIncomingRouter(router);
+
+149:         emit UpdateOutgoingRouter(router);
+
+```
+*GitHub*: [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L106-L106), [134](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L134-L134), [139](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L139-L139), [144](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L144-L144), [149](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L149-L149)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+40:          emit Rely(msg.sender);
+
+69:          emit File(what, data);
+
+```
+*GitHub*: [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L40-L40), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L69-L69)
+
+```solidity
+File: src/token/ERC20.sol
+
+45:          emit Rely(_msgSender());
+
+59:          emit Rely(user);
+
+64:          emit Deny(user);
+
+87:          emit File(what, data);
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L45-L45), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L59-L59), [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L64-L64), [87](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L87-L87)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+24:          emit Rely(msg.sender);
+
+```
+*GitHub*: [24](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L24-L24)
+
+```solidity
+File: src/token/Tranche.sol
+
+45:          emit File(what, data);
+
+50:          emit AddLiquidityPool(liquidityPool);
+
+55:          emit RemoveLiquidityPool(liquidityPool);
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L45-L45), [50](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L50-L50), [55](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L55-L55)
+
+```solidity
+File: src/util/Auth.sol
+
+16:          emit Rely(user);
+
+22:          emit Deny(user);
+
+```
+*GitHub*: [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L16-L16), [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L22-L22)
+
+```solidity
+File: src/util/Factory.sol
+
+33:          emit Rely(msg.sender);
+
+78:          emit Rely(msg.sender);
+
+```
+*GitHub*: [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L33-L33), [78](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L78-L78)
+
+</details>
+
+
+
+
+### [G&#x2011;26] Splitting `require()` statements that use `&&` saves gas
+See [this issue](https://github.com/code-423n4/2022-01-xdefi-findings/issues/128) which describes the fact that there is a larger deployment gas cost, but with enough runtime calls, the change ends up being cheaper by **3 gas**
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+92:          require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+107:         require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+163:         require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+```
+*GitHub*: [92](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L92-L92), [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L107-L107), [163](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L163-L163)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+18:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+
+28:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+
+38:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-approve-failed");
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L18-L18), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L28-L28), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L38-L38)
+
+
+### [G&#x2011;27] Use `+=` for `mapping`s
+Using `+=` for mappings saves **[40 gas](https://gist.github.com/IllIllI000/4fc5f83a9edc6ed16677258bf58f32a5)** due to not having to recalculate the mapping's value's hash
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+165:             balanceOf[to] = balanceOf[to] + value; // note: we don't need an overflow check here b/c balanceOf[to] <= totalSupply and there is an overflow check below
+
+```
+*GitHub*: [165](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L165-L165)
+
+
+### [G&#x2011;28] Using `bool`s for storage incurs overhead
+```solidity
+    // Booleans are more expensive than uint256 or any type that takes up a full
+    // word because each write operation emits an extra SLOAD to first read the
+    // slot's contents, replace the bits taken up by the boolean, and then write
+    // back. This is the compiler's defense against contract upgrades and
+    // pointer aliasing, and it cannot be disabled.
+```
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/58f635312aa21f947cae5f8578638a85aa2519f5/contracts/security/ReentrancyGuard.sol#L23-L27
+Use `uint256(0)` and `uint256(1)` for true/false to avoid a Gwarmaccess (**[100 gas](https://gist.github.com/IllIllI000/1b70014db712f8572a72378321250058)**) for the extra SLOAD
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/Root.sol
+
+23:      bool public paused = false;
+
+```
+*GitHub*: [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L23-L23)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+89:      mapping(address => bool) public incomingRouters;
+
+```
+*GitHub*: [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L89-L89)
+
+```solidity
+File: src/token/Tranche.sol
+
+26:      mapping(address => bool) public liquidityPools;
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L26-L26)
+
+
+### [G&#x2011;29] Use `uint256(1)`/`uint256(2)` instead of `true`/`false` to save gas for changes
+Avoids a Gsset (**20000 gas**) when changing from `false` to `true`, after having been `true` in the past
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/Root.sol
+
+23:      bool public paused = false;
+
+```
+*GitHub*: [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L23-L23)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+89:      mapping(address => bool) public incomingRouters;
+
+```
+*GitHub*: [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L89-L89)
+
+```solidity
+File: src/token/Tranche.sol
+
+26:      mapping(address => bool) public liquidityPools;
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L26-L26)
+
+
+### [G&#x2011;30] Simple checks for zero can be done using assembly to save gas
+
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+127:         if (_currencyAmount == 0) {
+
+159:         if (_trancheTokenAmount == 0) {
+
+377:         if (depositPrice == 0) return 0;
+
+390:         if (depositPrice == 0) return 0;
+
+403:         if (redeemPrice == 0) return 0;
+
+416:         if (redeemPrice == 0) return 0;
+
+553:         if (lpValues.maxMint == 0) {
+
+562:         if (lpValues.maxRedeem == 0) {
+
+```
+*GitHub*: [127](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L127-L127), [159](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L159-L159), [377](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L377-L377), [390](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L390-L390), [403](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L403-L403), [416](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L416-L416), [553](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L553-L553), [562](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L562-L562)
+
+```solidity
+File: src/gateway/Messages.sol
+
+878:         if (tempEmptyStringTest.length == 0) {
+
+```
+*GitHub*: [878](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L878-L878)
+
+
+### [G&#x2011;31] Avoid updating storage when the value hasn't changed
+If the old value is equal to the new value, not re-storing the value will avoid a Gsreset (**2900 gas**), potentially at the expense of a Gcoldsload (**2100 gas**) or a Gwarmaccess (**100 gas**)
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+324      function updatePrice(uint128 price) public auth {
+325          latestPrice = price;
+326          lastPriceUpdate = block.timestamp;
+327          emit UpdatePrice(price);
+328:     }
+
+```
+*GitHub*: [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L324-L328)
+
+```solidity
+File: src/PoolManager.sol
+
+168      function addPool(uint64 poolId) public onlyGateway {
+169          Pool storage pool = pools[poolId];
+170          require(pool.createdAt == 0, "PoolManager/pool-already-added");
+171          pool.poolId = poolId;
+172          pool.createdAt = block.timestamp;
+173          emit PoolAdded(poolId);
+174:     }
+
+192      function addTranche(
+193          uint64 poolId,
+194          bytes16 trancheId,
+195          string memory tokenName,
+196          string memory tokenSymbol,
+197          uint8 decimals
+198      ) public onlyGateway {
+199          Pool storage pool = pools[poolId];
+200          require(pool.createdAt != 0, "PoolManager/invalid-pool");
+201          Tranche storage tranche = pool.tranches[trancheId];
+202          require(tranche.createdAt == 0, "PoolManager/tranche-already-exists");
+203  
+204          tranche.poolId = poolId;
+205          tranche.trancheId = trancheId;
+206          tranche.decimals = decimals;
+207          tranche.tokenName = tokenName;
+208          tranche.tokenSymbol = tokenSymbol;
+209          tranche.createdAt = block.timestamp;
+210  
+211          emit TrancheAdded(poolId, trancheId);
+212:     }
+
+238      function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+239          // Currency index on the Centrifuge side should start at 1
+240          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+241          require(currencyIdToAddress[currency] == address(0), "PoolManager/currency-id-in-use");
+242          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+243          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+244  
+245          currencyIdToAddress[currency] = currencyAddress;
+246          currencyAddressToId[currencyAddress] = currency;
+247  
+248          // Enable taking the currency out of escrow in case of redemptions
+249          EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+250  
+251          // Enable taking the currency out of escrow in case of decrease invest orders
+252          EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+253  
+254          emit CurrencyAdded(currency, currencyAddress);
+255:     }
+
+```
+*GitHub*: [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168-L174), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L192-L212), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238-L255)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+147      function updateOutgoingRouter(address router) public auth {
+148          outgoingRouter = RouterLike(router);
+149          emit UpdateOutgoingRouter(router);
+150:     }
+
+```
+*GitHub*: [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147-L150)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+57       function updateMember(address user, uint256 validUntil) public auth {
+58           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+59           members[user] = validUntil;
+60:      }
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L57-L60)
+
+
+### [G&#x2011;32] `unchecked {}`  can be used on the division of two `uint`s in order to save gas
+The division cannot overflow, since both the numerator and the denominator are non-negative
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+692:         value = _toUint128(_value / 10 ** (PRICE_DECIMALS - decimals));
+
+```
+*GitHub*: [692](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L692-L692)
+
+
+### [G&#x2011;33] Use assembly for small keccak256 hashes, in order to save gas
+If the arguments to the encode call can fit into the scratch space (two words or fewer), then it's more efficient to use assembly to generate the hash (**80 gas**):
+`keccak256(abi.encodePacked(x, y))` -> `assembly {mstore(0x00, a); mstore(0x20, b); let hash := keccak256(0x00, 0x40); }`
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+70:                  keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"),
+
+```
+*GitHub*: [70](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L70-L70)
+
+```solidity
+File: src/util/Factory.sol
+
+94:          bytes32 salt = keccak256(abi.encodePacked(poolId, trancheId));
+
+```
+*GitHub*: [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L94-L94)
+
+
+### [G&#x2011;34] Avoid transferring amounts of zero in order to save gas
+Skipping the external call when nothing will be transferred, will save at least **100 gas**
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+132:         SafeTransferLib.safeTransferFrom(currencyAddress, msg.sender, address(escrow), amount);
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+262:         SafeTransferLib.safeTransferFrom(currencyAddress, address(escrow), recipient, amount);
+
+```
+*GitHub*: [132](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L132-L132), [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133), [262](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L262-L262)
+
+```solidity
+File: src/UserEscrow.sol
+
+32:          SafeTransferLib.safeTransferFrom(token, source, address(this), amount);
+
+```
+*GitHub*: [32](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L32-L32)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [G&#x2011;35] Avoid fetching a low-level call's return data by using assembly
+Even if you don't assign the call's second return value, it still gets copied to memory. Use assembly instead to prevent this and save **159 [gas](https://gist.github.com/IllIllI000/0e18a40f3afb0b83f9a347b10ee89ad2)**:
+
+`(bool success,) = payable(receiver).call{gas: gas, value: value}("");` -> `bool success; assembly { success := call(gas, receiver, value, 0, 0, 0, 0) }`
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+314:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+319:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+```
+*GitHub*: [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L314-L314), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L319-L319)
+
+
+### [G&#x2011;36] Consider using `bytes32` rather than a `string`
+Using the `bytes` types for fixed-length strings is more efficient than having the EVM have to incur the overhead of string processing. Consider whether the value _needs_ to be a `string`. A good reason to keep it as a `string` would be if the variable is defined in an interface that this project does not own.
+
+*There are 7 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+173:             string memory tokenName,
+
+174:             string memory tokenSymbol,
+
+758:         returns (uint64 poolId, bytes16 trancheId, string memory tokenName, string memory tokenSymbol)
+
+```
+*GitHub*: [173](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L173-L173), [174](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L174-L174), [758](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L758-L758), [758](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L758-L758)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+36:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L36-L36)
+
+```solidity
+File: src/token/Tranche.sol
+
+14:      function messageForTransferRestriction(uint8 restrictionCode) external view returns (string memory);
+
+84:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+```
+*GitHub*: [14](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L14-L14), [84](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L84-L84)
+
+## Disputed Issues
+
+The issues below may be reported by other bots/wardens, but can be penalized/ignored since either the rule or the specified instances are invalid
+
+
+### [D&#x2011;01] ~~Signatures used by contract are vulnerable to malleability attacks~~
+The general rule is valid, but the instances below are invalid
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+/// @audit `_isValidSignature()`
+203                  s := mload(add(signature, 0x40))
+204                  v := byte(0, mload(add(signature, 0x60)))
+205              }
+206              if (signer == ecrecover(digest, v, r, s)) {
+207                  return true;
+208              }
+209:         }
+
+```
+*GitHub*: [203](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L203-L209)
+
+
+### [D&#x2011;02] ~~Unsafe downcast~~
+When a type is downcast to a smaller type, the higher order bits are truncated, effectively applying a modulo to the original value. Without any other checks, this wrapping will lead to unexpected behavior and bugs
+
+*There are 25 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit uint256 _value -> uint128
+670:              value = uint128(_value);
+
+```
+*GitHub*: [670](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L670)
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit uint8
+80:           return abi.encodePacked(uint8(Call.AddCurrency), currency, currencyAddress);
+
+/// @audit uint8
+99:           return abi.encodePacked(uint8(Call.AddPool), poolId);
+
+/// @audit uint8
+118:          return abi.encodePacked(uint8(Call.AllowPoolCurrency), poolId, currency);
+
+/// @audit uint8
+153:              uint8(Call.AddTranche),
+
+/// @audit uint8
+210:          return abi.encodePacked(uint8(Call.UpdateMember), poolId, trancheId, member, validUntil);
+
+/// @audit uint8
+242:          return abi.encodePacked(uint8(Call.UpdateTrancheTokenPrice), poolId, trancheId, currencyId, price);
+
+/// @audit uint8
+274:          return abi.encodePacked(uint8(Call.Transfer), currency, sender, receiver, amount);
+
+/// @audit uint8
+324:              uint8(Call.TransferTrancheTokens), poolId, trancheId, sender, destinationDomain, destinationAddress, amount
+
+/// @audit uint8
+381:          return abi.encodePacked(uint8(Call.IncreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+/// @audit uint8
+417:          return abi.encodePacked(uint8(Call.DecreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+/// @audit uint8
+449:          return abi.encodePacked(uint8(Call.IncreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+/// @audit uint8
+481:          return abi.encodePacked(uint8(Call.DecreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+/// @audit uint8
+509:          return abi.encodePacked(uint8(Call.CollectInvest), poolId, trancheId, investor, currency);
+
+/// @audit uint8
+540:          return abi.encodePacked(uint8(Call.CollectRedeem), poolId, trancheId, investor, currency);
+
+/// @audit uint8
+566:              uint8(Call.ExecutedDecreaseInvestOrder), poolId, trancheId, investor, currency, currencyPayout
+
+/// @audit uint8
+594:              uint8(Call.ExecutedDecreaseRedeemOrder), poolId, trancheId, investor, currency, trancheTokenPayout
+
+/// @audit uint8
+623:              uint8(Call.ExecutedCollectInvest),
+
+/// @audit uint8
+666:              uint8(Call.ExecutedCollectRedeem),
+
+/// @audit uint8
+701:          return abi.encodePacked(uint8(Call.ScheduleUpgrade), _contract);
+
+/// @audit uint8
+713:          return abi.encodePacked(uint8(Call.CancelUpgrade), _contract);
+
+/// @audit uint8
+743:              uint8(Call.UpdateTrancheTokenMetadata),
+
+/// @audit uint8
+771:          return abi.encodePacked(uint8(Call.CancelInvestOrder), poolId, trancheId, investor, currency);
+
+/// @audit uint8
+790:          return abi.encodePacked(uint8(Call.CancelRedeemOrder), poolId, trancheId, investor, currency);
+
+/// @audit uint8
+817:          return abi.encodePacked(uint8(Call.UpdateTrancheInvestmentLimit), poolId, trancheId, investmentLimit);
+
+```
+*GitHub*: [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L80), [99](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L99), [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L118), [153](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L153), [210](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L210), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L242), [274](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L274), [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L324), [381](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L381), [417](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L417), [449](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L449), [481](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L481), [509](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L509), [540](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L540), [566](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L566), [594](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L594), [623](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L623), [666](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L666), [701](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L701), [713](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L713), [743](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L743), [771](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L771), [790](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L790), [817](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L817)
+
+
+### [D&#x2011;03] ~~Array lengths not checked~~
+If the length of the arrays are not required to be of the same length, user operations may not be fully executed due to a mismatch in the number of items iterated over, versus the number of items provided in the second array
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/util/Factory.sol
+
+81        function newTrancheToken(
+82            uint64 poolId,
+83            bytes16 trancheId,
+84            string memory name,
+85            string memory symbol,
+86            uint8 decimals,
+87            address[] calldata trancheTokenWards,
+88            address[] calldata restrictionManagerWards
+89:       ) public auth returns (address) {
+
+```
+*GitHub*: [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L81-L89)
+
+
+### [D&#x2011;04] ~~Consider implementing two-step procedure for updating protocol addresses~~
+The general rule is valid, but the instances below are invalid
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+168      function addPool(uint64 poolId) public onlyGateway {
+169          Pool storage pool = pools[poolId];
+170          require(pool.createdAt == 0, "PoolManager/pool-already-added");
+171          pool.poolId = poolId;
+172          pool.createdAt = block.timestamp;
+173          emit PoolAdded(poolId);
+174:     }
+
+238      function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+239          // Currency index on the Centrifuge side should start at 1
+240          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+241          require(currencyIdToAddress[currency] == address(0), "PoolManager/currency-id-in-use");
+242          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+243          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+244  
+245          currencyIdToAddress[currency] = currencyAddress;
+246          currencyAddressToId[currencyAddress] = currency;
+247  
+248          // Enable taking the currency out of escrow in case of redemptions
+249          EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+250  
+251          // Enable taking the currency out of escrow in case of decrease invest orders
+252          EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+253  
+254          emit CurrencyAdded(currency, currencyAddress);
+255:     }
+
+```
+*GitHub*: [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168-L174), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238-L255)
+
+
+### [D&#x2011;05] ~~Addition/multiplication in `unchecked` block is unsafe~~
+The general rule is valid, but the instances below are invalid
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+165:             balanceOf[to] = balanceOf[to] + value; // note: we don't need an overflow check here b/c balanceOf[to] <= totalSupply and there is an overflow check below
+
+```
+*GitHub*: [165](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L165-L165)
+
+
+### [D&#x2011;06] ~~External call recipient may consume all transaction gas~~
+The general rule is valid, but the instances below are invalid
+
+*There are 8 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit `transferFrom()`
+296:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+/// @audit `transfer()`
+302:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+/// @audit `approve()`
+308:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+/// @audit `mint()`
+314:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+/// @audit `burn()`
+319:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+```
+*GitHub*: [296](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L296-L296), [302](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L302-L302), [308](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L308-L308), [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L314-L314), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L319-L319)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+/// @audit `safeTransferFrom()`
+17:              token.call(abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, value));
+
+/// @audit `safeTransfer()`
+27:          (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.transfer.selector, to, value));
+
+/// @audit `safeApprove()`
+37:          (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.approve.selector, to, value));
+
+```
+*GitHub*: [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L17-L17), [27](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L27-L27), [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L37-L37)
+
+
+### [D&#x2011;07] ~~Missing checks for invalid `ecrecover()` signature~~
+The general rule is valid, but the instances below are invalid
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+206              if (signer == ecrecover(digest, v, r, s)) {
+207                  return true;
+208              }
+209          }
+210  
+211:         (bool success, bytes memory result) =
+
+```
+*GitHub*: [206](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L206-L211)
+
+
+### [D&#x2011;08] ~~`abi.encodePacked()` should not be used with dynamic types when passing the result to a hash function such as `keccak256()`~~
+The cases below do not have consecutive `bytes`/`string` arguments
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+225           bytes32 digest = keccak256(
+226               abi.encodePacked(
+227                   "\x19\x01",
+228                   block.chainid == deploymentChainId ? _DOMAIN_SEPARATOR : _calculateDomainSeparator(block.chainid),
+229                   keccak256(abi.encode(PERMIT_TYPEHASH, owner, spender, value, nonce, deadline))
+230               )
+231:          );
+
+```
+*GitHub*: [225](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L225-L231)
+
+```solidity
+File: src/util/Factory.sol
+
+94:           bytes32 salt = keccak256(abi.encodePacked(poolId, trancheId));
+
+```
+*GitHub*: [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L94)
+
+
+### [D&#x2011;09] ~~Duplicated require()/revert() checks should be refactored to a modifier Or function to save gas~~
+If the compiler inlines the function, there will be no gas savings. If it doesn't, there's extra runtime overhead due to the JUMP instructions. Either way, this suggestion is not helpful.
+
+*There are 12 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+190:          require(liquidityPool.checkTransferRestriction(address(0), user, 0), "InvestmentManager/not-a-member");
+
+245:          require(liquidityPool != address(0), "InvestmentManager/tranche-does-not-exist");
+
+657           require(
+658               LiquidityPoolLike(liquidityPool).checkTransferRestriction(address(0), user, 0),
+659               "InvestmentManager/not-a-member"
+660:          );
+
+460:          require(depositPrice != 0, "LiquidityPool/deposit-token-price-0");
+
+528:          require(redeemPrice != 0, "LiquidityPool/redeem-token-price-0");
+
+```
+*GitHub*: [190](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L190), [245](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L245), [657](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L657-L660), [460](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L460), [528](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L528)
+
+```solidity
+File: src/PoolManager.sol
+
+347:          require(currency != 0, "PoolManager/unknown-currency"); // Currency index on the Centrifuge side should start at 1
+
+157:          require(address(trancheToken) != address(0), "PoolManager/unknown-token");
+
+200:          require(pool.createdAt != 0, "PoolManager/invalid-pool");
+
+259:          require(currencyAddress != address(0), "PoolManager/unknown-currency");
+
+```
+*GitHub*: [347](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L347), [157](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L157), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L200), [259](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L259)
+
+```solidity
+File: src/token/ERC20.sol
+
+107:          require(to != address(0) && to != address(this), "ERC20/invalid-address");
+
+109:          require(balance >= value, "ERC20/insufficient-balance");
+
+179:                  require(allowed >= value, "ERC20/insufficient-allowance");
+
+```
+*GitHub*: [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L107), [109](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L109), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L179)
+
+
+### [D&#x2011;10] ~~Duplicated `require()`/`revert()` checks should be refactored to a modifier or function~~
+This instance appears only once
+
+*There are 69 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+98:           require(msg.sender == address(gateway), "InvestmentManager/not-the-gateway");
+
+106:          else revert("InvestmentManager/file-unrecognized-param");
+
+242:          require(currencyPayout != 0, "InvestmentManager/zero-invest");
+
+263:          require(trancheTokensPayout != 0, "InvestmentManager/zero-redeem");
+
+284:          require(currencyPayout != 0, "InvestmentManager/zero-payout");
+
+289:          require(_currency == LiquidityPoolLike(liquidityPool).asset(), "InvestmentManager/not-tranche-currency");
+
+301:          require(trancheTokenPayout != 0, "InvestmentManager/zero-payout");
+
+305:          require(address(liquidityPool) != address(0), "InvestmentManager/tranche-does-not-exist");
+
+312           require(
+313               LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+314               "InvestmentManager/trancheTokens-transfer-failed"
+315:          );
+
+430           require(
+431               (_currencyAmount <= orderbook[user][liquidityPool].maxDeposit && _currencyAmount != 0),
+432               "InvestmentManager/amount-exceeds-deposit-limits"
+433:          );
+
+454           require(
+455               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxMint && _trancheTokenAmount != 0),
+456               "InvestmentManager/amount-exceeds-mint-limits"
+457:          );
+
+473:          require(lPool.checkTransferRestriction(msg.sender, user, 0), "InvestmentManager/trancheTokens-not-a-member");
+
+474           require(
+475               lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+476               "InvestmentManager/trancheTokens-transfer-failed"
+477:          );
+
+496           require(
+497               (_trancheTokenAmount <= orderbook[user][liquidityPool].maxRedeem && _trancheTokenAmount != 0),
+498               "InvestmentManager/amount-exceeds-redeem-limits"
+499:          );
+
+522           require(
+523               (_currencyAmount <= orderbook[user][liquidityPool].maxWithdraw && _currencyAmount != 0),
+524               "InvestmentManager/amount-exceeds-withdraw-limits"
+525:          );
+
+656:          require(liquidityPool != address(0), "InvestmentManager/unknown-liquidity-pool");
+
+668:              revert("InvestmentManager/uint128-overflow");
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L98), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L106), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L242), [263](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L263), [284](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L284), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L289), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L301), [305](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L305), [312](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L312-L315), [430](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L430-L433), [454](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L454-L457), [473](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L473), [474](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L474-L477), [496](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L496-L499), [522](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L522-L525), [656](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L656), [668](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L668)
+
+```solidity
+File: src/LiquidityPool.sol
+
+98:           require(msg.sender == owner, "LiquidityPool/no-approval");
+
+105:          else revert("LiquidityPool/file-unrecognized-param");
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L98), [105](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L105)
+
+```solidity
+File: src/PoolManager.sol
+
+115:          require(msg.sender == address(gateway), "PoolManager/not-the-gateway");
+
+123:          else revert("PoolManager/file-unrecognized-param");
+
+170:          require(pool.createdAt == 0, "PoolManager/pool-already-added");
+
+202:          require(tranche.createdAt == 0, "PoolManager/tranche-already-exists");
+
+240:          require(currency != 0, "PoolManager/currency-id-has-to-be-greater-than-0");
+
+241:          require(currencyIdToAddress[currency] == address(0), "PoolManager/currency-id-in-use");
+
+242:          require(currencyAddressToId[currencyAddress] == 0, "PoolManager/currency-address-in-use");
+
+243:          require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+
+272           require(
+273               MemberlistLike(address(trancheToken.restrictionManager())).hasMember(destinationAddress),
+274               "PoolManager/not-a-member"
+275:          );
+
+282:          require(tranche.token == address(0), "PoolManager/tranche-already-deployed");
+
+283:          require(tranche.createdAt != 0, "PoolManager/tranche-not-added");
+
+309:          require(tranche.token != address(0), "PoolManager/tranche-does-not-exist"); // Tranche must have been added
+
+310:          require(isAllowedAsPoolCurrency(poolId, currency), "PoolManager/currency-not-supported"); // Currency must be supported by pool
+
+313:          require(liquidityPool == address(0), "PoolManager/liquidityPool-already-deployed");
+
+314:          require(pools[poolId].createdAt != 0, "PoolManager/pool-does-not-exist");
+
+348:          require(pools[poolId].allowedCurrencies[currencyAddress], "PoolManager/pool-currency-not-allowed");
+
+```
+*GitHub*: [115](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L115), [123](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L123), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L170), [202](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L202), [240](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L240), [241](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L241), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L242), [243](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L243), [272](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L272-L275), [282](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L282), [283](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L283), [309](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L309), [310](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L310), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L313), [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L314), [348](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L348)
+
+```solidity
+File: src/Root.sol
+
+45:               require(data <= MAX_DELAY, "Root/delay-too-long");
+
+48:               revert("Root/file-unrecognized-param");
+
+76:           require(schedule[target] != 0, "Root/target-not-scheduled");
+
+77:           require(schedule[target] < block.timestamp, "Root/target-not-ready");
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L45), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L48), [76](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L76), [77](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L77)
+
+```solidity
+File: src/UserEscrow.sol
+
+37:           require(destinations[token][destination] >= amount, "UserEscrow/transfer-failed");
+
+38            require(
+39                /// @dev transferOut can only be initiated by the destination address or an authorized admin.
+40                ///      The check is just an additional protection to secure destination funds in case of compromized auth.
+41                ///      Since userEscrow is not able to decrease the allowance for the receiver,
+42                ///      a transfer is only possible in case receiver has received the full allowance from destination address.
+43                receiver == destination || (ERC20Like(token).allowance(destination, receiver) == type(uint256).max),
+44                "UserEscrow/receiver-has-no-allowance"
+45:           );
+
+```
+*GitHub*: [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L37), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L38-L45)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+29:           require(pausers[msg.sender] == 1, "PauseAdmin/not-authorized-to-pause");
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L29)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+110:          require(msg.sender == address(investmentManager), "Gateway/only-investment-manager-allowed-to-call");
+
+115:          require(msg.sender == address(poolManager), "Gateway/only-pool-manager-allowed-to-call");
+
+120:          require(incomingRouters[msg.sender], "Gateway/only-router-allowed-to-call");
+
+125:          require(!root.paused(), "Gateway/paused");
+
+133:          else revert("Gateway/file-unrecognized-param");
+
+364:              revert("Gateway/invalid-message");
+
+```
+*GitHub*: [110](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L110), [115](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L115), [120](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L120), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L125), [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L133), [364](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L364)
+
+```solidity
+File: src/gateway/Messages.sol
+
+860:          require(_bytes128.length == 128, "Input should be 128 bytes");
+
+```
+*GitHub*: [860](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L860)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+44:           require(msg.sender == address(axelarGateway), "AxelarRouter/invalid-origin");
+
+45            require(
+46                keccak256(bytes(axelarCentrifugeChainId)) == keccak256(bytes(sourceChain)),
+47                "AxelarRouter/invalid-source-chain"
+48:           );
+
+49            require(
+50                keccak256(bytes(axelarCentrifugeChainAddress)) == keccak256(bytes(sourceAddress)),
+51                "AxelarRouter/invalid-source-address"
+52:           );
+
+57:           require(msg.sender == address(gateway), "AxelarRouter/only-gateway-allowed-to-call");
+
+66:               revert("AxelarRouter/file-unrecognized-param");
+
+80            require(
+81                axelarGateway.validateContractCall(commandId, sourceChain, sourceAddress, payloadHash),
+82                "Router/not-approved-by-gateway"
+83:           );
+
+```
+*GitHub*: [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L44), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L45-L48), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L49-L52), [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L57), [66](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L66), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L80-L83)
+
+```solidity
+File: src/token/ERC20.sol
+
+53:           require(wards[_msgSender()] == 1, "Auth/not-authorized");
+
+86:           else revert("ERC20/file-unrecognized-param");
+
+150:          require(allowed >= subtractedValue, "ERC20/insufficient-allowance");
+
+217:          require(block.timestamp <= deadline, "ERC20/permit-expired");
+
+218:          require(owner != address(0), "ERC20/invalid-owner");
+
+233:          require(_isValidSignature(owner, digest, signature), "ERC20/invalid-permit");
+
+```
+*GitHub*: [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L53), [86](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L86), [150](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L150), [217](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L217), [218](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L218), [233](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L233)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+46:           require((members[user] >= block.timestamp), "RestrictionManager/destination-not-a-member");
+
+58:           require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L46), [58](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L58)
+
+```solidity
+File: src/token/Tranche.sol
+
+37:           require(restrictionCode == restrictionManager.SUCCESS_CODE(), messageForTransferRestriction(restrictionCode));
+
+44:           else revert("TrancheToken/file-unrecognized-param");
+
+```
+*GitHub*: [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L37), [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L44)
+
+```solidity
+File: src/util/Auth.sol
+
+27:           require(wards[msg.sender] == 1, "Auth/not-authorized");
+
+```
+*GitHub*: [27](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L27)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+18:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+
+28:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+
+38:           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-approve-failed");
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L18), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L28), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L38)
+
+</details>
+
+
+
+
+### [D&#x2011;11] ~~SPDX identifier should be the in the first line of a solidity file~~
+It's already on the first line
+
+*There are 18 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L1)
+
+```solidity
+File: src/InvestmentManager.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L1)
+
+```solidity
+File: src/LiquidityPool.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L1)
+
+```solidity
+File: src/PoolManager.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L1)
+
+```solidity
+File: src/Root.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L1)
+
+```solidity
+File: src/UserEscrow.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L1)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L1)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L1)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L1)
+
+```solidity
+File: src/gateway/Messages.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L1)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L1)
+
+```solidity
+File: src/token/ERC20.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L1)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L1)
+
+```solidity
+File: src/token/Tranche.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L1)
+
+```solidity
+File: src/util/Auth.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L1)
+
+```solidity
+File: src/util/Context.sol
+
+1:    // SPDX-License-Identifier: MIT
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Context.sol#L1)
+
+```solidity
+File: src/util/Factory.sol
+
+1:    // SPDX-License-Identifier: AGPL-3.0-only
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L1)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+1:    // SPDX-License-Identifier: GPL-2.0-or-later
+
+```
+*GitHub*: [1](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L1)
+
+</details>
+
+
+
+
+### [D&#x2011;12] ~~Inconsistent comment spacing~~
+URLs are not comments
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+15:   /// @dev    Adapted from https://github.com/makerdao/xdomain-dss/blob/master/src/Dai.sol
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L15)
+
+```solidity
+File: src/util/Auth.sol
+
+2:    // Copyright (C) Centrifuge 2020, based on MakerDAO dss https://github.com/makerdao/dss
+
+```
+*GitHub*: [2](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L2)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+7:    /// @dev    Adapted from rom https://github.com/Uniswap/v3-periphery/blob/main/contracts/libraries/TransferHelper.sol
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L7)
+
+
+### [D&#x2011;13] ~~Prefer double quotes for string quoting~~
+The examples below are not strings. Furthermore it's perfectly reasonable to use single quotes within text ([p. 16](https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/University%20of%20Oxford%20Style%20Guide.pdf)).
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+49:   ///         This is extending the EIP4626 standard by 'requestRedeem' & 'requestDeposit' functions, where redeem and deposit orders are submitted to the pools
+
+```
+*GitHub*: [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L49)
+
+
+### [D&#x2011;14] ~~Public functions not used internally can be marked as external to save gas~~
+After Solidity version 0.6.9 both `public` and `external` functions save the [same amount of gas](https://ethereum.stackexchange.com/a/107939), and since these files are >0.6.9, these findings are invalid
+
+*There are 116 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+117:      function requestDeposit(uint256 currencyAmount, address user) public auth {
+
+148:      function requestRedeem(uint256 trancheTokenAmount, address user) public auth {
+
+174:      function decreaseDepositRequest(uint256 _currencyAmount, address user) public auth {
+
+187:      function decreaseRedeemRequest(uint256 _trancheTokenAmount, address user) public auth {
+
+200:      function collectDeposit(address user) public auth {
+
+211:      function collectRedeem(address user) public auth {
+
+223       function updateTrancheTokenPrice(uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+224           public
+225:          onlyGateway
+
+234       function handleExecutedCollectInvest(
+235           uint64 poolId,
+236           bytes16 trancheId,
+237           address recipient,
+238           uint128 currency,
+239           uint128 currencyPayout,
+240           uint128 trancheTokensPayout
+241:      ) public onlyGateway {
+
+255       function handleExecutedCollectRedeem(
+256           uint64 poolId,
+257           bytes16 trancheId,
+258           address recipient,
+259           uint128 currency,
+260           uint128 currencyPayout,
+261           uint128 trancheTokensPayout
+262:      ) public onlyGateway {
+
+277       function handleExecutedDecreaseInvestOrder(
+278           uint64 poolId,
+279           bytes16 trancheId,
+280           address user,
+281           uint128 currency,
+282           uint128 currencyPayout
+283:      ) public onlyGateway {
+
+294       function handleExecutedDecreaseRedeemOrder(
+295           uint64 poolId,
+296           bytes16 trancheId,
+297           address user,
+298           uint128 currency,
+299           uint128 trancheTokenPayout
+300:      ) public onlyGateway {
+
+319:      function totalAssets(uint256 totalSupply, address liquidityPool) public view returns (uint256 _totalAssets) {
+
+325:      function convertToShares(uint256 _assets, address liquidityPool) public view auth returns (uint256 shares) {
+
+350:      function maxDeposit(address user, address liquidityPool) public view returns (uint256 currencyAmount) {
+
+355:      function maxMint(address user, address liquidityPool) public view returns (uint256 trancheTokenAmount) {
+
+360:      function maxWithdraw(address user, address liquidityPool) public view returns (uint256 currencyAmount) {
+
+365:      function maxRedeem(address user, address liquidityPool) public view returns (uint256 trancheTokenAmount) {
+
+370       function previewDeposit(address user, address liquidityPool, uint256 _currencyAmount)
+371           public
+372           view
+373:          returns (uint256 trancheTokenAmount)
+
+383       function previewMint(address user, address liquidityPool, uint256 _trancheTokenAmount)
+384           public
+385           view
+386:          returns (uint256 currencyAmount)
+
+396       function previewWithdraw(address user, address liquidityPool, uint256 _currencyAmount)
+397           public
+398           view
+399:          returns (uint256 trancheTokenAmount)
+
+409       function previewRedeem(address user, address liquidityPool, uint256 _trancheTokenAmount)
+410           public
+411           view
+412:          returns (uint256 currencyAmount)
+
+427:      function processDeposit(address user, uint256 currencyAmount) public auth returns (uint256 trancheTokenAmount) {
+
+451:      function processMint(address user, uint256 trancheTokenAmount) public auth returns (uint256 currencyAmount) {
+
+489       function processRedeem(uint256 trancheTokenAmount, address receiver, address user)
+490           public
+491           auth
+492:          returns (uint256 currencyAmount)
+
+515       function processWithdraw(uint256 currencyAmount, address receiver, address user)
+516           public
+517           auth
+518:          returns (uint256 trancheTokenAmount)
+
+```
+*GitHub*: [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L117), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L148), [174](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L174), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L187), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L200), [211](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L211), [223](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L223-L225), [234](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L234-L241), [255](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L255-L262), [277](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L277-L283), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L294-L300), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L319), [325](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L325), [350](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L350), [355](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L355), [360](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L360), [365](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L365), [370](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L370-L373), [383](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L383-L386), [396](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L396-L399), [409](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L409-L412), [427](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L427), [451](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L451), [489](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L489-L492), [515](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L515-L518)
+
+```solidity
+File: src/LiquidityPool.sol
+
+103:      function file(bytes32 what, address data) public auth {
+
+111:      function totalAssets() public view returns (uint256) {
+
+118:      function convertToShares(uint256 assets) public view returns (uint256 shares) {
+
+125:      function convertToAssets(uint256 shares) public view returns (uint256 assets) {
+
+130:      function maxDeposit(address receiver) public view returns (uint256) {
+
+135:      function previewDeposit(uint256 assets) public view returns (uint256 shares) {
+
+141:      function deposit(uint256 assets, address receiver) public returns (uint256 shares) {
+
+148:      function mint(uint256 shares, address receiver) public returns (uint256 assets) {
+
+165:      function maxWithdraw(address receiver) public view returns (uint256 maxAssets) {
+
+170:      function previewWithdraw(uint256 assets) public view returns (uint256 shares) {
+
+176       function withdraw(uint256 assets, address receiver, address owner)
+177           public
+178           withApproval(owner)
+179:          returns (uint256 shares)
+
+187:      function maxRedeem(address owner) public view returns (uint256 maxShares) {
+
+192:      function previewRedeem(uint256 shares) public view returns (uint256 assets) {
+
+200       function redeem(uint256 shares, address receiver, address owner)
+201           public
+202           withApproval(owner)
+203:          returns (uint256 assets)
+
+214:      function requestDeposit(uint256 assets, address owner) public withApproval(owner) {
+
+220:      function requestDepositWithPermit(uint256 assets, address owner, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+
+231:      function requestRedeem(uint256 shares, address owner) public withApproval(owner) {
+
+237:      function requestRedeemWithPermit(uint256 shares, address owner, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+
+247:      function decreaseDepositRequest(uint256 assets, address owner) public withApproval(owner) {
+
+253:      function decreaseRedeemRequest(uint256 shares, address owner) public withApproval(owner) {
+
+259:      function collectDeposit(address receiver) public {
+
+265:      function collectRedeem(address receiver) public {
+
+271:      function name() public view returns (string memory) {
+
+275:      function symbol() public view returns (string memory) {
+
+279:      function decimals() public view returns (uint8) {
+
+287:      function balanceOf(address owner) public view returns (uint256) {
+
+291:      function allowance(address owner, address spender) public view returns (uint256) {
+
+295:      function transferFrom(address, address, uint256) public returns (bool) {
+
+301:      function transfer(address, uint256) public returns (bool) {
+
+307:      function approve(address, uint256) public returns (bool) {
+
+313:      function mint(address, uint256) public auth {
+
+318:      function burn(address, uint256) public auth {
+
+324:      function updatePrice(uint128 price) public auth {
+
+332:      function checkTransferRestriction(address from, address to, uint256 value) public view returns (bool) {
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L103), [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L111), [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L118), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L125), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L130), [135](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L135), [141](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L141), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L148), [165](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L165), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L170), [176](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L176-L179), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L187), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L192), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L200-L203), [214](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L214), [220](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L220), [231](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L231), [237](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L237), [247](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L247), [253](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L253), [259](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L259), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L265), [271](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L271), [275](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L275), [279](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L279), [287](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L287), [291](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L291), [295](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L295), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L301), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L307), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L313), [318](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L318), [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L324), [332](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L332)
+
+```solidity
+File: src/PoolManager.sol
+
+128:      function transfer(address currencyAddress, bytes32 recipient, uint128 amount) public {
+
+136       function transferTrancheTokensToCentrifuge(
+137           uint64 poolId,
+138           bytes16 trancheId,
+139           bytes32 destinationAddress,
+140:          uint128 amount
+
+149       function transferTrancheTokensToEVM(
+150           uint64 poolId,
+151           bytes16 trancheId,
+152           uint64 destinationChainId,
+153           address destinationAddress,
+154:          uint128 amount
+
+168:      function addPool(uint64 poolId) public onlyGateway {
+
+179:      function allowPoolCurrency(uint64 poolId, uint128 currency) public onlyGateway {
+
+192       function addTranche(
+193           uint64 poolId,
+194           bytes16 trancheId,
+195           string memory tokenName,
+196           string memory tokenSymbol,
+197           uint8 decimals
+198:      ) public onlyGateway {
+
+214       function updateTrancheTokenMetadata(
+215           uint64 poolId,
+216           bytes16 trancheId,
+217           string memory tokenName,
+218           string memory tokenSymbol
+219:      ) public onlyGateway {
+
+227:      function updateMember(uint64 poolId, bytes16 trancheId, address user, uint64 validUntil) public onlyGateway {
+
+238:      function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+
+257:      function handleTransfer(uint128 currency, address recipient, uint128 amount) public onlyGateway {
+
+265       function handleTransferTrancheTokens(uint64 poolId, bytes16 trancheId, address destinationAddress, uint128 amount)
+266           public
+267:          onlyGateway
+
+280:      function deployTranche(uint64 poolId, bytes16 trancheId) public returns (address) {
+
+307:      function deployLiquidityPool(uint64 poolId, bytes16 trancheId, address currency) public returns (address) {
+
+341:      function getLiquidityPool(uint64 poolId, bytes16 trancheId, address currency) public view returns (address) {
+
+```
+*GitHub*: [128](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L128), [136](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L136-L140), [149](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L149-L154), [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L192-L198), [214](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L214-L219), [227](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L227), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238), [257](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L257), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L265-L267), [280](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L280), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L307), [341](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L341)
+
+```solidity
+File: src/Root.sol
+
+75:       function executeScheduledRely(address target) public {
+
+90:       function relyContract(address target, address user) public auth {
+
+98:       function denyContract(address target, address user) public auth {
+
+```
+*GitHub*: [75](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L75), [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L90), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L98)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+26:       function pause() public auth {
+
+30:       function unpause() public auth {
+
+34:       function scheduleRely(address target) public auth {
+
+38:       function cancelRely(address target) public auth {
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L26), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L30), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L34), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L38)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+45:       function pause() public canPause {
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L45)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+130:      function file(bytes32 what, address data) public auth {
+
+137:      function addIncomingRouter(address router) public auth {
+
+142:      function removeIncomingRouter(address router) public auth {
+
+147:      function updateOutgoingRouter(address router) public auth {
+
+153       function transferTrancheTokensToCentrifuge(
+154           uint64 poolId,
+155           bytes16 trancheId,
+156           address sender,
+157           bytes32 destinationAddress,
+158           uint128 amount
+159:      ) public onlyPoolManager pauseable {
+
+172       function transferTrancheTokensToEVM(
+173           uint64 poolId,
+174           bytes16 trancheId,
+175           address sender,
+176           uint64 destinationChainId,
+177           address destinationAddress,
+178           uint128 amount
+179:      ) public onlyPoolManager pauseable {
+
+192       function transfer(uint128 token, address sender, bytes32 receiver, uint128 amount)
+193           public
+194           onlyPoolManager
+195:          pauseable
+
+200       function increaseInvestOrder(
+201           uint64 poolId,
+202           bytes16 trancheId,
+203           address investor,
+204           uint128 currency,
+205           uint128 currencyAmount
+206:      ) public onlyInvestmentManager pauseable {
+
+212       function decreaseInvestOrder(
+213           uint64 poolId,
+214           bytes16 trancheId,
+215           address investor,
+216           uint128 currency,
+217           uint128 currencyAmount
+218:      ) public onlyInvestmentManager pauseable {
+
+224       function increaseRedeemOrder(
+225           uint64 poolId,
+226           bytes16 trancheId,
+227           address investor,
+228           uint128 currency,
+229           uint128 trancheTokenAmount
+230:      ) public onlyInvestmentManager pauseable {
+
+238       function decreaseRedeemOrder(
+239           uint64 poolId,
+240           bytes16 trancheId,
+241           address investor,
+242           uint128 currency,
+243           uint128 trancheTokenAmount
+244:      ) public onlyInvestmentManager pauseable {
+
+252       function collectInvest(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+253           public
+254           onlyInvestmentManager
+255:          pauseable
+
+260       function collectRedeem(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+261           public
+262           onlyInvestmentManager
+263:          pauseable
+
+268       function cancelInvestOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+269           public
+270           onlyInvestmentManager
+271:          pauseable
+
+276       function cancelRedeemOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+277           public
+278           onlyInvestmentManager
+279:          pauseable
+
+```
+*GitHub*: [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L130), [137](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L137), [142](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L142), [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147), [153](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L153-L159), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L172-L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L192-L195), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L200-L206), [212](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L212-L218), [224](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L224-L230), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L238-L244), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L252-L255), [260](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L260-L263), [268](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L268-L271), [276](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L276-L279)
+
+```solidity
+File: src/gateway/Messages.sol
+
+836:      function formatDomain(Domain domain) public pure returns (bytes9) {
+
+840:      function formatDomain(Domain domain, uint64 chainId) public pure returns (bytes9) {
+
+```
+*GitHub*: [836](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L836), [840](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L840)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+73        function execute(
+74            bytes32 commandId,
+75            string calldata sourceChain,
+76            string calldata sourceAddress,
+77            bytes calldata payload
+78:       ) public onlyCentrifugeChainOrigin(sourceChain, sourceAddress) {
+
+89:       function send(bytes calldata message) public onlyGateway {
+
+```
+*GitHub*: [73](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L73-L78), [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L89)
+
+```solidity
+File: src/token/ERC20.sol
+
+91:       function transfer(address to, uint256 value) public virtual returns (bool) {
+
+106:      function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+
+162:      function mint(address to, uint256 value) public virtual auth {
+
+```
+*GitHub*: [91](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L91), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L106), [162](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L162)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+28:       function detectTransferRestriction(address from, address to, uint256 value) public view returns (uint8) {
+
+36:       function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+45:       function member(address user) public view {
+
+62:       function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L28), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L36), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L45), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62)
+
+```solidity
+File: src/token/Tranche.sol
+
+42:       function file(bytes32 what, address data) public auth {
+
+48:       function addLiquidityPool(address liquidityPool) public auth {
+
+53:       function removeLiquidityPool(address liquidityPool) public auth {
+
+59:       function transfer(address to, uint256 value) public override restricted(_msgSender(), to, value) returns (bool) {
+
+63        function transferFrom(address from, address to, uint256 value)
+64            public
+65            override
+66            restricted(from, to, value)
+67:           returns (bool)
+
+72:       function mint(address to, uint256 value) public override restricted(_msgSender(), to, value) {
+
+80:       function checkTransferRestriction(address from, address to, uint256 value) public view returns (bool) {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L42), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L48), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L53), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L59), [63](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L63-L67), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L72), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L80)
+
+```solidity
+File: src/util/Factory.sol
+
+36        function newLiquidityPool(
+37            uint64 poolId,
+38            bytes16 trancheId,
+39            address currency,
+40            address trancheToken,
+41            address investmentManager,
+42            address[] calldata wards
+43:       ) public auth returns (address) {
+
+81        function newTrancheToken(
+82            uint64 poolId,
+83            bytes16 trancheId,
+84            string memory name,
+85            string memory symbol,
+86            uint8 decimals,
+87            address[] calldata trancheTokenWards,
+88            address[] calldata restrictionManagerWards
+89:       ) public auth returns (address) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L36-L43), [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L81-L89)
+
+</details>
+
+
+
+
+### [D&#x2011;15] ~~Unused named return variables without optimizer waste gas~~
+Suggestions that only apply when the optimizer is _off_ are not useful to sponsors. Why would they pay for gas optimizations if they don't have the optimizer on, and don't plan to turn it on? Only a [small minority](https://github.com/search?q=org%3Acode-423n4+%22optimizer+%3D+false%22&type=code) have the optimizer off; the majority have it set to more than [200](https://github.com/search?q=org%3Acode-423n4+optimizer_runs&type=code) runs
+
+*There are 20 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit maxAssets
+165:      function maxWithdraw(address receiver) public view returns (uint256 maxAssets) {
+
+/// @audit shares
+176       function withdraw(uint256 assets, address receiver, address owner)
+177           public
+178           withApproval(owner)
+179:          returns (uint256 shares)
+
+/// @audit maxShares
+187:      function maxRedeem(address owner) public view returns (uint256 maxShares) {
+
+/// @audit assets
+200       function redeem(uint256 shares, address receiver, address owner)
+201           public
+202           withApproval(owner)
+203:          returns (uint256 assets)
+
+```
+*GitHub*: [165](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L165), [176](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L176-L179), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L187), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L200-L203)
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit poolId
+/// @audit trancheId
+/// @audit investor
+/// @audit currency
+/// @audit amount
+424       function parseDecreaseInvestOrder(bytes memory _msg)
+425           internal
+426           pure
+427:          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+
+/// @audit poolId
+/// @audit trancheId
+/// @audit investor
+/// @audit currency
+/// @audit amount
+456       function parseIncreaseRedeemOrder(bytes memory _msg)
+457           internal
+458           pure
+459:          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+
+/// @audit poolId
+/// @audit trancheId
+/// @audit investor
+/// @audit currency
+/// @audit amount
+488       function parseDecreaseRedeemOrder(bytes memory _msg)
+489           internal
+490           pure
+491:          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+
+```
+*GitHub*: [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L427), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L427), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L427), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L427), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L427), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L459), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L459), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L459), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L459), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L459), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L491), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L491), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L491), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L491), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L491)
+
+```solidity
+File: src/util/Factory.sol
+
+/// @audit memberList
+111:      function _newRestrictionManager(address[] calldata restrictionManagerWards) internal returns (address memberList) {
+
+```
+*GitHub*: [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L111)
+
+
+### [D&#x2011;16] ~~Event names should use CamelCase~~
+The instances below are already CamelCase (events are supposed to use CamelCase, not lowerCamelCase)
+
+*There are 46 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+15:      event Approve(address indexed token, address indexed spender, uint256 value);
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L15-L15)
+
+```solidity
+File: src/InvestmentManager.sol
+
+84:      event File(bytes32 indexed what, address data);
+
+85:      event DepositProcessed(address indexed liquidityPool, address indexed user, uint128 indexed currencyAmount);
+
+86:      event RedemptionProcessed(address indexed liquidityPool, address indexed user, uint128 indexed trancheTokenAmount);
+
+```
+*GitHub*: [84](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L84-L84), [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L85-L85), [86](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L86-L86)
+
+```solidity
+File: src/LiquidityPool.sol
+
+78:      event File(bytes32 indexed what, address data);
+
+79:      event DepositRequested(address indexed owner, uint256 assets);
+
+80:      event RedeemRequested(address indexed owner, uint256 shares);
+
+81:      event DepositCollected(address indexed owner);
+
+82:      event RedeemCollected(address indexed owner);
+
+83:      event UpdatePrice(uint128 price);
+
+```
+*GitHub*: [78](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L78-L78), [79](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L79-L79), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L80-L80), [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L81-L81), [82](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L82-L82), [83](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L83-L83)
+
+```solidity
+File: src/PoolManager.sol
+
+95:      event File(bytes32 indexed what, address data);
+
+96:      event PoolAdded(uint64 indexed poolId);
+
+97:      event PoolCurrencyAllowed(uint128 indexed currency, uint64 indexed poolId);
+
+98:      event TrancheAdded(uint64 indexed poolId, bytes16 indexed trancheId);
+
+99:      event TrancheDeployed(uint64 indexed poolId, bytes16 indexed trancheId, address indexed token);
+
+100:     event CurrencyAdded(uint128 indexed currency, address indexed currencyAddress);
+
+101:     event LiquidityPoolDeployed(uint64 indexed poolId, bytes16 indexed trancheId, address indexed liquidityPoool);
+
+102:     event TrancheTokenDeployed(uint64 indexed poolId, bytes16 indexed trancheId);
+
+```
+*GitHub*: [95](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L95-L95), [96](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L96-L96), [97](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L97-L97), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L98-L98), [99](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L99-L99), [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L100-L100), [101](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L101-L101), [102](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L102-L102)
+
+```solidity
+File: src/Root.sol
+
+26:      event File(bytes32 indexed what, uint256 data);
+
+27:      event Pause();
+
+28:      event Unpause();
+
+29:      event RelyScheduled(address indexed target, uint256 indexed scheduledTime);
+
+30:      event RelyCancelled(address indexed target);
+
+31:      event RelyContract(address target, address indexed user);
+
+32:      event DenyContract(address target, address indexed user);
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L26-L26), [27](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L27-L27), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L28-L28), [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L29-L29), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L30-L30), [31](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L31-L31), [32](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L32-L32)
+
+```solidity
+File: src/UserEscrow.sol
+
+20:      event TransferIn(address indexed token, address indexed source, address indexed destination, uint256 amount);
+
+21:      event TransferOut(address indexed token, address indexed destination, uint256 amount);
+
+```
+*GitHub*: [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L20-L20), [21](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L21-L21)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+16:      event File(bytes32 indexed what, address indexed data);
+
+```
+*GitHub*: [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L16-L16)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+15:      event AddPauser(address indexed user);
+
+16:      event RemovePauser(address indexed user);
+
+19:      event File(bytes32 indexed what, address indexed data);
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L15-L15), [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L16-L16), [19](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L19-L19)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+93:      event AddIncomingRouter(address indexed router);
+
+94:      event RemoveIncomingRouter(address indexed router);
+
+95:      event UpdateOutgoingRouter(address indexed router);
+
+96:      event File(bytes32 indexed what, address data);
+
+```
+*GitHub*: [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L93-L93), [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L94-L94), [95](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L95-L95), [96](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L96-L96)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+34:      event File(bytes32 indexed what, address addr);
+
+```
+*GitHub*: [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L34-L34)
+
+```solidity
+File: src/token/ERC20.sol
+
+36:      event Rely(address indexed user);
+
+37:      event Deny(address indexed user);
+
+38:      event File(bytes32 indexed what, string data);
+
+39:      event Approval(address indexed owner, address indexed spender, uint256 value);
+
+40:      event Transfer(address indexed from, address indexed to, uint256 value);
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L36-L36), [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L37-L37), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L38-L38), [39](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L39-L39), [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L40-L40)
+
+```solidity
+File: src/token/Tranche.sol
+
+29:      event File(bytes32 indexed what, address data);
+
+30:      event AddLiquidityPool(address indexed liquidityPool);
+
+31:      event RemoveLiquidityPool(address indexed liquidityPool);
+
+```
+*GitHub*: [29](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L29-L29), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L30-L30), [31](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L31-L31)
+
+```solidity
+File: src/util/Auth.sol
+
+10:      event Rely(address indexed user);
+
+11:      event Deny(address indexed user);
+
+```
+*GitHub*: [10](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L10-L10), [11](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L11-L11)
+
+</details>
+
+
+
+
+### [D&#x2011;17] ~~Usage of ints/uints smaller than 32 bytes incurs overhead~~
+The ERC20 standard says this must be a `uint8`, so changing this is not possible
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+26:      function decimals() external view returns (uint8);
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L26-L26)
+
+```solidity
+File: src/LiquidityPool.sol
+
+279:     function decimals() public view returns (uint8) {
+
+```
+*GitHub*: [279](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L279-L279)
+
+
+### [D&#x2011;18] ~~Unnecessary look up in if condition~~
+
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/UserEscrow.sol
+
+43:              receiver == destination || (ERC20Like(token).allowance(destination, receiver) == type(uint256).max),
+
+```
+*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L43-L43)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+18:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+
+28:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+
+38:          require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-approve-failed");
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L18-L18), [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L28-L28), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L38-L38)
+
+
+### [D&#x2011;19] ~~Timestamp may be manipulation~~
+Use of `block.timestamp`, in and of itself, is not evidence of an issue; there must be an incorrect usage in the code in order for there to be a vulnerability. There should also be a corresponding suggested fix.
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+326:         lastPriceUpdate = block.timestamp;
+
+```
+*GitHub*: [326](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L326-L326)
+
+```solidity
+File: src/PoolManager.sol
+
+172:         pool.createdAt = block.timestamp;
+
+209:         tranche.createdAt = block.timestamp;
+
+```
+*GitHub*: [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L172-L172), [209](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L209-L209)
+
+```solidity
+File: src/Root.sol
+
+66:          schedule[target] = block.timestamp + delay;
+
+77:          require(schedule[target] < block.timestamp, "Root/target-not-ready");
+
+```
+*GitHub*: [66](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L66-L66), [77](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L77-L77)
+
+```solidity
+File: src/token/ERC20.sol
+
+217:         require(block.timestamp <= deadline, "ERC20/permit-expired");
+
+```
+*GitHub*: [217](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L217-L217)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+46:          require((members[user] >= block.timestamp), "RestrictionManager/destination-not-a-member");
+
+50:          if (members[user] >= block.timestamp) {
+
+58:          require(block.timestamp <= validUntil, "RestrictionManager/invalid-valid-until");
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L46-L46), [50](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L50-L50), [58](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L58-L58)
+
+
+### [D&#x2011;20] ~~Revert on transfer to the zero address~~
+Forcing called tokens to not allow transfers to `address(0)` breaks composability if that token requires this functionality.
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60)
+
+
+### [D&#x2011;21] ~~Using bitmap to store bool states can save gas~~
+none of these are examples where bitmaps can be used
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+57:      mapping(address => bool) allowedCurrencies;
+
+```
+*GitHub*: [57](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L57-L57)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+89:      mapping(address => bool) public incomingRouters;
+
+```
+*GitHub*: [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L89-L89)
+
+```solidity
+File: src/token/Tranche.sol
+
+26:      mapping(address => bool) public liquidityPools;
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L26-L26)
+
+
+### [D&#x2011;22] ~~All interfaces used within a project should be imported~~
+These contracts don't rely on other contracts for their definitions, so there's nothing to import
+
+*There are 33 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+7:   interface ApproveLike {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L7-L7)
+
+```solidity
+File: src/InvestmentManager.sol
+
+8:   interface GatewayLike {
+
+23:  interface ERC20Like {
+
+41:  interface PoolManagerLike {
+
+49:  interface EscrowLike {
+
+53:  interface UserEscrowLike {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L8-L8), [23](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L23-L23), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L41-L41), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L49-L49), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L53-L53)
+
+```solidity
+File: src/LiquidityPool.sol
+
+9:   interface ERC20PermitLike {
+
+20:  interface InvestmentManagerLike {
+
+```
+*GitHub*: [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L9-L9), [20](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L20-L20)
+
+```solidity
+File: src/PoolManager.sol
+
+11:  interface GatewayLike {
+
+30:  interface LiquidityPoolLike {
+
+34:  interface InvestmentManagerLike {
+
+40:  interface EscrowLike {
+
+44:  interface ERC2771Like {
+
+48:  interface AuthLike {
+
+```
+*GitHub*: [11](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L11-L11), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L30-L30), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L34-L34), [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L40-L40), [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L44-L44), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L48-L48)
+
+```solidity
+File: src/Root.sol
+
+6:   interface AuthLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L6-L6)
+
+```solidity
+File: src/UserEscrow.sol
+
+7:   interface ERC20Like {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L7-L7)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+7:   interface InvestmentManagerLike {
+
+41:  interface PoolManagerLike {
+
+64:  interface RouterLike {
+
+68:  interface AuthLike {
+
+72:  interface RootLike {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L7-L7), [41](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L41-L41), [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L64-L64), [68](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L68-L68), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L72-L72)
+
+```solidity
+File: src/gateway/Messages.sol
+
+8:   library Messages {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L8-L8)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+6:   interface AxelarGatewayLike {
+
+18:  interface GatewayLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L6-L6), [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L18-L18)
+
+```solidity
+File: src/token/ERC20.sol
+
+8:   interface IERC1271 {
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L8-L8)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+6:   interface MemberlistLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L6-L6)
+
+```solidity
+File: src/token/Tranche.sol
+
+12:  interface ERC1404Like {
+
+```
+*GitHub*: [12](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L12-L12)
+
+```solidity
+File: src/util/Auth.sol
+
+7:   contract Auth {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L7-L7)
+
+```solidity
+File: src/util/Context.sol
+
+12:  abstract contract Context {
+
+```
+*GitHub*: [12](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Context.sol#L12-L12)
+
+```solidity
+File: src/util/Factory.sol
+
+9:   interface RootLike {
+
+13:  interface LiquidityPoolFactoryLike {
+
+55:  interface TrancheTokenFactoryLike {
+
+```
+*GitHub*: [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L9-L9), [13](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L13-L13), [55](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L55-L55)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+8    library SafeTransferLib {
+9        /// @notice Transfers tokens from the targeted address to the given destination
+10       /// @notice Errors if transfer fails
+11       /// @param token The contract address of the token to be transferred
+12       /// @param from The originating address from which the tokens will be transferred
+13       /// @param to The destination address of the transfer
+14:      /// @param value The amount to be transferred
+
+```
+*GitHub*: [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L8-L14)
+
+</details>
+
+
+
+
+### [D&#x2011;23] ~~It's not standard to end and begin a code object on the same line~~
+These are perfectly standard
+
+*There are 34 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+4:   import {Auth} from "./util/Auth.sol";
+
+5:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L5-L5)
+
+```solidity
+File: src/InvestmentManager.sol
+
+4:   import {Auth} from "./util/Auth.sol";
+
+5:   import {MathLib} from "./util/MathLib.sol";
+
+6:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L6-L6)
+
+```solidity
+File: src/LiquidityPool.sol
+
+4:   import {Auth} from "./util/Auth.sol";
+
+5:   import {MathLib} from "./util/MathLib.sol";
+
+6:   import {IERC20} from "./interfaces/IERC20.sol";
+
+7:   import {IERC4626} from "./interfaces/IERC4626.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L7-L7)
+
+```solidity
+File: src/PoolManager.sol
+
+5:   import {TrancheTokenLike} from "./token/Tranche.sol";
+
+6:   import {MemberlistLike} from "./token/RestrictionManager.sol";
+
+7:   import {IERC20} from "./interfaces/IERC20.sol";
+
+8:   import {Auth} from "./util/Auth.sol";
+
+9:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L7-L7), [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L8-L8), [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L9-L9)
+
+```solidity
+File: src/Root.sol
+
+4:   import {Auth} from "./util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L4-L4)
+
+```solidity
+File: src/UserEscrow.sol
+
+4:   import {Auth} from "./util/Auth.sol";
+
+5:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L5-L5)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+4:   import {Root} from "../Root.sol";
+
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L5-L5)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+4:   import {Root} from "../Root.sol";
+
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L5-L5)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+4:   import {Messages} from "./Messages.sol";
+
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L5-L5)
+
+```solidity
+File: src/gateway/Messages.sol
+
+4:   import {BytesLib} from "src/util/BytesLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L4-L4)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+4:   import {Auth} from "./../../../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L4-L4)
+
+```solidity
+File: src/token/ERC20.sol
+
+6:   import {Context} from "../util/Context.sol";
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L6-L6)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+4:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L4-L4)
+
+```solidity
+File: src/token/Tranche.sol
+
+4:   import {ERC20} from "./ERC20.sol";
+
+5:   import {IERC20} from "../interfaces/IERC20.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L5-L5)
+
+```solidity
+File: src/util/Factory.sol
+
+4:   import {LiquidityPool} from "../LiquidityPool.sol";
+
+5:   import {TrancheToken} from "../token/Tranche.sol";
+
+6:   import {RestrictionManager} from "../token/RestrictionManager.sol";
+
+7:   import {Auth} from "./Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L7-L7)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+4:   import {IERC20} from "../interfaces/IERC20.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L4-L4)
+
+</details>
+
+
+
+
+### [D&#x2011;24] ~~Use `assembly` to write address/contract type storage values~~
+Using this suggestion stomps over any value packed into the same slot as the address, so this advice is not safe.
+
+*There are 15 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+105:         else if (what == "poolManager") poolManager = PoolManagerLike(data);
+
+104:         if (what == "gateway") gateway = GatewayLike(data);
+
+```
+*GitHub*: [105](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L105-L105), [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L104-L104)
+
+```solidity
+File: src/LiquidityPool.sol
+
+90:          investmentManager = InvestmentManagerLike(investmentManager_);
+
+104:         if (what == "investmentManager") investmentManager = InvestmentManagerLike(data);
+
+```
+*GitHub*: [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L90-L90), [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L104-L104)
+
+```solidity
+File: src/PoolManager.sol
+
+122:         else if (what == "investmentManager") investmentManager = InvestmentManagerLike(data);
+
+121:         if (what == "gateway") gateway = GatewayLike(data);
+
+302:         tranche.token = token;
+
+```
+*GitHub*: [122](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L122-L122), [121](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L121-L121), [302](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L302-L302)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+100:         investmentManager = InvestmentManagerLike(investmentManager_);
+
+101:         poolManager = PoolManagerLike(poolManager_);
+
+103:         outgoingRouter = RouterLike(router_);
+
+132:         else if (what == "investmentManager") investmentManager = InvestmentManagerLike(data);
+
+131:         if (what == "poolManager") poolManager = PoolManagerLike(data);
+
+148:         outgoingRouter = RouterLike(router);
+
+```
+*GitHub*: [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L100-L100), [101](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L101-L101), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L103-L103), [132](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L132-L132), [131](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L131-L131), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L148-L148)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+64:              gateway = GatewayLike(data);
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L64-L64)
+
+```solidity
+File: src/token/Tranche.sol
+
+43:          if (what == "restrictionManager") restrictionManager = ERC1404Like(data);
+
+```
+*GitHub*: [43](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L43-L43)
+
+
+### [D&#x2011;25] ~~Use multiple `require()` and `if` statements instead of `&&`~~
+The suggestion in this rule is not logically equivalent for `if`-statements unless they're nested, and cannot be done if there's an `else`-block without spending more gas. It doesn't seem more readable for `require()`s either
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+104          if (isTrustedForwarder(msg.sender) && msg.data.length >= 20) {
+105              // The assembly code is more direct than the Solidity version using `abi.decode`.
+106:             /// @solidity memory-safe-assembly
+
+```
+*GitHub*: [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L104-L106)
+
+
+### [D&#x2011;26] ~~Nesting `if`-statements is cheaper than using `&&`~~
+Nesting when there's an `else`-block uses _more_ gas, not less
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+104          if (isTrustedForwarder(msg.sender) && msg.data.length >= 20) {
+105              // The assembly code is more direct than the Solidity version using `abi.decode`.
+106              /// @solidity memory-safe-assembly
+107              assembly {
+108                  sender := shr(96, calldataload(sub(calldatasize(), 20)))
+109              }
+110          } else {
+111              return super._msgSender();
+112:         }
+
+```
+*GitHub*: [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L104-L112)
+
+
+### [D&#x2011;27] ~~It is standard for all external and public functions to be override from an interface~~
+According to the Solidity [docs](https://docs.soliditylang.org/en/v0.8.20/contracts.html#function-overriding), "Starting from Solidity 0.8.8, the `override` keyword is not required when overriding an interface function, except for the case where the function is defined in multiple bases", so while it may have been a requirement in the past, they're trying to change that. Paired with the advice of making all `public` and `external` functions a part of an `interface`, this finding would end up having all sponsors mark all `public`/`external` functions with `override`, making the keyword meaningless. It's better to use `override` only when something is actually being overridden.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+59:      function transfer(address to, uint256 value) public override restricted(_msgSender(), to, value) returns (bool) {
+
+63       function transferFrom(address from, address to, uint256 value)
+64           public
+65           override
+66           restricted(from, to, value)
+67           returns (bool)
+68:      {
+
+72:      function mint(address to, uint256 value) public override restricted(_msgSender(), to, value) {
+
+103:     function _msgSender() internal view virtual override returns (address sender) {
+
+```
+*GitHub*: [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L59-L59), [63](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L63-L68), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L72-L72), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L103-L103)
+
+
+### [D&#x2011;28] ~~Must approve or increase allowance first~~
+The bot is just flagging `transferFrom()` calls without a prior approval. Many projects require you to approve their contract before using it, so this suggestion is not helpful, and certainly is not 'Low' severity, since that's the design and no funds are lost. There is no way for the project to address this issue other than by requiring that the caller send the tokens themselves, which has its own risks.
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+136:         SafeTransferLib.safeTransferFrom(currency, user, address(escrow), _currencyAmount);
+
+167:         lPool.transferFrom(user, address(escrow), _trancheTokenAmount);
+
+291:         SafeTransferLib.safeTransferFrom(_currency, address(escrow), user, currencyPayout);
+
+313:             LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+
+475:             lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+
+```
+*GitHub*: [136](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L136-L136), [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L167-L167), [291](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L291-L291), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L313-L313), [475](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L475-L475)
+
+```solidity
+File: src/PoolManager.sol
+
+132:         SafeTransferLib.safeTransferFrom(currencyAddress, msg.sender, address(escrow), amount);
+
+262:         SafeTransferLib.safeTransferFrom(currencyAddress, address(escrow), recipient, amount);
+
+```
+*GitHub*: [132](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L132-L132), [262](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L262-L262)
+
+```solidity
+File: src/UserEscrow.sol
+
+32:          SafeTransferLib.safeTransferFrom(token, source, address(this), amount);
+
+```
+*GitHub*: [32](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L32-L32)
+
+```solidity
+File: src/token/Tranche.sol
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [D&#x2011;29] ~~Cast to `bytes` or `bytes32` for clearer semantic meaning~~
+These calls to `abi.encodePacked()` have more than one argument
+
+*There are 28 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+80:          return abi.encodePacked(uint8(Call.AddCurrency), currency, currencyAddress);
+
+99:          return abi.encodePacked(uint8(Call.AddPool), poolId);
+
+118:         return abi.encodePacked(uint8(Call.AllowPoolCurrency), poolId, currency);
+
+152          return abi.encodePacked(
+153              uint8(Call.AddTranche),
+154              poolId,
+155              trancheId,
+156              _stringToBytes128(tokenName),
+157              _stringToBytes32(tokenSymbol),
+158              decimals,
+159              price
+160:         );
+
+210:         return abi.encodePacked(uint8(Call.UpdateMember), poolId, trancheId, member, validUntil);
+
+242:         return abi.encodePacked(uint8(Call.UpdateTrancheTokenPrice), poolId, trancheId, currencyId, price);
+
+274:         return abi.encodePacked(uint8(Call.Transfer), currency, sender, receiver, amount);
+
+323          return abi.encodePacked(
+324              uint8(Call.TransferTrancheTokens), poolId, trancheId, sender, destinationDomain, destinationAddress, amount
+325:         );
+
+381:         return abi.encodePacked(uint8(Call.IncreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+417:         return abi.encodePacked(uint8(Call.DecreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+449:         return abi.encodePacked(uint8(Call.IncreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+481:         return abi.encodePacked(uint8(Call.DecreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+509:         return abi.encodePacked(uint8(Call.CollectInvest), poolId, trancheId, investor, currency);
+
+540:         return abi.encodePacked(uint8(Call.CollectRedeem), poolId, trancheId, investor, currency);
+
+565          return abi.encodePacked(
+566              uint8(Call.ExecutedDecreaseInvestOrder), poolId, trancheId, investor, currency, currencyPayout
+567:         );
+
+593          return abi.encodePacked(
+594              uint8(Call.ExecutedDecreaseRedeemOrder), poolId, trancheId, investor, currency, trancheTokenPayout
+595:         );
+
+622          return abi.encodePacked(
+623              uint8(Call.ExecutedCollectInvest),
+624              poolId,
+625              trancheId,
+626              investor,
+627              currency,
+628              currencyPayout,
+629              trancheTokensPayout
+630:         );
+
+665          return abi.encodePacked(
+666              uint8(Call.ExecutedCollectRedeem),
+667              poolId,
+668              trancheId,
+669              investor,
+670              currency,
+671              currencyPayout,
+672              trancheTokensPayout
+673:         );
+
+701:         return abi.encodePacked(uint8(Call.ScheduleUpgrade), _contract);
+
+713:         return abi.encodePacked(uint8(Call.CancelUpgrade), _contract);
+
+742          return abi.encodePacked(
+743              uint8(Call.UpdateTrancheTokenMetadata),
+744              poolId,
+745              trancheId,
+746              _stringToBytes128(tokenName),
+747              _stringToBytes32(tokenSymbol)
+748:         );
+
+771:         return abi.encodePacked(uint8(Call.CancelInvestOrder), poolId, trancheId, investor, currency);
+
+790:         return abi.encodePacked(uint8(Call.CancelRedeemOrder), poolId, trancheId, investor, currency);
+
+817:         return abi.encodePacked(uint8(Call.UpdateTrancheInvestmentLimit), poolId, trancheId, investmentLimit);
+
+841:         return bytes9(BytesLib.slice(abi.encodePacked(uint8(domain), chainId), 0, 9));
+
+```
+*GitHub*: [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L80-L80), [99](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L99-L99), [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L118-L118), [152](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L152-L160), [210](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L210-L210), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L242-L242), [274](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L274-L274), [323](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L323-L325), [381](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L381-L381), [417](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L417-L417), [449](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L449-L449), [481](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L481-L481), [509](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L509-L509), [540](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L540-L540), [565](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L565-L567), [593](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L593-L595), [622](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L622-L630), [665](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L665-L673), [701](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L701-L701), [713](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L713-L713), [742](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L742-L748), [771](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L771-L771), [790](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L790-L790), [817](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L817-L817), [841](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L841-L841)
+
+```solidity
+File: src/token/ERC20.sol
+
+226              abi.encodePacked(
+227                  "\x19\x01",
+228                  block.chainid == deploymentChainId ? _DOMAIN_SEPARATOR : _calculateDomainSeparator(block.chainid),
+229                  keccak256(abi.encode(PERMIT_TYPEHASH, owner, spender, value, nonce, deadline))
+230:             )
+
+242:         permit(owner, spender, value, deadline, abi.encodePacked(r, s, v));
+
+```
+*GitHub*: [226](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L226-L230), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L242-L242)
+
+```solidity
+File: src/util/Factory.sol
+
+94:          bytes32 salt = keccak256(abi.encodePacked(poolId, trancheId));
+
+```
+*GitHub*: [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L94-L94)
+
+
+### [D&#x2011;30] ~~Unsafe ERC20 operation(s)~~
+The examples below are for known contracts, and are therefore invalid
+
+*There are 11 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+167:         lPool.transferFrom(user, address(escrow), _trancheTokenAmount);
+
+313:             LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+
+475:             lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+
+```
+*GitHub*: [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L167-L167), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L313-L313), [475](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L475-L475)
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+249:         EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+
+252:         EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+
+261:         EscrowLike(escrow).approve(currencyAddress, address(this), amount);
+
+328:         EscrowLike(escrow).approve(liquidityPool, address(investmentManager), type(uint256).max); // Approve investment manager on tranche token for coordinating transfers
+
+329:         EscrowLike(escrow).approve(liquidityPool, liquidityPool, type(uint256).max); // Approve liquidityPool on tranche token to be able to burn
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133), [249](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L249-L249), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L252-L252), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L261-L261), [328](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L328-L328), [329](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L329-L329)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [D&#x2011;31] ~~Functions calling contracts/addresses with transfer hooks are missing reentrancy guards~~
+The examples below are for known contracts, which don't have transfer hooks
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+167:         lPool.transferFrom(user, address(escrow), _trancheTokenAmount);
+
+313:             LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+
+475:             lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+
+```
+*GitHub*: [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L167-L167), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L313-L313), [475](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L475-L475)
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [D&#x2011;32] ~~Return values of transfer()/transferFrom() not checked~~
+The examples below are for known contracts, which revert if they fail, or are not for ERC20 contracts
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+167:         lPool.transferFrom(user, address(escrow), _trancheTokenAmount);
+
+313:             LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+
+475:             lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+
+```
+*GitHub*: [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L167-L167), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L313-L313), [475](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L475-L475)
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [D&#x2011;33] ~~Some tokens may revert when zero value transfers are made~~
+The examples below are for known contracts, which don't revert on zero transfers
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+167:         lPool.transferFrom(user, address(escrow), _trancheTokenAmount);
+
+313:             LiquidityPoolLike(liquidityPool).transferFrom(address(escrow), user, trancheTokenPayout),
+
+475:             lPool.transferFrom(address(escrow), user, trancheTokenAmount),
+
+```
+*GitHub*: [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L167-L167), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L313-L313), [475](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L475-L475)
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+69:          return super.transferFrom(from, to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L69-L69)
+
+
+### [D&#x2011;34] ~~Return values of `approve()` not checked~~
+The examples below are for known contracts, which revert if they fail
+
+*There are 5 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+249:         EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+
+252:         EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+
+261:         EscrowLike(escrow).approve(currencyAddress, address(this), amount);
+
+328:         EscrowLike(escrow).approve(liquidityPool, address(investmentManager), type(uint256).max); // Approve investment manager on tranche token for coordinating transfers
+
+329:         EscrowLike(escrow).approve(liquidityPool, liquidityPool, type(uint256).max); // Approve liquidityPool on tranche token to be able to burn
+
+```
+*GitHub*: [249](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L249-L249), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L252-L252), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L261-L261), [328](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L328-L328), [329](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L329-L329)
+
+
+### [D&#x2011;35] ~~Array lengths not checked~~
+These instances only have one array
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+62:      function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62-L62)
+
+```solidity
+File: src/util/Factory.sol
+
+14       function newLiquidityPool(
+15           uint64 poolId,
+16           bytes16 trancheId,
+17           address currency,
+18           address trancheToken,
+19           address investmentManager,
+20           address[] calldata wards
+21:      ) external returns (address);
+
+36       function newLiquidityPool(
+37           uint64 poolId,
+38           bytes16 trancheId,
+39           address currency,
+40           address trancheToken,
+41           address investmentManager,
+42           address[] calldata wards
+43:      ) public auth returns (address) {
+
+111:     function _newRestrictionManager(address[] calldata restrictionManagerWards) internal returns (address memberList) {
+
+```
+*GitHub*: [14](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L14-L21), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L36-L43), [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L111-L111)
+
+
+### [D&#x2011;36] ~~SafeTransfer should be used in place of transfer~~
+These are not ERC20 transfers, or the token is a known token. If it's an ERC721 token, ERC721 doesn't have a `safeTransfer()`
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+133:         gateway.transfer(currency, msg.sender, recipient, amount);
+
+```
+*GitHub*: [133](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L133-L133)
+
+```solidity
+File: src/token/Tranche.sol
+
+60:          return super.transfer(to, value);
+
+```
+*GitHub*: [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L60-L60)
+
+
+### [D&#x2011;37] ~~Use `bytes.concat()` on bytes instead of `abi.encodePacked()` for clearer semantic meaning~~
+These instances don't use only bytes/strings, so they're invalid
+
+*There are 27 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+80:          return abi.encodePacked(uint8(Call.AddCurrency), currency, currencyAddress);
+
+99:          return abi.encodePacked(uint8(Call.AddPool), poolId);
+
+118:         return abi.encodePacked(uint8(Call.AllowPoolCurrency), poolId, currency);
+
+152          return abi.encodePacked(
+153              uint8(Call.AddTranche),
+154              poolId,
+155              trancheId,
+156              _stringToBytes128(tokenName),
+157              _stringToBytes32(tokenSymbol),
+158              decimals,
+159              price
+160:         );
+
+210:         return abi.encodePacked(uint8(Call.UpdateMember), poolId, trancheId, member, validUntil);
+
+242:         return abi.encodePacked(uint8(Call.UpdateTrancheTokenPrice), poolId, trancheId, currencyId, price);
+
+274:         return abi.encodePacked(uint8(Call.Transfer), currency, sender, receiver, amount);
+
+323          return abi.encodePacked(
+324              uint8(Call.TransferTrancheTokens), poolId, trancheId, sender, destinationDomain, destinationAddress, amount
+325:         );
+
+381:         return abi.encodePacked(uint8(Call.IncreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+417:         return abi.encodePacked(uint8(Call.DecreaseInvestOrder), poolId, trancheId, investor, currency, amount);
+
+449:         return abi.encodePacked(uint8(Call.IncreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+481:         return abi.encodePacked(uint8(Call.DecreaseRedeemOrder), poolId, trancheId, investor, currency, amount);
+
+509:         return abi.encodePacked(uint8(Call.CollectInvest), poolId, trancheId, investor, currency);
+
+540:         return abi.encodePacked(uint8(Call.CollectRedeem), poolId, trancheId, investor, currency);
+
+565          return abi.encodePacked(
+566              uint8(Call.ExecutedDecreaseInvestOrder), poolId, trancheId, investor, currency, currencyPayout
+567:         );
+
+593          return abi.encodePacked(
+594              uint8(Call.ExecutedDecreaseRedeemOrder), poolId, trancheId, investor, currency, trancheTokenPayout
+595:         );
+
+622          return abi.encodePacked(
+623              uint8(Call.ExecutedCollectInvest),
+624              poolId,
+625              trancheId,
+626              investor,
+627              currency,
+628              currencyPayout,
+629              trancheTokensPayout
+630:         );
+
+665          return abi.encodePacked(
+666              uint8(Call.ExecutedCollectRedeem),
+667              poolId,
+668              trancheId,
+669              investor,
+670              currency,
+671              currencyPayout,
+672              trancheTokensPayout
+673:         );
+
+701:         return abi.encodePacked(uint8(Call.ScheduleUpgrade), _contract);
+
+713:         return abi.encodePacked(uint8(Call.CancelUpgrade), _contract);
+
+742          return abi.encodePacked(
+743              uint8(Call.UpdateTrancheTokenMetadata),
+744              poolId,
+745              trancheId,
+746              _stringToBytes128(tokenName),
+747              _stringToBytes32(tokenSymbol)
+748:         );
+
+771:         return abi.encodePacked(uint8(Call.CancelInvestOrder), poolId, trancheId, investor, currency);
+
+790:         return abi.encodePacked(uint8(Call.CancelRedeemOrder), poolId, trancheId, investor, currency);
+
+817:         return abi.encodePacked(uint8(Call.UpdateTrancheInvestmentLimit), poolId, trancheId, investmentLimit);
+
+841:         return bytes9(BytesLib.slice(abi.encodePacked(uint8(domain), chainId), 0, 9));
+
+```
+*GitHub*: [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L80-L80), [99](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L99-L99), [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L118-L118), [152](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L152-L160), [210](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L210-L210), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L242-L242), [274](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L274-L274), [323](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L323-L325), [381](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L381-L381), [417](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L417-L417), [449](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L449-L449), [481](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L481-L481), [509](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L509-L509), [540](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L540-L540), [565](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L565-L567), [593](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L593-L595), [622](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L622-L630), [665](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L665-L673), [701](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L701-L701), [713](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L713-L713), [742](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L742-L748), [771](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L771-L771), [790](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L790-L790), [817](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L817-L817), [841](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L841-L841)
+
+```solidity
+File: src/token/ERC20.sol
+
+242:         permit(owner, spender, value, deadline, abi.encodePacked(r, s, v));
+
+```
+*GitHub*: [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L242-L242)
+
+```solidity
+File: src/util/Factory.sol
+
+94:          bytes32 salt = keccak256(abi.encodePacked(poolId, trancheId));
+
+```
+*GitHub*: [94](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L94-L94)
+
+
+### [D&#x2011;38] ~~Use `@inheritdoc` rather than using a non-standard annotation~~
+
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+100      /// @dev    Override for `msg.sender`. Defaults to the original `msg.sender` whenever
+101      ///         a call is not performed by the trusted forwarder or the calldata length is less than
+102      ///         20 bytes (an address length).
+103:     function _msgSender() internal view virtual override returns (address sender) {
+
+```
+*GitHub*: [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L100-L103)
+
+
+### [D&#x2011;39] ~~Empty function body~~
+These constructors have calls to base contracts, so the empty function body cannot be removed. Adding a comment about this is not useful.
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+33:      constructor(uint8 decimals_) ERC20(decimals_) {}
+
+```
+*GitHub*: [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L33-L33)
+
+
+### [D&#x2011;40] ~~Operator += costs more gas than = + for state variables~~
+Not using `+=` for non-basic-typed state variables costs an extra **[40 gas](https://gist.github.com/IllIllI000/4fc5f83a9edc6ed16677258bf58f32a5)** due to having to recalculate the mapping's value's hash
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/UserEscrow.sol
+
+30:          destinations[token][destination] += amount;
+
+46:          destinations[token][destination] -= amount;
+
+```
+*GitHub*: [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L30-L30), [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L46-L46)
+
+```solidity
+File: src/token/ERC20.sol
+
+98:              balanceOf[to] += value;
+
+123:             balanceOf[to] += value;
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L98-L98), [123](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L123-L123)
+
+
+### [D&#x2011;41] ~~Contract should expose an `interface`~~
+These are library functions, so they cannot use an interface
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+836:     function formatDomain(Domain domain) public pure returns (bytes9) {
+
+840:     function formatDomain(Domain domain, uint64 chainId) public pure returns (bytes9) {
+
+```
+*GitHub*: [836](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L836-L836), [840](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L840-L840)
+
+
+### [D&#x2011;42] ~~Storage Write Removal Bug On Conditional Early Termination~~
+In solidity versions 0.8.13 through 0.8.16, there is a [bug](https://blog.soliditylang.org/2022/09/08/storage-write-removal-before-conditional-termination/) involving the use of the Yul functions `return()` and `stop()`. If those functions aren't called, or if the Solidity version doesn't match, the finding is not low severity.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+340              assembly {
+341                  let ptr := mload(0x40)
+342                  let size := returndatasize()
+343                  returndatacopy(ptr, 0, size)
+344                  revert(ptr, size)
+345:             }
+
+```
+*GitHub*: [340](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L340-L345)
+
+```solidity
+File: src/gateway/Messages.sol
+
+882          assembly {
+883              result := mload(add(source, 32))
+884:         }
+
+```
+*GitHub*: [882](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L882-L884)
+
+```solidity
+File: src/token/ERC20.sol
+
+201              assembly {
+202                  r := mload(add(signature, 0x20))
+203                  s := mload(add(signature, 0x40))
+204                  v := byte(0, mload(add(signature, 0x60)))
+205:             }
+
+```
+*GitHub*: [201](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L201-L205)
+
+```solidity
+File: src/token/Tranche.sol
+
+107              assembly {
+108                  sender := shr(96, calldataload(sub(calldatasize(), 20)))
+109:             }
+
+```
+*GitHub*: [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L107-L109)
+
+
+### [D&#x2011;43] ~~Functions which are either private or internal should have a preceding _ in their name~~
+This rule does not apply to internal library functions, so these instances are invalid.
+
+*There are 77 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+68:      function messageType(bytes memory _msg) internal pure returns (Call _call) {
+
+79:      function formatAddCurrency(uint128 currency, address currencyAddress) internal pure returns (bytes memory) {
+
+83:      function isAddCurrency(bytes memory _msg) internal pure returns (bool) {
+
+87:      function parseAddCurrency(bytes memory _msg) internal pure returns (uint128 currency, address currencyAddress) {
+
+98:      function formatAddPool(uint64 poolId) internal pure returns (bytes memory) {
+
+102:     function isAddPool(bytes memory _msg) internal pure returns (bool) {
+
+106:     function parseAddPool(bytes memory _msg) internal pure returns (uint64 poolId) {
+
+117:     function formatAllowPoolCurrency(uint64 poolId, uint128 currency) internal pure returns (bytes memory) {
+
+121:     function isAllowPoolCurrency(bytes memory _msg) internal pure returns (bool) {
+
+125:     function parseAllowPoolCurrency(bytes memory _msg) internal pure returns (uint64 poolId, uint128 currency) {
+
+141      function formatAddTranche(
+142          uint64 poolId,
+143          bytes16 trancheId,
+144          string memory tokenName,
+145          string memory tokenSymbol,
+146          uint8 decimals,
+147          uint128 price
+148:     ) internal pure returns (bytes memory) {
+
+163:     function isAddTranche(bytes memory _msg) internal pure returns (bool) {
+
+167      function parseAddTranche(bytes memory _msg)
+168          internal
+169          pure
+170          returns (
+171              uint64 poolId,
+172              bytes16 trancheId,
+173              string memory tokenName,
+174              string memory tokenSymbol,
+175              uint8 decimals,
+176              uint128 price
+177          )
+178:     {
+
+197      function formatUpdateMember(uint64 poolId, bytes16 trancheId, address member, uint64 validUntil)
+198          internal
+199          pure
+200          returns (bytes memory)
+201:     {
+
+205      function formatUpdateMember(uint64 poolId, bytes16 trancheId, bytes32 member, uint64 validUntil)
+206          internal
+207          pure
+208          returns (bytes memory)
+209:     {
+
+213:     function isUpdateMember(bytes memory _msg) internal pure returns (bool) {
+
+217      function parseUpdateMember(bytes memory _msg)
+218          internal
+219          pure
+220          returns (uint64 poolId, bytes16 trancheId, address user, uint64 validUntil)
+221:     {
+
+237      function formatUpdateTrancheTokenPrice(uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+238          internal
+239          pure
+240          returns (bytes memory)
+241:     {
+
+245:     function isUpdateTrancheTokenPrice(bytes memory _msg) internal pure returns (bool) {
+
+249      function parseUpdateTrancheTokenPrice(bytes memory _msg)
+250          internal
+251          pure
+252          returns (uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+253:     {
+
+269      function formatTransfer(uint128 currency, bytes32 sender, bytes32 receiver, uint128 amount)
+270          internal
+271          pure
+272          returns (bytes memory)
+273:     {
+
+277:     function isTransfer(bytes memory _msg) internal pure returns (bool) {
+
+281      function parseTransfer(bytes memory _msg)
+282          internal
+283          pure
+284          returns (uint128 currency, bytes32 sender, bytes32 receiver, uint128 amount)
+285:     {
+
+294      function parseIncomingTransfer(bytes memory _msg)
+295          internal
+296          pure
+297          returns (uint128 currency, address recipient, uint128 amount)
+298:     {
+
+315      function formatTransferTrancheTokens(
+316          uint64 poolId,
+317          bytes16 trancheId,
+318          bytes32 sender,
+319          bytes9 destinationDomain,
+320          bytes32 destinationAddress,
+321          uint128 amount
+322:     ) internal pure returns (bytes memory) {
+
+332      function formatTransferTrancheTokens(
+333          uint64 poolId,
+334          bytes16 trancheId,
+335          bytes32 sender,
+336          bytes9 destinationDomain,
+337          address destinationAddress,
+338          uint128 amount
+339:     ) internal pure returns (bytes memory) {
+
+345:     function isTransferTrancheTokens(bytes memory _msg) internal pure returns (bool) {
+
+351      function parseTransferTrancheTokens20(bytes memory _msg)
+352          internal
+353          pure
+354          returns (uint64 poolId, bytes16 trancheId, address destinationAddress, uint128 amount)
+355:     {
+
+374      function formatIncreaseInvestOrder(
+375          uint64 poolId,
+376          bytes16 trancheId,
+377          bytes32 investor,
+378          uint128 currency,
+379          uint128 amount
+380:     ) internal pure returns (bytes memory) {
+
+384:     function isIncreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+388      function parseIncreaseInvestOrder(bytes memory _msg)
+389          internal
+390          pure
+391          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+392:     {
+
+410      function formatDecreaseInvestOrder(
+411          uint64 poolId,
+412          bytes16 trancheId,
+413          bytes32 investor,
+414          uint128 currency,
+415          uint128 amount
+416:     ) internal pure returns (bytes memory) {
+
+420:     function isDecreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+424      function parseDecreaseInvestOrder(bytes memory _msg)
+425          internal
+426          pure
+427          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+428:     {
+
+442      function formatIncreaseRedeemOrder(
+443          uint64 poolId,
+444          bytes16 trancheId,
+445          bytes32 investor,
+446          uint128 currency,
+447          uint128 amount
+448:     ) internal pure returns (bytes memory) {
+
+452:     function isIncreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+456      function parseIncreaseRedeemOrder(bytes memory _msg)
+457          internal
+458          pure
+459          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+460:     {
+
+474      function formatDecreaseRedeemOrder(
+475          uint64 poolId,
+476          bytes16 trancheId,
+477          bytes32 investor,
+478          uint128 currency,
+479          uint128 amount
+480:     ) internal pure returns (bytes memory) {
+
+484:     function isDecreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+488      function parseDecreaseRedeemOrder(bytes memory _msg)
+489          internal
+490          pure
+491          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+492:     {
+
+504      function formatCollectInvest(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+505          internal
+506          pure
+507          returns (bytes memory)
+508:     {
+
+512:     function isCollectInvest(bytes memory _msg) internal pure returns (bool) {
+
+516      function parseCollectInvest(bytes memory _msg)
+517          internal
+518          pure
+519          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+520:     {
+
+535      function formatCollectRedeem(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+536          internal
+537          pure
+538          returns (bytes memory)
+539:     {
+
+543:     function isCollectRedeem(bytes memory _msg) internal pure returns (bool) {
+
+547      function parseCollectRedeem(bytes memory _msg)
+548          internal
+549          pure
+550          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+551:     {
+
+558      function formatExecutedDecreaseInvestOrder(
+559          uint64 poolId,
+560          bytes16 trancheId,
+561          bytes32 investor,
+562          uint128 currency,
+563          uint128 currencyPayout
+564:     ) internal pure returns (bytes memory) {
+
+570:     function isExecutedDecreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+574      function parseExecutedDecreaseInvestOrder(bytes memory _msg)
+575          internal
+576          pure
+577          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency, uint128 trancheTokenPayout)
+578:     {
+
+586      function formatExecutedDecreaseRedeemOrder(
+587          uint64 poolId,
+588          bytes16 trancheId,
+589          bytes32 investor,
+590          uint128 currency,
+591          uint128 trancheTokenPayout
+592:     ) internal pure returns (bytes memory) {
+
+598:     function isExecutedDecreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+602      function parseExecutedDecreaseRedeemOrder(bytes memory _msg)
+603          internal
+604          pure
+605          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency, uint128 trancheTokensPayout)
+606:     {
+
+614      function formatExecutedCollectInvest(
+615          uint64 poolId,
+616          bytes16 trancheId,
+617          bytes32 investor,
+618          uint128 currency,
+619          uint128 currencyPayout,
+620          uint128 trancheTokensPayout
+621:     ) internal pure returns (bytes memory) {
+
+633:     function isExecutedCollectInvest(bytes memory _msg) internal pure returns (bool) {
+
+637      function parseExecutedCollectInvest(bytes memory _msg)
+638          internal
+639          pure
+640          returns (
+641              uint64 poolId,
+642              bytes16 trancheId,
+643              address investor,
+644              uint128 currency,
+645              uint128 currencyPayout,
+646              uint128 trancheTokensPayout
+647          )
+648:     {
+
+657      function formatExecutedCollectRedeem(
+658          uint64 poolId,
+659          bytes16 trancheId,
+660          bytes32 investor,
+661          uint128 currency,
+662          uint128 currencyPayout,
+663          uint128 trancheTokensPayout
+664:     ) internal pure returns (bytes memory) {
+
+676:     function isExecutedCollectRedeem(bytes memory _msg) internal pure returns (bool) {
+
+680      function parseExecutedCollectRedeem(bytes memory _msg)
+681          internal
+682          pure
+683          returns (
+684              uint64 poolId,
+685              bytes16 trancheId,
+686              address investor,
+687              uint128 currency,
+688              uint128 currencyPayout,
+689              uint128 trancheTokensPayout
+690          )
+691:     {
+
+700:     function formatScheduleUpgrade(address _contract) internal pure returns (bytes memory) {
+
+704:     function isScheduleUpgrade(bytes memory _msg) internal pure returns (bool) {
+
+708:     function parseScheduleUpgrade(bytes memory _msg) internal pure returns (address _contract) {
+
+712:     function formatCancelUpgrade(address _contract) internal pure returns (bytes memory) {
+
+716:     function isCancelUpgrade(bytes memory _msg) internal pure returns (bool) {
+
+720:     function parseCancelUpgrade(bytes memory _msg) internal pure returns (address _contract) {
+
+733      function formatUpdateTrancheTokenMetadata(
+734          uint64 poolId,
+735          bytes16 trancheId,
+736          string memory tokenName,
+737          string memory tokenSymbol
+738:     ) internal pure returns (bytes memory) {
+
+751:     function isUpdateTrancheTokenMetadata(bytes memory _msg) internal pure returns (bool) {
+
+755      function parseUpdateTrancheTokenMetadata(bytes memory _msg)
+756          internal
+757          pure
+758          returns (uint64 poolId, bytes16 trancheId, string memory tokenName, string memory tokenSymbol)
+759:     {
+
+766      function formatCancelInvestOrder(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+767          internal
+768          pure
+769          returns (bytes memory)
+770:     {
+
+774      function parseCancelInvestOrder(bytes memory _msg)
+775          internal
+776          pure
+777          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+778:     {
+
+785      function formatCancelRedeemOrder(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+786          internal
+787          pure
+788          returns (bytes memory)
+789:     {
+
+793      function parseCancelRedeemOrder(bytes memory _msg)
+794          internal
+795          pure
+796          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+797:     {
+
+812      function formatUpdateTrancheInvestmentLimit(uint64 poolId, bytes16 trancheId, uint128 investmentLimit)
+813          internal
+814          pure
+815          returns (bytes memory)
+816:     {
+
+820:     function isUpdateTrancheInvestmentLimit(bytes memory _msg) internal pure returns (bool) {
+
+824      function parseUpdateTrancheInvestmentLimit(bytes memory _msg)
+825          internal
+826          pure
+827          returns (uint64 poolId, bytes16 trancheId, uint128 investmentLimit)
+828:     {
+
+```
+*GitHub*: [68](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L68-L68), [79](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L79-L79), [83](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L83-L83), [87](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L87-L87), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L98-L98), [102](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L102-L102), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L106-L106), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L117-L117), [121](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L121-L121), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L125-L125), [141](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L141-L148), [163](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L163-L163), [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L167-L178), [197](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L197-L201), [205](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L205-L209), [213](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L213-L213), [217](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L217-L221), [237](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L237-L241), [245](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L245-L245), [249](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L249-L253), [269](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L269-L273), [277](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L277-L277), [281](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L281-L285), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L294-L298), [315](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L315-L322), [332](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L332-L339), [345](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L345-L345), [351](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L351-L355), [374](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L374-L380), [384](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L384-L384), [388](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L388-L392), [410](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L410-L416), [420](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L420-L420), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L428), [442](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L442-L448), [452](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L452-L452), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L460), [474](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L474-L480), [484](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L484-L484), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L492), [504](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L504-L508), [512](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L512-L512), [516](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L516-L520), [535](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L535-L539), [543](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L543-L543), [547](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L547-L551), [558](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L558-L564), [570](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L570-L570), [574](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L574-L578), [586](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L586-L592), [598](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L598-L598), [602](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L602-L606), [614](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L614-L621), [633](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L633-L633), [637](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L637-L648), [657](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L657-L664), [676](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L676-L676), [680](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L680-L691), [700](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L700-L700), [704](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L704-L704), [708](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L708-L708), [712](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L712-L712), [716](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L716-L716), [720](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L720-L720), [733](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L733-L738), [751](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L751-L751), [755](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L755-L759), [766](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L766-L770), [774](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L774-L778), [785](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L785-L789), [793](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L793-L797), [812](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L812-L816), [820](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L820-L820), [824](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L824-L828)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+15:      function safeTransferFrom(address token, address from, address to, uint256 value) internal {
+
+26:      function safeTransfer(address token, address to, uint256 value) internal {
+
+36:      function safeApprove(address token, address to, uint256 value) internal {
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L15-L15), [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L26-L26), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L36-L36)
+
+
+### [D&#x2011;44] ~~Low level calls with Solidity before 0.8.14 result in an optimiser bug~~
+This assembly block does not call `mstore()`, so it's not possible to hit the bug here even if there are small future changes, so this doesn't seem low severity.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+340              assembly {
+341                  let ptr := mload(0x40)
+342                  let size := returndatasize()
+343                  returndatacopy(ptr, 0, size)
+344                  revert(ptr, size)
+345:             }
+
+```
+*GitHub*: [340](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L340-L345)
+
+```solidity
+File: src/gateway/Messages.sol
+
+882          assembly {
+883              result := mload(add(source, 32))
+884:         }
+
+```
+*GitHub*: [882](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L882-L884)
+
+```solidity
+File: src/token/ERC20.sol
+
+201              assembly {
+202                  r := mload(add(signature, 0x20))
+203                  s := mload(add(signature, 0x40))
+204                  v := byte(0, mload(add(signature, 0x60)))
+205:             }
+
+```
+*GitHub*: [201](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L201-L205)
+
+```solidity
+File: src/token/Tranche.sol
+
+107              assembly {
+108                  sender := shr(96, calldataload(sub(calldatasize(), 20)))
+109:             }
+
+```
+*GitHub*: [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L107-L109)
+
+
+### [D&#x2011;45] ~~`abi.encode()` is less efficient than `abi.encodepacked()`~~
+`abi.encodePacked()` does not always save gas over `abi.encode()` and in fact often costs [more](https://gist.github.com/IllIllI000/2ee970e4f05af4d2a3d89a56b5cc93a5) gas. The [comparison](https://github.com/ConnorBlockchain/Solidity-Encode-Gas-Comparison) sometimes linked to itself even shows that when addresses are involved, the packed flavor costs more gas.
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+69:              abi.encode(
+
+229:                 keccak256(abi.encode(PERMIT_TYPEHASH, owner, spender, value, nonce, deadline))
+
+```
+*GitHub*: [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L69-L69), [229](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L229-L229)
+
+
+### [D&#x2011;46] ~~Large approvals may not work with some ERC20 tokens~~
+These are not maximum approvals, or approvals that grow over time, so there is no broken behavior here
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/Escrow.sol
+
+24:          SafeTransferLib.safeApprove(token, spender, value);
+
+```
+*GitHub*: [24](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L24-L24)
+
+```solidity
+File: src/PoolManager.sol
+
+249:         EscrowLike(escrow).approve(currencyAddress, investmentManager.userEscrow(), type(uint256).max);
+
+252:         EscrowLike(escrow).approve(currencyAddress, address(investmentManager), type(uint256).max);
+
+261:         EscrowLike(escrow).approve(currencyAddress, address(this), amount);
+
+328:         EscrowLike(escrow).approve(liquidityPool, address(investmentManager), type(uint256).max); // Approve investment manager on tranche token for coordinating transfers
+
+329:         EscrowLike(escrow).approve(liquidityPool, liquidityPool, type(uint256).max); // Approve liquidityPool on tranche token to be able to burn
+
+```
+*GitHub*: [249](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L249-L249), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L252-L252), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L261-L261), [328](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L328-L328), [329](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L329-L329)
+
+
+### [D&#x2011;47] ~~Not initializing local variables to zero saves gas~~
+This is only true for state variables, and does not save gas for [local variables](https://gist.github.com/IllIllI000/e075d189c1b23dce256cd166e28f3397). The examples below are for local variables and therefore do not save gas, and are invalid.
+
+*There are 8 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+848:         for (uint256 i = 0; i < 128; i++) {
+
+862:         uint8 i = 0;
+
+869:         for (uint8 j = 0; j < i; j++) {
+
+888:         uint8 i = 0;
+
+```
+*GitHub*: [848](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L848-L848), [862](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L862-L862), [869](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L869-L869), [888](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L888-L888)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+64:          for (uint256 i = 0; i < userLength; i++) {
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L64-L64)
+
+```solidity
+File: src/util/Factory.sol
+
+47:          for (uint256 i = 0; i < wards.length; i++) {
+
+103:         for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+
+117:         for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47-L47), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103-L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117-L117)
+
+
+### [D&#x2011;48] ~~Splitting `require()` statements that use `&&` saves gas~~
+These instances cannot be split without spending more gas
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+430          require(
+431              (_currencyAmount <= orderbook[user][liquidityPool].maxDeposit && _currencyAmount != 0),
+432              "InvestmentManager/amount-exceeds-deposit-limits"
+433:         );
+
+454          require(
+455              (_trancheTokenAmount <= orderbook[user][liquidityPool].maxMint && _trancheTokenAmount != 0),
+456              "InvestmentManager/amount-exceeds-mint-limits"
+457:         );
+
+496          require(
+497              (_trancheTokenAmount <= orderbook[user][liquidityPool].maxRedeem && _trancheTokenAmount != 0),
+498              "InvestmentManager/amount-exceeds-redeem-limits"
+499:         );
+
+522          require(
+523              (_currencyAmount <= orderbook[user][liquidityPool].maxWithdraw && _currencyAmount != 0),
+524              "InvestmentManager/amount-exceeds-withdraw-limits"
+525:         );
+
+```
+*GitHub*: [430](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L430-L433), [454](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L454-L457), [496](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L496-L499), [522](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L522-L525)
+
+
+### [D&#x2011;49] ~~Using `storage` instead of `memory` for structs/arrays saves gas~~
+There is no storage being read from
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+285:         address[] memory trancheTokenWards = new address[](2);
+
+289:         address[] memory memberlistWards = new address[](1);
+
+316:         address[] memory liquidityPoolWards = new address[](1);
+
+```
+*GitHub*: [285](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L285-L285), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L289-L289), [316](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L316-L316)
+
+
+### [D&#x2011;50] ~~Use assembly to emit events, in order to save gas~~
+For these instances, the arguments are too large to fit in the scratch space, so the finding is invalid
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+182:         emit Withdraw(address(this), receiver, owner, assets, sharesRedeemed);
+
+206:         emit Withdraw(address(this), receiver, owner, currencyPayout, shares);
+
+```
+*GitHub*: [182](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L182-L182), [206](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L206-L206)
+
+
+### [D&#x2011;51] ~~Events that mark critical parameter changes should contain both the old and the new value~~
+These are not critical parameter changes
+
+*There are 59 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+19:          emit Rely(msg.sender);
+
+25:          emit Approve(token, spender, value);
+
+```
+*GitHub*: [19](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L19-L19), [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L25-L25)
+
+```solidity
+File: src/InvestmentManager.sol
+
+93:          emit Rely(msg.sender);
+
+107:         emit File(what, data);
+
+479:         emit DepositProcessed(liquidityPool, user, currencyAmount);
+
+547:         emit RedemptionProcessed(liquidityPool, user, trancheTokenAmount);
+
+```
+*GitHub*: [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L93-L93), [107](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L107-L107), [479](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L479-L479), [547](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L547-L547)
+
+```solidity
+File: src/LiquidityPool.sol
+
+93:          emit Rely(msg.sender);
+
+106:         emit File(what, data);
+
+143:         emit Deposit(address(this), receiver, assets, shares);
+
+151:         emit Deposit(address(this), receiver, assets, shares);
+
+182:         emit Withdraw(address(this), receiver, owner, assets, sharesRedeemed);
+
+206:         emit Withdraw(address(this), receiver, owner, currencyPayout, shares);
+
+216:         emit DepositRequested(owner, assets);
+
+225:         emit DepositRequested(owner, assets);
+
+233:         emit RedeemRequested(owner, shares);
+
+242:         emit RedeemRequested(owner, shares);
+
+261:         emit DepositCollected(receiver);
+
+267:         emit RedeemCollected(receiver);
+
+```
+*GitHub*: [93](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L93-L93), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L106-L106), [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L143-L143), [151](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L151-L151), [182](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L182-L182), [206](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L206-L206), [216](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L216-L216), [225](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L225-L225), [233](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L233-L233), [242](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L242-L242), [261](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L261-L261), [267](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L267-L267)
+
+```solidity
+File: src/PoolManager.sol
+
+110:         emit Rely(msg.sender);
+
+124:         emit File(what, data);
+
+187:         emit PoolCurrencyAllowed(currency, poolId);
+
+303:         emit TrancheTokenDeployed(poolId, trancheId);
+
+331:         emit LiquidityPoolDeployed(poolId, trancheId, liquidityPool);
+
+```
+*GitHub*: [110](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L110-L110), [124](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L124-L124), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L187-L187), [303](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L303-L303), [331](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L331-L331)
+
+```solidity
+File: src/Root.sol
+
+39:          emit Rely(msg.sender);
+
+50:          emit File(what, data);
+
+56:          emit Pause();
+
+61:          emit Unpause();
+
+67:          emit RelyScheduled(target, schedule[target]);
+
+72:          emit RelyCancelled(target);
+
+80:          emit Rely(target);
+
+92:          emit RelyContract(target, user);
+
+100:         emit DenyContract(target, user);
+
+```
+*GitHub*: [39](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L39-L39), [50](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L50-L50), [56](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L56-L56), [61](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L61-L61), [67](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L67-L67), [72](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L72-L72), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L80-L80), [92](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L92-L92), [100](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L100-L100)
+
+```solidity
+File: src/UserEscrow.sol
+
+25:          emit Rely(msg.sender);
+
+33:          emit TransferIn(token, source, destination, amount);
+
+49:          emit TransferOut(token, receiver, amount);
+
+```
+*GitHub*: [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L25-L25), [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L33-L33), [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L49-L49)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+22:          emit Rely(msg.sender);
+
+```
+*GitHub*: [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L22-L22)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+25:          emit Rely(msg.sender);
+
+```
+*GitHub*: [25](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L25-L25)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+106:         emit Rely(msg.sender);
+
+134:         emit File(what, data);
+
+```
+*GitHub*: [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L106-L106), [134](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L134-L134)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+40:          emit Rely(msg.sender);
+
+69:          emit File(what, data);
+
+```
+*GitHub*: [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L40-L40), [69](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L69-L69)
+
+```solidity
+File: src/token/ERC20.sol
+
+45:          emit Rely(_msgSender());
+
+59:          emit Rely(user);
+
+64:          emit Deny(user);
+
+87:          emit File(what, data);
+
+101:         emit Transfer(_msgSender(), to, value);
+
+126:         emit Transfer(from, to, value);
+
+134:         emit Approval(_msgSender(), spender, value);
+
+143:         emit Approval(_msgSender(), spender, newValue);
+
+156:         emit Approval(_msgSender(), spender, allowed);
+
+169:         emit Transfer(address(0), to, value);
+
+192:         emit Transfer(from, address(0), value);
+
+236:         emit Approval(owner, spender, value);
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L45-L45), [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L59-L59), [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L64-L64), [87](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L87-L87), [101](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L101-L101), [126](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L126-L126), [134](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L134-L134), [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L143-L143), [156](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L156-L156), [169](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L169-L169), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L192-L192), [236](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L236-L236)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+24:          emit Rely(msg.sender);
+
+```
+*GitHub*: [24](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L24-L24)
+
+```solidity
+File: src/token/Tranche.sol
+
+45:          emit File(what, data);
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L45-L45)
+
+```solidity
+File: src/util/Auth.sol
+
+16:          emit Rely(user);
+
+22:          emit Deny(user);
+
+```
+*GitHub*: [16](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L16-L16), [22](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L22-L22)
+
+```solidity
+File: src/util/Factory.sol
+
+33:          emit Rely(msg.sender);
+
+78:          emit Rely(msg.sender);
+
+```
+*GitHub*: [33](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L33-L33), [78](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L78-L78)
+
+</details>
+
+
+
+
+### [D&#x2011;52] ~~`++i` costs less gas than `i++`, especially when it's used in `for`-loops (`--i`/`i--` too)~~
+Changing to a pre-increment for the examples below will break the code
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/ERC20.sol
+
+222:             nonce = nonces[owner]++;
+
+```
+*GitHub*: [222](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L222-L222)
+
+
+### [D&#x2011;53] ~~Function Names Not in mixedCase~~
+According to the Solidity Style Guide, non-`external`/`public` function names should begin with an [underscore](https://docs.soliditylang.org/en/latest/style-guide.html#underscore-prefix-for-non-external-functions-and-variables), and all of these fall into that category
+
+*There are 19 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+467      function _deposit(uint128 trancheTokenAmount, uint128 currencyAmount, address liquidityPool, address user)
+468          internal
+469:     {
+
+535      function _redeem(
+536          uint128 trancheTokenAmount,
+537          uint128 currencyAmount,
+538          address liquidityPool,
+539          address receiver,
+540          address user
+541:     ) internal {
+
+584      function _updateLiquidityPoolPrice(address liquidityPool, uint128 currencyPayout, uint128 trancheTokensPayout)
+585          internal
+586:     {
+
+591      function _calculateTrancheTokenAmount(uint128 currencyAmount, address liquidityPool, uint256 price)
+592          internal
+593          view
+594          returns (uint128 trancheTokenAmount)
+595:     {
+
+605      function _calculateCurrencyAmount(uint128 trancheTokenAmount, address liquidityPool, uint256 price)
+606          internal
+607          view
+608          returns (uint128 currencyAmount)
+609:     {
+
+619      function _decreaseDepositLimits(address user, address liquidityPool, uint128 _currency, uint128 trancheTokens)
+620          internal
+621:     {
+
+635      function _decreaseRedemptionLimits(address user, address liquidityPool, uint128 _currency, uint128 trancheTokens)
+636          internal
+637:     {
+
+651      function _isAllowedToInvest(uint64 poolId, bytes16 trancheId, address currency, address user)
+652          internal
+653          returns (bool)
+654:     {
+
+666:     function _toUint128(uint256 _value) internal pure returns (uint128 value) {
+
+676      function _toPriceDecimals(uint128 _value, uint8 decimals, address liquidityPool)
+677          internal
+678          view
+679          returns (uint256 value)
+680:     {
+
+686      function _fromPriceDecimals(uint256 _value, uint8 decimals, address liquidityPool)
+687          internal
+688          view
+689          returns (uint128 value)
+690:     {
+
+696      function _getPoolDecimals(address liquidityPool)
+697          internal
+698          view
+699          returns (uint8 currencyDecimals, uint8 trancheTokenDecimals)
+700:     {
+
+```
+*GitHub*: [467](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L467-L469), [535](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L535-L541), [584](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L584-L586), [591](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L591-L595), [605](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L605-L609), [619](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L619-L621), [635](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L635-L637), [651](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L651-L654), [666](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L666-L666), [676](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L676-L680), [686](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L686-L690), [696](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L696-L700)
+
+```solidity
+File: src/LiquidityPool.sol
+
+338:     function _successCheck(bool success) internal pure {
+
+```
+*GitHub*: [338](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L338-L338)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+369:     function _addressToBytes32(address x) internal pure returns (bytes32) {
+
+```
+*GitHub*: [369](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L369-L369)
+
+```solidity
+File: src/token/ERC20.sol
+
+67:      function _calculateDomainSeparator(uint256 chainId) private view returns (bytes32) {
+
+196:     function _isValidSignature(address signer, bytes32 digest, bytes memory signature) internal view returns (bool) {
+
+```
+*GitHub*: [67](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L67-L67), [196](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L196-L196)
+
+```solidity
+File: src/token/Tranche.sol
+
+103:     function _msgSender() internal view virtual override returns (address sender) {
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L103-L103)
+
+```solidity
+File: src/util/Context.sol
+
+13:      function _msgSender() internal view virtual returns (address) {
+
+```
+*GitHub*: [13](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Context.sol#L13-L13)
+
+```solidity
+File: src/util/Factory.sol
+
+111:     function _newRestrictionManager(address[] calldata restrictionManagerWards) internal returns (address memberList) {
+
+```
+*GitHub*: [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L111-L111)
+
+</details>
+
+
+
+
+### [D&#x2011;54] ~~Bad bot rules~~
+The titles below correspond to issues submitted by various bots, where the submitting bot solely submitted invalid findings (i.e. the submitter didn't filter the results of the rule), so they should be given extra scrutiny:
+- **Max allowance is not compatible with all tokens** - internal approval for the contract's own balance, so the rule is pointing to the support **for** max allowance
+- **increase/decrease allowance should be used instead of approve** - this is an internal approval function
+- **Must approve or increase allowance first** - the rule is flagging all transferFrom() calls, without approval logic
+- **Contract existence is not checked before low level call** - reading calldata, not making an external call
+- **Empty function blocks** - the bot's removed the extensive comment documentation in the 'code blocks' it shows for these virtual functions used to allow child contracts to implement functionality, or are constructors
+- **Utility contracts can be made into libraries** - all provided examples are invalid
+- **Address values should be used through variables rather than used as literals** - none of the examples are of addresses
+- **Employ Explicit Casting to Bytes or Bytes32 for Enhanced Code Clarity and Meaning** - the large majority of the examples are of multiple arguments, not just one
+- **Some if-statement can be converted to a ternary** - you can't use a ternary when only one of the branches is a `return`
+- **Addresses shouldn't be hard-coded** - none of these are addresses
+- **State variables used within a function more than once should be cached to save gas** - none of these are state variables
+- **Use storage instead of memory for structs/arrays** - these all are array call arguments, not arrays copied from storage
+- **Use bitmap to save gas** - none of these are examples where bitmaps can be used
+- **Consider merging sequential for loops** - the examples cannot be merged
+- **Emitting storage values instead of the memory one.** - this is a gas finding, not a Low one
+- **`selfbalance()` is cheaper than `address(this).balance`** - some bots submit the issue twice (under the heading `Use assembly when getting a contractundefineds balance of ETH`)
+- **Imports could be organized more systematically** - a lot of bots are blindly checking for interfaces not coming first. That is not the only way of organizing imports, and most projects are doing it in a systematic, valid, way
+- **Unused * definition** - some bots are reporting false positives for these rules. Check that it isn't used, or that if it's used, that there are two definitions, with one being unused
+- **`internal` functions not called by the contract should be removed** - some bots are reporting false positives when the function is called by a child contract, rather than the defining contract
+- **Change `public` to `external` for functions that are not called internally** - some bots are reporting false positives when the function is called by a child contract, rather than the defining contract
+- **Avoid contract existence checks by using low level calls** - at least one bot isn't checking that the version is prior to 0.8.10
+- **For Operations that will not overflow, you could use unchecked** - at least one bot is flagging every single line, which has nothing to do with using `unchecked`
+
+Some of these have been raised as invalid in multiple contests, and the bot owners have not fixed them. Without penalties, they're unlikely to make any changes
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+2:   pragma solidity 0.8.21;
+
+```
+*GitHub*: [2](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L2-L2)
+
+
+### [D&#x2011;55] ~~Do not use underscore at the end of variable name~~
+The style guide says to add a trailing underscore to a variable name in order to prevent the shadowing of [another variable](https://docs.soliditylang.org/en/latest/style-guide.html#avoiding-naming-collisions) or function name, as is the case with the examples below.
+
+*There are 18 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+88:      constructor(address escrow_, address userEscrow_) {
+
+```
+*GitHub*: [88](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L88-L88), [88](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L88-L88)
+
+```solidity
+File: src/LiquidityPool.sol
+
+85:      constructor(uint64 poolId_, bytes16 trancheId_, address asset_, address share_, address investmentManager_) {
+
+```
+*GitHub*: [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85-L85), [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85-L85), [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85-L85), [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85-L85), [85](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L85-L85)
+
+```solidity
+File: src/PoolManager.sol
+
+104:     constructor(address escrow_, address liquidityPoolFactory_, address trancheTokenFactory_) {
+
+```
+*GitHub*: [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L104-L104), [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L104-L104), [104](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L104-L104)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+18:      constructor(address root_) {
+
+```
+*GitHub*: [18](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L18-L18)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+21:      constructor(address root_) {
+
+```
+*GitHub*: [21](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L21-L21)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+98:      constructor(address root_, address investmentManager_, address poolManager_, address router_) {
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L98-L98), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L98-L98), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L98-L98), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L98-L98)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+36:      constructor(address axelarGateway_) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L36-L36)
+
+```solidity
+File: src/token/ERC20.sol
+
+42:      constructor(uint8 decimals_) {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L42-L42)
+
+</details>
+
+
+
+
+### [D&#x2011;56] ~~Contracts do not work with fee-on-transfer tokens~~
+An ERC20 token being used, in and of itself, is not evidence of a fee-on-transfer issue; there must be other evidence that the balance accounting gets broken, and these lines do not contain such evidence.
+
+*There are 4 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+701:         currencyDecimals = ERC20Like(LiquidityPoolLike(liquidityPool).asset()).decimals();
+
+```
+*GitHub*: [701](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L701-L701)
+
+```solidity
+File: src/LiquidityPool.sol
+
+223:         ERC20PermitLike(asset).permit(owner, address(investmentManager), assets, deadline, v, r, s);
+
+```
+*GitHub*: [223](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L223-L223)
+
+```solidity
+File: src/PoolManager.sol
+
+243:         require(IERC20(currencyAddress).decimals() <= MAX_CURRENCY_DECIMALS, "PoolManager/too-many-currency-decimals");
+
+```
+*GitHub*: [243](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L243-L243)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+37:          (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.approve.selector, to, value));
+
+```
+*GitHub*: [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L37-L37)
+
+
+### [D&#x2011;57] ~~Re-org attack~~
+No specific vulnerability has been outlined, other than the fact that block chains have re-orgs, and nothing is being cloned
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/util/Factory.sol
+
+44:          LiquidityPool liquidityPool = new LiquidityPool(poolId, trancheId, currency, trancheToken, investmentManager);
+
+96:          TrancheToken token = new TrancheToken{salt: salt}(decimals);
+
+112:         RestrictionManager restrictionManager = new RestrictionManager();
+
+```
+*GitHub*: [44](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L44-L44), [96](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L96-L96), [112](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L112-L112)
+
+
+### [D&#x2011;58] ~~`safeTransfer` function does not check for contract existence~~
+The examples below are either not token transfers, or are making high-level `transfer()`/`transferFrom()` calls (which check for contract existence), or are from a library that checks for contract existence.
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+15       function safeTransferFrom(address token, address from, address to, uint256 value) internal {
+16           (bool success, bytes memory data) =
+17               token.call(abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, value));
+18           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-from-failed");
+19:      }
+
+26       function safeTransfer(address token, address to, uint256 value) internal {
+27           (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.transfer.selector, to, value));
+28           require(success && (data.length == 0 || abi.decode(data, (bool))), "SafeTransferLib/safe-transfer-failed");
+29:      }
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L15-L19), [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L26-L29)
+
+
+### [D&#x2011;59] ~~`SafeTransferLib` does not ensure that the token contract exists~~
+`safeTransfer()`/`safeTransferFrom()` aren't called from this file, so the vulnerability doesn't exist here
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/Escrow.sol
+
+5:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+24:          SafeTransferLib.safeApprove(token, spender, value);
+
+```
+*GitHub*: [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L5-L5), [24](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L24-L24)
+
+
+### [D&#x2011;60] ~~Default `bool` values are manually reset~~
+Using delete instead of assigning zero/false to state variables does not save any extra gas with the optimizer [on](https://gist.github.com/IllIllI000/ef8ec3a70aede7f12433fe63dc418515#with-the-optimizer-set-at-200-runs) (saves 5-8 gas with optimizer completely off), so this finding is invalid, especially since if they were interested in gas savings, they'd have the optimizer enabled. Some bots are also flagging `true` rather than just `false`
+
+*There are 8 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+186:         pools[poolId].allowedCurrencies[currencyAddress] = true;
+
+```
+*GitHub*: [186](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L186-L186)
+
+```solidity
+File: src/Root.sol
+
+55:          paused = true;
+
+60:          paused = false;
+
+```
+*GitHub*: [55](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L55-L55), [60](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L60-L60)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+102:         incomingRouters[router_] = true;
+
+138:         incomingRouters[router] = true;
+
+143:         incomingRouters[router] = false;
+
+```
+*GitHub*: [102](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L102-L102), [138](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L138-L138), [143](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L143-L143)
+
+```solidity
+File: src/token/Tranche.sol
+
+49:          liquidityPools[liquidityPool] = true;
+
+54:          liquidityPools[liquidityPool] = false;
+
+```
+*GitHub*: [49](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L49-L49), [54](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L54-L54)
+
+
+### [D&#x2011;61] ~~Interfaces should be defined in separate files from their usage~~
+These interfaces are already in a file separate from the implementation
+
+*There are 7 instances of this issue:*
+
+```solidity
+File: src/Escrow.sol
+
+7:   interface ApproveLike {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L7-L7)
+
+```solidity
+File: src/PoolManager.sol
+
+30:  interface LiquidityPoolLike {
+
+```
+*GitHub*: [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L30-L30)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+68:  interface AuthLike {
+
+```
+*GitHub*: [68](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L68-L68)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+6:   interface MemberlistLike {
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L6-L6)
+
+```solidity
+File: src/token/Tranche.sol
+
+7:   interface TrancheTokenLike is IERC20 {
+
+```
+*GitHub*: [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L7-L7)
+
+```solidity
+File: src/util/Factory.sol
+
+13:  interface LiquidityPoolFactoryLike {
+
+55:  interface TrancheTokenFactoryLike {
+
+```
+*GitHub*: [13](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L13-L13), [55](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L55-L55)
+
+
+### [D&#x2011;62] ~~Using `calldata` instead of `memory` for read-only arguments in `external` functions saves gas~~
+Not true for non-word-sized [types](https://gist.github.com/IllIllI000/2ac9a647be917f58ffe5baa2cecbbc42)
+
+*There is one instance of this issue:*
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+/// @audit updateMembers(users)
+62:      function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62-L62)
+
+
+### [D&#x2011;63] ~~Unusual loop variable~~
+These instances all properly use 'i' as the outer for-loop loop variable
+
+*There are 6 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+869:         for (uint8 j = 0; j < i; j++) {
+
+893:         for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+
+```
+*GitHub*: [869](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L869-L869), [893](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L893-L893)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+64:          for (uint256 i = 0; i < userLength; i++) {
+
+```
+*GitHub*: [64](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L64-L64)
+
+```solidity
+File: src/util/Factory.sol
+
+47:          for (uint256 i = 0; i < wards.length; i++) {
+
+103:         for (uint256 i = 0; i < trancheTokenWards.length; i++) {
+
+117:         for (uint256 i = 0; i < restrictionManagerWards.length; i++) {
+
+```
+*GitHub*: [47](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L47-L47), [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L103-L103), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L117-L117)
+
+
+### [D&#x2011;64] ~~Use delete instead of setting mapping/state variable to zero, to save gas~~
+Using delete instead of assigning zero to state variables does not save any extra gas with the optimizer [on](https://gist.github.com/IllIllI000/ef8ec3a70aede7f12433fe63dc418515#with-the-optimizer-set-at-200-runs) (saves 5-8 gas with optimizer completely off), so this finding is invalid, especially since if they were interested in gas savings, they'd have the optimizer enabled.
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+624:             lpValues.maxDeposit = 0;
+
+629:             lpValues.maxMint = 0;
+
+640:             lpValues.maxWithdraw = 0;
+
+645:             lpValues.maxRedeem = 0;
+
+```
+*GitHub*: [624](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L624-L624), [629](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L629-L629), [640](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L640-L640), [645](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L645-L645)
+
+```solidity
+File: src/Root.sol
+
+71:          schedule[target] = 0;
+
+82:          schedule[target] = 0;
+
+```
+*GitHub*: [71](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L71-L71), [82](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L82-L82)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+40:          pausers[user] = 0;
+
+```
+*GitHub*: [40](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L40-L40)
+
+```solidity
+File: src/token/ERC20.sol
+
+63:          wards[user] = 0;
+
+```
+*GitHub*: [63](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L63-L63)
+
+```solidity
+File: src/util/Auth.sol
+
+21:          wards[user] = 0;
+
+```
+*GitHub*: [21](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Auth.sol#L21-L21)
+
+
+### [D&#x2011;65] ~~Shorten the array rather than copying to a new one~~
+None of these examples are of filtering out entries from an array.
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/PoolManager.sol
+
+285          address[] memory trancheTokenWards = new address[](2);
+286          trancheTokenWards[0] = address(investmentManager);
+287          trancheTokenWards[1] = address(this);
+288: 
+
+289          address[] memory memberlistWards = new address[](1);
+290          memberlistWards[0] = address(this);
+291  
+292:         address token = trancheTokenFactory.newTrancheToken(
+
+316          address[] memory liquidityPoolWards = new address[](1);
+317          liquidityPoolWards[0] = address(investmentManager);
+318          liquidityPool = liquidityPoolFactory.newLiquidityPool(
+319:             poolId, trancheId, currency, tranche.token, address(investmentManager), liquidityPoolWards
+
+```
+*GitHub*: [285](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L285-L288), [289](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L289-L292), [316](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L316-L319)
+
+
+### [D&#x2011;66] ~~Avoid fetching a low-level call's return data by using assembly~~
+The return data is in fact used, so assembly provides no gas savings
+
+*There are 8 instances of this issue:*
+
+```solidity
+File: src/LiquidityPool.sol
+
+296:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+302:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+308:         (bool success, bytes memory data) = address(share).call(bytes.concat(msg.data, bytes20(msg.sender)));
+
+314:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+319:         (bool success,) = address(share).call(bytes.concat(msg.data, bytes20(address(this))));
+
+```
+*GitHub*: [296](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L296-L296), [302](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L302-L302), [308](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L308-L308), [314](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L314-L314), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L319-L319)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+17:              token.call(abi.encodeWithSelector(IERC20.transferFrom.selector, from, to, value));
+
+27:          (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.transfer.selector, to, value));
+
+37:          (bool success, bytes memory data) = token.call(abi.encodeWithSelector(IERC20.approve.selector, to, value));
+
+```
+*GitHub*: [17](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L17-L17), [27](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L27-L27), [37](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L37-L37)
+
+
+### [D&#x2011;67] ~~Change `public` function visibility to `external` to save gas~~
+Both `public` and `external` functions use the same amount of gas (both deployment and runtime gas), so this finding is invalid
+
+*There are 108 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/InvestmentManager.sol
+
+117:     function requestDeposit(uint256 currencyAmount, address user) public auth {
+
+148:     function requestRedeem(uint256 trancheTokenAmount, address user) public auth {
+
+174:     function decreaseDepositRequest(uint256 _currencyAmount, address user) public auth {
+
+187:     function decreaseRedeemRequest(uint256 _trancheTokenAmount, address user) public auth {
+
+200:     function collectDeposit(address user) public auth {
+
+211:     function collectRedeem(address user) public auth {
+
+223      function updateTrancheTokenPrice(uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+224          public
+225          onlyGateway
+226:     {
+
+234      function handleExecutedCollectInvest(
+235          uint64 poolId,
+236          bytes16 trancheId,
+237          address recipient,
+238          uint128 currency,
+239          uint128 currencyPayout,
+240          uint128 trancheTokensPayout
+241:     ) public onlyGateway {
+
+255      function handleExecutedCollectRedeem(
+256          uint64 poolId,
+257          bytes16 trancheId,
+258          address recipient,
+259          uint128 currency,
+260          uint128 currencyPayout,
+261          uint128 trancheTokensPayout
+262:     ) public onlyGateway {
+
+277      function handleExecutedDecreaseInvestOrder(
+278          uint64 poolId,
+279          bytes16 trancheId,
+280          address user,
+281          uint128 currency,
+282          uint128 currencyPayout
+283:     ) public onlyGateway {
+
+294      function handleExecutedDecreaseRedeemOrder(
+295          uint64 poolId,
+296          bytes16 trancheId,
+297          address user,
+298          uint128 currency,
+299          uint128 trancheTokenPayout
+300:     ) public onlyGateway {
+
+319:     function totalAssets(uint256 totalSupply, address liquidityPool) public view returns (uint256 _totalAssets) {
+
+325:     function convertToShares(uint256 _assets, address liquidityPool) public view auth returns (uint256 shares) {
+
+350:     function maxDeposit(address user, address liquidityPool) public view returns (uint256 currencyAmount) {
+
+355:     function maxMint(address user, address liquidityPool) public view returns (uint256 trancheTokenAmount) {
+
+360:     function maxWithdraw(address user, address liquidityPool) public view returns (uint256 currencyAmount) {
+
+365:     function maxRedeem(address user, address liquidityPool) public view returns (uint256 trancheTokenAmount) {
+
+370      function previewDeposit(address user, address liquidityPool, uint256 _currencyAmount)
+371          public
+372          view
+373          returns (uint256 trancheTokenAmount)
+374:     {
+
+383      function previewMint(address user, address liquidityPool, uint256 _trancheTokenAmount)
+384          public
+385          view
+386          returns (uint256 currencyAmount)
+387:     {
+
+396      function previewWithdraw(address user, address liquidityPool, uint256 _currencyAmount)
+397          public
+398          view
+399          returns (uint256 trancheTokenAmount)
+400:     {
+
+409      function previewRedeem(address user, address liquidityPool, uint256 _trancheTokenAmount)
+410          public
+411          view
+412          returns (uint256 currencyAmount)
+413:     {
+
+427:     function processDeposit(address user, uint256 currencyAmount) public auth returns (uint256 trancheTokenAmount) {
+
+451:     function processMint(address user, uint256 trancheTokenAmount) public auth returns (uint256 currencyAmount) {
+
+489      function processRedeem(uint256 trancheTokenAmount, address receiver, address user)
+490          public
+491          auth
+492          returns (uint256 currencyAmount)
+493:     {
+
+515      function processWithdraw(uint256 currencyAmount, address receiver, address user)
+516          public
+517          auth
+518          returns (uint256 trancheTokenAmount)
+519:     {
+
+```
+*GitHub*: [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L117-L117), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L148-L148), [174](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L174-L174), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L187-L187), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L200-L200), [211](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L211-L211), [223](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L223-L226), [234](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L234-L241), [255](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L255-L262), [277](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L277-L283), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L294-L300), [319](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L319-L319), [325](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L325-L325), [350](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L350-L350), [355](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L355-L355), [360](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L360-L360), [365](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L365-L365), [370](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L370-L374), [383](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L383-L387), [396](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L396-L400), [409](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L409-L413), [427](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L427-L427), [451](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L451-L451), [489](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L489-L493), [515](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L515-L519)
+
+```solidity
+File: src/LiquidityPool.sol
+
+103:     function file(bytes32 what, address data) public auth {
+
+111:     function totalAssets() public view returns (uint256) {
+
+118:     function convertToShares(uint256 assets) public view returns (uint256 shares) {
+
+125:     function convertToAssets(uint256 shares) public view returns (uint256 assets) {
+
+130:     function maxDeposit(address receiver) public view returns (uint256) {
+
+135:     function previewDeposit(uint256 assets) public view returns (uint256 shares) {
+
+141:     function deposit(uint256 assets, address receiver) public returns (uint256 shares) {
+
+148      function mint(uint256 shares, address receiver) public returns (uint256 assets) {
+149:         // require(receiver == msg.sender, "LiquidityPool/not-authorized-to-mint");
+
+165:     function maxWithdraw(address receiver) public view returns (uint256 maxAssets) {
+
+170:     function previewWithdraw(uint256 assets) public view returns (uint256 shares) {
+
+176      function withdraw(uint256 assets, address receiver, address owner)
+177          public
+178          withApproval(owner)
+179          returns (uint256 shares)
+180:     {
+
+187:     function maxRedeem(address owner) public view returns (uint256 maxShares) {
+
+192:     function previewRedeem(uint256 shares) public view returns (uint256 assets) {
+
+200      function redeem(uint256 shares, address receiver, address owner)
+201          public
+202          withApproval(owner)
+203          returns (uint256 assets)
+204:     {
+
+214:     function requestDeposit(uint256 assets, address owner) public withApproval(owner) {
+
+220      function requestDepositWithPermit(uint256 assets, address owner, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+221          public
+222:     {
+
+231:     function requestRedeem(uint256 shares, address owner) public withApproval(owner) {
+
+237      function requestRedeemWithPermit(uint256 shares, address owner, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+238          public
+239:     {
+
+247:     function decreaseDepositRequest(uint256 assets, address owner) public withApproval(owner) {
+
+253:     function decreaseRedeemRequest(uint256 shares, address owner) public withApproval(owner) {
+
+259:     function collectDeposit(address receiver) public {
+
+265:     function collectRedeem(address receiver) public {
+
+271:     function name() public view returns (string memory) {
+
+275:     function symbol() public view returns (string memory) {
+
+279:     function decimals() public view returns (uint8) {
+
+287:     function balanceOf(address owner) public view returns (uint256) {
+
+291:     function allowance(address owner, address spender) public view returns (uint256) {
+
+295:     function transferFrom(address, address, uint256) public returns (bool) {
+
+301:     function transfer(address, uint256) public returns (bool) {
+
+307:     function approve(address, uint256) public returns (bool) {
+
+313:     function mint(address, uint256) public auth {
+
+318:     function burn(address, uint256) public auth {
+
+324:     function updatePrice(uint128 price) public auth {
+
+332:     function checkTransferRestriction(address from, address to, uint256 value) public view returns (bool) {
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L103-L103), [111](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L111-L111), [118](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L118-L118), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L125-L125), [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L130-L130), [135](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L135-L135), [141](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L141-L141), [148](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L148-L149), [165](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L165-L165), [170](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L170-L170), [176](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L176-L180), [187](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L187-L187), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L192-L192), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L200-L204), [214](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L214-L214), [220](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L220-L222), [231](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L231-L231), [237](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L237-L239), [247](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L247-L247), [253](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L253-L253), [259](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L259-L259), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L265-L265), [271](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L271-L271), [275](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L275-L275), [279](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L279-L279), [287](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L287-L287), [291](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L291-L291), [295](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L295-L295), [301](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L301-L301), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L307-L307), [313](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L313-L313), [318](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L318-L318), [324](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L324-L324), [332](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L332-L332)
+
+```solidity
+File: src/PoolManager.sol
+
+128:     function transfer(address currencyAddress, bytes32 recipient, uint128 amount) public {
+
+136      function transferTrancheTokensToCentrifuge(
+137          uint64 poolId,
+138          bytes16 trancheId,
+139          bytes32 destinationAddress,
+140          uint128 amount
+141:     ) public {
+
+149      function transferTrancheTokensToEVM(
+150          uint64 poolId,
+151          bytes16 trancheId,
+152          uint64 destinationChainId,
+153          address destinationAddress,
+154          uint128 amount
+155:     ) public {
+
+168:     function addPool(uint64 poolId) public onlyGateway {
+
+179:     function allowPoolCurrency(uint64 poolId, uint128 currency) public onlyGateway {
+
+192      function addTranche(
+193          uint64 poolId,
+194          bytes16 trancheId,
+195          string memory tokenName,
+196          string memory tokenSymbol,
+197          uint8 decimals
+198:     ) public onlyGateway {
+
+214      function updateTrancheTokenMetadata(
+215          uint64 poolId,
+216          bytes16 trancheId,
+217          string memory tokenName,
+218          string memory tokenSymbol
+219:     ) public onlyGateway {
+
+227:     function updateMember(uint64 poolId, bytes16 trancheId, address user, uint64 validUntil) public onlyGateway {
+
+238:     function addCurrency(uint128 currency, address currencyAddress) public onlyGateway {
+
+257:     function handleTransfer(uint128 currency, address recipient, uint128 amount) public onlyGateway {
+
+265      function handleTransferTrancheTokens(uint64 poolId, bytes16 trancheId, address destinationAddress, uint128 amount)
+266          public
+267          onlyGateway
+268:     {
+
+280:     function deployTranche(uint64 poolId, bytes16 trancheId) public returns (address) {
+
+307:     function deployLiquidityPool(uint64 poolId, bytes16 trancheId, address currency) public returns (address) {
+
+341:     function getLiquidityPool(uint64 poolId, bytes16 trancheId, address currency) public view returns (address) {
+
+```
+*GitHub*: [128](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L128-L128), [136](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L136-L141), [149](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L149-L155), [168](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L168-L168), [179](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L179-L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L192-L198), [214](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L214-L219), [227](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L227-L227), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L238-L238), [257](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L257-L257), [265](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L265-L268), [280](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L280-L280), [307](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L307-L307), [341](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L341-L341)
+
+```solidity
+File: src/Root.sol
+
+75:      function executeScheduledRely(address target) public {
+
+90:      function relyContract(address target, address user) public auth {
+
+98:      function denyContract(address target, address user) public auth {
+
+```
+*GitHub*: [75](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L75-L75), [90](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L90-L90), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L98-L98)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+26:      function pause() public auth {
+
+30:      function unpause() public auth {
+
+34:      function scheduleRely(address target) public auth {
+
+38:      function cancelRely(address target) public auth {
+
+```
+*GitHub*: [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L26-L26), [30](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L30-L30), [34](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L34-L34), [38](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L38-L38)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+45:      function pause() public canPause {
+
+```
+*GitHub*: [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L45-L45)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+130:     function file(bytes32 what, address data) public auth {
+
+137:     function addIncomingRouter(address router) public auth {
+
+142:     function removeIncomingRouter(address router) public auth {
+
+147:     function updateOutgoingRouter(address router) public auth {
+
+153      function transferTrancheTokensToCentrifuge(
+154          uint64 poolId,
+155          bytes16 trancheId,
+156          address sender,
+157          bytes32 destinationAddress,
+158          uint128 amount
+159:     ) public onlyPoolManager pauseable {
+
+172      function transferTrancheTokensToEVM(
+173          uint64 poolId,
+174          bytes16 trancheId,
+175          address sender,
+176          uint64 destinationChainId,
+177          address destinationAddress,
+178          uint128 amount
+179:     ) public onlyPoolManager pauseable {
+
+192      function transfer(uint128 token, address sender, bytes32 receiver, uint128 amount)
+193          public
+194          onlyPoolManager
+195          pauseable
+196:     {
+
+200      function increaseInvestOrder(
+201          uint64 poolId,
+202          bytes16 trancheId,
+203          address investor,
+204          uint128 currency,
+205          uint128 currencyAmount
+206:     ) public onlyInvestmentManager pauseable {
+
+212      function decreaseInvestOrder(
+213          uint64 poolId,
+214          bytes16 trancheId,
+215          address investor,
+216          uint128 currency,
+217          uint128 currencyAmount
+218:     ) public onlyInvestmentManager pauseable {
+
+224      function increaseRedeemOrder(
+225          uint64 poolId,
+226          bytes16 trancheId,
+227          address investor,
+228          uint128 currency,
+229          uint128 trancheTokenAmount
+230:     ) public onlyInvestmentManager pauseable {
+
+238      function decreaseRedeemOrder(
+239          uint64 poolId,
+240          bytes16 trancheId,
+241          address investor,
+242          uint128 currency,
+243          uint128 trancheTokenAmount
+244:     ) public onlyInvestmentManager pauseable {
+
+252      function collectInvest(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+253          public
+254          onlyInvestmentManager
+255          pauseable
+256:     {
+
+260      function collectRedeem(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+261          public
+262          onlyInvestmentManager
+263          pauseable
+264:     {
+
+268      function cancelInvestOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+269          public
+270          onlyInvestmentManager
+271          pauseable
+272:     {
+
+276      function cancelRedeemOrder(uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+277          public
+278          onlyInvestmentManager
+279          pauseable
+280:     {
+
+```
+*GitHub*: [130](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L130-L130), [137](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L137-L137), [142](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L142-L142), [147](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L147-L147), [153](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L153-L159), [172](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L172-L179), [192](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L192-L196), [200](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L200-L206), [212](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L212-L218), [224](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L224-L230), [238](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L238-L244), [252](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L252-L256), [260](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L260-L264), [268](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L268-L272), [276](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L276-L280)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+73       function execute(
+74           bytes32 commandId,
+75           string calldata sourceChain,
+76           string calldata sourceAddress,
+77           bytes calldata payload
+78:      ) public onlyCentrifugeChainOrigin(sourceChain, sourceAddress) {
+
+89:      function send(bytes calldata message) public onlyGateway {
+
+```
+*GitHub*: [73](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L73-L78), [89](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L89-L89)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+28:      function detectTransferRestriction(address from, address to, uint256 value) public view returns (uint8) {
+
+36:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+45:      function member(address user) public view {
+
+62:      function updateMembers(address[] memory users, uint256 validUntil) public auth {
+
+```
+*GitHub*: [28](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L28-L28), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L36-L36), [45](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L45-L45), [62](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L62-L62)
+
+```solidity
+File: src/token/Tranche.sol
+
+42:      function file(bytes32 what, address data) public auth {
+
+48:      function addLiquidityPool(address liquidityPool) public auth {
+
+53:      function removeLiquidityPool(address liquidityPool) public auth {
+
+80:      function checkTransferRestriction(address from, address to, uint256 value) public view returns (bool) {
+
+```
+*GitHub*: [42](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L42-L42), [48](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L48-L48), [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L53-L53), [80](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L80-L80)
+
+```solidity
+File: src/util/Factory.sol
+
+36       function newLiquidityPool(
+37           uint64 poolId,
+38           bytes16 trancheId,
+39           address currency,
+40           address trancheToken,
+41           address investmentManager,
+42           address[] calldata wards
+43:      ) public auth returns (address) {
+
+81       function newTrancheToken(
+82           uint64 poolId,
+83           bytes16 trancheId,
+84           string memory name,
+85           string memory symbol,
+86           uint8 decimals,
+87           address[] calldata trancheTokenWards,
+88           address[] calldata restrictionManagerWards
+89:      ) public auth returns (address) {
+
+```
+*GitHub*: [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L36-L43), [81](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L81-L89)
+
+</details>
+
+
+
+
+### [D&#x2011;68] ~~A function which defines named returns in its declaration doesn't need to use return~~
+It needs to use a return here, or else the function won't work
+
+*There are 9 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+377:         if (depositPrice == 0) return 0;
+
+390:         if (depositPrice == 0) return 0;
+
+403:         if (redeemPrice == 0) return 0;
+
+416:         if (redeemPrice == 0) return 0;
+
+554:             return 0;
+
+563:             return 0;
+
+681:         if (PRICE_DECIMALS == decimals) return uint256(_value);
+
+691:         if (PRICE_DECIMALS == decimals) return _toUint128(_value);
+
+```
+*GitHub*: [377](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L377-L377), [390](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L390-L390), [403](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L403-L403), [416](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L416-L416), [554](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L554-L554), [563](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L563-L563), [681](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L681-L681), [691](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L691-L691)
+
+```solidity
+File: src/gateway/Messages.sol
+
+879:             return 0x0;
+
+```
+*GitHub*: [879](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L879-L879)
+
+
+### [D&#x2011;69] ~~Not using the named return variables anywhere in the function is confusing~~
+The variable is in fact used, so the instances below are invalid
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit result
+876:     function _stringToBytes32(string memory source) internal pure returns (bytes32 result) {
+
+```
+*GitHub*: [876](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L876-L876)
+
+```solidity
+File: src/token/Tranche.sol
+
+/// @audit sender
+103:     function _msgSender() internal view virtual override returns (address sender) {
+
+```
+*GitHub*: [103](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L103-L103)
+
+
+### [D&#x2011;70] ~~State variables not capped at reasonable values~~
+These assignments already have the necessary checks
+
+*There are 5 instances of this issue:*
+
+```solidity
+File: src/Root.sol
+
+46:              delay = data;
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L46-L46)
+
+```solidity
+File: src/UserEscrow.sol
+
+46:          destinations[token][destination] -= amount;
+
+```
+*GitHub*: [46](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L46-L46)
+
+```solidity
+File: src/token/ERC20.sol
+
+98:              balanceOf[to] += value;
+
+123:             balanceOf[to] += value;
+
+```
+*GitHub*: [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L98-L98), [123](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L123-L123)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+59:          members[user] = validUntil;
+
+```
+*GitHub*: [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L59-L59)
+
+
+### [D&#x2011;71] ~~Unused import~~
+These instances _are_ used
+
+*There are 36 instances of this issue:*
+
+<details>
+<summary>see instances</summary>
+
+
+```solidity
+File: src/Escrow.sol
+
+/// @audit Auth
+4:   import {Auth} from "./util/Auth.sol";
+
+/// @audit SafeTransferLib
+5:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Escrow.sol#L5-L5)
+
+```solidity
+File: src/InvestmentManager.sol
+
+/// @audit Auth
+4:   import {Auth} from "./util/Auth.sol";
+
+/// @audit MathLib
+5:   import {MathLib} from "./util/MathLib.sol";
+
+/// @audit SafeTransferLib
+6:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L6-L6)
+
+```solidity
+File: src/LiquidityPool.sol
+
+/// @audit Auth
+4:   import {Auth} from "./util/Auth.sol";
+
+/// @audit MathLib
+5:   import {MathLib} from "./util/MathLib.sol";
+
+/// @audit IERC20
+6:   import {IERC20} from "./interfaces/IERC20.sol";
+
+/// @audit IERC4626
+7:   import {IERC4626} from "./interfaces/IERC4626.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/LiquidityPool.sol#L7-L7)
+
+```solidity
+File: src/PoolManager.sol
+
+/// @audit TrancheTokenFactoryLike
+/// @audit LiquidityPoolFactoryLike
+4:   import {TrancheTokenFactoryLike, LiquidityPoolFactoryLike} from "./util/Factory.sol";
+
+/// @audit TrancheTokenLike
+5:   import {TrancheTokenLike} from "./token/Tranche.sol";
+
+/// @audit MemberlistLike
+6:   import {MemberlistLike} from "./token/RestrictionManager.sol";
+
+/// @audit IERC20
+7:   import {IERC20} from "./interfaces/IERC20.sol";
+
+/// @audit Auth
+8:   import {Auth} from "./util/Auth.sol";
+
+/// @audit SafeTransferLib
+9:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L4-L4), [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L7-L7), [8](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L8-L8), [9](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L9-L9)
+
+```solidity
+File: src/Root.sol
+
+/// @audit Auth
+4:   import {Auth} from "./util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/Root.sol#L4-L4)
+
+```solidity
+File: src/UserEscrow.sol
+
+/// @audit Auth
+4:   import {Auth} from "./util/Auth.sol";
+
+/// @audit SafeTransferLib
+5:   import {SafeTransferLib} from "./util/SafeTransferLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/UserEscrow.sol#L5-L5)
+
+```solidity
+File: src/admins/DelayedAdmin.sol
+
+/// @audit Root
+4:   import {Root} from "../Root.sol";
+
+/// @audit Auth
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/DelayedAdmin.sol#L5-L5)
+
+```solidity
+File: src/admins/PauseAdmin.sol
+
+/// @audit Root
+4:   import {Root} from "../Root.sol";
+
+/// @audit Auth
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/admins/PauseAdmin.sol#L5-L5)
+
+```solidity
+File: src/gateway/Gateway.sol
+
+/// @audit Messages
+4:   import {Messages} from "./Messages.sol";
+
+/// @audit Auth
+5:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Gateway.sol#L5-L5)
+
+```solidity
+File: src/gateway/Messages.sol
+
+/// @audit BytesLib
+4:   import {BytesLib} from "src/util/BytesLib.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L4-L4)
+
+```solidity
+File: src/gateway/routers/axelar/Router.sol
+
+/// @audit Auth
+4:   import {Auth} from "./../../../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/routers/axelar/Router.sol#L4-L4)
+
+```solidity
+File: src/token/ERC20.sol
+
+/// @audit Context
+6:   import {Context} from "../util/Context.sol";
+
+```
+*GitHub*: [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/ERC20.sol#L6-L6)
+
+```solidity
+File: src/token/RestrictionManager.sol
+
+/// @audit Auth
+4:   import {Auth} from "./../util/Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/RestrictionManager.sol#L4-L4)
+
+```solidity
+File: src/token/Tranche.sol
+
+/// @audit ERC20
+4:   import {ERC20} from "./ERC20.sol";
+
+/// @audit IERC20
+5:   import {IERC20} from "../interfaces/IERC20.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L5-L5)
+
+```solidity
+File: src/util/Factory.sol
+
+/// @audit LiquidityPool
+4:   import {LiquidityPool} from "../LiquidityPool.sol";
+
+/// @audit TrancheToken
+5:   import {TrancheToken} from "../token/Tranche.sol";
+
+/// @audit RestrictionManager
+6:   import {RestrictionManager} from "../token/RestrictionManager.sol";
+
+/// @audit Auth
+7:   import {Auth} from "./Auth.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L4-L4), [5](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L5-L5), [6](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L6-L6), [7](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Factory.sol#L7-L7)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+/// @audit IERC20
+4:   import {IERC20} from "../interfaces/IERC20.sol";
+
+```
+*GitHub*: [4](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L4-L4)
+
+</details>
+
+
+
+
+### [D&#x2011;72] ~~safeMint should be used in place of mint~~
+These are not ERC721.mint() calls
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+251:         LiquidityPoolLike(liquidityPool).mint(address(escrow), trancheTokensPayout); // mint to escrow. Recepeint can claim by calling withdraw / redeem
+
+```
+*GitHub*: [251](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L251-L251)
+
+```solidity
+File: src/PoolManager.sol
+
+276:         trancheToken.mint(destinationAddress, amount);
+
+```
+*GitHub*: [276](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L276-L276)
+
+```solidity
+File: src/token/Tranche.sol
+
+73:          return super.mint(to, value);
+
+```
+*GitHub*: [73](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L73-L73)
+
+
+### [D&#x2011;73] ~~Unused `struct` definition~~
+These structs are used outside of the defining contract
+
+*There are 3 instances of this issue:*
+
+```solidity
+File: src/InvestmentManager.sol
+
+59   struct LPValues {
+60       uint128 maxDeposit; // denominated in currency
+61       uint128 maxMint; // denominated in tranche tokens
+62       uint128 maxWithdraw; // denominated in currency
+63       uint128 maxRedeem; // denominated in tranche tokens
+64:  }
+
+```
+*GitHub*: [59](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/InvestmentManager.sol#L59-L64)
+
+```solidity
+File: src/PoolManager.sol
+
+53   struct Pool {
+54       uint64 poolId;
+55       uint256 createdAt;
+56       mapping(bytes16 => Tranche) tranches;
+57       mapping(address => bool) allowedCurrencies;
+58:  }
+
+61   struct Tranche {
+62       address token;
+63       uint64 poolId;
+64       bytes16 trancheId;
+65       // important: the decimals of the leading pool currency. Liquidity Pool shares have to be denomatimated with the same precision.
+66       uint8 decimals;
+67       uint256 createdAt;
+68       string tokenName;
+69       string tokenSymbol;
+70       /// @dev Each tranche can have multiple liquidity pools deployed,
+71       /// each linked to a unique investment currency (asset)
+72       mapping(address => address) liquidityPools; // currency -> liquidity pool address
+73:  }
+
+```
+*GitHub*: [53](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L53-L58), [61](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/PoolManager.sol#L61-L73)
+
+
+### [D&#x2011;74] ~~Change `public` to `external` for functions that are not called internally~~
+These functions are referenced by modifiers
+
+*There are 2 instances of this issue:*
+
+```solidity
+File: src/token/Tranche.sol
+
+76:      function detectTransferRestriction(address from, address to, uint256 value) public view returns (uint8) {
+
+84:      function messageForTransferRestriction(uint8 restrictionCode) public view returns (string memory) {
+
+```
+*GitHub*: [76](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L76-L76), [84](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/token/Tranche.sol#L84-L84)
+
+
+### [D&#x2011;75] ~~`internal` functions not called by the contract should be removed~~
+These functions are referenced by other contracts extending the current one
+
+*There are 82 instances of this issue:*
+
+```solidity
+File: src/gateway/Messages.sol
+
+68:      function messageType(bytes memory _msg) internal pure returns (Call _call) {
+
+79:      function formatAddCurrency(uint128 currency, address currencyAddress) internal pure returns (bytes memory) {
+
+83:      function isAddCurrency(bytes memory _msg) internal pure returns (bool) {
+
+87:      function parseAddCurrency(bytes memory _msg) internal pure returns (uint128 currency, address currencyAddress) {
+
+98:      function formatAddPool(uint64 poolId) internal pure returns (bytes memory) {
+
+102:     function isAddPool(bytes memory _msg) internal pure returns (bool) {
+
+106:     function parseAddPool(bytes memory _msg) internal pure returns (uint64 poolId) {
+
+117:     function formatAllowPoolCurrency(uint64 poolId, uint128 currency) internal pure returns (bytes memory) {
+
+121:     function isAllowPoolCurrency(bytes memory _msg) internal pure returns (bool) {
+
+125:     function parseAllowPoolCurrency(bytes memory _msg) internal pure returns (uint64 poolId, uint128 currency) {
+
+141      function formatAddTranche(
+142          uint64 poolId,
+143          bytes16 trancheId,
+144          string memory tokenName,
+145          string memory tokenSymbol,
+146          uint8 decimals,
+147          uint128 price
+148:     ) internal pure returns (bytes memory) {
+
+163:     function isAddTranche(bytes memory _msg) internal pure returns (bool) {
+
+167      function parseAddTranche(bytes memory _msg)
+168          internal
+169          pure
+170          returns (
+171              uint64 poolId,
+172              bytes16 trancheId,
+173              string memory tokenName,
+174              string memory tokenSymbol,
+175              uint8 decimals,
+176              uint128 price
+177          )
+178:     {
+
+197      function formatUpdateMember(uint64 poolId, bytes16 trancheId, address member, uint64 validUntil)
+198          internal
+199          pure
+200          returns (bytes memory)
+201:     {
+
+205      function formatUpdateMember(uint64 poolId, bytes16 trancheId, bytes32 member, uint64 validUntil)
+206          internal
+207          pure
+208          returns (bytes memory)
+209:     {
+
+213:     function isUpdateMember(bytes memory _msg) internal pure returns (bool) {
+
+217      function parseUpdateMember(bytes memory _msg)
+218          internal
+219          pure
+220          returns (uint64 poolId, bytes16 trancheId, address user, uint64 validUntil)
+221:     {
+
+237      function formatUpdateTrancheTokenPrice(uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+238          internal
+239          pure
+240          returns (bytes memory)
+241:     {
+
+245:     function isUpdateTrancheTokenPrice(bytes memory _msg) internal pure returns (bool) {
+
+249      function parseUpdateTrancheTokenPrice(bytes memory _msg)
+250          internal
+251          pure
+252          returns (uint64 poolId, bytes16 trancheId, uint128 currencyId, uint128 price)
+253:     {
+
+269      function formatTransfer(uint128 currency, bytes32 sender, bytes32 receiver, uint128 amount)
+270          internal
+271          pure
+272          returns (bytes memory)
+273:     {
+
+277:     function isTransfer(bytes memory _msg) internal pure returns (bool) {
+
+281      function parseTransfer(bytes memory _msg)
+282          internal
+283          pure
+284          returns (uint128 currency, bytes32 sender, bytes32 receiver, uint128 amount)
+285:     {
+
+294      function parseIncomingTransfer(bytes memory _msg)
+295          internal
+296          pure
+297          returns (uint128 currency, address recipient, uint128 amount)
+298:     {
+
+315      function formatTransferTrancheTokens(
+316          uint64 poolId,
+317          bytes16 trancheId,
+318          bytes32 sender,
+319          bytes9 destinationDomain,
+320          bytes32 destinationAddress,
+321          uint128 amount
+322:     ) internal pure returns (bytes memory) {
+
+332      function formatTransferTrancheTokens(
+333          uint64 poolId,
+334          bytes16 trancheId,
+335          bytes32 sender,
+336          bytes9 destinationDomain,
+337          address destinationAddress,
+338          uint128 amount
+339:     ) internal pure returns (bytes memory) {
+
+345:     function isTransferTrancheTokens(bytes memory _msg) internal pure returns (bool) {
+
+351      function parseTransferTrancheTokens20(bytes memory _msg)
+352          internal
+353          pure
+354          returns (uint64 poolId, bytes16 trancheId, address destinationAddress, uint128 amount)
+355:     {
+
+374      function formatIncreaseInvestOrder(
+375          uint64 poolId,
+376          bytes16 trancheId,
+377          bytes32 investor,
+378          uint128 currency,
+379          uint128 amount
+380:     ) internal pure returns (bytes memory) {
+
+384:     function isIncreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+388      function parseIncreaseInvestOrder(bytes memory _msg)
+389          internal
+390          pure
+391          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+392:     {
+
+410      function formatDecreaseInvestOrder(
+411          uint64 poolId,
+412          bytes16 trancheId,
+413          bytes32 investor,
+414          uint128 currency,
+415          uint128 amount
+416:     ) internal pure returns (bytes memory) {
+
+420:     function isDecreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+424      function parseDecreaseInvestOrder(bytes memory _msg)
+425          internal
+426          pure
+427          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+428:     {
+
+442      function formatIncreaseRedeemOrder(
+443          uint64 poolId,
+444          bytes16 trancheId,
+445          bytes32 investor,
+446          uint128 currency,
+447          uint128 amount
+448:     ) internal pure returns (bytes memory) {
+
+452:     function isIncreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+456      function parseIncreaseRedeemOrder(bytes memory _msg)
+457          internal
+458          pure
+459          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+460:     {
+
+474      function formatDecreaseRedeemOrder(
+475          uint64 poolId,
+476          bytes16 trancheId,
+477          bytes32 investor,
+478          uint128 currency,
+479          uint128 amount
+480:     ) internal pure returns (bytes memory) {
+
+484:     function isDecreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+488      function parseDecreaseRedeemOrder(bytes memory _msg)
+489          internal
+490          pure
+491          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency, uint128 amount)
+492:     {
+
+504      function formatCollectInvest(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+505          internal
+506          pure
+507          returns (bytes memory)
+508:     {
+
+512:     function isCollectInvest(bytes memory _msg) internal pure returns (bool) {
+
+516      function parseCollectInvest(bytes memory _msg)
+517          internal
+518          pure
+519          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+520:     {
+
+535      function formatCollectRedeem(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+536          internal
+537          pure
+538          returns (bytes memory)
+539:     {
+
+543:     function isCollectRedeem(bytes memory _msg) internal pure returns (bool) {
+
+547      function parseCollectRedeem(bytes memory _msg)
+548          internal
+549          pure
+550          returns (uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+551:     {
+
+558      function formatExecutedDecreaseInvestOrder(
+559          uint64 poolId,
+560          bytes16 trancheId,
+561          bytes32 investor,
+562          uint128 currency,
+563          uint128 currencyPayout
+564:     ) internal pure returns (bytes memory) {
+
+570:     function isExecutedDecreaseInvestOrder(bytes memory _msg) internal pure returns (bool) {
+
+574      function parseExecutedDecreaseInvestOrder(bytes memory _msg)
+575          internal
+576          pure
+577          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency, uint128 trancheTokenPayout)
+578:     {
+
+586      function formatExecutedDecreaseRedeemOrder(
+587          uint64 poolId,
+588          bytes16 trancheId,
+589          bytes32 investor,
+590          uint128 currency,
+591          uint128 trancheTokenPayout
+592:     ) internal pure returns (bytes memory) {
+
+598:     function isExecutedDecreaseRedeemOrder(bytes memory _msg) internal pure returns (bool) {
+
+602      function parseExecutedDecreaseRedeemOrder(bytes memory _msg)
+603          internal
+604          pure
+605          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency, uint128 trancheTokensPayout)
+606:     {
+
+614      function formatExecutedCollectInvest(
+615          uint64 poolId,
+616          bytes16 trancheId,
+617          bytes32 investor,
+618          uint128 currency,
+619          uint128 currencyPayout,
+620          uint128 trancheTokensPayout
+621:     ) internal pure returns (bytes memory) {
+
+633:     function isExecutedCollectInvest(bytes memory _msg) internal pure returns (bool) {
+
+637      function parseExecutedCollectInvest(bytes memory _msg)
+638          internal
+639          pure
+640          returns (
+641              uint64 poolId,
+642              bytes16 trancheId,
+643              address investor,
+644              uint128 currency,
+645              uint128 currencyPayout,
+646              uint128 trancheTokensPayout
+647          )
+648:     {
+
+657      function formatExecutedCollectRedeem(
+658          uint64 poolId,
+659          bytes16 trancheId,
+660          bytes32 investor,
+661          uint128 currency,
+662          uint128 currencyPayout,
+663          uint128 trancheTokensPayout
+664:     ) internal pure returns (bytes memory) {
+
+676:     function isExecutedCollectRedeem(bytes memory _msg) internal pure returns (bool) {
+
+680      function parseExecutedCollectRedeem(bytes memory _msg)
+681          internal
+682          pure
+683          returns (
+684              uint64 poolId,
+685              bytes16 trancheId,
+686              address investor,
+687              uint128 currency,
+688              uint128 currencyPayout,
+689              uint128 trancheTokensPayout
+690          )
+691:     {
+
+700:     function formatScheduleUpgrade(address _contract) internal pure returns (bytes memory) {
+
+704:     function isScheduleUpgrade(bytes memory _msg) internal pure returns (bool) {
+
+708:     function parseScheduleUpgrade(bytes memory _msg) internal pure returns (address _contract) {
+
+712:     function formatCancelUpgrade(address _contract) internal pure returns (bytes memory) {
+
+716:     function isCancelUpgrade(bytes memory _msg) internal pure returns (bool) {
+
+720:     function parseCancelUpgrade(bytes memory _msg) internal pure returns (address _contract) {
+
+733      function formatUpdateTrancheTokenMetadata(
+734          uint64 poolId,
+735          bytes16 trancheId,
+736          string memory tokenName,
+737          string memory tokenSymbol
+738:     ) internal pure returns (bytes memory) {
+
+751:     function isUpdateTrancheTokenMetadata(bytes memory _msg) internal pure returns (bool) {
+
+755      function parseUpdateTrancheTokenMetadata(bytes memory _msg)
+756          internal
+757          pure
+758          returns (uint64 poolId, bytes16 trancheId, string memory tokenName, string memory tokenSymbol)
+759:     {
+
+766      function formatCancelInvestOrder(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+767          internal
+768          pure
+769          returns (bytes memory)
+770:     {
+
+774      function parseCancelInvestOrder(bytes memory _msg)
+775          internal
+776          pure
+777          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+778:     {
+
+785      function formatCancelRedeemOrder(uint64 poolId, bytes16 trancheId, bytes32 investor, uint128 currency)
+786          internal
+787          pure
+788          returns (bytes memory)
+789:     {
+
+793      function parseCancelRedeemOrder(bytes memory _msg)
+794          internal
+795          pure
+796          returns (uint64 poolId, bytes16 trancheId, address investor, uint128 currency)
+797:     {
+
+812      function formatUpdateTrancheInvestmentLimit(uint64 poolId, bytes16 trancheId, uint128 investmentLimit)
+813          internal
+814          pure
+815          returns (bytes memory)
+816:     {
+
+820:     function isUpdateTrancheInvestmentLimit(bytes memory _msg) internal pure returns (bool) {
+
+824      function parseUpdateTrancheInvestmentLimit(bytes memory _msg)
+825          internal
+826          pure
+827          returns (uint64 poolId, bytes16 trancheId, uint128 investmentLimit)
+828:     {
+
+844:     function _stringToBytes128(string memory source) internal pure returns (bytes memory) {
+
+859:     function _bytes128ToString(bytes memory _bytes128) internal pure returns (string memory) {
+
+876:     function _stringToBytes32(string memory source) internal pure returns (bytes32 result) {
+
+887:     function _bytes32ToString(bytes32 _bytes32) internal pure returns (string memory) {
+
+```
+*GitHub*: [68](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L68-L68), [79](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L79-L79), [83](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L83-L83), [87](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L87-L87), [98](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L98-L98), [102](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L102-L102), [106](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L106-L106), [117](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L117-L117), [121](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L121-L121), [125](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L125-L125), [141](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L141-L148), [163](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L163-L163), [167](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L167-L178), [197](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L197-L201), [205](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L205-L209), [213](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L213-L213), [217](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L217-L221), [237](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L237-L241), [245](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L245-L245), [249](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L249-L253), [269](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L269-L273), [277](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L277-L277), [281](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L281-L285), [294](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L294-L298), [315](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L315-L322), [332](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L332-L339), [345](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L345-L345), [351](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L351-L355), [374](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L374-L380), [384](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L384-L384), [388](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L388-L392), [410](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L410-L416), [420](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L420-L420), [424](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L424-L428), [442](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L442-L448), [452](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L452-L452), [456](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L456-L460), [474](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L474-L480), [484](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L484-L484), [488](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L488-L492), [504](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L504-L508), [512](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L512-L512), [516](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L516-L520), [535](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L535-L539), [543](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L543-L543), [547](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L547-L551), [558](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L558-L564), [570](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L570-L570), [574](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L574-L578), [586](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L586-L592), [598](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L598-L598), [602](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L602-L606), [614](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L614-L621), [633](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L633-L633), [637](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L637-L648), [657](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L657-L664), [676](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L676-L676), [680](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L680-L691), [700](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L700-L700), [704](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L704-L704), [708](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L708-L708), [712](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L712-L712), [716](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L716-L716), [720](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L720-L720), [733](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L733-L738), [751](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L751-L751), [755](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L755-L759), [766](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L766-L770), [774](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L774-L778), [785](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L785-L789), [793](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L793-L797), [812](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L812-L816), [820](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L820-L820), [824](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L824-L828), [844](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L844-L844), [859](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L859-L859), [876](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L876-L876), [887](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/gateway/Messages.sol#L887-L887)
+
+```solidity
+File: src/util/Context.sol
+
+13:      function _msgSender() internal view virtual returns (address) {
+
+```
+*GitHub*: [13](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/Context.sol#L13-L13)
+
+```solidity
+File: src/util/SafeTransferLib.sol
+
+15:      function safeTransferFrom(address token, address from, address to, uint256 value) internal {
+
+26:      function safeTransfer(address token, address to, uint256 value) internal {
+
+36:      function safeApprove(address token, address to, uint256 value) internal {
+
+```
+*GitHub*: [15](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L15-L15), [26](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L26-L26), [36](https://github.com/code-423n4/2023-09-centrifuge/blob/0af232255c7d045efde4ac40801dfeeed8a8d889/src/util/SafeTransferLib.sol#L36-L36)
+
+
+## Rubric
+See [this](https://illilli000.github.io/races/2023-07-lens/scorer.html) link for how to use this rubric:
+```json
+{"salt":"4c8c93","hashes":["84e6e10dbd","5eca8c04f7","7cd264a90d","31843e40d3","35114bb9a8","736fe16394","d69f0aa633","29db0865c4","a199f060fa","d721b5582d","672662995c","3e7f3321de","501f5c7e24","49a305d69c","42d31e2116","19d5a978b7","f4d68a68d6","087429b301","c3c312f1d6","e6163df82a","4b9b2b7523","6f2377b154","e67abd6f93","14bbe57745","1d0d649762","d1f6a8eea7","d4232a10f8","277d66af6a","901e49e596","67db27e410","5bc71be542","800e68eb98","98106f7335","c200d06552","6db0a51146","487bb493b7","fb64c5b399","6839249da1","c422dbac53","2619fd3326","7ef16fb837","b0bb6f0959","9c6e3003eb","60ffebe864","ea3dbadd3e","7801902ac5","591d782dbc","58553ef7eb","33e582d1c9","5b8dd2377b","3ad0e42045","4e8fdf4790","a6369c2658","10b7d74845","4d84e60d4b","2540199540","dcacbbeeff","33148afedd","04957ed80f","42b68f793f","d429e16aae","003651e853","5aae043916","e0c2499c70","31ab9c3c9b","8ce21952c2","e79e93506c","7ddb952426","a13e06d9e3","0a551334dd","4cca2fb351","ba39fd9b0d","3702db076e","fe6b69f1cb","a944fa0845","09a035ec0e","ea0c891d53","c445c55e20","8f1a5c6e3c","ece1bf8783","deedb6c1f8","8d7c6b87df","fdb8a1176c","b1e8fc8817","c460cec657","c0acd8d89c","b7887bfbc9","07a8164238","951a69a776","e7abd45c9b","a8e803dcaa","c44c6e9eee","18520b7e2f","8dc8f7a5d0","db277e5417","1aa26b1fd3","bd7c23c349","8ca55b2e52","52024f9635","27484b25b0","27b14b23d5","39ff00db58","12d5e8e94b","56f9f23dc4","fc716e232f","c460cec657","c0acd8d89c","b7887bfbc9","07a8164238","951a69a776","e7abd45c9b","a8e803dcaa","4e574ed884","f61c6744eb","6aaaa58941","79f84e7e70","cbad0c8128","9a241e3697","c433b4107b","d04b4d624c","64bc3f16d7","40820858ee","866fdb90b6","9236df9050","fa56a8089d","cf9856ef7b","1bec892a79","a0ac993877","705441b636","ddcaf4e47e","cc9bf1083b","d2234f88c7","76232c4a90","fd6c23f752","2bb7bb889b","3b6802ac52","aec8465420","7e965b7bde","4bb5a2398f","654562bc49","c8dbafe7ad","950835c7a0","3187fcda3b","d20d329caa","44cd339982","363ac80b4a","cde5562af3","ccb37afef9","13e0e58ed7","21ad87a224","bf5cdf524f","5941262b47","2ee6054b8a","3c921c102c","43c72f6bb5","b3ad774b64","c0f7fba3a7","54b4a068bf","9edadbd9d4","95411bbcc6","e8fac8ee19","f2fb07f61c","4bc0f4e819","6c7f06d2a4","c07a1b2fc1","e622a5ac4e","e0c474b843","081319b39e","271636ca4f","feb7eb76b9","e05af43c54","28a0544d6e","2faf5ba4d9","9ec3db1d43","597bece62b","1467c8c5e7","d7ddda2abb","f8ce2d3f64","b2b46eb558","d29a727fad","99576a5cbc","42accef32b","6fb783aa3d","dfd11684d8","8d68b0421b","7f6a042b33","26ee516f64","61cfa30648","7562402f74","87c3bc203c","fc5474c444","b6b2ff0ed1","81e02fa446","91d51573ed","c8edc911db","6099253a5d","d7745e640c","13eb748289","1a1c55dac3","3edb71268e","ca0452ba0e","151fc7995f","4e204f971a","ce9b79e796","2a903720dc","f31601ca35","501af7a70f","38b3bcbb0c","3386cd24ef","2758010f6b","b87a9e7e38","58f8232b77","93a6967378","7d156a291c","c7cbb47188","689782e144","af5a139eb0","f5eb8da25d","b5a14e166b","b6f798526e","27a411a4a0","c5b2d5de2f","8413ddc9ef","986cf68022","921f6fea0c","d996f496ad","46e7894732","e413f45a13","2d33c171af","9338b30f7e","6d5ba54beb","f5eb8da25d","b5a14e166b","b6f798526e","27a411a4a0","c5b2d5de2f","8413ddc9ef","986cf68022","3e2e4bb24e","763073ac83","752a755b28","3bf49d5f72","020d2fb40f","0b41d760fd","f59d4c6d45","f5d4b71b59","36e013b22f","3b8924ddfa","b1a2ff187f","07dab68063","96d5c4b6df","78e5c6af9c","d0e584c5df","dfc65d7523","66b11bbc9a","577800a5ad","01d387833f","7b85be7199","1455109c06","963bde19b1","f94c968f55","1e79fafb14","2e51f783c9","bc179f4b29","a2d8f4f7e2","0d3d080826","dfb80730e0","ac6b5739a1","7baa081f4b","7c45cdc348","cd79ff9e44","c8cb33bc1c","f36beb00b6","9e25d2930a","7f95a6b174","5d5de38071","7a46389b4b","c4408ec819","ad56a2ec8e","02bb62f9f4","387e3e53f2","fa6d3a3940","9d1627be23","2caff5139f","04586362bf","379771447e","eb2f039fb4","27fa043c2d","32364079ab","66a7778917","b7aa05240b","15a421bd15","4faf7982eb","759023df4b","4a9500f183","69a508e457","7267808af2","fb7addb5ee","9af2051b47","9572218eaf","f6291f6d85","8f48344aa5","ebacfd5870","138b1f709d","dcaa0477c0","16a0f62129","008c8c70d3","123d511dec","2a35604b76","2ca3d73d83","2f96ea4d87","cd24b7e0e4","3dff978e76","5db3cabc72","300bdf49e3","6af6e12738","e09a449dc3","f3bdb0f480","58c1f103aa","313012c1c2","914da8ed33","2f5b61a7bb","5bf8874c82","619d351f6b","e445f16072","26f2a8ded1","282c974d5c","05abd93d7f","b487357907","e8043f0bf1","fb7101edbf","341b5d46d5","73fc18894d","601e7f50e6","31d9553288","0ad7cad413","45681e40a4","ba9ff1bc31","9edceaaad7","a243b21b45","ccb0bad34b","4194b09174","8952d19295","83bfbfe217","1f521ba6c7","400a746e87","f0c9ef4bf4","2409c0c3a1","d487c8b62a","2d9523e15f","8b853bce37","fd8478c707","c19f17fda5","683efc45f8","8bb93a3f54","684119098d","a4b8302004","0a07d1cd59","0f3a45be00","4d8786f2ac","fad0a0dbb0","a16aa885ad","80942e7bbe","c8f4a36ad9","a2474c421f","99c3c76b04","41b5527130","51b696d22c","42c7158351","a41f29705e","d69079f20b","998971e73b","18af0c38ec","590bd683b2","38439c1279","0183c69742","ed76ba9e27","e240f86dd7","14bccf050f","4fb8fe90b6","4d844f7e9d","b79f96818b","5affc5fcef","5c90d1d8cf","772fc92e60","63d7fdd1ba","6146c2c927","56437361f3","d7bac92602","3c87a369a6","a7ff792484","1c7d53da82","9596615c44","58b0f6ca19","da9615f9e3","30c05214bf","55c0aec98d","5152eac134","8f196c3d09","8b853bce37","fd8478c707","c19f17fda5","683efc45f8","8bb93a3f54","684119098d","a4b8302004","7773f8f9b1","e93a77183c","1cabfb78e3","dbeecec360","24c2114d1b","dc9579c222","600faa9901","7a5db8d6c3","f26a0b2c37","faa0d5121b","6aa5be7e61","14046e6d03","c5914e0d07","2306d17c99","51245c8a17","1e60c775fd","16a7bbdbb9","8c314e3b14","d98825e181","840aee6d9a","651bf31f45","829fae4562","c02c9ec54e","a1693f8d4c","729e272d0b","a597dacd65","acbea15efa","dacebf4b1e","24e1f31662","46b4f992c6","6b2bbdc6b8","415a8e54e2","125c1db373","f104294912","0a24a60634","4a86a3fecd","e95f8573c2","f097883b23","50b67aa685","edb2cac636","af5caa3a70","a95795abb0","aece595823","f7e6b5c991","7ce3e0aa4f","21d3271c5a","167fe17561","6f4ed518f3","b00c727105","eba88da7f7","7c8c128222","237a188c88","7146347d97","6938a21056","f787bccdc8","234f13073c","7a5db8d6c3","f26a0b2c37","faa0d5121b","6aa5be7e61","14046e6d03","c5914e0d07","2306d17c99","a99bdd9a20","5825c267cf","a1b8e8a53f","dc12ee3752","c26dd27af2","9c0f6ca5a1","db32755c1d","ef963c35ee","e9104055a2","e37f20b921","5ea2588c2d","24a362f7f7","c7f04af062","66dee0ec62","c96eba06b0","84b3395012","7775a84521","84c0dd3723","decac6faf9","b7fa7f5b33","7a45749aec","77d1a80270","e53cdb1b8f","7a38217772","9e80f781c4","0105682ac2","b04a9523b6","e4ddb088bb","f01459ae8e","422bebc56b","707bb1f3e1","671046fa95","2ec3ad1db5","dd4c6c0045","5a20ae9da5","1b2a5f11fe","46631abac7","fa05a820c3","6a39677e4e","56535b9771","4c8e377181","78476d700b","f532c51a53","39f7cbc1d3","07b0d7858c","8eafbdea99","6d62b0da88","c20dc3beba","4e5dd254cd","74e6b856b6","15a9b6b5e8","91ad29ef9f","d01960441f","2d999cf2c9","3bf5875978","9cd77d0069","00e3b4396f","c22e9b10e5","654bd4247f","79a82d8bb7","4f8039343c","649836a8ac","0b250a9c83","9dfb550e89","a16381afbd","0739074552","7ac0c6ea3b","c0051bf184","d006ac3a5b","efdf35cb5b","4c97b28e4b","357a82c2a5","b5717b804f","1eb263b64f","84e977c5ba","4bfac579ad","6cd8b0befd","e75ce23a5f","96d47be990","d173574243","3985166950","d4b8689831","623a45501b","69c0b995d8","b297ed8e7d","3fe447c27d","acc9997fa1","6e5341c178","bf6b020338","2ffbd533ff","b02ffe8f9e","ac0d92de89","d08b95d790","36caa30957","8070ff1294","2c8cb2aabe","4e53d39dbf","d955e3a62b","1619c9f8fe","d280d52510","c7d1269a05","5b5f9d1ef3","1b5958ac9d","6d65c20204","5dd7190e61","466d490816","ac85a0e6b2","1b4e91baaf","6eba65cbbf","349d7cf798","81e51fe75e","993bca2ff8","cfbfa93323","745d1a5dcd","fd038abdc6","025fce5c4b","875d07905c","efd5ae1a46","96236f0d5b","61d24fe521","42e7d8ed0f","9272be436d","89dab711ed","36dc165538","e729251420","2d4f7e7377","01045dbf9a","83c5224a81","94c44245f4","c21991c98d","c83f9846f4","810afc55af","21f6181ebf","9a82514bf7","deca3351d2","1ef7487b5f","6a6ef9e7a2","0a64b4e8c8","ebf33ace9c","9cba01f5cf","e1eaf6e567","7bcd6c10a2","3fb6acd2df","a629468bde","9cb405d0df","cb08fd2259","769692caaf","5855b722cb","f9d615d68a","eb264c0a23","1300372f0c","5555380e6f","5222314431","4ca944552c","287b9ac79e","b582fcfa14","3ea009f5cc","2b1d1c5e02","f28b5d8a5c","26c5ac9e21","20519af7ce","2d53b90c9e","026c051d66","82e2788520","e710956449","a9e67f5dd6","8dbc3bba7e","1a4fe3a26a","01045dbf9a","83c5224a81","94c44245f4","c21991c98d","c83f9846f4","810afc55af","21f6181ebf","279878fa1b","785940dc7e","cdf6aced77","a149619a36","df8c051b6f","2c197536de","55959a606c","66142c7a1f","541ac86074","bd6db6346c","007af68031","2c69f2a0a2","be5be63733","29db28450a","6b3ceff2da","595def9170","ac84861d1a","803b95f3b2","42f774c254","64a447b021","ff9999b00c","6b3ceff2da","595def9170","ac84861d1a","803b95f3b2","42f774c254","64a447b021","ff9999b00c","3727226b4a","fb91672e12","5bc51bff22","cf8ac704e5","c092d79511","4fed4b9c2b","59e0a727b3","eb65b6294a","b6b874ef21","aae369213f","0a9b0c49e6","e07e9fcf6b","be8b9b875f","e69721751c","8c1d365f44","8cefb62939","c54832f95c","7b1082a2f9","b06ee41250","9d628acf36","a0b5291bf7","7f13d2d247","df96df9703","023806913f","296dbe75ac","f1fb7cda7a","27f1cf4ae4","a0a571246c","fab10461eb","e80a9c9d0d","92b45f3dfc","e472bf0178","d39a0c4f6d","7854d19c73","f4615a62a8","78c7413de4","9e32f81369","b5bb0cd8e4","90db8a83e8","81b6b5ae38","16da431ccf","70609d9d43","39c7099085","cb9ee23f7f","68bd3b9e06","19abcfaf03","3d31b9f98d","7efc82e814","1e0fb6e1cf","3af75f8404","343a217aef","238e12e93c","a6dcf6ac34","1a3dc4d118","85484d0507","3a380fe4c9","cde714117d","7c7a9a04e7","1364fe61b9","7618b7b988","0483555bbf","b9fd711933","7bcef4fafd","28918e8ca5","844b77c8da","f04dc7ab16","fdc3c8062f","980dfb0394","9eb058fa35","f9fce7b54c","109bc7b952","58170ba23a","cda44706ae","c215f5016d","e5b5f3ecf8","09a7e9a96a","4259a73149","8432613eeb","82196d8eac","df696bae5a","5c1fb928ab","f83621ea72","4215efd2d9","7313e68067","9e0afb6eb5","6698ab2b5f","3fa5fc40cb","1bb5109357","8b24437337","87a581e0ee","5405628755","6e2e8e9c9a","a8c3e4fc9f","e0a85ab7d0","45ab563db3","fb0c1995e2","343f6e2556","64c3df49af","70dc3600d4","536a4519ae","f91ed895c1","e70130febc","4727d4af6f","68c93f52f2","8a55dd11af","571b530d9a","23a7f8d32a","770ed5e7b1","590ac33ef9","05e94e2534","c32ec4d2a6","2a8a9dba37","9d8a062ddc","9a46ca4810","5907012821","6c9a4a2631","1062f8e0ea","49e1f74db7","f48c06bb20","6a9aa1de28","2754a9f096","ab90ac39ec","aa3ba67aa7","482df712e8","aa45386559","3c978e9b49","2327d211fa","2a37c88453","d8e6d74536","03ab969560","d0f87b0e6f","98308a6f7a","934c5314e3","8b5673f699","bc5be61626","b7ebd3a651","6dcafdac03","3a5dc1e44e","ffb670e925","942078a723","f9957e5082","82fc31e28e","d4684ce512","86a5961f1c","3222e618f1","03729f16cf","2cb0d016a9","ca1c07b38f","c6c5eddbeb","bd3ab1d50a","c200f0218b","ce82d29daa","ac9239991b","9bf580f7db","e158657f9f","febb5dc4c3","d51ca0aaab","4c90892b03","a1eee69edb","0d5e73b866","663c85ba53","9f6cad48e2","b1d601fe53","387e816e8a","c84bc4e6fa","94a0d65221","fc20ae1b34","a4bf6c17cf","a58983dcf5","6f82b4adcd","aeabc59c01","40b159d07e","b005533166","de9550fc22","ebea150162","9d5b35e888","6ec36e3fe6","ba64bff972","ea069bbc55","e4a186ae24","596327631a","eb58d44316","d0205ea725","a60923c4e1","e47ad4830d","fd389e7600","a4f0b98dc8","7e6f5c1ac4","969ae3e7eb","1516d9df46","f413bbe498","d59e55044c","b50d140429","a53f93bcb4","79fb7fa773","5882ae8104","87f4139f86","59510c1fa6","f39cee7923","a89bfb061a","a49f38bab3","ea6f014aca","3b2661ac48","3959f6af5e","66a025d7bc","41b45c830b","9beb6be51e","df08fd4531","eb75256c24","41e27f63e2","2e4de819bc","804ba822d4","3b279943be","6f2aeba655","f8eb319737","6f94855260","b646f244fe","74b7b8d277","88a444486e","99bd699a0d","a2582f4099","b8bfb82441","40bf75dae7","e59ae7795a","96fc688f1a","dcac97144d","29a7c98fdf","f3d02c60d8","36edec3495","6974b06cd9","b23e45115a","c2eda2cfb2","9fcd432f21","b59e95af62","d434cd1d80","21b42158ff","b2d8370ae5","6052178aa3","47afc8343c","28b67d434c","398d35475e","d1e6ae52ad","63a6cd56be","3bd453a84e","0f5962c942","b62d5918e2","6ce71dec6f","42d4382273","a9cc5fd344","583544c273","0c5cb86e5f","3e5b28bc0b","5955875ff9","a9042f11ac","d334379967","5f71ea47c2","99ea3a72c8","36babc31fa","590e0f2da9","f0eee155e9","c8f2d22372","c6a7dfefa1","5cccf6ba9a","52f9a57fd1","74423d7c19","5044e6985d","b5c88a58fe","679a464275","6ee6f17d15","85ba9ba23c","f6a6abf34a","5cf7e22e80","c22015f1b2","3896fb16a8","4906ef94f0","25b7d995ac","b774f3b508","353ea4a133","ebe1aaa1c0","8d2263f4ec","e13afe1326","84c11c7ba6","b2676daaf2","2e63eeb94b","b2d66c7195","1987031673","20bb9ef58d","4b16a88697","471a3e09d7","13aeeaede9","6533ea1b3b","800f5a175e","6699a5dab7","c67f9be98d","3be76a8468","40576e5aa3","8222c6b564","158034c8cd","6bec70ae6d","626bcf71e7","72e4e925c0","eb3911e195","31e3f720cb","49ef0f99ac","f93ce99a67","b52fbf62b8","1736f0968c","b31866e3e5","b2782aaf9a","a3b6403632","0ff6c6c79e","1e8f8aa115","cad715dba1","c392665839","3c283ad198","b60b74b482","d997b9ef7d","93788f61f8","692b54ffe5","2c6a5a11f8","3fcb4d394e","20e8d4a487","caeee7f11d","e379841b5c","205f798258","c826219d84","63fae86db6","d421cc983d","e8b4b0e87d","99f094dda5","b247212c13","fdfa644fea","13c2ae4ab6","98494df1f8","5ebbf42df0","c90c968061","c1ea0cd103","0e8d08a782","68531b4d71","8294a933b7","5d2991e51e","fc7ac176d8","8513f5e818","e4cfb73435","8c8086f5b2","38fd4dd407","2f6695ee4d","67955da403","1455294c19","962d49f2d0","136b629c87","57877fd446","88f69e6e42","cd1b97a344","078cdb1bef","a52731786a","f02716df4d","4808178234","4d84564077","d9ad113abd","6d281c4cdd","79c61f19aa","396b4ad183","1725953dcf","38d885f32f","c8445a9fc1","ad3f181671","5cf0f68872","64aa61ba70","f1da211056","94ef07c3b0","cf20c12a51","701495a1a4","e03c9779d8","bf931a5ad0","6ac90bdf37","e6e7dcc6f3","96fd96a6c4","95b5131a38","0534d1a8c7","a52eda838e","e1b49eb1c4","35a5bf9a83","58f670e3fd","ca1163b871","61cf6d9b89","d9abb4ae27","a6fa7df230","ea2a37e8aa","8500d3a4c0","de0c1ce249","6a4db5afa6","b9fb563d5d","51c2ac3249","3b7ee6f2f7","c7147bfbe8","af6fcd5a22","fae68b13be","b8a6e803cf","9b9a0703cf","0915c79142","91b6965fd0","dfa54b8b45","0dc5973554","9ca9a46ca9","09ded29e68","0e64758d70","ca935a4e6f","0a14704b66","e73c7b9cbe","9722f150fe","d2fe211131","aa458c7777","f16480b9d3","1e16a5e5d9","2f4c948048","b54581dcbe","eb053480d1","1b1d62795e","4bf7a8a305","2ac3880f21","81f383b0b8","1bc7f77d2f","b853f5e8d6","e54061a0f9","c42d7606e2","90829dc374","2ac3880f21","81f383b0b8","1bc7f77d2f","b853f5e8d6","e54061a0f9","c42d7606e2","90829dc374","fcde8fb53c","0b33412999","c368c575c6","c0cc75877f","65d788dbb0","ae8dd67eaa","7311d37048","69e739f350","f4964db6b4","67713f8526","667e967b46","0a8110825a","68f0f09fe1","4bc238f16c","9b3e0d43c0","54812ef5df","cef65472c3","8ae692e388","a521c69a37","373efb0d97","3f1d2ed8b6","0ce9b02c9a","64a5bf970e","376215446b","44f104b347","31f86d1df7","730e136950","446d738659","67b395a251","028c9fdbee","5176b27d3a","9a4fcd5c91","311dbce905","ab1c7a8efe","1915db0c9c","bfb1bef875","81ffe1a692","557b78980b","4d14287c03","d5227c0ad6","d7f0fecfc8","3fc5851ecf","93f8dcfd42","1d69be5fda","8a3dc27685","a7cd0f59d0","8c0f8083e1","536ffd46e7","2ee4cc173a","79b4af6d5d","d295c2851f","724f8c7883","b7497cfc99","0b33c6caa8","e73d3442b5","51edc4248d","25ed091c07","e6a22b1aa0","90a709b1c2","5afa132807","6540d32a18","28de4b3bbf","9316259fad","48e5178a92","d3dd84e20d","ae4d7e4703","0ca6317c94","e4c671a28b","2a4e03e59e","b2acf39364","49b2055e5f","257dc2473d","4d7fc77392","dfbb399564","4f092e90e8","8a6030b173","9d7ac17f8b","a8f6d49c41","775bfcd2fb","eb49ffc74b","380bad0788","85a30e63fb","b8565c62a1","1a309dc5c3","dcfed6daa8","46e220bb88","7f91f9f003","66519e9692","ace005ffea","a6f64f5d06","a363e7e3bb","a2dcc72df9","86d3ef712e","defea1ebcf","8813353f0b","64bca73b05","7d1e30fb94","621b1f5bdb","616a0b3889","013f476ebc","58e79f3f88","16b4b47164","679ed16193","8a38c981ba","8b2570f03f","86a7adf8a5","04540e5ac8","4e489c5c4c","1ddf2f4ebf","41134e0dc0","667c2a869f","c5564f7940","b148493ae6","8f30495943","8e6ae068dd","288ca50ec4","5847792472","63680d633d","4115d5885d","b544b906df","5ee2b9a812","b730e46872","f1ca190439","883b483879","ca606c4838","1d34510896","d60d54fbc8","441d1cb321","960c654f2b","ffc92bd9e0","7c579ee2ca","3b61502c9e","2dc2547f93","396db8d8a5","2db1409bc9","a01a84ccb3","9a7ae88f82","da253c4527","dac535bddf","bcd76c4479","8d3776b6c3","59176620c8","f373afe6a8","2c0ec8269a","9e1b51df78","fbf882e22d","2846799438","1e3b2359aa","fbe3298a31","73aa5a4c28","a7cbe9f12e","7a9a943f66","6c035d9057","7b67062c2e","3a3ac9e43b","ad7ce463b5","a6e59d2d92","1ea4f08007","e92bbabca6","f84fa5f860","2b59d9578b","b47cef6141","8f30e526e3","af096aaa72","976dadfb57","52694ebeec","a907d6e676","2ba0ea253c","727952df35","8548ea7bd8","13d99afda0","6d21e8e67f","289b1ca3c6","287c13cd0e","2bdb559a60","b34cff1b06","ce523a95ad","b291b93fc8","5d6d48f5d3","b81f6a5442","9b6c6e4fbe","c5cc685959","9990e862a4","d9c5661cdd","2922449b5f","627479530e","4b4d365ec9","3137344e6a","6d722b6420","318a0cf286","dd532c4cbb","eb027f7b19","5c30d0d615","8f0c859351","ca5077a3d8","9465489c6b","3b82b92acd","14cafc1d9c","4b159ac22d","cfbbbdfebf","392d1ed3fa","33ded7b90b","2899754ade","748e62e01e","791e165265","9431154a44","bf2c84cc56","b44f89ef1e","b3ad3743da","974fa5d7dd","83c5c37c29","0cd0e4cdcc","8cf343c784","a5c977b18a","7cda454150","a60ba31ce8","31cefb9c6f","03be288fbd","dd78c2fde5","7d7533d0fe","f6243a783a","8b2e620998","34d98adfba","e266eb2bfa","27588b68f4","6f557b70a2","84983eba5b","547ce655cb","3cc23be671","4d63fbb68e","6da62515cf","dc3b3c4876","f005a92617","fea542b331","a022a2b929","b8bb0c2d0c","5f96a5bae2","75d897a342","c4e6f705e2","bb4eb5df4c","e1caa350db","46cff90075","f9da8d9738","f440e723c9","e09f19cd0e","e6d0d488f2","afe3c08448","0fd8982cf2","9c621655b0","2be6d6b07f","a62340445d","c4139ef277","70e88eb016","1927c533e3","7e223f5906","9433afd40a","a2ae344f6e","7e27550431","2da79ac785","dcd9c88fa7","1313d37c46","c1d60512fa","2f686239cd","88e31a6c81","37b97e4825","f8919b66e9","2f23cc86a5","d5ba169719","4f45849990","025c479aed","ccc022c52c","7d89a0fbd5","bebe42c9ab","81578f44f3","5332654520","df073c4d86","c96b7b6a11","9e9a805fa7","a27a2cfc40","547db2cc99","0d3eb38f9a","46a73a8f52","c59a541247","3829f59f6b","d0c7e9d3f0","8b9b8e4155","8478a59129","5e6b9e219f","56cef5a8c9","07c8f39c3a","a72c00c5d2","15bc8594ca","80d1d07234","a11a880270","a8d8f3f287","d0dbc56805","62810d1b6c","80962fa8d6","f2f624abdb","0f0d578bcd","0b0abe5ffe","d8987ba9d3","6864efa594","da2c54f8ea","564bae3baf","ea02626edd","4e18650d52","92599cc624","d8987ba9d3","6864efa594","da2c54f8ea","564bae3baf","ea02626edd","4e18650d52","92599cc624","a8d8f3f287","d0dbc56805","62810d1b6c","80962fa8d6","f2f624abdb","0f0d578bcd","0b0abe5ffe","73bbfb9c46","f0b95b9c3c","b7c95e8d75","be09b1d839","447c3a22a5","212082e135","6acc8c8908","7149949f5a","cb7c1450fa","6696fbda20","7824e3d9a2","43267db3b1","e0579880b4","7537a38fdc","a14d3697cb","94c4ba335b","30f906bac7","053ecf1c9c","e0fa0530b2","60f7135360","229d315720","b714bf2f44","7f4aad0b39","9b5d1aa289","94b76592e0","5d95621136","67faa7d094","a9efd2de1f","599ad53b32","5e9e260791","7b0adf3bad","1003cb2237","4cc709f9a6","030c2c0c36","3b009a6fb2","14f475e65f","0134ed6e60","d00914c957","16e3cab1e4","b4d993a30e","cf064ce746","24ceabcdcd","2bdfff7846","bfe5ada81e","23b0abda5d","f410218f33","3347e87a58","1338f9b2e4","3c29accbb5","599ad53b32","5e9e260791","7b0adf3bad","1003cb2237","4cc709f9a6","030c2c0c36","3b009a6fb2","dbe76c30f2","edb5f0c4e4","ec8d648293","449f4a2b90","f6b65282c1","25720cf105","1ab87d873a","8385cd4ebd","3bbe1cdec2","035e9008db","0f7e79976a","06b6de4f3b","13da3fed81","a6dc82e99e","656f8925ad","d181ffcb7b","694ab2da3c","d003440763","20056ce858","11afcac2f0","7f6cf19564","f70e9aa4a3","885f6e6e01","ed5a0c5a1c","bbabb12471","898e7eefb7","c727d66d2c","215c6227c5","f8a39188c8","26105f26c9","359952abea","cfbec823ad","0322ab4eb6","27c8bdb04e","1a00a438bb","55b810c565","da4c3d6ff3","fc691521a0","8e114a38b3","46a2a29e1e","0179550db2","d3fc6dcce3","a346234b8f","0c7857af49","d55acd34b6","2a90d95d27","8f18ec7970","c1a64ba76e","e5ccd428ca","abf20c2183","f8c3398252","d35027568b","9968e384bb","d5022255f5","5209ec4e61","f1ef95b8fa","b31bcb1208","008b985625","0cc7d141aa","4fb19723ba","e153098d92","59eece0b23","2e2c07ab96","06fcf74a7a","32744e7bc0","8e54587b66","4bbd14bbdf","0fef828566","0ce132cc1f","310ce47c60","8aefe438c1","1bd7eb0c84","0fed459da7","cb42d95aaf","27dd7e4fa5","1e2b0ae345","2beae623d6","5f76d950da","230566c332","a411020085","112031b26b","f9c772572d","78df2e5fe4","611b7a63a6","fccf5ae78d","11ef8c32eb","b6ee5dd866","d0c45d36de","ed468056ac","1d8cfcd868","a158938828","87be117992","375e96dd17","97e96b0773","c7d65b4806","16bf478cc2","afad85be6e","3186be472c","1238b19bea","47fe66b1bf","41a4e6900f","374254944a","df926da39b","08cc3f433f","f0b86f9bb7","c1a79f1471","dabb8642d1","77049f56b8","b632aad815","b00a9a2251","fa032953e1","cef6f5f025","374722186f","dff708dfd0","050b0d7f64","f9d00ae4db","13e46a93d5","048e0cf561","227eaa56c3","84d9876fbd","cf0216c701","63e9ee6939","f70376b884","7ccb6a833c","55c2dfe711","a49ce2dacf","d2acab729a","28edeb16d9","717b8e8b28","7ca5b04c95","78bfe0b372","56ce17943f","9606bdc02d","84d9876fbd","cf0216c701","63e9ee6939","f70376b884","7ccb6a833c","55c2dfe711","a49ce2dacf","ec87787277","0244049986","44188939d7","9725d165b7","428034f465","53e39181b9","8079b908a1","0316a48b7a","f294316c60","7af3ba1467","b979909ad8","77202e6085","ca96c53fa5","73310d9126","bcfbba59bf","3cc1812990","83a89e9c5b","b2d0f1a885","f84abccaac","5f026e7a67","9af7bbd417","a9c279506e","3ba11954e8","81264286ea","e1b136083d","070457b13a","d044ff8daa","935b10a582","0aea0cd2fd","236b42226f","5d2cde2b59","39f6ebb82b","8e612bdb69","2420cce73b","3974e81ddd","be038d0688","e5505a3f7c","dc3822a751","cf42af90d0","e4798738c8","bff6d2a95d","a01eadbccd","d5f4519d23","e6f54ab8f0","f16e8c50e5","62d13b8c08","2cb67efc2c","3054b3dac0","238296b633","36556e3f80","79488dfbf5","494fdd52d4","5deeecbc2f","83d7199528","715a472229","d1ad97397b","542c7a3a9a","f7fd2b8db3","b5ee3c289f","afa85caa95","ad48de5eac","677e82fbbf","83b42c6f59","68ba08d8f0","4146c612d0","1887e8a4c0","84399a0b4e","ea950a5da1","bc13f26d3b","9489b427ee","42803a3922","c7c631d580","952df1afef","f06e813734","0071894435","2be3c51b1b","1d046a7a58","d0869589d6","bf3ba49985","26b3de4eb1","7db9f7fb6d","2eea5a110d","22c841fdca","40517db5a5","9789723d15","b59fd14e8a","2612656ea8","f65fedeb0a","a7afc22bca","9c2c0c9954","67bdf34385","192470cb59","8e7051e99f","d0df961bdb","db6442c846","7f05012fe9","c1173be5dc","600ff8884d","b5eed8f433","b5c9d746fe","9c35ad0d27","bb3480e4cb","abca1d498b","4c7a2bd632","c6644ae540","d0869589d6","bf3ba49985","26b3de4eb1","7db9f7fb6d","2eea5a110d","22c841fdca","40517db5a5","be8d58b93d","eae27bfc38","b3c3e23bfd","fdb3280719","1d5042d94b","c267e47ab9","f008c5d2e9","89507084a2","91dcef55d4","c546d68463","4b991a7d24","d3eb40b0bc","f9fa885468","8bc20753b1","10389f9869","d819043cae","5c163dae95","646f2a6a7a","7b82109707","ab1a0c3996","d33b59741e","f89af989e6","5d55e3623a","04c3b51ec6","a3810f3ba2","d7e3b36736","e1b8689712","dbf552bc96","6c9aee64aa","b207f4734a","2a32fb9658","8ed402db7d","c4be2d5945","fe639d73ec","1fff4a7767","efd0d9d6a9","4a1c6477b8","ae0e3afff8","b2f7b27d67","b624120dcb","41ac3b8e9f","630daf9743","60e1177aeb","3c75167125","d254081d0e","45e3655458","e203c63f03","428fde1030","32616b68b5","676e7f9867","1ae6bab979","152517d1ef","6b738fee78","e7ebfdec3c","a76acb1706","33730d4f2a","4f618f0370","94ecaaece2","5f7fbbeff0","cc2884cf6d","4d0c589d11","2f2b37785a","5d42b135ed","a7f228bd64","7e0622849e","045da8c7a0","fdc9bb7875","09a2911662","4a19fbd657","002e0edd03","f9c8a00dc7","4f4c815751","015d877aa6","f8910cc711","26f29d7534","705b5661aa","94ee0a46a8","3856831808","409952f01f","5acc712957","c5309345c8","e723e4e85a","f61a940a8b","9beb419427","4731832c6b","a9eb92f389","06b3f24814","56208ecafa","1da3071c6c","e72f9f0a33","2795eed342","b6fe5f9035","6de96c2752","08d6f3e7d1","20d082d440","33700b60ac","d9d757d991","7344dd49be","4731832c6b","a9eb92f389","06b3f24814","56208ecafa","1da3071c6c","e72f9f0a33","2795eed342","dbdf2d0db1","ace0e8a778","734c15e954","44d1075234","e6c4b5e066","a76d9000ad","4d086b485a","5c63a4fef4","0afa1c26ad","d128059d1b","3d014c160d","9034a7b4a8","3e36485400","9b29f2bccb","5d027933db","58bdec88ce","9dac635984","355d039ff9","b9e8ddc4fb","bfc23ea865","ad5145fbf1","876bfd8f4f","58fde3db5e","02edfc11c7","ec78a7a2a5","3654b175c7","4baf8246e0","5c239e1139","810e1a9056","ea31d6285c","fb89dcb513","7cfe53f638","53ad7aec08","c833bb3d01","c8dadf0d1b","a1b7d097c0","fdc0b63719","164e399ad8","1f18250a43","3bb2dbdec7","6ff9bd9a83","d71bbfa2f4","f9c8a00dc7","4f4c815751","015d877aa6","f8910cc711","26f29d7534","705b5661aa","94ee0a46a8","1d14fb21f2","ae471ca9f6","9f6f71c6b5","e4717843b0","8ab6706426","463d5d3dc8","6a95294d5f","734ef2043d","ff1305f900","6ead78a95c","3cdacde3d4","6c8a371b6e","8486db5b47","9e58fb123e","5124a4d06e","e92293af96","0af1729f35","c75c731965","d6f8daa3fb","ae89a76fe5","31bf5d078b","2aab31625f","2d4927afd4","9df7f7352f","2e1f0fa1b7","e464d3b596","d865f0de43","4b6cf604f8","5124a4d06e","e92293af96","0af1729f35","c75c731965","d6f8daa3fb","ae89a76fe5","31bf5d078b","5a1104d105","8cd045d977","5baaaa7fab","61feb4d464","2df517f076","835a651756","bfd5041950","16d54b8fbe","f7dddca7e5","eca013d5f4","fc26d91167","d0a5a576d1","df7701ee03","f33d62104e","3d5f75aac0","75b0e8c582","4dda8c4c17","0bddce6f07","e66cf6710b","c27e82590e","d74f4bb669","7ac830f5f6","13e809e9d1","2cd0eba6a1","6ce38cff08","deee59f75a","d4a671e4e6","4ecf60e835","96bd962c7d","558d84c4f7","e1aa2b1322","22d03c8797","ac2283d59e","af5dbdcbf3","270fd11563","a248755877","2da70315f7","ccb66e84be","d78f7ce186","b6e8d3576d","d29f55e981","8a9e9d1665","666842ddb6","b945fc6b2e","a9838a91cb","f4cf51afb1","a837a9db7d","c9e0070596","2a0313f868","c6147440c3","af74ff9007","42c7bcbef1","5fe1ef65a4","522ee960d2","5a7eb4cddb","fb16b03c4b","a248755877","2da70315f7","ccb66e84be","d78f7ce186","b6e8d3576d","d29f55e981","8a9e9d1665","df34358f9d","869bdee5b6","e1c3ff5c65","79da6459b7","1d77d15bec","38c7754255","b32b02e7f5","9d0e3ba8c7","92f2fbac3f","1940cc878b","cc9168fe28","a4e8e4b85b","b98132b2e8","1cd4d4cd3e","77fafffe0a","8cc7d5a16a","69fcad6339","09819512c7","c2f8d2f78b","aabec11930","b673d6207c","ecc7f748dc","205e602ea4","7ca59abe15","750b573d45","607c4194ce","c41bc59365","a39571755a","9ac96c364f","5c1d2b5fdd","b66f77d12a","0538db3971","c650b049da","30430997fb","1335c6834e","0890e5775b","3b27004c7f","3eac35061f","180428dd46","cb59016ef4","52848dca83","765d4a6e7e","069dda4dd6","8234540fd7","bc3bae6e92","d5369c59b1","50c6903f14","ccff96e1b7","7a9902a00c","d7796ebf5f","76772223b0","91a4d22dbf","22f8699fed","950463ad12","40ad242834","36b2d03211","8c743db087","a7378a0799","29ac6f4bc6","5853311c8f","1f751bc9d9","71b4e3ff8b","4e053c085e","5f8f2a672a","f3a19ee0ee","8f04387fae","ec05a940ca","f89a39a5b0","369bd52ab0","164d9ec7e1","945b3f2179","77cbd052e2","ae86e794eb","950bce63fe","c8bf50300f","42bf1baea6","2ceb00bcee","15e897573e","c9565a3f0d","8d7bfff653","b03513471b","79a0a9002f","6109e25e70","9205cd64e0","33359ad89d","3f416e1f25","4374082e10","b9464380b2","298d110047","7087f328f2","b670793602","15e897573e","c9565a3f0d","8d7bfff653","b03513471b","79a0a9002f","6109e25e70","9205cd64e0","14f2838fee","8e1d28513c","3c22c3256a","18fb3db1cc","9f88ee4676","120bd6f56d","79c53a6219","02d3f8f3ca","d1527ab03b","6ee89fbf72","7c9a659158","a10cbbdf69","e302f08a71","fdacf85908","9ba6576185","ef4fddb3e1","02ada3f19e","95e590acd7","8100ee8157","3e5fdb18cd","15457405a1","4f25a16780","5dabf949bd","e4d1a8b044","dd90ffc7ce","83dcc8d73e","950ac8d829","ee9a62ab69","dec143ace7","feb237290b","d9e44d5e67","7c6d0bfc4c","443dc75569","a26f617a58","840af8db01","2c28784857","d9ba1a5cbc","f3b45dbc98","0439dfaf19","341aba1c03","643f76503f","4335f3e368","12e608fa67","6eff23b305","2fc2f17d91","c6c3e3322b","822e2c3a1c","218ad5fe65","f6f2c0dccc","71a206a63e","ed297d039f","8ac26f859c","38bc8a400b","e507da9c5a","221fd6e1c6","73bd18c07d","ce4401b3c1","37db70c19b","dd99c50059","d8a83aa18e","67941b8286","c226634cca","b6285a89ba","7e20e51aaf","c28138c432","158171f75b","ed0fb8f325","394e194ed5","be96e3e0d9","1819991fd5","7700986cbe","aac5a2df43","15f49794ba","fc664b1653","3acda86049","53c6926b57","99b268a777","fc71fcd5e6","07d97d3941","97445bc896","0f1e1732c8","e8ac729d2c","bccb6d955b","a8f28aea13","ad8b0a9243","c1fdd3ad7e","b1dda498df","02b3a9199d","1897b35330","1c50f47654","c8563e75d6","b8c2604d2d","3f5f68619d","e7259e7fe9","976d4d2ccf","7b42024f76","c6cc9688c7","72252fc106","3b4802ccae","c9ccda8571","a8c36ab77e","143ab6135e","b2bce19f22","b7713d3784","cec1cf8ab5","2d819315fd","989ed630ba","67925280c3","feab09f06d","9ed1d8ecc2","b32a26ad59","1b47fc4686","e2f48ede8d","ffcca828ef","3fb1d044a3","850567a49c","655520565b","40aaf437c6","e6a52c1d96","208ca7be31","b20e8a26ce","1cfa9b1a37","4d34243e0e","2b3b25e95a","4104d46e6a","cba7ed4202","46d6c81016","57d2291d0e","f754d3696b","27c9236906","a7906c4f3e","7ff734dcf6","297ad581c0","1fa009b4db","d8895fa061","46bf9036e2","087db46044","bd888257fc","e96f6b8fd9","d59b49cf18","a9d4c3e2ed","4cfa5999e3","aab77e8ea7","bb8c0be2fc","ba2c3f1800","8ec911e624","0afa6deae4","1483ad5429","a00a53352a","ea05263f3c","3bd9e98eb9","ce768f9cb9","e5d66fc9a2","4a43d795e8","a9d4c3e2ed","4cfa5999e3","aab77e8ea7","bb8c0be2fc","ba2c3f1800","8ec911e624","0afa6deae4","fb9259d2a7","c46559667b","ae51b5e90b","1f919f351e","c13bde6b13","ca7b7906f9","05def2f219","4da3748575","d11810c41c","27a8b2a5bc","a20151cd97","ad174ca55d","13588a8167","942cfd0868","fb9259d2a7","c46559667b","ae51b5e90b","1f919f351e","c13bde6b13","ca7b7906f9","05def2f219","a9d4c3e2ed","4cfa5999e3","aab77e8ea7","bb8c0be2fc","ba2c3f1800","8ec911e624","0afa6deae4","3c37d58a89","b70164fb49","7274cabc07","5aef5088ce","c031f98f81","74bb19b60f","a3b1fbaa28","a3ed833d3e","b95bae6c17","a4d9f83848","4620811a9d","36a112fa9e","693a4439f0","8592771aa5","6bc3c49b5a","7be1bc29d5","09355c0ccf","3f1008f02c","b9be652880","6e41d969b3","a6f2c18149","292aebcaee","407f3c2873","12e0524b1d","247208753d","a608738b7c","29d86c0e32","a7fb54d908","54c2b99e64","6d80948d49","7df720a685","5e7b4dd8db","79c146270a","ce16289642","efbd71524b","e69394f412","a3392d67a5","7b981a794d","6821fe50b7","e7e46f243d","6d8bf1ba60","aa231f77a9","922f6330d6","2a4e69e95f","40c0d58d79","745c24d249","3df3624bc9","08d64654b5","cb1fe7e530","ac960d29a8","1356829c07","404d2046ec","1d61be8b78","ed660beffe","1caf5c0978","7a8bafd18b","9e75e07d93","9fb78564c1","872caf08ef","7bbb37c31e","370a711e43","f1f59ec675","dbb9f974db","d1479ccfe3","6d933041f6","42fa95b0bc","ca0cc46e10","3065ee1b3d","4e7edc45fe","d8f96cc944","628a8abec9","7f8210bc2e","2584d13267","3b44ea2cbc","188b57e7d8","4b3d2cf3a7","81ef073c4e","3d15637a95","0169b8a3d9","1fae1b7121","c9a5e38ec2","68279113df","e04a28504f","e1624bf8ca","d1479ccfe3","6d933041f6","42fa95b0bc","ca0cc46e10","3065ee1b3d","4e7edc45fe","d8f96cc944","ac960d29a8","1356829c07","404d2046ec","1d61be8b78","ed660beffe","1caf5c0978","7a8bafd18b","9c9d400567","9863bd0c73","5ef351e75c","f46ec9fe68","f2f4cbc786","8ec4da7d19","eb84d339b6","b893d9fa5e","ef4edc6c88","c370b863b1","ff1c82466a","713445903d","e94493567e","abb4166d18","cb5edbffed","698c1e1bbe","fdeedcdb1d","711df7bf00","a718066a10","d4aa9f8f94","f5f1dafc9e","f8bc3bc807","f9e9c145aa","568cbdcb07","47416fea28","dd0315c9ef","5e1ae98bf8","7477d0d4bc","50b9c483eb","2594a15fe4","e8038befd1","0388c4c3ce","666c09b0f3","75b513923f","12ace0d5ac","cf31df329c","8d87d02c61","178b534f37","e31464662a","eb80f685c4","9575eac91e","fe93a87f9f","55cc9ea79d","3bda3d590e","2e6e029dc4","06c79aecc9","414c22ccf1","5cc651567c","2068c8162f","e5bcb7c898","13d474cdf6","d4528170ef","07d9079b13","f731bb7962","71f84b9da4","0c289e0098","b504bfebbe","be6435449b","c9713d3df2","355ec9ef88","01d8fdd097","8cfe8085b8","5f4a56eaf5","5a826b718d","230d0b3786","d458a49ef5","8ec3d29860","0ab6dff799","3e564e9635","4f6d3e5549","1a64633556","175ce76925","74c9dc71e7","e64e1b0238","18405e64bf","931c26748b","237cbc21f8","d8ff7308bd","becbbc3640","8e63474d12","b0daa87701","af8798bf8e","6477a5dde4","503b7a04f8","33c5055f80","debe1492e6","12a00c93b3","83be41b219","033ccd9360","4d5bd5ce25","cd9178f6a0","d0fb4f6bc8","008e25da14","94655b8ce8","b28121bb51","6d1b69da1c","b62829b5ab","49de477ac0","d0fb4f6bc8","008e25da14","94655b8ce8","b28121bb51","6d1b69da1c","b62829b5ab","49de477ac0","c090a8b89b","6a8360ff32","7532a94716","7fc13aed85","69e4ba6afb","708eb51e46","ba2c9270c4","c3e7ad36d3","e0261dc3a7","be7326ae8e","3232a80186","b4d0cb56c8","a3da6b456a","3824987a63","0991a2f64a","31e5eabf10","dd9a3ec4a8","10cbea7f34","6db995cff4","c38518d182","0deecc846b","c090a8b89b","6a8360ff32","7532a94716","7fc13aed85","69e4ba6afb","708eb51e46","ba2c9270c4","f5c6159078","a401da7d59","73bcf3a867","5be48ecc08","5394fba81f","4f48825620","0b8b6915f8","ccdafe928f","fcfb8c6c20","bbeaa0241f","62b6b9df72","13e76348ff","1782bc9674","6b3f3d1bf1","81b6281aba","5f7f70b102","69495c1cd7","69d25f8505","f0afea9a39","535fe2b040","7b685718be","1bcece0716","999689d611","fe0c9211c9","098aa499d4","8d66713d73","1f834be811","3ed0bb1370","af83e9ac00","668754ae05","c368ab568b","405e04c9c1","5401d7910c","57239b8985","5f3d948749","80302c7038","6fd547bd46","a4eebfa8fd","a220dbb7f6","7e9230f32b","fb7e4d2a36","2a0a0db19d","d6ee295c9f","20509ed6f6","e008aa2d57","a14e06c5fd","5a8e2046f9","fd8da0e5fc","8d96c3a25c","346c5eba5b","d3f1ff9d65","45cf8e5f5b","369c97f144","e3ccef9b28","ef9c318313","ca7cf637be","7bb7592572","59246872a0","6a29a6d371","6aead31db6","b8f68dde1c","2569b82055","d6272ae56a","90a321d7e9","18ef364318","d64f3318ed","f7f758ba8d","9a1724e691","78b030e67f","55551c16dc","48b0ea6158","f409eef0ac","226907b0b5","c717bd31bf","74f1162bab","a949c84ad1","43d7d9fbd1","a883e578e8","347e41ab08","393869feaf","388a0e4771","5bc0b83abd","6813586cff","9196e7ab5d","4b9e23ef80","36126c3fb5","84c49f4ec4","616c5cb520","2cb2faf402","4c43a4ed49","7e86061ab9","42b27f03df","c2fe9e0ec1","e43d8faa13","358e280e44","a0ee89a2d2","964843ce25","43dc1c9895","e6d62802a3","0fba6cde00","d9e89ad344","4dd94d5bd8","f53dd82558","f080440195","419dcfc50d","d40b804cae","609de6167d","eda9b0295b","186f9e6723","43717ae357","1bff4cdd51","ceeca41fed","6cf1459e91","f035bf025f","0722d97310","982dbe2e35","cee892a331","a56b349cf8","a15c808140","c8d287302a","61124f7442","a1e78ff70e","74d70c9958","f0902c3aa2","db17f20c53","251e4a1dff","56dcaba7d7","a5b05b64ae","7d6aaf74c6","1bcc263d8d","6ff66015e3","d74f26652e","f2f08fc8b0","c9d9f8133b","4da4fb8ec1","dc266041c1","8645e93456","e0778a88f5","6d34546b34","3c51c4b152","1ca0580e30","e935b52d93","cac05519c7","d429ab9db6","a15969a909","f130d436ea","1140acc42c","3a5cc63da5","0cfab90e6f","64008f75c7","99cdcc3829","99da93c90a","b28e81d730","987ed68346","9226d45465","47cf4045a7","2ac2c711ef","effec56ffb","7189d99ec2","a66918342d","ef4885a3b1","4bda6c9fea","87b421c129","40674cb1d2","282c3dc818","eec7248db4","f5ffbbbe0c","a7a314e2d9","d70074640a","919cdffc92","219561b393","eb792f3a87","4aa61fc637","6817651042","ec424adcc7","d3c90958e4","f3ee3970b5","d83780ac04","1d152d65b4","38d55a7a89","1897b7ecb0","ab29f87c07","a7985423a9","4774211b6f","e9cf177208","de3bc3831f","0189c75104","a4f4c25918","0ecc536e01","ab0376e104","d6e83ea054","fdee7dc671","be87623fd4","cb61d939fa","eb7e2da6e6","40df537042","76a1618463","037e0f26db","fa6a9adb0e","03f27df4ed","fc90534e4f","a66231a1a8","da04a94d3e","f57bd67424","0241e00c1a","0638d5896f","cbd8ccd3da","508fff75a5","ea407569c5","ed624b55eb","ede75aab47","4024334ebc","c8056ae917","38470d0153","da7da10fb2","b082016461","18c3b3971c","3cbbae1047","92cd24e527","d7689b6c7b","65dbe2f1a3","5249428f7a","dc7c798561","ced01643eb","32137bfd52","d1ab24201d","45e4789a01","fcb07501ac","f675cc3791","bb7f0a1776","05dc6cf1bf","c3fdc7e156","413d631963","c6ff73cb56","c8bdf26688","599da22274","0919cb11b4","5dfc99c0ac","121a8e970d","a8f4f47e76","d7efe63daf","6cb74899e9","eed667dda6","e3f7200393","4d066275d7","ede75aab47","4024334ebc","c8056ae917","38470d0153","da7da10fb2","b082016461","18c3b3971c","5afebe2deb","330725ec3c","e10f2d6ff7","6989c9a354","2e344ea1a2","85f8d17cef","60fc5c45aa","0c1dbbf6cb","edc717be02","820d80457c","5ab5ea5edb","9e7199fc6a","6ddfa0c220","3088a9cddd","2ad0cb3c94","2da47c03ed","3a4d6512ea","fc0b7c035a","f50cd9ae0f","b9fbcba75b","8050fc575c","51716306e2","9ebf08bf4e","412c5f5bba","dded5a4e14","852e1c8b37","f071ccb8d6","fbed108e41","954a32dba7","e224cf8db0","bc82d108ea","edaae62e96","b3ad25b5b7","2663e39684","f933a7834d","e69f93ac89","b5d4b6ebd7","1d095732b6","3d3f35ee6e","e40cd562a2","a80eae73be","ca66dbcc90","7e3ca8a7a1","3948ce3f68","aac9bafaa1","fd840d98aa","9c1a62ca0d","5b451ce95e","26766ce9f0","8f88bad2b7","23c5b37693","cafd20b183","770c6415d1","c5c13d5df6","ab3648eda9","a1b12eeec2","aaa2892977","b27a912d2a","4048ad3e56","accb237d84","f007146f03","8f1ab3a3e0","cee2bee04d","471d914e62","b67accb34f","e3103163c4","5e289431d5","cefaf18ebd","0d986725c3","a995661997","fe0589b7ab","ca1e646684","87422df901","4b896adee4","9fbf332583","c94b995e3d","14302beb56","2e1d63c8d0","1cd84f9412","53572421ea","0fe69793e8","7bcf3fa9d1","2468d8c6c8","263810e15c","f573b72c38","1f426ff28c","e5fcca0bbe","9e2beb1347","1ebdeb111e","67a768ee0d","075267d473","fd84b8a14e","4826362d24","332a412e5f","d068abe173","c9575f035d","4b47e34719","aa34ae6cf2","1cc16dc05e","a7a68b6e54","a8a3e43e45","4adba01432","d81f36e81e","8eb9aa47f7","d0d4109ef3","9b1e3d5cd1","66a7d76b2d","7c228b251a","c232409775","8974a9f7fd","a62eff2309","bca8ef241b","36e676f2a0","036eabb64f","7b0070cc34","0c73d54840","5eba956a4d","066200f56b","d088041e0b","21885b690d","9ce029f430","207a8d129a","c295704a37","1b296598f9","4b8223fa41","a258be05f0","672515a3e2","36a18e52c1","b2471e9890","fe7d971d59","0fa088cd92","26867e293c","8e9f74a2dc","1cc16dc05e","a7a68b6e54","a8a3e43e45","4adba01432","d81f36e81e","8eb9aa47f7","d0d4109ef3","89f4347b0a","8cd428a4e4","45a1bcf638","0acd1ed88a","65ba8bb268","914b195fb6","432264be40","dc5ce3a0a5","6733ed62c8","5a033f6dbb","0b1f632820","ec2402a587","e8d716872c","ee55650b72","949f55cde3","ce05f561dd","49a1fe4aba","e66b901d67","b26c68e349","47ab9f9d6b","602c8c171f","9a4767e68a","74624835e9","f16fe474dc","f5e8cffaec","4252dd2c4c","14732b0dc9","6e7a750f42","1889d335d3","c99aaee8f2","272ed99d07","ae13b2f2d2","0220f08f0b","bf40fc1d3f","c392513edb","1889d335d3","c99aaee8f2","272ed99d07","ae13b2f2d2","0220f08f0b","bf40fc1d3f","c392513edb","ac1a59d0bd","cbbf301993","eb433b2918","7c4e626032","08fa16bc9e","61a6dd270e","f8ec5f7e06","895aa211c3","a3d0fbd08c","4507df9381","f59a1fa4b1","41929eb874","cd4cc32cba","5bd862d8fe","8ee28779b3","74f6ec06de","83d563bd2b","eecd75d2b1","ac8cdf9171","946b96e8e8","0254ec61d4","b106b38675","149cdfd188","0a88dac2e6","7c17eb4424","644c86142d","a1b5428e72","848e69c620","ee28df30a6","222636e7b6","24c5949d1a","732cd916b3","07bc4194c2","4afd2ea107","8a64b2410b","51ad83b36b","ba9a1b010b","5e912b6146","438ad5f1f9","a3c98fb863","1418f42276","345dd2c6d5","fbd0f30708","e6001b91af","7e40be46d9","54f034004a","71a45a5422","50c775bd6e","c1e447c5ca","51ad83b36b","ba9a1b010b","5e912b6146","438ad5f1f9","a3c98fb863","1418f42276","345dd2c6d5","98561df8a6","453f370fed","2ad4f52b75","e4c75cf2e6","be16e2e282","bdcef9b3f1","ff715ee966","a8ecdc73d0","f70cabe2d0","176d90f228","50cbb397e0","c00515716e","e168cf6afe","dd560e9b04","8da2aa54da","6493b3830a","1739ed949e","2cadba2212","23c7a0a028","f3559e12b5","a3b46069c8","3bb65d4230","20efb35682","98fbbed023","9f4e510af2","b7e6ecab5b","b45fb4e025","74de3af6fa","7a7d8853d1","db24fc8441","32df949d0a","2c6edd19b8","a46a30161f","464f47aeac","3d0c7e0d7b","08bd2c0f30","6607864117","a286c7d009","a4a9958ffa","3111cc3584","688cf45c63","57ca3417af","083fdf5325","a8438e9d1f","3832131140","e95b0e5668","8764c51743","bd37f6255e","e77832c03e","349488625c","30508954b2","9eb7a691c4","6e257e51f5","2b71ff8818","d3dc50c098","8318087c29","32112cde45","d40935d59a","89a22c12a2","e244cda295","e65d4f5f4a","53a8cd0d4b","be3394c27c","830301e212","83c0c59a82","cae64c866d","b0a9c5a94d","81f7caede3","277f8644e1","bb01523cc9","1c9134da06","cb2da446e2","4344013c5a","f4deff342a","7bccb59376","d353d87c87","8576e0b9ef","1c9134da06","cb2da446e2","4344013c5a","f4deff342a","7bccb59376","d353d87c87","8576e0b9ef","47c0df9b3a","3d5ef4cbba","073fda644b","d0c7e91fbc","30ea9b5819","7726bf72fc","480dfb8de0","47c0df9b3a","3d5ef4cbba","073fda644b","d0c7e91fbc","30ea9b5819","7726bf72fc","480dfb8de0","f46e6a4368","e587395e8f","f72cd954a7","4099ff6c06","3bf8f2f822","8f514d82ca","0fd77e93bc","94b362b600","2c0a164c7b","c8e5146737","bc055b9642","b66d4db78d","489832e3a7","fb5b363057","94300219c6","3d640c1e1a","ce5fa75430","5da8f84531","d6a795961f","36c73c1f61","6895468df5","fbae8eecf9","32865709da","c429da90fe","238348b4f4","a137a374b2","64586eb68f","3813f45133","0f40c5ca50","574cb06f21","cad62381a4","0e499a96dc","254cb54fb7","edf2c9f9fb","18095a7a14","914d8fd4ce","754b270228","a841a7fc5b","628707fb5b","3554134d97","cbd34b888c","74403da52a","3f00b65f5c","090237dfbd","c03030ebd5","4c1f84339b","b2ab8da877","57a628f7ac","aaf58e2cfc","cf78126a28","1266e796a8","0ef5c17a94","b0466a6e47","b64184f84e","d427c84904","24d054cec8","401b3343f3","634d169af8","56e02183e6","398be82ebd","6cfe6cc107","4320c9ca1e","16933bc2ec","d3fe4453e1","3d713e6b5e","4687aac687","30ae7db204","eee788b4af","655b0b8a18","64d61de815","3f00b65f5c","090237dfbd","c03030ebd5","4c1f84339b","b2ab8da877","57a628f7ac","aaf58e2cfc","cbefa545c6","7cdd4d96d8","0e1b0a0060","7fa9fb2890","5162f4dce3","eb71ad69e8","cccd1fb0dd","bb4a8d5937","00b032d4c1","999dba851d","48a3489660","ed325b455b","10da181337","c7157c86e8","8ce86b1062","e798d9dc7d","86a93e831a","1f32f88bca","63d0b944fa","c8985c0a56","99cafac069","1aafbb50ff","12d37777a8","c9d47b3e98","c1518aad50","d53db79ee4","04c52f09c2","9eda185827","82f904a3ec","ce72c2e0e5","feebb0bf5e","8510dda74c","0b60a1f78b","fc31b478de","cbf1a8e5af","e7575e5638","d988a50fb6","9b5c70ecd4","e467015b5f","cdffdcfc70","e4768a4473","532ade1bec","0dd4449135","0dc7a48670","0d1bbaf68d","536f21db9c","23f4f1f147","4e7ac5224c","c222956d44","6065f7f765","debf546b9d","9470d79dff","ddb93ca09f","90bffa3f5a","ce02b88edb","e301dd81c3","5837a02651","da5c58c0f2","da45fd6d4e","2c6ff930c6","5d68828a53","1993d04587","6fd821a51e","f4826578fd","4a53dc8e71","5363ab3ce5","214883d139","67e5b83142","e28888f5b5","93f79f6fc4","2e68942623","e6a609c675","f24e9cf954","1b30501744","0818e4ed09","11468663df","f76f36d028","9473ef1f4e","f1c0a2bf37","dd05ed90d0","1ffa8225b5","e629db4463","bb570f882f","b217ac3eea","a330b94a35","db72e12362","6f8e1e92a3","33f5e286ba","d1a60ccb64","5ce4430ca9","390fe8114f","2945f4a5f0","059b82a5b7","407037491a","5ef13f0b3a","47045897c1","6d37281879","3f8d74e356","e17bd107d8","360db5982a","febeef5360","700c80b3f6","45e2322c84","797007a902","6f1fc548aa","67e5bae54a","98bf30e01c","aa36c54703","80c9dfb54c","5122271c56","1103101a00","51e54cd1a1","e021a4d602","7d20d886e2","e9b9180f93","6a8b861709","575a476b39","8739e8ec09","0a08d0554b","ab6b93f9b0","1cd154a999","e45472b8a8","d27520996c","2b9c6b537d","11e9d9c59b","7915417f34","8474abbd48","f3ee9b745f","4e5fd8d66d","ff21fa573a","65e71af7dd","db905dba8a","c30b4a51c5","e021a4d602","7d20d886e2","e9b9180f93","6a8b861709","575a476b39","8739e8ec09","0a08d0554b","1732addf26","eb040e0668","efdba70e0c","0c3caff103","54051413d4","e5f94bd197","e671f080cb","6304a11b3d","47fc4c3bd3","49ca718ff3","e066b42b5c","99f575f681","8a77b65e90","fb85aa6f10","61f415cde3","a32300a4d2","8683507466","1e01389498","ea48bf2daa","ce556ade3a","718a7ee35a","de59347316","a632f5f73d","bba78f97ac","31e1c8f84c","8c6f947b64","c4c9b66727","874b747d8b","48137e4ced","7da6ef3081","ec25b9540d","43452c0d09","e7e1c3799a","58fb966520","c9055af0fe","acffd49c20","e82b18f659","536a9bc12a","dec97edfec","7cf5d230bb","d19df0590e","9953cc7e2b","13d9f2387d","4b0505c047","0040236cfd","3c37612232","24f030002a","7fe6452e7e","4087d87dbe","9230b9d15b","ef2fcabb4d","4772d4a7e1","f8414f0d35","e6300b0068","8d1208f4aa","4b194b49c1","9230b9d15b","ef2fcabb4d","4772d4a7e1","f8414f0d35","e6300b0068","8d1208f4aa","4b194b49c1","53bf8b6e18","3f53bdaf63","187dbb574a","184b804b26","31aa49c713","db9e69f92b","15aa311c32","78faac5900","67fd1f20ed","6ac12187ba","cf8b5b42ca","439714aa4f","13caadab07","ca4d1dc818","c07743aa2f","667086194e","ca4559a412","438f9b2a76","f320b9ed3a","f22d38256d","4dbfd8d76c","a07c12bc2a","0e6142a192","3d7620b465","766aea2bf9","07ea64dd91","2adf103d14","b5d9ce417c","7c7d4843db","d30f541801","94abf77890","4734da3651","ff9866ed13","9cad021469","7c0b762579","9a53694fe1","c9210527db","5f4ad5df07","36dda68dcd","88662dce11","bcbeeb9087","aeec24b62b","af62d63909","8dd8885c85","82618f8f30","e716fb92a5","979c8406c5","5adc3e1074","cba282f0be","e0e88a5ffc","09481fa71d","feee58703b","1094f43530","efa422440e","33e8872570","b7ebd9a5d3","4dbee96353","f6555195d3","6bed7247bb","42013cf099","18ccd515a3","7437d6486d","77b9c05e3c","dca3990fc6","9f638e7daf","61b2c95d5b","10f98ebf1d","b805151b8f","531c24a0ad","2e7643f3c7","307c848ec6","461b067940","f4516e69ae","ab5c7f744b","366836b630","bc4926f084","a48b539e69","c68db5c10a","e87ac33e2c","b0bf4ee4ff","09b98cf45c","9bf061e9a0","a3d3fc61a3","ba50e6143c","cd23602db1","b4874f7789","f1619094e3","9657992fec","bf6da6c8d8","d2d45262a3","474298dac7","3ded8aa6ed","455f4aa754","6d91be7cc2","c8b23d304e","bd76fef16a","b81b008855","5d030cc29f","05312a148a","83c9f8771a","151d43e716","b019694758","ccf7b08e1e","3b1f4c2500","b4fd9078fc","e1241b6069","e76829f5a7","79dae9b316","7fe4359e90","a12ef67f18","af65af6c15","73d1f83938","83ead061c3","53961ba35c","e56fc9a2f7","a56867af5c","46c834009e","f935da1e7f","2d6b2d4015","d3457bc21f","730917ce81","3dea4021fb","d53d540bde","3cc09ad1b1","4f0b8375e3","7b897595e1","adaad6ea48","e61aafa2c0","3e422cafc4","774f7bea69","b902ce869a","3a0d89cfc9","1d5fd3d92e","6921112c97","500a97f9f9","b34721fd06","ee29f81a5e","d5f38f1b9b","185ee6b04a","70bd6b6da9","19bc48bf9c","0240d67adf","e5d2a21300","3a88ad39f9","da1e963d48","702a46230f","3ab42556ae","cc8113ef50","36b468a543","c94f6a5f66","4942667c63","42a062fa30","b467f457df","6546ca2523","b99280148c","2618a3f52a","659797de4a","69caee50e9","1d1e34c7a9","e82cd1f3f5","baec9829b3","1b8286e057","dd17dc7021","31c37e07b4","297a957bb5","c5870eb386","b9d7e56405","bcac19b8c9","721b6933bc","603d171dc4","2a677caee4","8cb0c3f830","f4efe33675","ebfc3f1d8f","4e0e1d1eb3","bb18181fcc","12ada257b1","5563728af7","f1772dd241","b58dc53673","cb0127fe1b","d6aba4dfb6","f805805877","90e204a1e0","783bead099","1dfb7f9f20","9557178d24","e87498bce9","9c2f8a8268","2412911ef5","329fd4be8a","45ca15005d","97b33c347c","635c2a6330","54226eb510","4534dc4cc5","5ceb2dc22d","c86babf11d","517cf1c9a4","e8deedc598","ba4a75c791","e87681226a","24650357dd","91cd202e28","e3ebaea50f","0df9227fac","2d20b5e33b","dd6fdd28de","c0c8857156","1826b16834","aa7a4446b5","dae60dcb54","a2d6fe6fdc","4e1a74ed6a","3d64bbe014","1a1ca83d85","d3542fa12f","47915bed2b","fdaba15917","d367d91303","7c2bf0d235","cf0144f31b","64b64e3f8e","8d5b46be96","5d18b051ff","520d3c7815","ef11f999d7","d301007539","bba6683194","de92297e52","9c465b4288","5def53791d","586c45c421","f302c493bc","0ea1a1e6cf","7947f21227","301e9358fb","9b41dcb8fe","7f0ff46a1c","a57484c935","2fcc02f278","b37e4a2a27","ac3eba7e1d","1cb732a940","ecfc2a8f10","98e8bbbff6","bcf2656b73","4b09b1da1d","b94c2a7578","b32c30e728","3d71066531","8b59b1e34e","af553d7146","7c0cda220c","ad29df70bd","bb618527c4","6c379ef475","fb7c5675e5","1532f27e83","17688eaa2a","df4a9b8ed8","0ffb69e552","dfb555dfb8","0ee15bb669","6dd416271a","17cf094a67","28d3cbb9d0","17bb94312b","54b3968409","8eb89855f2","269dfb2188","07d12d9308","d1f886e0f4","af553d7146","7c0cda220c","ad29df70bd","bb618527c4","6c379ef475","fb7c5675e5","1532f27e83","283c209c2b","d234de601f","5ffe80f241","4113dc1ee0","a9a6ee8e7f","b7c7d9b10c","32d2a50a3e","d730bc40e4","f3311469e1","890ce3d955","3a56673756","ce3cbea006","3b794192b0","6b8ec6e253","e6a102f46e","40292ee0c3","b320d053af","c4924de5d7","84fb6d1226","2415e2a83b","45c54db73b","c540fe9d16","2e84ca5980","b8ccccf733","3bcc695783","8dd1736ebe","9023244f42","e7d43d064c","cbc2aa61bd","bae183a8a8","1e26f34473","12da2e092b","fd6af7e096","a87a18ced9","a16650718b","79074babb9","5e427ca9e4","3c68405dbc","5448db0140","2d870170ae","7455e9f4b1","957e7f641d","357143a134","9ca82cbdd1","d6e0d98b01","8038566048","164d29a50f","18587fdfb9","6cdea154e6","08bc056fe8","0bf8f7bdcb","b5f5296c51","3315d26faa","6ce7d6c1f9","59e9adfe81","e180aaaea6","a30b9cfe4d","b79571fa45","b0af301602","79f7f8ee62","2e40ae28e0","ff4ba729e5","8d81ddb1c1","80ece7020c","13cf7f1c15","ae1cdab496","a07cb91cbe","ba52841b60","63faeca7ce","b9406d2b55","3874765de2","60a973cb4a","451fceb765","48ddb3cb73","f53c631375","e9b14135e7","2e6ddce4d1","db1a4404ca","08c319bbf5","258d1b7f44","c91d614ee0","80b57e963d","8e8507f4fb","72595cba44","d4f5b0ebf3","2e716f6f33","1438dc3c2d","2f6d8e1ab5","a9475043a6","a6e4a5ba1e","4fde763339","c17b204c36","df778ecdb4","c108b72a36","e4e48a58e1","3b6fb5a950","5e2f84c007","59f0a5949e","a46acd6a5a","0d298bccb3","93bfab5969","ffca748294","db3a3331c9","f0e35df873","037dca1709","3b06ff78ae","d2036cff68","0d9c027227","3049dd2720","96d6fe54bb","6f679fcc60","f8b3c35050","1cedb0b706","ca2042c621","ba4ae02169","f8f058b2f8","950168eff6","f5c5a3ec61","68507d6606","9ffcfbbcf2","c78a10987b","49716c3a0d","2ab0bcb22c","b0dab4ad9d","6689a37854","f2437120db","630134db80","98d4eb7e40","89f2543789","57206488ea","341addfbba","ba85a2ef42","c1f821aa1e","caae860ec6","0efb54c7ae","bcb9b98f20","8ad0e278db","aedf0f2aba","ecee819910","17b94d1c82","da6aa38676","14eb704ef8","25aa736bdc","dfbd84dec2","3c4ae6fa66","c80067984f","2b343bd6fe","7caa5acd9b","c0ca1a8d21","101bd6a842","41d15b5491","90df14d5b5","9a5a033677","2afbff09ef","94a740cdb1","f238065205","239e18ff64","9ec4f0dd35","7b7eeac4e1","cc70f55f59","3a581f5122","7bac197714","7e7c26d93f","245d74e7a5","646c9861fd","8d2d7379ef","c3a0bfe19d","48a2a15be0","1ccc7eb9fb","ab74a04947","9ebd6add99","25b60fca04","802cedc160","6fafa3d1d9","2770e62efe","b3c194ddf9","daab936d13","45556e60d1","f3d51aa5cd","d32afbae16","bb11ae8a50","8fd4630c7e","36cd3b730b","644f8a4d12","de96bcf044","9bf7fde01f","4233ab1dac","ac471f1bc5","927740a947","bff9e762f8","c395d7fd64","e826dbed7f","f91f9eb213","6144bca95c","906dfcad07","4de6a60252","7231ea9fb6","7ff2ee777e","b4db0f5a74","2e4cf3eec4","10645ae8ec","e3eadafd5c","6ad04fc7e1","f9cf79fde5","674d26702a","64d2e87e36","52cbb3885e","adca620eae","79a92b109a","7146dac91c","4610d38541","d1230fe020","529e378277","e17f4ac4a8","d252806297","19681e8f09","0495f69dc2","efd810c5bb","7a9744aa99","3237dca40b","f6abcf52b5","36f17be4ef","4b71be69e7","b39c444efa","79b9d50b30","56c6288bc5","79dbaba3fa","4cf702bd75","d43501b9c9","508126c0d1","18d5de67e4","c0998f27fc","3b87acd64e","6156291c6c","7943649a7d","4fe2918d83","1dc4949992","199f54129d","cacf9993c0","987745dae7","00b250ad69","4ed280d507","178a28e5a3","4afb95653c","406e5f09f7","d799b9fb85","22f1dbbf47","1f7dd7cb07","fce485383a","932e0188d0","5281872aad","fb69d2f6b8","c3a1b1712d","95b9d8298d","2acdcfdde1","96f26244da","8397133a1e","ad27ed1f7d","13ed4646b6","d799b9fb85","22f1dbbf47","1f7dd7cb07","fce485383a","932e0188d0","5281872aad","fb69d2f6b8","762f9a018a","0c90af9ff3","5ca0f0cd27","9f60669901","417369fbd4","151605357e","23a98e26d5","8322e34775","ef5ea4b128","f74d817b7d","b758972dbc","f0834a7a7d","48af005a3c","7000d51b8c","51e375a273","835a9223ac","fff0cb84fa","649cf4074d","d350742c8e","0f34347662","cc39f38e4f","985e2d40ef","0d9e0eef25","c8b8f15023","ece1c0002d","dc068a9a03","b0b0c677f6","5b8e3df39e","31a39a1a1e","aa2d7ad933","3ee00c2e48","3bab30ac5a","5288dc6494","4930b7e890","6ad848e954","0d59d32412","4fc611cc5f","6e62934ca0","c2e4a6c062","f2fe4f87e5","f6d7a97407","168d59b0f2","b66748f181","1cf57dd5ea","b50789914c","ad824a7910","234568bb0d","f2c3635322","821120db0d","d3ed9d38c5","98dedd06b2","53809bb83d","2b3e5a42c8","40ab64cf7f","b3fc31d81e","3185e31aca","1e45f63d96","7c0082e3cd","61340da0d9","0ac2c33ad9","32e23a07ef","6db73c5618","2205772a0f","d9c10e499f","8be36a6937","54fd0e4040","dcf75ce5b8","e6370a234b","f4258945cf","4cac293f5d","b939098359","dd4aefd8c0","5ff3549231","8c71af2f79","cc1a7ef2a3","849fdd790a","c04980cf17","3733344afb","20103b3003","b3101e7f9f","3a6f63abaa","d1051dd678","62c5259101","fe905512fc","ef2241e289","7c9e7f8149","0ced40f089","059ef8128d","ebf9a93fae","eb1e5115c0","44a4ec7abd","397f991deb","3ffa2412fa","260ea0fd79","a21ae207eb","f1823f1112","35c6799789","5f2b017603","a5f9e5153f","f0b2ad3712","bbef13b0d3","652303f077","38f7ea0879","a6842d1487","c6db399c91","c3b73a1af9","5328a57a4c","d0546882a5","8cb308cbf3","0c34db9fcc","4011fd5be8","86a89c8722","00da888217","1cafecd371","a2f89f0b39","b10cf6f259","711b389b0e","79da8add4a","0b704d7333","de681fdb53","87bebca78c","6cb1a10a65","a79a2b9fa4","457fd9bcdd","4cacacbb38","77cd7d48c5","93c16c4074","b6b729ac5b","76dc86cc8d","51656759c4","4c6dd16f8b","b8e738bfc3","1879010c3b","120935cc2c","2816dfe80f","2d2e3bde83","7822885c71","7fb5ad09c3","6a93a45886","13a780c1e9","4e2c30c24b","5881f287f5","267a090b80","75b86fe478","0743095c18","2c522b8dde","aec4714049","4e2c30c24b","5881f287f5","267a090b80","75b86fe478","0743095c18","2c522b8dde","aec4714049","2916898de6","9bfa6f8cf0","88ed7a1fd9","ee767ab1f2","abcffaa884","a0d4d36b9c","b7439a2225","0e29cacd94","09cfa80a58","9235ede46c","2e24a22367","873bfe530a","a29cb90252","d812f93386","4e2c30c24b","5881f287f5","267a090b80","75b86fe478","0743095c18","2c522b8dde","aec4714049","742ed2c5eb","e50f0d592a","e3fddb09c2","78a35fdeda","48f86cf2b8","f2798a19de","a5bf9d049b","3ee16f20b7","94d8be2df7","251084d93b","d28583304d","5a8c571880","c0d3a5d568","f02f44bac8","3ee16f20b7","94d8be2df7","251084d93b","d28583304d","5a8c571880","c0d3a5d568","f02f44bac8","cfce54929f","42119d6178","3ce7f817e8","253a9787a2","8e9eda3e0a","a5b56b5256","e3ac6f6963","78792830b3","e2ee27d2f0","1db13bd568","02c4b93e5d","cfcc601132","a7c27040e9","258a50ef5f","0c245687ca","d9fdf0a0a1","5338039502","53de75e534","392f0f6687","8a6a5b8007","b797438d7e","1c633cf8d1","b03c03414e","54d0ac494e","3d513a19ad","1cb657ad18","1dd8bf7b2d","2119165035","0cd0241b2c","5147b1a803","3606bf8017","19e3c6eb89","494049d7dd","4dfca916f2","bf597e5431","4bc2c48c73","c893dc317a","0d8a6633f8","db8bfa2a78","0103ec0c1e","6fdb8b70ca","5643e57406","0dbb886573","fdd9944779","5de772ff19","dc61eb51eb","a4b0281cbc","96f6ce05a0","8a03e60f41","800efb1613","6ffe2d3aa8","cc258536d2","9e505c0700","0009acbe74","c75095ab80","bb7329bf01","a7750e8e51","749fa63ea5","35879e61cb","4dbd531a98","bc6d840c4b","ef6d8a8a3a","3952a4976d","c92abf1a2b","8b1b30bc2e","da743ea2d7","06ddf98dae","e8ef77620e","495a86187a","ec31e1cbce","c932aae344","ba80d7b65b","b171de6040","376ff82326","9714efdf08","fd6980dea2","ca31ba8bf5","38c570e28a","8e39ee0b89","9921da11dc","a80f036a85","7036a47ac6","5eff102577","eba6dbed6f","150711977d","0c1a428a5d","c930f48a24","cafb717d5a","68c7b3148f","402b4ff689","14b8c49673","7cfa6b6140","1e162c85e7","e31cbf1d4f","887f25150f","fd04c11eb6","49ab068868","43963e0555","b4873c6645","112115abf5","2a621e5494","da5ae46b49","98f0269115","3cd47f8792","ab57f916ef","7ed79a29c6","be149e7fd6","abdd7408eb","27beb7f685","f2c012c380","049cf4bc7d","14c88e0443","be9431701e","f5cb0d3df9","ec986574cc","df79d79b86","89a24d1e04","6025254d53","d96c1be011","cb8a702a42","32b35fc2e1","1ccc7545ad","bdda1cda68","063f9318d1","41fd18928c","3cd1e2cc2a","93fe065e41","55f3859603","e0dc170283","e6cd5a7b69","15b1e45f4c","31636f8a9b","41239fa0f9","82191dd832","dd9e7cff08","d384560b3e","e578db1cb6","98de9bbf6a","55db0daa02","4103224cda","5a557a9b21","31b13ef661","ff5052a5c7","336b794289","2c55e0673d","779f974620","d8ab67f17b","4018bed58f","6cb4cdc9fd","5eec199bbc","74c84cfa68","1f2235f6f2","023092bc78","b72f8d9261","0497f04ffc","f3a5462a56","93aad03a14","6f406a9e6f","8b0b7547d4","78ee0a99c9","6b935a5f3a","79af94aca2","3caa9b53f1","6d6bebdf59","6a96786789","5f2cf1c688","3faaed45dd","66f32d66fb","79af94aca2","3caa9b53f1","6d6bebdf59","6a96786789","5f2cf1c688","3faaed45dd","66f32d66fb","8ded180892","86e9ade949","a2809fab1a","084189dc5a","5b07b01b6b","ac3a3feb28","df5b3ce206","6819b4f56f","be477b61e1","9ad187e36e","e9d1dd4943","7df8604d46","0418bdb510","727f00a4d6","f71aef7ab6","c876bd23f2","ca9ee3230a","dd242829f7","4f68b4a316","99089f1446","977f964180","811479a0f6","f747da8c0f","c1333e1f84","ffea8e3dc7","c321b96d24","e5e8ea748c","600611f790","360640d803","0b7249089a","5c7160ea2f","b77554f353","83640d6347","a5db3bb994","2ff0bf1dee","52e12d3540","1f83665394","a7019752bb","8c0cb66291","3de43a37eb","357a64d7bb","f2f34da367","c251901868","106da6cd36","cbcdc3437d","79ba9472bc","aa9028357b","ee9510cb34","a81a79b7ea","3b5a70b60d","8ddfb4920a","e8846e8d28","1ad60a7956","52645f7a22","0d8ed3c0e2","df85141722","e9305d015f","b874e36c83","4e1510c853","adec728bd3","ded95292da","c9f7d80f3f","f1092ac6e1","42de54250b","ff738fe8e1","71b69aaac5","cc920f35b1","4b7a590821","222344a999","dc1777873d","425d6c6237","f99a77620a","f94791cc5e","fa7f44e9ea","baa5d2ad73","15884d16fc","2f190e8833","3eaf07d98c","93e51afba4","54e36720dc","37de394d73","157cdb3734","d565ca77b8","7b9c98670e","89a3a1d25a","c57b38ac4d","69bbe321a4","442a4ce804","9213a0d19c","d5a0968e66","6a6015adb2","1d12cb951d","8f1e75ab46","92916a76ee","2154df1430","200ac8bf56","b88c40a8be","dc53d64c2a","9ec20f7c0b","b52355c3a3","ffafeb7a84","a45ce9f33d","b417940fb1","92e51deb33","967389cf0e","1d12cb951d","8f1e75ab46","92916a76ee","2154df1430","200ac8bf56","b88c40a8be","dc53d64c2a","8a0d0b6cb2","6f38a59d54","52bdd23e27","f98e261f81","4c64dd7eaf","79aea97312","50529b9a44","e7c2d54809","b1e08d1fd7","59997e1edb","40699f4e78","21924fa990","4945220ad1","da4a8214d1","af104fd288","95c04839c2","4b651cfeac","b911565051","79383ea1cc","90dbd4bfcf","f8731e8608","3232f98cdd","55cfb7f7ae","effb9f055c","e2d832afa6","79e51bf23e","039f57a3f5","4e960d0630","95780249be","36a2f269c2","f0034b1d4b","9c12591a0b","db4f1d7857","2ef19807d6","7a8a1b697d","00130e2917","c2c5524cb0","18e09e56fc","e72d8ec08b","06678f0f3a","7328e8e3bf","6f50046c6c","9d39ef1f32","769a60070a","62dd32ade8","43790d1344","7669bb2289","9cfe2cf838","8ac181d187","058d376edd","ee95e69632","c5b6aa2636","4ed794c2ea","783b7e842d","7079c3129f","16a01237c0","c320703a0e","ca534cfd63","b27938ecd4","9e41485064","38440be528","fcd25fc9ce","4991f9dc90","794ab0f6f1","5cf42e8cd2","b99b6ebe4c","2a70cbe869","b0acc2cd97","98c3ceb24f","9f1411320e","79447563e9","c2fcc03589","9cc0206c6c","249763a106","1a953b8d36","e57c5d476a","cdbcdec82b","feac444155","af0a597fc6","d160285edb","0811083b4f","237669458a","1431322529","6987689bc5","a2bb2358be","443493a47f","3c2a8a30eb","68e2554227","c5a59635da","5c4dd4bf65","eb4fd89d64","a7cdd1b6cc","361db7e43d","0c4c0d766b","bbc2583b80","afd23f1680","73add87ca1","cf8bfca446","77e73b7f22","d2670d99f6","bfd04a9ceb","966221d8ab","c878c71000","62f2d411ee","bcc7ac2927","1c650f747d","e488483a6d","b9a274d33a","9a3a43a010","45cd6c3902","77e7cf9f60","33551134c5","6d884b6c30","874f1b8b45","6457564c6c","f7e7621e15","1c02d03f99","7db0843339","99457a59a1","ffff587dc6","e2b5a1a1f4","af3a414531","fc7bccf709","1df6664e45","85b3640e2f","66f135e469","1c650f747d","e488483a6d","b9a274d33a","9a3a43a010","45cd6c3902","77e7cf9f60","33551134c5","a96f9f0d1a","49648a48e2","758187108c","4def6268b0","faafc4ee0f","2bbf77716f","536a346a2c","4de16c5a0d","305d87838c","c5f7c0bc24","dbf13616a2","48a1577f74","3ccc788932","fb89beface","a240f3b8e7","3f75907d03","54528667a6","7aa4435dfe","c2bf555b62","20a4efda03","e749bf5ac6","1daec9ebef","c26bd9fcf6","d1275c4bf3","5783556632","9096bfc959","62a9dda122","e1801d9e3b","52dbe6489f","4799c3ff7f","42e3bf7505","07d60eb4ff","d9b52e7768","89158f8f45","2eea07a256","04d7e1aa85","735025dd0a","312e2558b3","ff017568e8","332003f5bf","68e266f38f","6ee9d1f382","a5659eae85","543f25366f","fbd4b647fc","b7400df0e1","7a866520f4","384d2404ee","a61ba8e8bd","b7db04dc4a","f93557a50d","553c752d68","eda904d2c1","8c51ad6831","e4195453fb","cf91ce9333","bdea8ff7a3","fd0552cc4f","178afb519c","7607cf41a1","4bc9c5ab4e","a0621c3551","d516de8ebf","e503664d60","2a92bb3004","03b2e2315e","55dccb2154","0e9c306226","60f5e0a887","10bfe760f2","b143ed8305","519efecc31","08fd56e5e1","d02177a2c7","98bc15891c","674c09c213","05156c22cb","de48af9577","244030a00a","1d01f05131","21510bd406","217578df22","085cc80ebf","c7b617a0cb","f80cd7a7ac","0c900222ef","96f580bc8d","0c7b1497c0","62404def37","0dc5a751b6","89b0635db5","98bbd7417e","36b1e15a34","affb639754","18e291d150","df50b769e2","ce02b875cb","fae05d2508","98bbd7417e","36b1e15a34","affb639754","18e291d150","df50b769e2","ce02b875cb","fae05d2508","adcabea3e6","5253136cd8","04707ef3e8","1fcb0ce571","6b0cc2a423","c6d5b4e10f","8b923a3e7a","0d9fcc79e9","1d35a60e89","f40637eb9d","2fdbeec27f","f5bdc63263","27b5d974c2","8f642fa1d4","cc0ba69d75","4712256135","cf6cdaf690","f436bf5354","2700f82c48","9855730bd7","b99895fdff","c79263c61f","c3d48488fc","e1aa6dff0f","f3a66f3080","5e9621e12d","5e7b5ddb9f","b56af7a538","473886d070","5b5b0015e4","012e502a9b","d0d26d97a3","ad32e9c342","b299be471d","51283521c1","c7f28d1874","4e83f12c37","e64e82a004","ed2ab60b13","84f4d9adc2","94ea355cb6","bbbd0f263d","db8dad282c","38a5a17605","7f9e3a3ccb","c4878dd081","b8413f0948","c009c57401","8fc7613ee5","52646b7a3b","432863ac32","d36f8a14f7","d4f534d719","406b5196f5","d2e923b408","db6faec3f3","235b1a98c5","2b4c32cfc5","711c962945","832de34d16","f2f18358b1","c8b76c6e82","333e059f9f","2dbaebfc8c","82ce7103b4","93c7cc43ab","81b85b3b6d","50e7b2be66","a803fb4aa8","04e4e0d02c","2f67d9badb","979471d3d3","5304839fba","95c26c1ca4","43cb85bc0f","f13a3d72eb","c1d9650d8f","01f6aab369","d0a50a6874","fbb2551f4c","c8be3a0cd9","1bcace05f6","f834b07913","1346dc72bb","bae738a6dd","251da2a2e1","82c10b808b","9cda87b0e7","4686a24840","6baa4d8192","a4f5750cc6","606119bc9c","3045f4d0c7","65d863ce84","3af318ed8b","4b9bea0493","2f4821caa2","f1a8bb40af","162fee925b","7989113f4a","7fb74aa91b","8bc89e7c1a","b1521ea164","fe94a753a5","2d727d978d","6b8c4b84af","dee525b2ca","ab47e3170f","5e0a2c4304","4e384ffb69","66769f7b25","ca65baf5dd","615551ed90","34c8a7b9e3","a4699162e1","8bb5571834","ba0b7af785","ee84e3611e","521347c65d","98f66a9119","fa1ad44fb9","81f2ecc2cd","521eb181e6","261006456e","bafbf89bc9","9cfeb0bcc6","31b158c1d6","e55dc3d234","c4a208306c","0a00d1fe7f","4ab968cccc","781ac3b957","8690395dff","05bd8f536c","d898ecbed3","88136592c7","a191138cca","39c8556eab","e11ec41b5f","61171e774d","82f811afb2","318c119325","b2e74872d9","18002a64a1","c635187792","14d43a869d","4c98c87b3a","08967f3bb3","05d9d1a4be","f37dc4a418","c655d08d36","72d498f5c7","9b8cca1fcd","b1a6d3d6f2","968a31a654","9ecaa3c466","a0f6435d4b","c2ba36bcb5","ff6fba2a8b","5311557a9a","204a865609","5878e8afcc","8cd81138fa","1cea4062ee","6f9e8c8e27","e552a54a61","69543dd0c0","ec4dcff94b","c3963eb3f9","6127798205","85ee9b6a48","b5dba0cf89","fd3e4c6165","a4c743d81f","4cce08a536","da4006884b","affb0bc8e3","be8f05fe03","42dec6cec1","b6fed157d1","20d61dcd93","625fee4087","7ab840ab42","63eabf781d","e77d5a5ffe","1e568709ed","533284a476","0d46ab27c9","66a5d517d0","9d9d91bdc5","06b0417f29","725b7cf13c","2bdd7651b3","3d65ac6bf9","cdd0311750","4e205d78d1","c2f62a23d8","dd361a6a00","6bd97b7c45","38fe29d1eb","86eb454710","d25b0b41b5","fdc0c33cfe","c2f62a23d8","dd361a6a00","6bd97b7c45","38fe29d1eb","86eb454710","d25b0b41b5","fdc0c33cfe","9fd71973ea","736c26205d","9a62ce4372","65160a3279","d3103b816f","42a6192520","922b8cc511","a10af4d2f7","24bbc62030","d10647cb24","59be9fa8a0","82db1888d8","7a31de18e7","2764500b2a","fc47e5624f","0acd84ed1b","827b47d29b","01f69cc523","6f2ea8b9c0","f6d1362892","387ea11154","1c6634d963","a80cfae8b1","8cfde65a60","c8b370b59b","50d2cf57f7","a37b855b07","060054e489","ad13a6e184","f335accc21","8c7c2fe7ab","438dfc0faa","0203e51aa2","87c3ee23a0","a8a2dd5d9f","85d072a965","9d189f36af","a148b4cd55","cc2694f375","f11e494519","60b80318d9","24be834e1a","b8a52d1f53","1bdccf6b9e","a395fdd463","3c4f89facd","cea5d26eba","25b6cd7ec5","dbbece07bd","364fbda4d9","ea0cca7c9d","a2e9075189","7a2215bf72","e452fc6e3d","2260ab676a","3a126490ef","b77d9d0948","c82ba19bb0","b3982cee9f","84c250250a","e8ae32eb63","cdb9efcd7a","198aeaec60","dc68a8d548","d1807c15a2","630c9757fc","cc9fa4f094","c1118e95a2","58ebb841c3","acde3dc1fe","827228b4b0","e0ef0d7088","5aa00df27f","872cbf9f38","1bb3520a13","ca549131a5","2c08501b02","f1a43456e0","8089e4c5e5","c5843886ae","7176199f89","dc8138281b","da18809e63","3ebfb2c69e","b77d9d0948","c82ba19bb0","b3982cee9f","84c250250a","e8ae32eb63","cdb9efcd7a","198aeaec60","f479e482ae","452e9652c9","26a01d0328","c0be84e19c","570d678735","c5f3bc5ed8","75564c6200","6a15561c2e","5ff1d7442c","4dff8f90d2","c5b88ed739","00b3e864e2","6d6cfce12d","ea4f3d62b5","c4189278f6","56fa9916e8","2a80897b75","42c0aaa33c","4b83ddf4ef","b94b335116","5e75b436ba","73e65a1063","a732ccb295","fca279e531","8acfba7102","4ff6d4f089","17c890f542","70f79ce061","73e65a1063","a732ccb295","fca279e531","8acfba7102","4ff6d4f089","17c890f542","70f79ce061","5f6b875b5b","3b0d9d70dc","a049e8edfd","64f0dad085","4bfb03fd06","11723ca8ef","828ec4ed4a","e08bf418a1","11a033892d","e22f3859da","e43eb576c9","e500f698b1","8902bbec2b","3cf4c831e6","56097d81da","9c927d2a01","62b7ee6a84","2ab4b051a2","f5efa5071d","6b32e7fe65","9dbb526d84","10caf070b9","6e9508f754","2de41058b1","2b6ed367a8","737d0c5d45","f061aafd64","08fe86da1f","9765e30601","ca82cc2223","74f43ec683","97114ee85e","f9e91ddd41","8fd916af6f","4ffde35c77","5eeccd1c0d","6d752bbc5e","c139e2c9c8","7f21452a95","c3158ae8d2","b9ef79eb45","3de62660e8","f8f753c9be","8b296f434f","67f099f2c4","4b19f78142","ce42e140ea","c5e0647565","5235d47a78","faf18881b1","a67003c6d3","becc920eae","5463135766","abe5911d39","2e5e6a58af","0767a1866f","f2b81bc4ca","e5432c2b82","fee2d984d6","7b532a7830","0416b4cb30","c1eca4cf7a","54c6be8be4","6618c25702","f84572af77","7ed9df33b0","e139267d26","6c4b89169d","34881329d7","c3ffd53e5d","822757b99c","162e55e3d6","ecce80e63b","39af77a848","012bcf19ce","789be134bf","3ce546bc5d","822757b99c","162e55e3d6","ecce80e63b","39af77a848","012bcf19ce","789be134bf","3ce546bc5d","a89f78ca9f","b78b394499","8b7a411c4f","f52d9c266d","afb70a41c9","65dbb2c6f8","0289fb9cb2","e214b880ba","efa86b1ae4","357b649af3","a9fe98b354","6f5ad35882","f9888ee72c","5bce1dec45","4f156939c1","b368cf7fd6","4e9c77359a","0504e04264","a20aeff5ab","fd6bacadaa","04f39fdbaa","4f156939c1","b368cf7fd6","4e9c77359a","0504e04264","a20aeff5ab","fd6bacadaa","04f39fdbaa","3c7be425a8","326584ff85","002dbcb6d6","750fde4680","7095509f4b","0d8ceb151e","dc9b828ed8","2b82714d26","d2b5265157","6e12b8177c","ae77ffd6eb","ebe49aa638","8896d96660","4dda34e565","4f156939c1","b368cf7fd6","4e9c77359a","0504e04264","a20aeff5ab","fd6bacadaa","04f39fdbaa","f2d8035ae0","22ef1f0a91","4bac6942b0","864c79e552","fbb2b49601","e28025d967","15199dfbfc","e214b880ba","efa86b1ae4","357b649af3","a9fe98b354","6f5ad35882","f9888ee72c","5bce1dec45","838b627997","8e71b58ea0","cd046ea309","426c96242a","7516759c00","962b9149ab","f2f9b1dd2b","9267025c57","a3daf35494","67db6b4036","abc05a5af1","e9ae1b58ec","f0b864bfc3","a877908002","bbd50eaf0b","c841e10d36","d395fb1620","3ee055ae2f","cca650d927","92a81997a0","812c874d6b","9cecac058e","df75f5c5f5","229d3afa39","886a295076","8f78cd8bfc","00434edb7b","3243469519","79e7d8c345","66d1c3fa63","9c1881d6b0","413dcef518","82449f91a6","cf9b855bb8","4fcb044453","8a2187a0d0","3f940c1238","72ad551571","f96b03fd4f","5e56546721","3c1542d3bc","1d2b543d88","936728c283","ce8c13f4eb","ef6937e639","fe9e612c81","3743e1f1f4","7d714203fc","599df5a9f4","d1af3c4bea","c44b8a7d08","d5f4d507be","328e467fc2","3704f9e9d1","52cc6a734b","94ab90d8f7","602a18a940","a37efec319","904e503360","9acc790c9f","fa63c0da19","02cc296002","2c74f51f52","fd326c535f","72c2a3b479","7888d9155f","0737d23b2a","f16a2c3bea","a306318ebe","e4342ec82d","e40c6c4439","730ba32ff3","50302419cb","700735843a","b3313aa9e7","bffe604ebc","bfc274cc67","38fcbed8d6","6418d0f7b1","32209f9b37","0e17a3a324","26564b86d1","023cb9edd2","5adda87758","f56c41f193","7495fa1b74","74a81ee785","8215c40cd9","b068315a29","9a5d171e5d","af1631c5f1","f11c1a23b5","b9c47c08c8","b83fe1a121","75f83ef065","d154089f89","f7d020c22a","54d2e6e8a7","1ef86d28d2","8e819bf51e","90fa990a97","4c39af6fbb","8fcb406a04","314b5c4c2c","379283086c","2f57d0a8dd","b6a873be0e","7acdb8e14c","7f4ec72e07","abb0b5cab1","ce01405b37","f68b0074a6","1b89cc2bc1","4b7ac42add","9bdefe9dfb","b6127b72b4","fd3cd331b4","09f438fe57","5967f97d21","892b5990bd","0e6f99d4bd","0222277af5","3997a78eb6","b2ace28d07","6138eabd5e","333bc3f411","4876b1d0be","8e41a039cb","94fea07445","9b8af80f16","eb415b705f","3f881dd672","25abfb0a61","892b5990bd","0e6f99d4bd","0222277af5","3997a78eb6","b2ace28d07","6138eabd5e","333bc3f411","f9741c8f69","88b62463bd","e53b5e397d","ac459b2f19","b39ec5d57d","a8fac91f97","46d6f54c63","8b8c14de52","fcbfbafd56","6e7c11122d","48738eda22","059ac5771b","044cc5e929","8569aca4b7","249007d849","868c8ad6d9","cb35203ab7","80dbf775b1","aca17148f6","d529ff2a8b","5cdf3b14fb","28c704a965","a3a3a816cc","6cc13f930c","df1d605005","33db6dc497","588d7f542d","941e953d7f","f6295626b4","2fa78bdda2","b49f161e98","eda9e6f61e","f8004581d8","86b7636b3b","896bcaf0e9","049f86d5b6","10fdb4b1dd","af995f04b5","45e0a95691","8e8b822b70","d646bb6fdb","3c74c8f35a","ae4f11fd72","ea15489ea1","8daabde6d2","8add157429","b009e540d3","3770acb1e9","ff5b8446fa","843134eca5","6b3008e366","2715302edd","95a57c345e","42396e152d","b16bd439f5","d1326e031f","d2e240fdb3","3aa96790c7","6d980afee2","ef2e746577","0a8019edd3","46dbf01e95","07d4e0e01b","270d790fbe","d01c7a186f","dfca6d4974","db96e07381","e94e32c510","82198dcf4a","ca0db10321","2cb22c4d38","aac3846e24","d83b48e51f","ec02034339","38d678001c","a21ba5acd9","f31079391b","34520261c3","08682abd60","b75db8a4f9","2b70e318e0","7d2da8d187","cc34c92716","0374430def","38596f570f","7eec1d445c","6b52c1ccf7","05d3d96795","ccafbabda1","21b1ede72f","bbbe813e9c","0e41c52933","1879e9d789","75e7cabb21","b0ecaff751","40ff664b72","1980eba00a","f43cff26a1","e48c19f1b7","52b488539d","f8368db227","ce3558b392","c0773c31e2","f581ead036","304a3ff3fb","ce9fdaed6b","83f2af2807","f64566d46a","b9c934c4e9","2f461f1a44","75033e8a40","6fb9f32780","ced48d4e4b","256325f996","82432d766a","38ebf1fb21","7b338bf1f4","ad832a55aa","cb3d2fff3a","6e81afbadf","ba43c746a9","12e0330787","1130d2a81c","182b0bbccb","60030aea5f","c91f5b65fa","78b5e3e4ce","0c55aa715a","b5a2e720a1","f388c579eb","8cb4623afa","c159bb6441","4f635967e9","de595a5969","d38affa8a8","f087572370","d1a1a0e44a","9dde6f18d1","d5f13e5ab8","59b7e6efc3","fc02ad333e","9755936867","d8590fa910","c6fa614b35","cdd9e5f80c","69b27e6ad1","2209aadd40","c6329a3a97","63e74a4041","bac3c3c1d8","98b8c823b7","7eed09254d","402722b815","aee7ba369e","922b40eba0","36959f4dcf","81b2c2865c","cfeec5d58b","717f6d2cea","865d0a42a1","ac268d7305","72e14a2aad","07aad53e28","2d47886231","e34af874ca","3fb3e7d290","cc801b8da3","08b5596c9d","e3520ff254","d1976981b2","eca90f4c79","455e3646b6","226329461f","588bfbde48","5b25f1c2e5","144e72ac2f","9fcde91f1b","1004ef8695","e42dbf3af6","146a286ed6","927bc7352c","0ab3f83743","c6329a3a97","63e74a4041","bac3c3c1d8","98b8c823b7","7eed09254d","402722b815","aee7ba369e","78814d506d","e903e3f63d","492b2e26c1","af73fc2524","0fa2686277","93035d8c54","60da6cc399","279bada4bb","05e5f7cbeb","0a19acf5c4","c0d4e91931","3e8554a7d7","ebed769679","0a5e6c07bc","ea50b33b6d","3366b8f45e","c5f4fb9c0b","0d4caed068","c8ebf5dc6b","0b83019db6","9e62687ad0","bde4feabdd","802b8754e0","2b5c619fac","0f112db94f","0362c596aa","d48ca5f754","1c47a4c73b","c67be1c52f","9af919ecb6","58e3593f6a","aa06c109eb","73c4b5c61b","05811929c1","07d6cdd5ef","c67be1c52f","9af919ecb6","58e3593f6a","aa06c109eb","73c4b5c61b","05811929c1","07d6cdd5ef","8ec9ffd21d","5b68265403","2b40f11146","01f5595f61","3a15b39e1f","ba37b64cc2","9e57e9d643","bbf305fc1c","7c87377b67","91f0c42e27","f558da79fc","864e1fd829","3348b44f73","b9e874bf1f","7770bad6e0","0730f732e9","7346237d5d","651525618d","babd44a293","dd185955b0","0ec403d504","0a7d30f6e4","a9d2594d4f","41e17da0eb","f8b9b092bd","1fc9c76fe1","70c3bf7a46","5d159741cb","b5eef65529","089d6f6823","3478c66730","f01a9999d6","ea5ed4cf85","3fa3093cf0","e260f3832c","8dd326c28a","dd1d280d9c","f71935591f","7b35d6a29c","c8bc641254","f2bc679bb6","e619f4be53","27c6dc15cd","bc8ff9358c","2f055423b8","eb7c49de05","6f4e7deee5","3c1363dd13","d6c124d032","4c83ab8198","75b00c8705","33ee671352","dc1d1cb9a8","f36d002d47","9113df481e","61ccadc004","9ad8d619db","eef3561684","1110019f87","34b601f369","1ede147fa6","6fe8696342","8576cd316d","35e4506ba8","d97e31963a","d4d5d58f01","b862249703","b59cd3edae","4b59ccfb1f","602d5236a2","e8c68d2f9a","c473c8c01d","b5a90f4674","bae2cc7c7b","5ad33e7476","281cfea08d","fba6217a0e","1a739b3d7e","46d69f500b","2d871891cf","f16a21bb23","c78cbc0335","ec1d6ded1d","4261a130df","ce56d5d92e","06c27b6f9b","ab31f13ad5","6b190c08e4","447fe78766","2f46a9736a","78e1565f3c","6db8bb52d9","f75a7921f4","be0377e6dc","eb4aecbeef","e9065adb4e","41dc18ab53","0ccf4be9d7","790ef38eed","ecd10cc452","2957ba75b1","911928cb1a","d5917cb20c","e42149abbb","790578a9ad","a3dbda3d33","d4b1076187","7d7b6ad7a2","00c78aa18c","70a6e7f5ce","88ab378148","5ff01a593a","6e57e43963","294127b86f","d12e4dddfb","2976feeff2","cb585414ee","4ccb4406b3","c9683b41f5","2caa06a89a","98c83ea1e0","89d769c948","9df8084036","8f47786291","d92f714e92","2b79584ea6","a3bb67458f","9a5763ef18","bac3fe91bb","1e91c8a570","bb3169c5d8","abc0a0785c","9da39af81e","0636b5ea2f","7ab1dcaaba","1b43a7e7fd","42e4feec6e","3fb7915f5e","f66b7b135b","ef541d7288","9159a75f43","b181127574","3019063c12","ba0f0f9a95","746ff476e1","c1f202dcee","74d95fc0b4","8d4889738a","9b67fccf29","f424ec9f7a","c1bc986e8e","615379d1d4","64f65e70cb","0b050b3534","c85c74d283","088c1f1634","7c4bc88fb1","47851ce39e","2d3a7b90e9","54254e5fff","075d2e35c6","abdfb9c877","54137f8302","057bbb0171","df3c0ffb1a","1a4b1cd310","d97bbbd20c","6a3038f207","31cbd5014f","f25b7e1c3b","c1c7499841","b3dac47950","e71223a96f","c238efbb1c","9a50fef0bc","8d4889738a","9b67fccf29","f424ec9f7a","c1bc986e8e","615379d1d4","64f65e70cb","0b050b3534","31adfea064","53de64dcb9","5fa905b597","507e72a917","d6a6d1395d","ff1c2659d4","7d9cf1bd4a","ca5a034010","2d517fbc7e","4a35d8ac0f","2bcf2b84d1","a8e149ffc2","320c9aaaa3","37525c665c","e5112cbe24","424ef08504","c6969da373","e04814630c","d55f79e03a","fc6ea00ed8","8f95b50186","717053f763","0d2f0f1148","3812e1059f","54c0be1929","062bf2d5b8","c30c73666a","f2cc809181","dd1463e096","3254546b70","6209b3a382","0e16d255f5","a955e794b2","c96a9ceed9","d60ae5362e","a7b9f0b76e","056f90be36","3b4a88e478","71463f1b67","7210a6983f","1a5e44cd9f","3cb33b688d","22a83d9f89","61be6bba03","9996fbbf82","f42256b135","406ea4691d","8e37f0780b","7268bb4d68","0eb2820aaf","cb27514bf0","4d18c46215","ef5e48314a","430a0f4c9f","e1e1b4397b","2f8d73df93","920c96e8e3","0c24e2e759","b6f698fc24","61b4992ff6","2fafee1d51","632b1e7f9f","d005b29cfa","17d26913aa","c8ef3d9701","2125449b66","2c9264b527","da2c273289","90142c9ba5","14fdc66823","606486ba2b","3c224d5fa3","0a0c447a3b","5a74a66137","3c184e67d6","fe05357b4d","99deea43cc","ce710a7fa3","b8f8ce754b","f5318f26ca","b6180b9603","41c117a6c5","0aaae202f9","d61d845032","9f33c7eb6b","f1083e8f84","5bf832b704","c12f1dbf52","ac8d5d985f","69a305b999","14050fe9f3","3bc370969e","c515d236b1","b92ea82ca9","665a0809bf","2b90d27e86","cf2bed20ff","f7de628331","802976d3c5","0a8a0f2084","4660d6ba58","64ad100dea","7276c071c1","795a0fa335","3a90c4b836","1ecb19bef8","74e48f1dac","b8a622a9db","d812f08356","d4f12d067a","504fa11c03","45f7a301b9","aac4a0862a","21386d3ba4","5f6b490e46","ea872a372f","8297f767ea","c1752c498d","54b865f4ff","a6e2ca6bdb","a380df3b29","006c8d29fc","9fb413f998","17e8203daa","a439e68890","5a7e2cdf9a","2111e9d6d3","aeee64c368","081b896bde","123d4ae4b0","5ca3c53b4a","47ef450a8a","16461ed7bf","faffe36fce","1c1d7eedee","a21f81da71","2aefa58522","7d9f7a56bc","9ba3b411db","937989a3aa","15eb256936","2ca03aac39","00914b8254","3ef5ba74b3","da2fe1d9cb","eab9464e55","b47e3a676b","45b42564db","84fce92d3c","4a583a8f9a","19a0535aec","2fe1f06a4e","ec99ce8dd2","e613c059d8","6661a06ee1","f5d9b17fbf","f45e3dfc53","9a0784f013","32a8c59856","6b06f98609","391e9b704e","b788ec9566","78116dbeb2","1d4152cace","3fe9c15c5f","a536623208","2472ae54ae","1a7740c930","553dd7eb92","8ffe03631f","c19edc4941","5d9f0bd18b","c36344bcf3","596212841e","847f9a763b","89efa262d7","d9204fd0c0","7b0ea54e69","e7f4c2b177","9136865598","99beeba52c","89def98157","afb788bd6c","9ac7bd6108","c921c4d275","4d5efd64ef","45990ead21","011d789880","776327e1d1","fc0123e2b4","9400d0d587","c60986f5d6","ef49940213","4c27ae756a","20c60fd626","d49579abf8","e040b282f9","b4db9b82e7","707ba375ed","e5317b0998","7ced0a5569","321114469d","446e29280e","5038a4a6aa","36321023f3","a60d083fe8","c6a5609362","ee7c018867","20f7fd5727","7542434983","281daf3e09","232ec45e97","98ea811834","f0cc1c8286","584e110b27","049dcf6e0a","cb5ca03759","88e08c7c21","659b80823e","35421fdbe0","36ef45fb3c","636671fba4","76b567ae31","3fb07bfe24","977b3d1614","cb49348188","bd6af3c95d","5399259abb","1e83da77b4","3efae2cacb","51f8266bb2","75e113b899","052de19762","a8c4ead7ea","adb2886b71","acff65a357","e9b6f00964","1e12b5282b","77aa81fa33","29f70aae07","819312f9fc","205e52fe22","995cab356b","8443073f5d","99b9d5d336","071ce901b5","45f5f7747b","01a230187a","55e2546a69","dc8c2536a7","5a61185023","7419caeadc","e5cf24bd6c","5b16ccc909","daecfe2563","25f017e752","0aa01ba5e4","ae19f70608","736f26d2a4","c5c6d709b5","cf56125837","49521ec0b5","0f425cc369","0bf4856cbc","095e3a58f8","9171a2c896","175e18dd28","411647ffa0","138477f558","52519f27cb","bfac2bf10f","fdd6292510","e6507a37dd","9ccdd1da62","116ce021bd","52cb5128a7","92c09e6082","21ba1ca2c6","72810f2fa1","e7e0163bc7","415a2edeaf","cddd2ce18a","59ac9f0fb1","d0813512eb","3ec7ba9a33","aa60b8861b","74d28290b0","806803fd1a","5a5d486f04","35253c6222","298d7f3e98","6b7b243ee5","a001f9e9d3","63b1961763","415a2edeaf","cddd2ce18a","59ac9f0fb1","d0813512eb","3ec7ba9a33","aa60b8861b","74d28290b0","db43234df4","f3225d3e20","c2a371f09a","4b836e721e","b3fd51524d","ff71eaddc8","a9b1a1c2b7","ad6f1cdfef","281bb3da1c","26e74bd452","9bffb218a9","467cf5ae2e","6421d0d5f7","fbe74af7b3","5c536d8cdd","18cf9673f2","195eabebc5","a6350b0eab","efb9dd7772","c56089de18","04b901ca80","d15fba81cd","b6a707e4d1","d4639ae623","4513ccfa91","121b4ef9a4","21665128f0","253db47910","2cd98047f7","d62ebfa61d","43f4e89f01","c67c249c23","ea6fc5b733","7a0df3b6de","0bf9959180","6d34b575fe","22423807c9","0c8ae172c5","f5098f8d31","cf9f78df88","d1423acaa8","2252326d10","78877298ae","0c0b80d10b","e5ed2d0228","3edd755d85","44568043ea","e2b44f4e9b","bd598efa49","568816876e","635f0cda08","74d882a854","b1b6764030","60ca6908a0","797fb07f55","260227c2d8","033fbab5fb","a1ca157e20","d1f19c1de8","6022fccc0f","326dd14a42","a1e6d01dd4","634b1b1ab7","49e5dda551","c80b0a0157","79c050cca9","fa1d951f99","af95e3a2e3","7377c64ad9","e2b2173efd","6ca83c1952","ae1d0e1c77","032959cc63","3ba46827ce","0128977543","84c235c75b","9affdcdbde","033fbab5fb","a1ca157e20","d1f19c1de8","6022fccc0f","326dd14a42","a1e6d01dd4","634b1b1ab7","c5d900bc91","d35df4490d","7c77f61032","f6992efb01","1066df9b2c","28b2c1179a","9dd8de1e3c","cc71d017c0","ce674c159b","f36049b0ea","bffddb6a66","5d269ef2c1","864f43e8b6","8f8a630e1e","ff577d17fb","0874896cbc","fba34886d8","36da05521a","a395d0a114","09830964dd","54df1db34d","52f8fd10c6","9c8499849d","b9cb5c7a82","44ec101afb","649d89303f","44b5f8853f","3c28bd9884","02b110b597","a033fa60ab","1b41cb796a","523a9b9f66","fd8ac7a4a0","4572c932c9","4041e69f96","f2f81041ed","0f9d1c3f47","20cc3af952","31e6f19e93","acf9a41125","702aabc8b2","438f75173c","24a76ec1ea","a55cb8d838","a2456c0bf8","d31f8f1399","ce66a21175","0bbbff8583","a88ee10c2a","21d1d74a79","b4dfa870b7","752fed7222","bb7d109e81","39fbcfc61e","0492d7ed32","18f8c511d8","9e4125a277","111101a32b","c144998e04","abd23f0c15","0086405ff0","322c6fad1e","3013afb0e2","3e72098f16","1ea79c09d1","5367e72733","c015142d44","bf1dda00a6","7e16917931","0c80a836b4","7bda964559","d01aa3a3e0","c700d1e78c","70957a8c00","2b34f6df21","fb8c88f9a8","c029183968","ba4dfd5005","5b749c6100","71a548d34d","58d5eabcc1","e13651f192","a7b7e1c106","e646a39279","82bce79095","f273efb4a4","83c8ceeccf","894c48c3ce","091eac254b","3f820ec63f","6a312d65fa","82bce79095","f273efb4a4","83c8ceeccf","894c48c3ce","091eac254b","3f820ec63f","6a312d65fa","def32476e9","159b1df5a3","c8e6148c25","794f177eaa","be86231dba","06313ee065","46fe0e1e9c","f2f5d473e3","884f52b9ca","13742fddf2","ae728b0b7c","77668698a3","2c45613fe6","baf7321720","72808879ad","b7922f7f84","57a537ce9d","8f82d38240","8f0e302c10","a77054b86e","a789c235bb","38fa2db780","eb36bf59d9","23d67bfb9f","e86063e43a","a9caac26ba","400869d990","bf6181e7ec","fcc0a440a4","9ad95aba3c","21d0c50fbd","ceb3220bbd","09fa7cf146","294a530434","8ff93439a9","ce7af93fe1","83404d0530","82e67cb774","f23fb018e7","d6912cdae5","96cfbdfa7c","3a7d31f373","3a7ac9a752","dc28bb54b1","f56188850a","84ad897d0c","c8a2ee1d87","bb773a265d","8d6aa62e7a","203f6677d8","000aeb9be7","656b471805","85678cec75","f305bf054a","dbd57f8642","74531879fb","888c503c05","14292a8d4e","a9baf7d249","8848db1d9c","a78cc8b75a","69ac451fc6","d6fe8972b3","53cf97a5bb","60411492aa","b4bdccedea","1ea2cf1df5","858cd770d8","641370d5f1","0015b72561","2e53003b7a","0a4ac9df3f","10a67d6f9c","f39860470f","400f90bb5a","f3efc6f345","342bd2e807","a40289a575","ea7eadb07b","20359afcf9","22daba7108","9bd840dc0e","1372306c01","74daefd502","862aaef461","8acd283e64","0722832018","65fc0d0d17","0c187e783b","a51c874452","7cf9019649","0e16071d52","cd91e36c51","f595bfa002","9083869f6e","9967b74a1d","20231e3620","e2e61e9ab3","0cd4686db0","9b36a5e224","00f6aeaf8f","a5c80e7dbb","4be32a0ecd","73f0df2c40","826d6c595d","f9fbba1ae9","5c1f6bb732","200f801a1e","beac1dca95","aa21fbb4e9","b439c02cb3","9223c6ddee","8e41aecaf1","7b5961d30a","6c4c77edd6","d1c71c7e96","396def9947","23c39d3636","56397ae0e3","e4f75215fd","388b4d819e","705b760323","f41c30cbb8","b68bfc7872","e8b1fdebd8","d35eb0f975","a1c1459cf1","117f19409a","c2c322f593","3618597550","4dedf731fe","aa383b0a76","d1bd93e47d","9686d2ccdf","fa640d8121","9be7bed113","a3fc2eae65","f0aa8d148f","18abcdf1bb","381040f337","75fd1b2ce4","c423cba48f","77bee81513","0afc90a781","7c3c3ff51f","f19aec621c","64ed99dbc2","01bbf231a9","bd9a9bb394","6a96cd9aca","19284c7410","7fde68b3f9","a74fa7f524","f95ff38c56","b5d3ab0413","7a9336bd2b","a487bb4ca9","20f56f265e","9f32f6d20f","39153e1f1a","a991067524","b5caad94fb","49ab5efaaa","1051693d95","4a02fcbdc3","8cae4f8b63","15c9d33365","9bf3e4ba44"]}
+```
