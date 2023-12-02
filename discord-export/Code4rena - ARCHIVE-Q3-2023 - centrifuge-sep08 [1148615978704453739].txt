@@ -1,0 +1,3699 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2023 / centrifuge-sep08
+==============================================================
+
+[09/06/2023 20:58] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the $70,000 **Centrifuge** audit!
+
+📆 Audit opens 09/08/2023 20:00 (20:00 UTC) and runs through 09/14/2023 20:00 (20:00 UTC) (6 days).
+
+Please give a warm welcome to the Centrifuge team, particularly @ilinz, @Stoxophone, and @hieronx, who will be available for questions either here in the channel or via DM in the CET timezone(s).
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/contests/2023-09-centrifuge#top
+
+{Embed}
+https://code4rena.com/contests/2023-09-centrifuge
+Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/c4-og-banner-7DE3A.png
+
+{Reactions}
+👋 (5) 
+
+[09/06/2023 20:58] kartoonjoy
+Pinned a message.
+
+
+[09/06/2023 22:17] 0xhelium
+What's the number of sloc ?
+
+
+[09/06/2023 22:19] itsmetechjay
+You can check the rsvp: https://discord.com/channels/810916927919620096/958800160870240286/1148743793777066074
+
+
+[09/07/2023 23:54] castle_chain
+So excited to start 🔥
+
+{Reactions}
+🫡 (7) 🚀 (5) 
+
+[09/08/2023 20:09] hieronx (pinned)
+Hi all 👋 , we're excited to go live with this audit contest for the new multi-chain product of the Centrifuge protocol!
+
+We're working hard to build an ecosystem for onchain credit, to enable a radically faster, more cost-effective, and fully-transparent model for connecting investors and borrowers with bankless liquidity, and making sure we do that safely is obviously critical! So really appreciate collaborating with you all on this in the next 6 days.
+
+If you have any questions, don't hesitate to ask here or reach out to me, @ilinz or @Stoxophone. I'm based in the CET timezone so will mostly be responsive during those times, but will try to be as available as I can.
+
+{Reactions}
+👋 (10) hi5 (2) 
+
+[09/08/2023 20:09] itsmetechjay
+Pinned a message.
+
+
+[09/08/2023 20:16] nk6b29ba
+I'm starting with your code, let's hunt boyz
+
+
+[09/08/2023 20:27] 0xkazimm
+did the docs up to date for this contest ?
+https://docs.centrifuge.io/learn/terms/
+
+{Embed}
+https://docs.centrifuge.io/learn/terms/
+Introduction to Pools on Centrifuge
+Learn about Centrifuge
+
+
+[09/08/2023 20:29] hieronx
+Some parts of it will be outdated. There's not much details yet on Liquidity Pools specifically,  which is why we tried to add as much detail as possible to the README. But the high level docs in that link about how Centrifuge pools work are definitely up to date and should help to give a good understanding of the protocol!
+
+{Reactions}
+🫡 
+
+[09/08/2023 20:31] 0xkazimm
+great the info that provided in the readme file is very good written ser, so the part that explaining the tranches and how the pool works and type of tokens up to date  right ?
+
+
+[09/08/2023 20:32] hieronx
+>  the part that explaining the tranches and how the pool works and type of tokens up to date  right ?
+Yes definitely! But feel free to ask if in doubt.
+
+{Reactions}
+👍🏻 
+
+[09/08/2023 20:32] 0xkazimm
+and as i took a quick look into the readme i understand that this codebase created to support many L2 chains or even L1, can i know which chains this contest codebase will support please ?
+
+
+[09/08/2023 20:32] 0xkazimm
+thanks a lot ser 🫡
+
+
+[09/08/2023 20:33] hieronx
+We haven't decided yet which chains specifically to deploy on, but will aim to roll it out eventually on most major EVM compatible L1s and L2s.
+
+{Reactions}
+👍🏻 
+
+[09/08/2023 20:33] 0xkazimm
+thank you ser
+
+
+[09/08/2023 20:37] catscanaudit
+Dang, 6 days
+
+
+[09/08/2023 20:37] catscanaudit
+Will try to give it a go
+
+
+[09/08/2023 20:45] catscanaudit
+Okay well, good news is the biggest sloc contract is an encoding/decoding one
+
+
+[09/08/2023 21:12] 0xnevi
+Hi couple of questions:
+
+1) Are there any past audits?
+2) Since this protocol is already live, what are the main audit scope/differences u guys are looking for other than the cross-chain aspect.
+
+
+[09/08/2023 22:01] pabloeksdi
+@ilinz @hieronx sent you a friend request because I can't dm you
+
+
+[09/08/2023 22:09] rokinot
+@ilinz @hieronx sent a friend request as well, @Stoxophone if you could add me that would be good too
+
+{Reactions}
+✅ 
+
+[09/08/2023 22:11] stoxophone (pinned)
+1) This is the first audit
+2) Pools on Centrifuge is live but Liquidity Pools is not. Those docs linked above (https://docs.centrifuge.io/learn/terms/) are for Centrifuge pools, but the scope of this audit is just Liquidity Pools, which will enable interacting with these centrifuge pools from various L1s and L2s. The audit page has more information on what Liquidity Pools is and whats in scope
+
+{Embed}
+https://docs.centrifuge.io/learn/terms/
+Introduction to Pools on Centrifuge
+Learn about Centrifuge
+
+{Reactions}
+👍 (2) 
+
+[09/08/2023 22:50] 0xnevi
+Cannot send friend request @Stoxophone for dm
+
+
+[09/08/2023 22:53] stoxophone
+Should be fixed now
+
+
+[09/08/2023 23:16] kartoonjoy
+Pinned a message.
+
+
+[09/08/2023 23:29] olanre_waju
+@Stoxophone sent fr!
+
+
+[09/09/2023 01:14] 0xarnie
+@Stoxophone sent fr
+
+
+[09/09/2023 04:27] Message Wolf#0225 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Automated findings output for the audit can be found [here](https://gist.github.com/code423n4/a75daf5b3355723de5d840939d09d44d).
+
+*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+
+
+[09/09/2023 06:02] 0x4ka5h
+@Stoxophone have some question which wouldn't be discussed here, can you accept my fr!?
+
+
+[09/09/2023 06:16] 0xarno
+why such a small time period for so many slocs?
+
+
+[09/09/2023 08:00] 0x11singh99
+@hieronx    Rebase and fee-on-transfer tokens are not supported.       is out of scope   what does it mean  ?
+
+
+[09/09/2023 08:02] hieronx
+ERC20 tokens that have rebasing logic (which change supply based on price differences) and fee-on-transfer logic (which the actual transferred balance is slightly less because of a fee) will never be added through `addCurrency`, and are thus not supported. If they would be added, some of the logic in the investment mgr wouldn't work correctly as it expects the balance to be static.
+
+{Reactions}
+👍 (3) 
+
+[09/09/2023 08:08] alymurtazamemon
+@hieronx Who will be wards?
+
+
+[09/09/2023 08:10] hieronx
+Only the `PauseAdmin` and `DelayedAdmin` should have wards that are EOA / multisigs. All the wards on all the other contracts should only be other contracts.
+
+{Reactions}
+👍 
+
+[09/09/2023 08:29] 0x11singh99
+difference between   dashed  and  continuous lines    in the diagram of Access setup  ? @hieronx
+
+
+[09/09/2023 08:43] albertwh1te
+I believe continuous lines signify a function call
+
+
+[09/09/2023 09:22] thekmj
+~~Realistically `Root.relyContract()` and `Root.denyContract()` are not ever called right? Because in a proper setup, the only ward for `Root` are `PauseAdmin` and `DelayedAdmin`, and it's impossible for those two contracts to call those two functions. The `Root` itself should also have no EOA/multisig admins~~
+
+Solved, this is for emergency scenarios where the team has to step in (e.g. removing a compromised router). The `DelayedAdmin` will make a trusted EOA be an admin of the `Root`, then the EOA will act accordingly.
+
+
+[09/09/2023 09:25] catscanaudit
+If I understood correctly, from a high level perspective, Investors use stablecoins to generate CFG tokens from the LP, then use CFG to invest in different tiered Tranches which are generated for an RWA Pool. Then the profit from those Tranches is returned back to the investor in Tranch Tokens per epochs? @hieronx
+
+
+[09/09/2023 09:30] catscanaudit
+After another read in the documentation I think the Tranch Tokens are given to the investor and represent "interests" in the tranches, so does that mean a fraction of the yield
+
+
+[09/09/2023 09:44] catscanaudit
+Are tranches ERC4626 or only the LP?
+
+
+[09/09/2023 09:46] 0x11singh99
+wards role or wards mapping they have if its mapping then root also have wards mapping ?
+
+
+[09/09/2023 09:58] 0xblackskull
+on which chain this contract gonna deploy?
+
+
+[09/09/2023 10:00] catscanaudit
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-E989F.png
+
+
+[09/09/2023 10:08] hieronx
+> difference between   dashed  and  continuous lines    in the diagram of Access setup  ? @hieronx
+I should have clarified that in the README. The idea is that continuous lines are `ward` s that are used for the day-to-day functioning of the protocol, while the dashed lines are used for `ward`s that the `Root` contract has just for emergency scenarios.
+
+
+[09/09/2023 10:09] hieronx
+> Solved, this is for emergency scenarios where the team has to step in (e.g. removing a compromised router). The DelayedAdmin will make a trusted EOA be an admin of the Root, then the EOA will act accordingly. 
+Exactly 👍
+
+
+[09/09/2023 10:09] 0xkazimm
+send fr request accept it please ☺️
+
+{Reactions}
+✅ 
+
+[09/09/2023 10:10] hieronx
+> If I understood correctly, from a high level perspective, Investors use stablecoins to generate CFG tokens from the LP, then use CFG to invest in different tiered Tranches which are generated for an RWA Pool. Then the profit from those Tranches is returned back to the investor in Tranch Tokens per epochs? @hieronx
+CFG tokens are not used for pools.
+
+Investors use stablecoins to submit deposit requests to the liquidity pools. If the deposit requests are executed, then they get tranche tokens, which represent shares of the tranches of the RWA pool.
+
+The profit of the tranches is returned through an increase in the price of the tranche tokens. So if the price changed from 1.0 to 1.2 during your investment, you can redeem and will get 20% more stablecoins back than you initially deposited.
+
+
+[09/09/2023 10:11] hieronx
+> Are tranches ERC4626 or only the LP?
+The Liquidity Pool contract is an extension of ERC4626. There can be multiple Liquidity Pools per tranche, 1 per currency that is invested with.
+
+
+[09/09/2023 10:11] hieronx
+> wards role or wards mapping they have if its mapping then root also have wards mapping ?
+Yes, see https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/Root.sol#L15 is importing `Auth`
+
+
+[09/09/2023 10:16] catscanaudit
+Thank you for the explanation, and do you cash out your TT in the LP?
+
+
+[09/09/2023 10:16] hieronx
+Yes, through `deposit(..)` or `mint(..)`
+
+
+[09/09/2023 10:20] hieronx
+This flow diagram has more details on how this works: https://github.com/code-423n4/2023-09-centrifuge/tree/main#how-users-can-invest I hope that helps!
+
+
+[09/09/2023 10:40] catscanaudit
+Yeah sorry for the questions even though its in the readme, I just find the whole system a bit complex thats why trying to clarify
+
+
+[09/09/2023 10:41] hieronx
+Yeah of course no worries, please just keep sharing any questions. Just pointing you to it in case you had missed it.
+
+
+[09/09/2023 11:13] itsmetechjay
+Pinned a message.
+
+
+[09/09/2023 11:30] mrosas
+@hieronx Can you explain the roles of the Admins, I supposed the hierachy is as follow Root->DelayedAdmin->PauseAdmin
+
+
+[09/09/2023 11:30] mrosas
+Have dmed u
+
+
+[09/09/2023 11:31] mrosas
+What are their purpose though?
+
+
+[09/09/2023 11:32] deth2814
+@hieronx send a friend request and DM
+
+
+[09/09/2023 12:05] hieronx
+> @hieronx Can you explain the roles of the Admins, I supposed the hierachy is as follow Root->DelayedAdmin->PauseAdmin 
+`Root` is a single smart contract that is a ward on all other contracts, and acts therefore as kind of a "root admin account". But no one directly controls this. Instead, there is the `PauseAdmin` and `DelayedAdmin` that each control parts of `Root`.
+
+The `PauseAdmin` can instantaneously pause the protocol. The `DelayedAdmin` can make itself or another contract (that could be a migration, similar to the MakerDAO spell pattern: https://collateral.makerdao.com/smart-contracts-domain/collateral-onboarding-spell-crafting-guide) ward on any contract through `Root.scheduleRely` and then once it is relied, `Root.relyContract`.
+
+
+[09/09/2023 12:15] mrosas
+What do y mean by no one directly control the root admin acc
+
+
+[09/09/2023 12:15] hieronx
+There should be no EOA that's a `ward` on the `Root` contract
+
+
+[09/09/2023 12:15] hieronx
+Like no multisig or individual wallet that is a ward on the `Root`
+
+
+[09/09/2023 12:16] hieronx
+Only other smart contracts (specifically, `PauseAdmin` and `DelayedAdmin`)
+
+
+[09/09/2023 12:22] plamkata
+@hieronx sent a fr
+
+{Reactions}
+✅ 
+
+[09/09/2023 14:39] catscanaudit
+@hieronx Sent fr as well
+
+{Reactions}
+✅ 
+
+[09/09/2023 14:41] j4x_98
+@hieronx sent a fr for questions 🙂
+
+{Reactions}
+✅ 
+
+[09/09/2023 15:41] castle_chain
+sent fr , please accept @hieronx
+
+{Reactions}
+✅ 
+
+[09/09/2023 16:40] sa3083
+How long is an epoch on Centrifuge ?
+
+
+[09/09/2023 16:51] pacelliv
+The epochs can have any duration, https://docs.centrifuge.io/getting-started/securitization/#epoch-mechanism
+
+{Embed}
+https://docs.centrifuge.io/getting-started/securitization/
+On-chain Securitization
+Learn about Centrifuge
+
+{Reactions}
+👍 
+
+[09/09/2023 17:37] sa3083
+Thx
+
+
+[09/09/2023 21:06] 0xstalin
+"There can be multiple Liquidity Pools per tranche, 1 per currency that is invested with." 
+
+So, that means that the relationship between Liquidity Pools and Tranches is many to 1 (Multiple Liquidity Pools to 1 tranche)?
+
+From the User Flows diagram in the readme, I thought the relationship was 1 to many (1 Liquidity Pool to many tranches), but maybe I understood it wrong.... 
+
+@hieronx , Can you confirm what's the relationship between Liquidity Pools and Tranches?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-9581C.png
+
+
+[09/09/2023 21:24] 0xnevi
+Wait i thought the relationship is multiple liquidity pools (tranches) to a single RWA centrifuge pool
+
+{Reactions}
+🤔 
+
+[09/09/2023 21:24] 0xnevi
+A tranche refers to a separate deployment of LP + their respective currency (asset) + tranche token (shares)
+
+The only caveat here is that different LP with difference currency (asset) can be linked to the same tranche token (shares) which is then linked to the centrifuge RWA pool
+
+TLDR LP is the Tranche itself, correct me if im wrong ofc so tranchID --> refers to Id for LP, poolId --> refers to Id of RWA centrifuge pool
+
+{Reactions}
+👀 
+
+[09/09/2023 22:26] 0xstalin
+aaah, yeah, this makes sense, I misunderstood at first what a tranch is, but now I have a clear idea of how that is supposed to work, thanks @0xnev for sharing your thoughts
+
+{Reactions}
+👍 
+
+[09/09/2023 22:29] stoxophone
+Just to clarify, the relationship is one pool can have multiple tranches. The tranche token acts as the Liquidity Pool share and each tranche can have multiple Liquidity Pools (one for every allowed currency on the pool)
+
+{Reactions}
+🔥 
+
+[09/09/2023 22:30] 0xnevi
+"pool" here is RWA pool right
+
+
+[09/09/2023 22:30] stoxophone
+yup
+
+{Reactions}
+👍 
+
+[09/09/2023 22:30] 0xstalin
+I was about to ask exactly this 😄
+
+{Reactions}
+👍 
+
+[09/09/2023 22:30] stoxophone
+denoted by the poolId
+
+{Reactions}
+👍 
+
+[09/09/2023 22:31] 0xnevi
+Do i intepret this as each tranche token can be attached to multiple liquidity pools (different currencies)
+
+
+[09/09/2023 22:32] 0xstalin
+Can the same tranch be attached to multiple RWA Pools or only one?
+
+
+[09/09/2023 22:32] 0xnevi
+Lol i noted this down on my notes as a factual statement
+
+
+[09/09/2023 22:33] 0xstalin
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/Z-FD723.png
+
+{Reactions}
+👀 (2) 🤣 (4) 
+
+[09/09/2023 22:34] stoxophone
+Yup, all the LPs on one tranche would share the same tranche token
+
+{Reactions}
+👍 (2) 
+
+[09/09/2023 22:34] stoxophone
+Only one
+
+{Reactions}
+🫡 (3) 
+
+[09/09/2023 22:48] 0xstalin
+@Stoxophone So the Liquidity Pools are actually more like a Vault right?
+Investors deposit the allowed currency and receive shares, which in this case, the shares of different Liquidity Pools will be the same (if the LP contract belongs to the same tranch) ERC20 right?
+
+
+[09/09/2023 22:48] 0xstalin
+I mean that Liquidity Pools are more like a Vault because there is not a Liquidity Provider adding one token to give in exchange for the deposited asset
+
+
+[09/09/2023 22:50] 0xstalin
+Is just, investor deposit assets and receive an equivalent number of shares representing the amount of deposited assets, but there is no other entity supplying those emitted shares, right?
+
+
+[09/09/2023 22:52] stoxophone
+That's right. They're minted and burned as needed
+
+{Reactions}
+🫡 
+
+[09/09/2023 22:58] 0xstalin
+question that has just come to my mind unrelated to the current topic 🙂
+
+The protocol will be multichain right? meaning, the contracts can be deployed on different chains, but, the crosschain message will be only between 1 chain and the Centrifuge chain?
+
+Meaning, if contracts are deployed on Ethereum and Arbitrum, the two chains won't talk to each other, only Ethereum to/from Centrifuge and Arbitrum to/from Centrifuge, is that correct?
+
+
+[09/09/2023 22:59] pabloeksdi
+Why is there maxDeposit and maxMint and why does it increase when an order gets fulfilled?
+
+
+[09/09/2023 23:06] stoxophone
+There is support for EVM to EVM transfers (See here: https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/PoolManager.sol#L149) but it uses Centrifuge as a middle man still. So no direct EVM to EVM communication
+
+{Reactions}
+🧐 (2) 
+
+[09/09/2023 23:07] stoxophone
+So yes, you're correct
+
+
+[09/09/2023 23:08] stoxophone
+These are defined in the ERC4626 standard: https://eips.ethereum.org/EIPS/eip-4626
+
+{Embed}
+https://eips.ethereum.org/EIPS/eip-4626
+Tokenized Vaults with a single underlying EIP-20 token.
+
+{Reactions}
+👍 
+
+[09/09/2023 23:11] 0xstalin
+interesting, I'll def come with more questions about this when I start to dig into the codebase, thanks for sharing 🫡
+
+{Reactions}
+👍 
+
+[09/10/2023 01:00] 0xhelium
+Anyone can issue a Pool with any stablecoin they want ?
+
+
+[09/10/2023 08:15] hieronx
+Launching a pool requires a governance vote by CFG holders on Centrifuge. See https://gov.centrifuge.io/t/rfc-pop-v2-pool-onboarding-process-version-2/4875 for more details. And for a currency to be added through `addCurrency` in liquidity pools, this also requires a governance vote. So there are restrictions on which currencies can be used and which pools can launch.
+
+{Embed}
+https://gov.centrifuge.io/t/rfc-pop-v2-pool-onboarding-process-version-2/4875
+RFC: POP V2 (Pool Onboarding Process, Version 2)
+Proposal type: CP-4  Author: @ctcunning  Contributor: @sirj  Technical/non-technical proposal: non-technical  Date proposed: 2022-12-14   Short summary Proposal for an improved POP V2 from the current POP (V1) that exists today.   High level objective To simplify the POP process for RWAs onboarding through the Centrifuge protocol and to increase...
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/bb9ee66317551fcd59fff332e800315651db4116_2-78DDB.jpeg
+
+{Reactions}
+👍 (3) 
+
+[09/10/2023 08:36] catscanaudit
+I'm pretty sure Tranch =/= LP
+
+
+[09/10/2023 08:37] catscanaudit
+There's a RWA pool which can have different tiers of investment based on risk apetite (Tranches) for each of those tranches there may be multiple LPs, so each of those LPs can be assigned a different e.g. stablecoin that it can take, and they all mint Tranch Tokens
+
+{Reactions}
+👍 (5) 
+
+[09/10/2023 08:38] catscanaudit
+If I made a mistake devs can clear up any misconceptions
+
+
+[09/10/2023 08:41] catscanaudit
+And the Tranche Tokens can be then exchanged back into any of the multiple stablecoin LPs that are related to that specific Tranche
+
+{Reactions}
+👍 (3) 
+
+[09/10/2023 08:44] catscanaudit
+What I'm still unsure about is where does the profit come from?
+
+
+[09/10/2023 08:45] catscanaudit
+Is the person putting down the RWA asset as collateral for a loan? And then getting the loan liquidity from these LP's so that when he pays back + interest, the interest is the profit for the users that invest in the LPs?
+
+
+[09/10/2023 08:54] hieronx
+I tried to create a visual example, hopefully this helps.
+
+- 1 pool can have multiple tranches (between 1 and 5, generally)
+- These can be deployed as Tranche Tokens (ERC20s) on multiple chains (Ethereum and Avalanche in this example.
+- On each chain, there can be multiple currencies (stablecoins) that are allowed to be invested with. Therefore there can be multiple Liquidity Pools linked to 1 Tranche Token.
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/Screenshot_2023-09-10_at_10.53.12-C1AD3.png
+
+{Reactions}
+🫡 (7) 
+
+[09/10/2023 08:55] catscanaudit
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-72625.png
+
+{Reactions}
+🔥 
+
+[09/10/2023 08:55] catscanaudit
+I was just posting my diagram as well, although I must admit it sucks compared to yours hahaha
+
+
+[09/10/2023 08:56] hieronx
+Amazing! No that looks great, and 💯 % correct
+
+
+[09/10/2023 08:56] catscanaudit
+Awesome, glad I understood it correctly
+
+
+[09/10/2023 09:00] hieronx
+> Is the person putting down the RWA asset as collateral for a loan? And then getting the loan liquidity from these LP's so that when he pays back + interest, the interest is the profit for the users that invest in the LPs? 
+Let me explain, but I do think it's important to say: this is out of scope for this contest, it shouldn't be required to understand this. Ultimately, from the Liquidity Pools perspective, you need to trust Centrifuge that it calculates the tranche token prices correctly, and this is what leads to profit for investors.
+
+But, how it works in practice is that each RWA pool is made up of multiple loans, taken out using NFTs as collateral. These NFTs represent real world assets, e.g. mortgages. The borrower will take out stablecoins from the pool, and off-ramp this to the real world. Later, they will on-ramp back to DeFi, and repay the loan, with interest. This interest is indeed what leads to increase of tranche token prices and therefore profit for the investors.
+
+{Reactions}
+👍 (3) 
+
+[09/10/2023 09:02] catscanaudit
+Cool thanks for the explanation, although not in scope I think it helps me process the whole picture a bit better
+
+{Reactions}
+👍 (2) 
+
+[09/10/2023 10:16] 0xhelium
+When a user requestDeposit() of 100 mets say DAI into pool, centrifuge mints 80 TT at price 1.25 . What does this means exactly.
+what's the 1.25 price ? As per my understanding it accounts for 1 TT = 1.25 DAI .
+This price is set by pool issuer ?
+
+
+[09/10/2023 10:28] kawaicho
+@hieronx sent you a friend request
+
+{Reactions}
+✅ 
+
+[09/10/2023 10:38] hieronx
+> This price is set by pool issuer ?
+It is calculated on Centrifuge Chain based on the assets in the pool.
+
+{Reactions}
+👍 
+
+[09/10/2023 10:38] hieronx
+> As per my understanding it accounts for 1 TT = 1.25 DAI .
+Yes 👍
+
+
+[09/10/2023 11:31] 0xnevi
+Got it thanks for the clarification, tagging @0xStalin to make sure, sorry for confusing u haha
+
+{Reactions}
+👍 (2) 
+
+[09/10/2023 11:57] 0xnevi
+Btw quick question where did u get that info on senior, mezzanine and junior tranch
+
+
+[09/10/2023 12:02] catscanaudit
+https://docs.centrifuge.io/getting-started/securitization/#tranching
+
+{Embed}
+https://docs.centrifuge.io/getting-started/securitization/
+On-chain Securitization
+Learn about Centrifuge
+
+
+[09/10/2023 12:04] 0xnevi
+Got it thanks alot i fail as a security researcher 😅
+
+
+[09/10/2023 12:04] catscanaudit
+Haha no worries man
+
+{Reactions}
+💯 
+
+[09/10/2023 12:19] tapir31
+is centrifuge chain functions like addCurrency, addPool permissionless ?
+
+
+[09/10/2023 12:19] tapir31
+can anyone call these functions in the Centrifuge chain and router relays it to evm chain?
+
+
+[09/10/2023 13:05] ilinz
+the price is calculated on the centrifuge chain based on the NAV of the pool the tranches belong to
+
+
+[09/10/2023 13:06] ilinz
+these functions are not permissionless
+
+{Reactions}
+🫶 
+
+[09/10/2023 13:36] 0xkazimm
+as i understand that native currency and tranches token should have same decimals number right ?
+
+
+[09/10/2023 13:37] pacelliv
+i understood they don't have to, but they are normalized to the same decimals for the calculations
+
+
+[09/10/2023 13:37] pacelliv
+and then unnormalized to their original number of decimals
+
+
+[09/10/2023 13:38] 0xkazimm
+i think this applied for tranche tokens / invest tokens (usdc for example) !
+
+
+[09/10/2023 13:41] catscanaudit
+LPs have native currency tokens, the tranch token connected to that LP is in the same decimals
+
+
+[09/10/2023 13:41] catscanaudit
+Normalizations for calculations comes from the fact that you can have multiple LPs for the same tranch token
+
+
+[09/10/2023 13:42] catscanaudit
+and if the different LPs have tokens with different decimals, normalization is needed for accurate calculations
+
+
+[09/10/2023 13:43] catscanaudit
+Still, tokens with more than 18 decimals are not allowed for LPs
+
+
+[09/10/2023 13:43] catscanaudit
+So only 18 and less
+
+
+[09/10/2023 13:45] 0xkazimm
+thank you @cats :hi5:
+
+{Reactions}
+👍 (2) 
+
+[09/10/2023 13:46] catscanaudit
+*not a dev*
+
+
+[09/10/2023 15:35] sath26
+what does circle mean?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/liquidity_flow1-2EFA2.png
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/liquidity_flow2-EA30F.png
+
+
+[09/10/2023 15:45] ilinz
+Circle is the issuer of USDC
+
+{Reactions}
+🙏 (2) 
+
+[09/10/2023 16:04] mrudenko
+@hieronx fr sent
+
+
+[09/10/2023 16:32] 0xstalin
+@hieronx @ilinz @Stoxophone Is it safe to assume that all messages that reach the Centrifuge chain will always be executed successfully?
+
+
+[09/10/2023 16:36] 0xstalin
+@hieronx fr sent sir
+
+
+[09/10/2023 16:47] hieronx
+That is the assumption for this audit contest, yes 👍
+
+{Reactions}
+✅ 
+
+[09/10/2023 17:55] twicek.eth
+@hieronx sent fr
+
+
+[09/10/2023 19:33] 0xkazimm
+did this mapping contains the user all deposit/mint/redemptions in specific LP address please ?
+` mapping(address => mapping(address => LPValues)) public orderbook;`
+
+
+[09/10/2023 20:03] 0xkazimm
+hey wardens, am i the only one who think 6 days is not enough to fully audit this contest ? its just a suggest but what about increasing the time a little bit ?
+
+
+[09/10/2023 20:11] 0xstalin
+Heey, What's the relationship between the InvestmentManager and the LiquidityPools?
+Is it just one InvestmentManager for all the LiquidityPools, or will there be different InvestmentManagers depending on the Liquidity Pool?
+
+
+[09/10/2023 20:13] 0xkazimm
+i believe its one investManger for all LPs as i think the core of the investManger can handle any type of LPs, sponsors can correct it if i'm wrong
+
+note: i know you replay my msg by false haha
+
+{Reactions}
+🧐 
+
+[09/10/2023 20:16] pabloeksdi
+If you're talking about the 2600 sloc, it isn't a good source of estimating complexity imo
+
+
+[09/10/2023 20:17] 0xkazimm
+no i think the codebase is large( i talk by the logic they used and the idea they want to reach it) and i really hope they increase the time at least 8 days so we can go in deep deep of the codebase, just suggestion at the end
+
+
+[09/10/2023 20:17] pabloeksdi
+I'm still new though, ofc 6 days won't be enough for me
+
+{Reactions}
+🚀 (2) 
+
+[09/10/2023 20:19] pabloeksdi
+a good portion of the codebase is just transferring messages to the axelar gateway and encoding them
+
+{Reactions}
+👍🏻 (2) 
+
+[09/10/2023 20:20] pabloeksdi
+I assume you can find something there, but I personally will not look through it, since I am fairly new and don't think can manage anything there for that period of time
+
+
+[09/10/2023 20:22] solodit
+I have been participating in this contest from the very beginning, so I think 6 days will be enough, but it's not up to me
+
+{Reactions}
+🫡 (5) 
+
+[09/11/2023 01:28] stoxophone
+1 investmentManager per chain
+
+
+[09/11/2023 07:08] _polex
+when are users supposed to be set as members before being able to deposit into the protocol and who does it?
+
+
+[09/11/2023 07:15] 0x11singh99
+in this diagram LiquidityPoolFactory and TranchTokenFactory is mentioned but not available in code base then which is working like them ?? @Stoxophone
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/pool_creation_flow-8E812.png
+
+
+[09/11/2023 07:24] _polex
+They are inside the src/util/Factory.sol
+
+{Reactions}
+👍 
+
+[09/11/2023 07:45] 0x3b
+Do we have access to the code that sends commands  from Centrefuge chain, or more exactly from which contract are these comands sent?
+
+
+[09/11/2023 07:48] 0x3b
+Because I can see how the messages are send from Centrefuge, however there is no contract that call `formatExecutedCollectInvest` for example.
+So does that mean that calls (like `formatExecutedCollectInvest`) from Centrefuge are expected to be trusted / 100% accurate?
+
+
+[09/11/2023 08:14] hieronx
+> when are users supposed to be set as members before being able to deposit into the protocol and who does it?
+This should be triggered by the pool issuer, on Centrifuge Chain. So the pool issuer will verify the investor has signed the agreements and has passed KYC etc, and then will call `update_member` on Centrifuge Chain, which will send the `UpdateMember` message to liquidity pools.
+
+
+[09/11/2023 08:16] hieronx
+> Do we have access to the code that sends commands  from Centrefuge chain, or more exactly from which contract are these comands sent? 
+> Because I can see how the messages are send from Centrefuge, however there is no contract that call formatExecutedCollectInvest for example.
+> So does that mean that calls (like formatExecutedCollectInvest) from Centrefuge are expected to be trusted / 100% accurate? 
+Yes Centrifuge Chain is fully trusted from the perspective of liquidity pools.
+
+But if you want to check out the code, it's open source here: https://github.com/centrifuge/centrifuge-chain/blob/f7ef147744dced8364990d4610262ffb253b70cb/pallets/liquidity-pools/src/lib.rs
+
+{Embed}
+https://github.com/centrifuge/centrifuge-chain/blob/f7ef147744dced8364990d4610262ffb253b70cb/pallets/liquidity-pools/src/lib.rs
+centrifuge-chain/pallets/liquidity-pools/src/lib.rs at f7ef147744dc...
+Centrifuge Chain: the layer-1 blockchain for real-world assets, built on Substrate. - centrifuge/centrifuge-chain
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/aa15aa49-e249-4fac-bdf9-622ebfafc4db-FC59B
+
+{Reactions}
+❤️ 
+
+[09/11/2023 08:24] 7a4raf
+hello, quick question, What is the idea behind a user can deposit funds or tokens into the pool?
+and what is the difference between deposit and selling to the pool ?
+sorry beginner here
+
+
+[09/11/2023 08:25] 7a4raf
+what privilege does a user gain for depositing funds ? why would he do such a thing to be clearer?
+
+
+[09/11/2023 08:54] 0xwagmi
+Shouldn't  it  need to be checked that  the caller is only using   call() method other than `delegatecall` or `callCode`  https://github.com/centrifuge/centrifuge-chain/blob/main/pallets/liquidity-pools-gateway/axelar-gateway-precompile/src/lib.rs#L270  ``` handle.code_address() != handle.context().address
+    {
+      return Some(Err(revert(
+        "delegatecall/callcode not allowed",
+      )));
+    }
+ ```
+
+
+[09/11/2023 08:54] catscanaudit
+He can make a profit when the person who took a loan from the pool repays it with interest on top, the interest fuels the profits for investors
+
+{Reactions}
+👍 (2) 
+
+[09/11/2023 09:01] 7a4raf
+thanks a lot, can you tell me where exactly is the profit calculated?
+
+
+[09/11/2023 09:07] catscanaudit
+on their CFG Chain which is not in scope for this audit
+
+
+[09/11/2023 09:18] _polex
+I have read the whole codebase several times stopping in the most vulnerable parts of the code but I always find the way that developers solved it. xD idk the code is completely clean or I'm really bad looking for vulnerabilities😅
+
+{Reactions}
+👍 
+
+[09/11/2023 09:18] _polex
+Also the whole functionality is trusted due to the centrifuge chain
+
+
+[09/11/2023 09:20] zhaojie
+I dm you @hieronx
+
+{Reactions}
+✅ 
+
+[09/11/2023 09:29] hieronx
+> Shouldn't  it  need to be checked that  the caller is only using   call() method other than delegatecall or callCode  https://github.com/centrifuge/centrifuge-chain/blob/main/pallets/liquidity-pools-gateway/axelar-gateway-precompile/src/lib.rs#L270  
+That's taken care of here https://github.com/centrifuge/centrifuge-chain/pull/1538/files#diff-6ff71e8cbdaf7388017ce533cdeba3383ff6052b1d52d73f36b75b652a4e7fc6R256 🙂
+
+{Reactions}
+❤️ 🫡 
+
+[09/11/2023 10:11] _polex
+In the scoping details you say that an area of focusing is price manipulation. However, isn't it supposed to be trusted by the centrifuge chain price calculation?
+
+
+[09/11/2023 10:17] benrai
+@hieronx send you a fr since I can not message you otherwise. Please accept. I would like to ask you something about the contest
+
+
+[09/11/2023 10:18] hieronx
+> In the scoping details you say that an area of focusing is price manipulation. However, isn't it supposed to be trusted by the centrifuge chain price calculation?
+Yeah that's maybe a bit misleading. But if you can find a way to somehow change the `maxDeposit/maxMint` values to different ones that are passed from Centrifuge ,that would ultimately still manipulate the price that the deposit/mint is executed at.
+
+{Reactions}
+👀 (2) 
+
+[09/11/2023 10:31] auditwolf
+sir @hieronx  , sent fr
+
+{Reactions}
+✅ 
+
+[09/11/2023 10:32] gr34t.l4k3#1626
+@hieronx sent fr to you
+
+{Reactions}
+✅ 
+
+[09/11/2023 11:12] 0xhelium
+I second this question
+
+
+[09/11/2023 11:14] hieronx
+I answered this here https://discord.com/channels/810916927919620096/1148615978704453739/1150706005823475743
+
+{Reactions}
+👍 
+
+[09/11/2023 11:55] road220
+@hieronx, @ilinz, @Stoxophone, sent frs
+
+{Reactions}
+✅ 
+
+[09/11/2023 12:25] ali_shehab.
+Hi @hieronx sent fr
+
+{Reactions}
+✅ 
+
+[09/11/2023 13:20] yesofcourse_
+Hey @hieronx sent you a fr
+
+{Reactions}
+✅ 
+
+[09/11/2023 13:30] 0x3b
+Do values like `lpValues.maxDeposit` and `lpValues.maxMint` are received in 18 decimals format, or do they use the native currency decimals
+
+
+[09/11/2023 13:34] hieronx
+`maxDeposit` is denominated in the currency, thus the number of decimals from the currency. `maxMint` is denominated in the tranche tokens, thus the number of decimals from the tranche tokens
+
+
+[09/11/2023 13:43] 0xkazimm
+did asset in `previewDeposit` refers to LP token like usdt and usdc ?
+
+
+[09/11/2023 13:43] hieronx
+Yes that refers to the stablecoin used to invest
+
+{Reactions}
+👍🏻 
+
+[09/11/2023 13:45] 0xkazimm
+thanks ser
+
+
+[09/11/2023 13:51] 0xkazimm
+did currency decimals in the `_getPoolDecimals` function refers to the asset decimals(usdc) or it refers to the pool native token decimals please ?
+
+
+[09/11/2023 13:52] hieronx
+That's asset decimals. Generally in terms of terminology, currency = asset of the LP, share = tranche token
+
+{Reactions}
+🙏🏻 
+
+[09/11/2023 13:59] dimulski
+Hi, in the Gateway contract what is  RouterLike public outgoingRouter; supposed to be
+
+
+[09/11/2023 14:00] dimulski
+for example the Router.sol in axelar or?
+
+
+[09/11/2023 14:02] hieronx
+Yes exactly.
+
+{Reactions}
+👍 
+
+[09/11/2023 14:07] tapir31
+Is there any document that explains how the Centrifuge chain calculates the price of the tranches? Can we assume the gateway always return the correct price for a tranche request deposit/redeem ?
+
+
+[09/11/2023 14:11] stoxophone
+Yah, for the purpose of this audit, assume centrifuge chain is always sending 100% factual data
+
+
+[09/11/2023 14:12] kawaicho
+this is not in scope, am i right?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-28118.png
+
+
+[09/11/2023 14:14] hieronx
+All the steps on Centrifuge Chain are not in scope. Understanding the whole flow might be relevant info though, which is why it was included.
+
+
+[09/11/2023 16:15] Mahi_Vasisth#5923
+Hi sir, why we use user as an argument in function processMint() and _deposit() in InvestmentManager.sol  because we have already msg.sender address . I can't understands  the user role there
+
+
+[09/11/2023 16:28] kawaicho
+the user role is like the receiver address
+
+
+[09/11/2023 16:28] kawaicho
+what is the different between deposit and mint function?
+
+
+[09/11/2023 16:32] Mahi_Vasisth#5923
+@niki Thanks sir.
+
+
+[09/11/2023 17:12] pacelliv
+The investor use `deposit` to invest currency in a LP, and `mint` transfer tranche tokens to the investor from the Escrow contract.
+
+
+[09/11/2023 17:22] hieronx
+That's not exactly right unfortunately. `requestDeposit` is used to submit a deposit order and trasnfer currency.
+
+Later, either `deposit` or `mint` can be used to claim tranche tokens, after the deposit request was executed. The difference is that with `deposit`, you specify the value of tranche tokens in currency you want to claim (e.g. the USDC value), while with `mint` you specify the number of tranche tokens you want to claim.
+
+This is to align with the ERC4626 standard.
+
+
+[09/11/2023 17:28] pacelliv
+ty
+
+
+[09/11/2023 17:54] dimulski
+@ilinz @hieronx sent a FR
+
+
+[09/11/2023 18:22] 0xhelium
+I want to know why  in tests you are using a contract as investor
+
+
+[09/11/2023 18:23] 0xhelium
+it should use an eoa account as investor normally
+
+
+[09/11/2023 19:18] 0xkazimm
+guys if i request Deposit on epoch 1 for example, did the request will proceed in next epoch(epoch2) ?
+
+
+[09/11/2023 19:18] 0xkazimm
+i mean when we request deposit we can claim the minted TT in the next epoch right ?
+
+
+[09/11/2023 19:28] pabloeksdi
+If the transaction gets fulfilled fully yes, if partly the remaining part goes into epoch2 and you can claim whatever got fulfilled
+
+{Reactions}
+👍🏻 (4) 
+
+[09/11/2023 19:34] castle_chain
+every epoch , the centrifuge chain send the message to handle the invest order for all the users that request deposit whatever the amount they get from this epoch
+
+{Reactions}
+👍🏻 
+
+[09/11/2023 20:43] hieronx
+> I want to know why  in tests you are using a contract as investor
+Good point! This is us being used to writing tests previously with dapptools, and for that you had no `vm.prank`  so this was the only way. We should indeed change this 🙂
+
+
+[09/11/2023 21:10] nican0r
+@hieronx I'm confused about the purpose of the `collectDeposit` and `collectRedeem` in the LiquidityPool contract, it seems like they're submitting a message to the Centrifuge chain but couldn't a user accomplish the same thing without having to wait for execution on Centrifuge using `redeem` or `deposit`? Am I missing something?
+
+
+[09/11/2023 21:24] hieronx
+Yeah understandably, we should have documented this better. In most cases, these functions should never be used by anyone. When a deposit/redeem order is executed on Centrifuge Chain, this should automatically trigger `ExecutedCollect*` messages.
+
+However, in case for some reason this does not happen, these functions are backups, that a user can call to manually trigger collecting the outcome of the executed orders on Centrifuge Chain.
+
+{Reactions}
+👍 (4) 
+
+[09/12/2023 01:14] bowtiedvirus
+Test
+
+
+[09/12/2023 04:39] 0x3b
+How long is 1 epoch?
+
+
+[09/12/2023 06:04] 0x3b
+From what I understood there could be multiple tranches per currency. Does that mean that all of the tranches for that currency are gonna return equal ratios, or can they be different?
+Ex:
+Tranche 1 to USDC => 80%  so for 100USD it will return 80TT
+Tranche 2 to USDC => 40%  so for 100USD it will return 40CC
+
+
+[09/12/2023 06:35] hieronx
+Yes that is possible
+
+
+[09/12/2023 06:37] hieronx
+Simple example. A pool with a senior and a junior tranche. Both start at a price of 1.00 USDC.
+
+A year later, senior has accrued a little bit of interest, and is now priced at 1.10 USDC.
+But junior has accrued much more profit, and is now priced at 1.50 USDC.
+
+Now if you buy 100 USDC of senior, you get 100/1.1 = ~90 senior tranche tokens
+If you buy 100 USDC of junior, you get 100/1.5 = ~66 junior tranche tokens
+
+{Reactions}
+🫡 (4) 
+
+[09/12/2023 06:39] norah7603
+@hieronx | sent you DM req
+
+
+[09/12/2023 06:54] kawaicho
+what is redemption
+
+
+[09/12/2023 07:00] hieronx
+Same as redeem or withdrawal
+
+
+[09/12/2023 07:02] hieronx
+It's the action of selling tranche tokens and receiving currency (stablecoins) back.
+
+
+[09/12/2023 07:48] kawaicho
+redeem and withdraw are the same function, expect the redeem is for tranch tokens, the withdraw is for the currect, it is like deposit and mint, am i right?
+
+
+[09/12/2023 08:07] kawaicho
+on which chains is going to be deployed?
+
+
+[09/12/2023 08:09] gr34t.l4k3#1626
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-FC5BF.png
+
+
+[09/12/2023 08:09] hieronx
+> redeem and withdraw are the same function, expect the redeem is for tranch tokens, the withdraw is for the currect, it is like deposit and mint, am i right?
+Yes exactly
+
+{Reactions}
+👍🏻 
+
+[09/12/2023 08:09] kawaicho
+thanks
+
+
+[09/12/2023 08:27] sp1cymeatball
+@hieronx hey! Who is creating these messages
+ https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/gateway/Gateway.sol#L285 ?
+
+
+[09/12/2023 08:42] 0xstalin
+They should come from the Centrifuge Chain
+
+{Reactions}
+👍 
+
+[09/12/2023 08:44] sp1cymeatball
+yeah, I'm just curious how do they handle the inputs at the Centrifuge side
+
+
+[09/12/2023 08:45] t1moh
+Does TrancheToken means share of LiquidityPool, i.e. simple share of ERC4626?
+
+
+[09/12/2023 08:46] 0xstalin
+just wanted to say that for this audit you should assume all data coming from Centrifuge is correct, but if either way you are interested on how that works, I think this repo is the one you are looking for (https://github.com/centrifuge/centrifuge-chain/tree/main)
+
+{Reactions}
+👀 👍 
+
+[09/12/2023 08:48] 0xstalin
+kinda, the TrancheTokens are the shares for all the LiquidityPools of the same tranch, but they are not simple shares, it has some cool customizations to meet the needs for this project
+
+
+[09/12/2023 08:49] t1moh
+Thanks, but what "tranche" means in the context of protocol?
+
+
+[09/12/2023 08:52] 0xstalin
+hope this helps
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-12293.png
+
+{Reactions}
+chefskiss (2) 👍 (2) 
+
+[09/12/2023 08:53] gr34t.l4k3#1626
+i think, for simply, it's tier in liquidityPool
+
+
+[09/12/2023 08:55] 0xstalin
+I believe each Tranch offers investors different risk/return ratios, but for sure@hieronx can give a better explanation than me 😅 
+each one in a red circle is a Tranch
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-50F93.png
+
+
+[09/12/2023 08:56] t1moh
+Thanks a lot to @0xStalin and @grearlake
+
+{Reactions}
+🫡 
+
+[09/12/2023 09:14] hieronx
+For a conceptual explanation of tranches:
+> Investors often want different kinds of risk exposure and yield on the same asset class. In the traditional finance world, one way to achieve this is by introducing a tiered investment structure or in other words, different tranches. This means that investors can invest in the same group of assets through different classes of debt with different risk/return profiles. A standard example is shown below.
+> 
+> At its most common form, a pool could have a junior and senior tranche, with the junior tranche tracking the first loss position and receiving the excess yield, while the senior position receives a lower, fixed yield, but is protected from losses by junior. A key advantage of this structure is that it allows the issuer of the pool to invest in the junior tranche and thus take a first loss position in the pool, ensuring skin in the game. Another example includes a three tranche structure, where a super senior lender such as MakerDAO invests in the most senior tranche, other investors invest in a mezzanine tranche, and the pool issuer invests in the junior tranche. Tinlake supports a junior and senior tranche for a pool, whereas Pools on Centrifuge Chain will allow more tranches.
+> 
+> For each tranche, tokens are issued that investors receive, representing interests in the tranches of the pool. These tokens are considered securities, thus can only be held by and transferred to KYCed accounts. The pool issuer can specify which accounts are allowed to hold which tranche tokens.
+From https://docs.centrifuge.io/getting-started/securitization/#tranching
+
+{Embed}
+https://docs.centrifuge.io/getting-started/securitization/
+On-chain Securitization
+Learn about Centrifuge
+
+
+[09/12/2023 10:02] kawaicho
+Can someone explain what is junior and senior
+
+
+[09/12/2023 10:06] pabloeksdi
+Types of tranches, one can choose to invest in either depending on how much risk he is willing to take. Simply said the senior tranche is less risky but also returns less profit, while the junior tranche is more volatile but that results in greater profits if no defaults happen in that pool. Also the junior tranche covers the mezzanine and senior tranches' losses. You can check them out deeper in the docs
+
+
+[09/12/2023 10:09] sp1cymeatball
+@hieronx DMed you
+
+
+[09/12/2023 10:49] 0xkazimm
+very noobie question, did fullfilled here mean the tx done successfully ?
+` liquidity pools can proceed with tranche token payouts in case their orders got fullfilled`
+
+
+[09/12/2023 10:55] 0xkazimm
+did userEscrow controlled by auth(protocol admin/trusted users ) or each user have his specific escrow contract ?!
+
+
+[09/12/2023 10:59] kawaicho
+where is that in code
+
+
+[09/12/2023 11:01] hieronx
+That is implemented on Centrifuge Chain, not in the Liquidity Pools codebase
+
+
+[09/12/2023 11:02] hieronx
+> very noobie question, did fullfilled here mean the tx done successfully ?
+The tx itself is just submitting the request. Fulfilled here means the deposit/redeem request was executed and the user will get currency / tranche tokens.
+
+{Reactions}
+❤️ 
+
+[09/12/2023 11:02] hieronx
+> did userEscrow controlled by auth(protocol admin/trusted users ) or each user have his specific escrow contract ?!
+There is 1 UserEscrow that is controlled with `auth`
+
+{Reactions}
+👍🏻 
+
+[09/12/2023 11:32] Mahi_Vasisth#5923
+In processRedeem() we are using two arguments receiver and user is both contains have same meaning
+
+
+[09/12/2023 11:49] hieronx
+No, the `user` is the owner of the tranche tokens that were redeemed, and the the `receiver` is the account that will get the currency (stablecions).
+
+
+[09/12/2023 12:22] 0x3b
+Does `updateTrancheTokenPrice` have any effect over the price, from what I can see it only updates the price in **LiquidityPool** where it is **not used** for anything?
+Or are there gonna be other DAPs that may query the price from **LiquidityPool**
+
+
+[09/12/2023 12:24] hieronx
+It is used for `convertToAssets` / `totalAssets` / `convertToShares`. Indeed the liquidity pool contracts themselves don't use this , and this is intended to be used by external contracts that require a price.
+
+
+[09/12/2023 12:24] nican0r
+@hieronx the natspec for the  `decreaseDepositRequest` and `decreaseRedeemRequest` says that they perform their respective operations for outstanding orders, does this mean we can assume that the processing of the messages on the Centrifuge chain will cancel these requests if they are trying to submit a request on an order that has already been executed? In other words, they can't be used to decrease the size of a liquidity provider's position, only to decrease a request that hasn't been executed, is that correct?
+
+And because of this there would be no `isExecutedDecreaseX` received by the `Gateway` so basically nothing would happen in the code being audited?
+
+
+[09/12/2023 12:25] 0x3b
+Yes I forgot to mention these, however they are also not used anywhere in the core math, are they just for visualization or have you guys planned something to use  them?
+
+
+[09/12/2023 12:25] hieronx
+They are for compliance with the ERC4626 standard.
+
+{Reactions}
+❤️ 
+
+[09/12/2023 12:26] hieronx
+> they can't be used to decrease the size of a liquidity provider's position, only to decrease a request that hasn't been executed, is that correct?
+Yes that is correct.
+
+{Reactions}
+👍 
+
+[09/12/2023 12:29] nican0r
+So messages that get sent when trying to call these functions on orders that have already been executed will get invalidated on the Centrifuge side?
+
+
+[09/12/2023 12:36] hieronx
+Yes exactly.
+
+{Reactions}
+👍 
+
+[09/12/2023 12:39] 0xkazimm
+what is the difference between mint and deposit function ? i guess someone asked this but can't find the answer
+
+
+[09/12/2023 12:39] hieronx
+For one the input is denominated in currency, for the other in tranche tokens. They are both supporte for 4626 compatibility
+
+
+[09/12/2023 12:40] 0xkazimm
+and both give the users TT token at the end and the main difference is the input ?
+
+
+[09/12/2023 12:53] hieronx
+Yeah exactly
+
+
+[09/12/2023 12:53] nican0r
+@hieronx is the protocol team planning on implementing any bots for normal operation? I saw that one of the tests includes a comment about "Assume a bot calls collectInvest for this user on cent chain"
+
+
+[09/12/2023 12:54] kawaicho
+if you ask later, just to know the redeem and withdraw function are in the same way like the mint and deposit
+
+{Reactions}
+👍🏻 
+
+[09/12/2023 12:54] 0xkazimm
+thanks for that @niki 🙏🏻
+
+
+[09/12/2023 12:55] kawaicho
+no problem
+
+
+[09/12/2023 12:56] 0xg03.14
+@hieronx accept FR
+
+{Reactions}
+✅ 
+
+[09/12/2023 13:01] hieronx
+> is the protocol team planning on implementing any bots for normal operation? I saw that one of the tests includes a comment about "Assume a bot calls collectInvest for this user on cent chain"
+Yeah `ExecutedCollectInvest` should be triggered by a bot on Centrifuge
+
+{Reactions}
+👍 
+
+[09/12/2023 13:02] kawaicho
+what does the member do
+
+
+[09/12/2023 13:03] kawaicho
+why do you need to be member?
+
+
+[09/12/2023 13:04] hieronx
+Investing in RWA pools requires passing KYC/KYB checks, and being verified by the issuer of the pool. Thus the issuer adds you as a member to the pool before you can invest.
+
+
+[09/12/2023 13:17] sovaslava9
+Hello. who can call root.sol.file() function? only deployer of Root.sol?
+
+
+[09/12/2023 13:18] 0x3b
+Are the request need to be done in different epochs or can be executed instantly, like
+call `reqestDeposit`  in **epoch 1** and call `proceedDeposit` 5 min later still in **epoch 1**
+
+
+[09/12/2023 13:19] 0x3b
+I am asking about the centrefuge backend and more exactly how much time we have to cancel a request if we have submitted it wrongly?
+
+
+[09/12/2023 13:49] hieronx
+> Hello. who can call root.sol.file() function? only deployer of Root.sol?
+Any `ward` on `Root.sol`
+
+
+[09/12/2023 13:50] hieronx
+> I am asking about the centrefuge backend and more exactly how much time we have to cancel a request if we have submitted it wrongly? 
+This is not possible because the request will only be executed at the end of the epoch.
+
+
+[09/12/2023 14:30] 0xblackskull
+@hieronx  accept fr
+
+{Reactions}
+✅ 
+
+[09/12/2023 14:51] nmirchev8
+The creation of a RWA pool is voted on Centifuge chain and if it is approved, investors can create tranche for it with different pools for this asset? Is that correct?
+
+
+[09/12/2023 15:14] 0xkazimm
+is the comment for the redeem function set correctly ? as we redeem currency to the users not shares, or i misunderstand it !?
+` /// @notice Request share redemption for a receiver to be included in the next epoch execution.`
+
+
+[09/12/2023 15:14] Mahi_Vasisth#5923
+Can u tell the complete perspective of using add currency()
+
+
+[09/12/2023 15:29] rvierdiiev
+hello @ilinz @hieronx 
+pls, accept friend request
+
+{Reactions}
+✅ (3) 
+
+[09/12/2023 15:31] hieronx
+> The creation of a RWA pool is voted on Centifuge chain and if it is approved, investors can create tranche for it with different pools for this asset? Is that correct?
+No the tranches are created by the issuer of the pool, the investors just choose which tranche(s) to invest in
+
+
+[09/12/2023 15:31] hieronx
+> is the comment for the redeem function set correctly ? as we redeem currency to the users not shares, or i misunderstand it !?
+You redeem shares, which gives you currency back
+
+{Reactions}
+👍🏻 
+
+[09/12/2023 15:34] sp1cymeatball
+@hieronx anyone can create a pool?
+
+
+[09/12/2023 15:36] hieronx
+> @hieronx anyone can create a pool?
+This was answered here: https://discord.com/channels/810916927919620096/1148615978704453739/1150343830256766996
+
+{Reactions}
+thankyou 
+
+[09/12/2023 15:37] hieronx
+> Why adding a member is by giving a time period and not enabling and disabling a user to invest?
+This is a legal requirement, someone might be added for 1 year and then refreshed once per year
+
+{Reactions}
+👍 
+
+[09/12/2023 15:50] sp1cymeatball
+@hieronx what's the benefit of calling tranche token functions via pool vs calling them directly?
+
+https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/LiquidityPool.sol#L295-L321
+
+
+[09/12/2023 15:57] hieronx
+It's just that for the liquidity pool contract to be erc4626 compliant, it also needs to be erc20 compliant
+
+
+[09/12/2023 15:57] hieronx
+https://eips.ethereum.org/EIPS/eip-4626
+> All EIP-4626 tokenized Vaults MUST implement EIP-20 to represent shares.
+
+{Embed}
+https://eips.ethereum.org/EIPS/eip-4626
+Tokenized Vaults with a single underlying EIP-20 token.
+
+{Reactions}
+👌 
+
+[09/12/2023 16:01] sp1cymeatball
+I see, we got two separate contracts, share and vault instead of classic ERC4626 approach
+
+{Reactions}
+✅ 
+
+[09/12/2023 16:16] lsaudit
+@hieronx  hey, sent you FR, cannot DM you without it
+
+
+[09/12/2023 16:37] lsaudit
+Assuming that there's a list of emergency scenarios - will scenarios when one of the warden became malicious/untrusted - be treated as valid?
+
+
+[09/12/2023 16:48] mrudenko
+You need to prove how they can be malicious, in practice
+
+
+[09/12/2023 16:55] 0xstalin
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-0E34A.png
+
+{Reactions}
+thankyou 
+
+[09/12/2023 17:24] hieronx
+If one of the delayed admin wards can bypass the timelock, that would be a valid security issue.
+
+{Reactions}
+👀 
+
+[09/12/2023 17:57] mrudenko
+Seems protocol is really bulletproof
+
+{Reactions}
+👍 (6) 
+
+[09/12/2023 18:07] pabloeksdi
+I agree lol
+
+
+[09/12/2023 18:07] pabloeksdi
+Anyone found anything interesting ?
+
+{Reactions}
+👀 (4) 
+
+[09/12/2023 18:18] sovaslava9
+What is contract,which named as asset? in LiquidityPool.sol:requestDepositWithPermit()   ERC20PermitLike(asset).permit(....
+
+
+[09/12/2023 18:21] 0xstalin
+devs were auditors in their previous life 🫡
+
+{Reactions}
+😆 (5) 
+
+[09/12/2023 18:24] 0xstalin
+is the contract's address of the token to be deposited, in this case, an approved stablecoin
+
+
+[09/12/2023 18:25] t1moh
+Agree
+
+
+[09/12/2023 19:13] makeouthill6
+@hieronx sent u a fr and a dm
+
+
+[09/12/2023 19:41] nethoxa
+there are, indeed, but holy fuck
+
+
+[09/12/2023 20:04] talfao
+have you found something?😂 somehow your answer does not make sense to me, sorry
+
+
+[09/12/2023 20:05] nethoxa
+yeah? IDK, I may need new glasses
+
+
+[09/12/2023 20:06] 0xkazimm
+of course there is HMs as their is many auditor with different mindset works on this codebase, it can be possible that no HM founds too !
+
+
+[09/12/2023 20:06] nethoxa
+true
+
+{Reactions}
+🔥 hi5 
+
+[09/12/2023 20:10] mrudenko
+for example BASE protocol have only QA report, no H, M, even L (or they are hidden...)
+
+
+[09/12/2023 20:27] codecipher9
+Should all the calls coming from Centrifuge chain through the gateway (meaning any call to a function with onlyGateway modifier)  be trusted (i.e. all the input given to the functions are correct) ?
+
+{Reactions}
+✅ 
+
+[09/12/2023 20:37] sovaslava9
+Why admin could remove pool in Transhe.sol?
+
+
+[09/12/2023 21:20] poneta_
+Hey, is anyone else having problems opening the contest page rn?
+
+
+[09/12/2023 21:20] 0xfuje
+works fine for me honestly
+
+
+[09/12/2023 21:21] poneta_
+this is what I'm getting "The page you are looking for could not be loaded or does not exist"
+
+
+[09/12/2023 22:19] stoxophone
+Asking C4 about it now. In the meantime, the repo has most of the same info
+
+{Reactions}
+💯 (2) 
+
+[09/12/2023 22:55] lsaudit
+yeah, I also have the same issue - contest page does not loading - cannot submit findings
+
+
+[09/12/2023 23:06] itsmetechjay
+Our devs are looking into it!
+
+{Reactions}
+👍 
+
+[09/12/2023 23:07] okolicodes
+@hieronx 
+@Stoxophone 
+Sent a friend request. I wanna DM
+
+
+[09/12/2023 23:17] lsaudit
+awesome! any chance, that contest time will be extendend? I won't be able to submit my findings, and tomorrow I'll be offline most of the time, probably won't manage to submit 😦
+
+
+[09/12/2023 23:23] 0xstalin
+The  contest end the 14th, in 2 days
+You’ll still have the last day of the contest to submit your issues 😊
+
+{Reactions}
+💯 
+
+[09/13/2023 00:21] castle_chain
+I think the 'auth' and 'onlygateway' modifiers destroyed alot of finidings 🙂😅
+
+
+[09/13/2023 00:22] itsmetechjay
+Can you try to submit now? We are still looking into the issue but the submission form is working currently.
+
+
+[09/13/2023 00:39] 0xtendency
+just sent a fr @hieronx @Stoxophone
+
+
+[09/13/2023 00:59] itsmetechjay (pinned)
+ℹ️ Hey everyone, we are aware that there are some intermittent error messages happening on our site.  Our devs are actively looking into things and we will provide an update as soon as we can. 
+
+In the meantime, you should be able to view the audit repo directly [here](https://github.com/code-423n4/2023-09-centrifuge).
+
+And submit findings directly [here](https://code4rena.com/contests/2023-09-centrifuge/submit).
+
+{Reactions}
+🙏 (2) 
+
+[09/13/2023 00:59] itsmetechjay
+Pinned a message.
+
+
+[09/13/2023 01:38] 0xdemonnn
+agree with that :10_10:
+
+{Reactions}
+✅ 
+
+[09/13/2023 02:06] okolicodes
+@hieronx  🙃
+
+{Reactions}
+✅ 
+
+[09/13/2023 02:11] gr34t.l4k3#1626
+whenever i find potential things, it become false positive when i digging deeper 🥲
+
+
+[09/13/2023 02:18] road220
+I was trying to understand the meaning behind the following: 
+```
+        if (_trancheTokenAmount == 0) {
+            // Case: outstanding redemption orders will be cancelled
+            gateway.cancelRedeemOrder(
+                lPool.poolId(), lPool.trancheId(), user, poolManager.currencyAddressToId(lPool.asset())
+            );
+            return;
+        }
+```
+but it turns out to be a beautiful interface-crutch for non-finilized order canceling 😄
+
+{Reactions}
+✅ 
+
+[09/13/2023 02:42] stormreckson
+🫡nice one devs
+
+
+[09/13/2023 05:54] demelew
+@hieronx sent a friend request
+
+
+[09/13/2023 06:02] hieronx
+Just wanted to clarify since we got a lot of questions about this. For this section of code in the liquidity pool contract:
+```
+    /// @dev Either msg.sender is the owner or a ward on the contract
+    modifier withApproval(address owner) {
+        require(msg.sender == owner, "LiquidityPool/no-approval");
+        _;
+    }
+```
+The comment is wrong, and the code is correct: this modifier should only check that the `owner` is the `msg.sender`.
+
+
+[09/13/2023 06:03] hieronx
+Also, another common question: there is no built-in fee payments for the Axelar message sending. You can assume this happens automatically, through a bot.
+
+
+[09/13/2023 06:17] nobody2018
+@hieronx  sent a friend request
+
+{Reactions}
+✅ 
+
+[09/13/2023 06:21] 0xstalin
+@hieronx so, investors won't need to pay for the gas costs of executing the messages in the axelar chain right? That means we should assume that the gas costs for all the messages that reach the axelar network will be taken care of by the Centrifuge bot?
+
+
+[09/13/2023 06:22] hieronx
+Yes that is correct.
+
+{Reactions}
+🫡 (4) 
+
+[09/13/2023 06:29] 0x3b
+**DelayedAdmin** is ward on `DelayedAdmin` contract only right? Or it is also a ward on other contracts, like the `InvestmentManager` and so on...
+
+
+[09/13/2023 06:30] hieronx
+No the only EOA wards should be on the `DelayedAdmin` and the `PauseAdmin`. All other wards should only be other contracts.
+
+{Reactions}
+🫡 
+
+[09/13/2023 08:05] ch_301
+@hieronx  sent you a friend request
+
+
+[09/13/2023 08:10] kawaicho
+how to user that gave tokens are rewarded
+
+
+[09/13/2023 08:39] 7a4raf
+is the root contract the deployer of all contracts?
+
+
+[09/13/2023 09:32] 0x3b
+By changing prices, that are provided by the Centrefuge bot when users call redeem
+Pool with 5% APR
+1. current price is 1 : 1 DAI to share
+2. you invest 100 DAI for 100 shares 
+
+After 1 year the Centrefuge chain will send different prices (hopefully up :D)
+
+3. the current price is 1.05 DAI per share
+4. you redeem your 100 shares for 105 DAI
+
+{Reactions}
+👍 
+
+[09/13/2023 09:34] kawaicho
+the APR is out of the scope, right?
+
+{Reactions}
+✅ 
+
+[09/13/2023 09:39] 0x3b
+APR is annualized percentage return, basically how much % you are getting per year
+it's not a contract
+
+
+[09/13/2023 09:40] _polex
+Sent fr @hieronx
+
+
+[09/13/2023 09:40] kawaicho
+yea, but its needs to be coded somewhere
+
+
+[09/13/2023 09:41] 0x3b
+yes you are right, it's out of scope
+
+
+[09/13/2023 09:53] catscanaudit
+Same here
+
+{Reactions}
+👍 
+
+[09/13/2023 10:05] nethoxa
+@hieronx sent FR
+
+{Reactions}
+✅ 
+
+[09/13/2023 10:24] yakuzakiawe
+I found 3 bugs till yesterday but now I am thinking that they are false positives
+
+
+[09/13/2023 10:31] franklin4121
+can users be contract ? or strictly EOA ?
+
+
+[09/13/2023 10:31] hieronx
+Could be both
+
+{Reactions}
+👍 
+
+[09/13/2023 10:34] catscanaudit
+Yeah I thought I found 1 but turned out false
+
+
+[09/13/2023 12:06] sovaslava9
+How much time I have for cancel my requestDeposit, after call requestDeposit in LiquidityPool.sol?
+
+
+[09/13/2023 12:08] gr34t.l4k3#1626
+before epoch end
+
+
+[09/13/2023 12:09] sovaslava9
+how often new epoch apper?
+
+
+[09/13/2023 12:09] gr34t.l4k3#1626
+it is not constant, depend on lots of factors, you can check at the document
+
+
+[09/13/2023 12:17] sovaslava9
+what will happen next, after gateway send message for cancell invest order? outgoingRouter.send(Messages.formatCancelInvestOrder.. cant understand whats next..
+
+
+[09/13/2023 12:20] pabloeksdi
+It's out of scope
+
+
+[09/13/2023 12:32] sovaslava9
+currency from escrow contract will be returned ?
+
+
+[09/13/2023 12:47] sunosuporno
+Is there no allocation for Gas Rewards for this contest?
+
+
+[09/13/2023 12:55] kaveyjoe
+yes , No rewards For Gas
+
+{Reactions}
+👍 
+
+[09/13/2023 12:58] 0xkazimm
+when you cancle an order then the order wont happen and the max deposit/mint or max redeem/withdraw won't updated and still as it is. i think that what will happen
+
+
+[09/13/2023 13:03] road220
+Basically, you can think of it like the blackbox(Centrifuge) somewhere marks an oustanding order and it won't be finalized(e.g. no `handleExecutedCollectInvest()` or `handleExecutedCollectRedeem()` would be invoked by the bot)
+
+{Reactions}
+👍 
+
+[09/13/2023 13:04] 0xkazimm
+yeah and i think the handleDecrease functions will be called for canceling orders
+
+
+[09/13/2023 13:05] road220
+just to return the locked TT/assets
+
+{Reactions}
+👍🏻 (2) 
+
+[09/13/2023 13:07] t1moh
+@hieronx please accept fr
+
+{Reactions}
+👆 
+
+[09/13/2023 13:23] maanas3513
+@hieronx please accept fr
+
+
+[09/13/2023 13:24] nican0r
+@hieronx what's the purpose of the `transfer`, `transferTrancheTokensToCentrifuge` and `transferTrancheTokensToEVM` in `PoolManager`? I'm not understanding why the tranche tokens would need to be transferred to the Centrifuge Chain, then be transferred back onto the EVM.
+
+
+[09/13/2023 13:24] hieronx
+Just a little heads-up: we're getting a lot of DMs right now, so some responses and friend request acceptances might be a bit delayed. We're doing our best though. Thanks for your understanding 🙏 
+
+In general, would really help if people could ask questions here, rather than in DMs, whenever possible.
+
+{Reactions}
+👍 (3) 
+
+[09/13/2023 13:25] hieronx
+> @hieronx what's the purpose of the transfer, transferTrancheTokensToCentrifuge and transferTrancheTokensToEVM in PoolManager? I'm not understanding why the tranche tokens would need to be transferred to the Centrifuge Chain, then be transferred back onto the EVM.
+You can transfer tranche tokens to another chain (say from Ethereum to Base), if you want. It just goes through Centrifuge so the bookkeeping of which chain holds how many tranche tokens can be updated.
+
+The purpose of transfer is just transferring stablecoins to and from Centrifuge Chain.
+
+{Reactions}
+👍 
+
+[09/13/2023 13:25] road220
+@nican0r, you can get some info here as well, it's already being answered
+
+
+[09/13/2023 13:26] 0xkazimm
+thanks to you and the team for the quick response ser 🙂
+
+{Reactions}
+💯 
+
+[09/13/2023 13:27] nican0r
+Cool, thanks 🙏
+
+
+[09/13/2023 13:58] nethoxa
+@hieronx is the project deployed or not?
+
+
+[09/13/2023 13:58] hieronx
+Nope
+
+
+[09/13/2023 14:03] nethoxa
+ok
+
+
+[09/13/2023 14:34] 0xkazimm
+for what reason we use collect deposit/redeem please ?
+
+
+[09/13/2023 14:46] j4x_98
+Maybe a bit off topic question to the more experienced auditors participating in this contest. As this is my 2nd contest i was interested in others experiences during the last few days. How on a scale 1-10 would you rate the difficulty of the contest? Depending on the code complexity and the amount of vulns found, compared to the other contests you participated in? 🙂
+
+
+[09/13/2023 14:49] minh___
+backup/fallback, in case messages are not send for some reason
+
+{Reactions}
+👍🏻 
+
+[09/13/2023 14:50] 0xkazimm
+The idea behind the code was normal to understand and i can say it was 5-6 difficulty but, the difficulty to find some vuln is 8-9 as its very well written codebase and a bit complex function calls.
+
+
+[09/13/2023 14:50] 0xkazimm
+Thank you 🙏🏻
+
+
+[09/13/2023 14:52] secoalba
+This is my 4th contest analysed and I have spent less than 4 days (3-4 h) per day and I have only been able to find 3 (apparently) medium category errors.
+
+I still have a lot of room for improvement.
+How did you find it?
+
+
+[09/13/2023 14:54] j4x_98
+Same here, it took me a pretty short time to understand the code, but a pretty long timeframe and a lot of testcases that failed until i found something interesting
+
+{Reactions}
+👍🏻 
+
+[09/13/2023 14:55] j4x_98
+I find/found it super interesting but it took me a long time until i found something interesting 🙂 Also the functions get more complex the more it goes down the control flow imo
+
+
+[09/13/2023 15:25] mert_eren#2527
+is there any documentation for how prices will be determined of tranches
+
+
+[09/13/2023 15:25] minh___
+Why is the root contract a ward on other contracts if it cant call any functions? Is it just to make "linking" the contracts easier during deployment through `relyContract` and `denyContract` or am I missing something obvious here?
+
+
+[09/13/2023 15:26] mert_eren#2527
+and is latestPrice variant of liqudity pool important
+
+
+[09/13/2023 15:26] minh___
+has been answered above somewhere: you dont need to understand it for this audit, but you can by checking out-of-scope code
+
+
+[09/13/2023 15:27] mert_eren#2527
+thanks
+
+
+[09/13/2023 15:40] gr34t.l4k3#1626
+seem like root contract can set timelock too :)), it's used as a protection
+
+
+[09/13/2023 15:44] chainshield
+which erc20 tokens the project will use
+
+
+[09/13/2023 15:48] hieronx
+> You can use relyContract to make an EOA or Contract a ward in any contract root is a ward of, effectivelly being able to call any function you want in the target contract (edit: award -> ward :P) 
+Yes exactly. In practice this will just be migrations contracts, like the spell pattern from maker https://docs.makerdao.com/smart-contract-modules/governance-module/spell-detailed-documentation
+
+
+[09/13/2023 16:04] mosharaf
+@hieronx sent a fr , ser.
+
+{Reactions}
+✅ 
+
+[09/13/2023 16:24] pabloeksdi
+I think any stablecoin with 18 or less decimals
+
+
+[09/13/2023 16:25] pabloeksdi
+If thats what u meant
+
+
+[09/13/2023 16:56] nethoxa
+this is awesome, just 241 submissions, what a codebase
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-33275.png
+
+
+[09/13/2023 16:56] nethoxa
+does it take into account the bot report?
+
+
+[09/13/2023 17:07] 0xbtk
+@hieronx Request sent!
+
+{Reactions}
+✅ 
+
+[09/13/2023 17:09] catscanaudit
+Im actually surprised, Cooler Update audit had A LOT of flaws and had 250 reports, this seems like it's a lot tighter and hard to find issues
+
+
+[09/13/2023 17:09] catscanaudit
+And there are still 241
+
+
+[09/13/2023 17:09] catscanaudit
+I haven't found anything personally
+
+
+[09/13/2023 17:10] catscanaudit
+3 Is not few for such a small amount of time ser, good stuff
+
+
+[09/13/2023 17:41] minh___
+dont sweat it, the vast majority will be false positives as always, plus qa reports
+
+
+[09/13/2023 17:52] pabloeksdi
+Ondo had 500+ I think
+
+
+[09/13/2023 17:55] 0xsandy
+Couldn't even find one, had to submit QA and analysis😅
+
+
+[09/13/2023 18:01] trustone_
+In DelayedAdmin.sol only auth can pause the transaction, but in PauseAdmin.sol the others that auth gave the permission can pause the transaction.
+However, their ward cant be 1.  Is it expected performance?
+
+
+[09/13/2023 19:40] maslarovk
+@Stoxophone Request sent
+
+
+[09/13/2023 20:27] minh___
+@Stoxophone sent one as well
+
+
+[09/13/2023 20:43] topmark1
+@Stoxophone Request sent
+
+
+[09/13/2023 21:18] castle_chain
+does anyone have an error during submitting the issues here ?
+
+
+[09/13/2023 21:19] castle_chain
+because i have
+
+
+[09/13/2023 21:19] castle_chain
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/Screenshot_from_2023-09-13_17-19-15-2D3D0.png
+
+
+[09/13/2023 21:20] itsmetechjay
+can you try to log out and log back in and then resubmit?
+
+
+[09/13/2023 21:22] castle_chain
+it works now  , thanks for helping
+
+{Reactions}
+hi5 
+
+[09/13/2023 21:23] itsmetechjay
+you're welcome!
+
+
+[09/13/2023 22:15] ladboy233
+dmed！
+
+
+[09/14/2023 05:47] 0xstalin
+I'm genuinely interested on seeing what other wardens found 🧐
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-8C37A.png
+
+
+[09/14/2023 05:58] 0xnevi
+After i submitted, its at 359 😀
+
+
+[09/14/2023 05:59] 0xstalin
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/9k-37038.png
+
+
+[09/14/2023 05:59] 0xnevi
+Im the bot :4739_Skeletor:
+
+{Reactions}
+4739_Skeletor (3) 
+
+[09/14/2023 06:00] 0xstalin
+or does that mean that you submitted 11 findings?  👀
+
+
+[09/14/2023 06:02] 0xnevi
+9 but just trying my luck
+
+{Reactions}
+🚀 (2) 
+
+[09/14/2023 06:02] 0xnevi
+🤣
+
+
+[09/14/2023 06:04] 0xstalin
+:4739_Skeletor:
+
+{Reactions}
+4739_Skeletor (4) 
+
+[09/14/2023 07:46] road220
+close to the end, we'll have 3x as usual)
+
+
+[09/14/2023 08:28] sp1cymeatball
+@hieronx will there be an InvestmentManager contract on each supported EVM?
+
+
+[09/14/2023 08:28] hieronx
+Yes, all contracts will be deployed on each supported EVM
+
+{Reactions}
+thankyou (2) 
+
+[09/14/2023 09:41] talfao
+yeah increasing
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-F86B7.png
+
+{Reactions}
+thisisfine 
+
+[09/14/2023 10:19] catscanaudit
+Same
+
+
+[09/14/2023 11:01] zhaojie
+430 now
+
+
+[09/14/2023 11:10] bryan_conquer
+I can't submit
+
+
+[09/14/2023 11:23] mrudenko
+wow
+
+
+[09/14/2023 11:27] nmirchev8
+Can we edit a submited finding?
+
+
+[09/14/2023 11:36] mrudenko
+yes
+
+
+[09/14/2023 11:41] nmirchev8
+From where?
+
+
+[09/14/2023 11:41] talfao
+i am curious how many issues will be again a ChatGPT
+
+
+[09/14/2023 12:17] uncle Jeff#4407
+go to the contest page then ctrl-f "Your Findings"
+
+{Reactions}
+👀 
+
+[09/14/2023 12:17] nmirchev8
+Found it. Thanks!
+
+
+[09/14/2023 12:18] uncle Jeff#4407
+^^
+
+
+[09/14/2023 12:31] lourenslinde
+@hieronx friend request sent
+
+
+[09/14/2023 13:29] Audinarey#1058
+A High, lets see how it goes.
+
+
+[09/14/2023 13:35] nmirchev8
+```
+  assets = shares.mulDiv(
+            LiquidityPoolLike(liquidityPool).latestPrice(),
+            10 ** (PRICE_DECIMALS + trancheTokenDecimals - currencyDecimals),
+            MathLib.Rounding.Down
+        );
+```
+Why we do (PRICE_DEC + trancheDecimals - currencyDecimals)?
+
+
+[09/14/2023 13:36] j4x_98
+This is done to normalize the decimals of each token to the PRICE_DECIMALS (10**18) which makes calculation easier
+
+{Reactions}
+❤️ 
+
+[09/14/2023 13:38] trustone_
+hello guys I can't understand the this image.
+Is there anyone who can explain about these images?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/liquidity_flow1-BE580.png
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/liquidity_flow2-62899.png
+
+
+[09/14/2023 13:38] trustone_
+Hi @J4X please explain about this.
+
+
+[09/14/2023 13:51] j4x_98
+I'm also not a sponsor of this contest. I also struggled with the image a bit. I think it explains how liquidity is managed between the EVM chains and the CFG chain. I at least didn't need it for my review. I just assumed that Bridging is possible, and that the USDC in the escrow get wrapped and can then be used on CFG chain by the issuer of the pool
+
+
+[09/14/2023 13:52] j4x_98
+But I think there was some more detailed explanation of it by the sponsor further up in the chat
+
+
+[09/14/2023 13:56] 0xpiken
+468 for now after submitting my second medium
+
+
+[09/14/2023 13:59] 0xkazimm
+count 4-5 too 😂
+
+
+[09/14/2023 14:31] 0xkazimm
+where did `formatAddTranche` is called please ?
+
+
+[09/14/2023 14:36] 0xlemon
+@hieronx friend request sent
+
+
+[09/14/2023 15:25] castle_chain
+548 now 😆
+
+
+[09/14/2023 15:47] trustone_
+Hi guys
+
+
+[09/14/2023 15:48] trustone_
+Do you know the interval of epoch?
+
+
+[09/14/2023 15:57] t1moh
+No
+
+
+[09/14/2023 16:05] trustone_
+it is random value?
+
+
+[09/14/2023 16:06] 0xnevi
+https://docs.centrifuge.io/learn/epoch/#length-of-an-epoch
+
+{Embed}
+https://docs.centrifuge.io/learn/epoch/
+Epochs - How investments and redemptions are executed
+Learn about Centrifuge
+
+{Reactions}
+🫡 
+
+[09/14/2023 16:06] trustone_
+thanks
+
+
+[09/14/2023 16:41] 0xblackskull
+585 issues
+
+
+[09/14/2023 16:45] .satyam_
+@Stoxophone request sent
+
+
+[09/14/2023 16:46] sovaslava9
+can user cancell order after it will be executed? or user could cancell order , before it executed in next epoch only?
+
+
+[09/14/2023 16:48] sp1cymeatball
+I did my part boys
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/c4-358B8.png
+
+
+[09/14/2023 16:49] nethoxa
+WTF did it increase by ~300 in one day  ?????
+
+
+[09/14/2023 16:49] sovaslava9
+How i can see this count of issues?
+
+
+[09/14/2023 16:51] sp1cymeatball
+go to "your findings" and hover a cursor over the issue you've submitted
+
+{Reactions}
+🙏🏼 
+
+[09/14/2023 17:05] mike_bello90
+I sent the issue number 596 now 😀
+
+
+[09/14/2023 17:10] 0xkazimm
+If the request execute or it reached next epoch then it can not be canceled
+
+
+[09/14/2023 17:11] 0xkazimm
+Users can cancel request when its in the epoch that the request is called at, for example:
+Call request order —> in order list in epoch 1 —-cancel or decrease before epoch 2 —> reached epoch 2 so the order can not be cancel or decrease
+
+{Reactions}
+🙏🏼 (2) 
+
+[09/14/2023 17:37] mrudenko
+So the protocol has many issues, probably...
+
+{Reactions}
+👍 
+
+[09/14/2023 17:43] sovaslava9
+my issue is 628...
+
+{Reactions}
+😂 
+
+[09/14/2023 17:48] mrudenko
+1 hour 13 min left. Let's make bids what will be the last number😂
+
+{Reactions}
+😂 (2) 
+
+[09/14/2023 17:50] .kim8222
+i am struggling with preparing a submission. when i use git diff  it highlights unwanted lines how does one specify which lines to use
+
+
+[09/14/2023 17:52] 0xkazimm
+you mean on github when you want to coy permalink ?
+
+
+[09/14/2023 17:53] .kim8222
+no in preparing a poc  i've made the changes to a file but when I use git diff it highlights the wrong lines
+
+{Reactions}
+🥲 
+
+[09/14/2023 17:57] 0xstalin
+Or will be there many false positives? 🧐
+
+
+[09/14/2023 17:58] catscanaudit
+I feel like this is the case
+
+
+[09/14/2023 17:58] 0xstalin
+Clone the repo again, copy your POC on the new clone, and run the git diff in that new clone
+
+
+[09/14/2023 17:58] catscanaudit
+I mean I'm not nearly an "advanced" auditor.. but I feel like what was in scope was tight nonetheless
+
+
+[09/14/2023 18:00] mike_bello90
+that's the most likely
+
+
+[09/14/2023 18:25] 0xg03.14
+655
+
+
+[09/14/2023 18:27] nethoxa
+in less than a day this project eta has changed from 2 weeks to 1 month xD
+
+
+[09/14/2023 18:36] .kim8222
+i have tried that it still doesnot work
+
+
+[09/14/2023 18:37] 0xstalin
+hmm, if you use an existing file as the base of your PoC, you could copy your PoC and indicate on what file it needs to be added, that should be valid
+
+
+[09/14/2023 18:38] t1moh
+I also found nothing, just 1 hardly issue
+
+{Reactions}
+🙏 
+
+[09/14/2023 18:39] 0xtendency
+at least am not alone 😂
+
+
+[09/14/2023 18:51] catscanaudit
+Really wish I had backstage so I can see the submissions right away
+
+
+[09/14/2023 18:52] catscanaudit
+I got an A QA report and 1H on another but need to have participated in 3 C4 contests
+
+
+[09/14/2023 18:59] 0xstalin
+you have the leaderboard in your profile, why dont you ask backstage?
+
+
+[09/14/2023 18:59] 0xstalin
+ah
+
+
+[09/14/2023 18:59] catscanaudit
+Need to have participated in 3 contests from what the helpdesk says
+
+
+[09/14/2023 19:00] catscanaudit
+Was hoping I could submit something on Centri for the 3rd one but unfrotunately no
+
+
+[09/14/2023 19:00] 0xstalin
+this would be the third one 🙂 Try to request it, maybe it works
+
+
+[09/14/2023 19:00] catscanaudit
+Didn't find anything
+
+
+[09/14/2023 19:04] 0xstalin
+submit an Analysis Report, prob that could make this contest count as your 3rd one, and finally you can get the backstage role
+
+
+[09/14/2023 19:09] 0xtendency
+He needs to be a certified contributor first
+
+
+[09/14/2023 19:09] 0xtendency
+https://docs.code4rena.com/roles/certified-contributors/backstage-wardens
+
+{Embed}
+https://docs.code4rena.com/roles/certified-contributors/backstage-wardens
++Backstage wardens
+
+
+[09/14/2023 19:28] nethoxa
+but do not make a ChatGPTish report xD
+
+
+[09/14/2023 19:28] nethoxa
+is the backstage worth it?? I could have it, but doing KYC is a bit meh
+
+
+[09/14/2023 19:34] catscanaudit
+Extremely worth it
+
+
+[09/14/2023 19:34] catscanaudit
+for getting a quick feedback loop
+
+
+[09/14/2023 19:35] catscanaudit
+How does that happen? No info on that in the link u sent
+
+
+[09/14/2023 19:35] nethoxa
+hmm, IDK, I may apply for that
+
+
+[09/14/2023 19:35] catscanaudit
+I mean, imo, the best way to learn once you go past basics is to read the report of what you just audited, and see stuff you missed out
+
+
+[09/14/2023 19:36] catscanaudit
+You can do that instantly with backstage
+
+
+[09/14/2023 19:36] catscanaudit
+While the code is still fresh in ur mind, if u need to wait for official report it can go 1 month+ and you've already worked on 2-3 new codebases
+
+
+[09/14/2023 19:36] catscanaudit
+You don't really remember that one well
+
+
+[09/14/2023 19:37] nethoxa
+well, that's true
+
+
+[09/14/2023 19:39] olanre_waju
+finally submitted something and it was number 728:4739_Skeletor:
+
+
+[09/14/2023 19:41] kaveyjoe
+740+
+
+
+[09/14/2023 19:43] catscanaudit
+More than half of them gotta be false positives
+
+
+[09/14/2023 19:43] catscanaudit
+Cmon
+
+
+[09/14/2023 19:43] catscanaudit
+😂
+
+
+[09/14/2023 19:44] catscanaudit
+Either that or yall are beasts
+
+
+[09/14/2023 19:47] 0xkral
+I think there will a huge amount of duplicates for this one🫡
+
+
+[09/14/2023 19:47] mrudenko
+Really, interesting contest.
+
+
+[09/14/2023 19:50] minh___
+are pool issuers trusted? I suppose they should be, but just making sure
+
+
+[09/14/2023 19:51] road220
+i think, governance is responsible for that
+
+
+[09/14/2023 19:53] 0xkazimm
+771 was me, hope i was the last guy who submit findings(just want to be the last guy lol)
+
+{Reactions}
+😆 (3) 
+
+[09/14/2023 19:55] nethoxa
+I bet someone has submitted Gas report
+
+{Reactions}
+🥲 
+
+[09/14/2023 19:55] nethoxa
+xD
+
+
+[09/14/2023 19:55] nethoxa
+no way @0xkazim
+
+{Reactions}
+😂 
+
+[09/14/2023 19:56] chrisapostolov
+the form appears to have died
+
+
+[09/14/2023 19:56] chrisapostolov
+doesn't allow me to submit anything
+
+
+[09/14/2023 19:57] chrisapostolov
+anyone else with the same issues?
+
+
+[09/14/2023 19:57] itsmetechjay
+try logging out and back in
+
+
+[09/14/2023 19:57] nethoxa
+bots submitting ChatGPT reports and slither raw outputs, do not panick and try again
+
+
+[09/14/2023 19:57] itsmetechjay
+Were you getting an error?
+
+
+[09/14/2023 19:57] inzinko
+771 findings ?? This is going to be interesting lol
+
+
+[09/14/2023 19:57] chrisapostolov
+Nothing, just not responding to a click
+
+
+[09/14/2023 19:57] sovaslava9
+and all about gas )
+
+
+[09/14/2023 19:57] shubh0412
+788 😂
+
+{Reactions}
+🤣 
+
+[09/14/2023 19:58] chrisapostolov
+Any ideas?
+
+
+[09/14/2023 19:58] 0xkazimm
+https://tenor.com/view/rick-no-the-walking-dead-gif-10486561
+
+{Embed}
+https://tenor.com/view/rick-no-the-walking-dead-gif-10486561
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/rick-no-CACD3.png
+
+{Reactions}
+🤣 
+
+[09/14/2023 19:58] chrisapostolov
+great half my findings cannot be submitted..
+
+
+[09/14/2023 19:58] sovaslava9
+just send me dm and i send your repost fast. i'll send your money.
+
+{Reactions}
+🤣 (12) NE_weSmart (8) gummy_bear (2) 
+
+[09/14/2023 19:59] sovaslava9
+you can believe me or lose money 100%
+
+
+[09/14/2023 19:59] nethoxa
+9999999 IQ
+
+
+[09/14/2023 19:59] 0xstalin
+for me is working fine
+
+
+[09/14/2023 19:59] itsmetechjay
+seems like there might be an error in your code link if the button is not working
+
+
+[09/14/2023 19:59] 0xstalin
+maybe refresh cache?
+
+
+[09/14/2023 20:00] mrudenko
+time is over
+
+
+[09/14/2023 20:00] 0xkazimm
+increase time to 30 minute to him may help 😦
+
+
+[09/14/2023 20:00] gumgumzum
+Mixed feelings, don't know if I should be depressed because of mine or excited to discover what I missed
+
+
+[09/14/2023 20:00] kaveyjoe
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/Screenshot_2023-09-15-01-45-09-294-edit_co-8689A.jpg
+
+
+[09/14/2023 20:00] t1moh
+How much valid HM? I bet 2
+
+{Reactions}
+😅 
+
+[09/14/2023 20:00] 0xkazimm
+half or more will be rejected
+
+
+[09/14/2023 20:00] 0xkazimm
+same thing 😂
+
+
+[09/14/2023 20:01] 0xkral
+Found a vuln at the last min and wrote PoC for it, hope it doesn't get invalidated🥹
+
+
+[09/14/2023 20:01] catscanaudit
+same lol
+
+
+[09/14/2023 20:01] olanre_waju
+100 dups not to worry!
+
+
+[09/14/2023 20:01] catscanaudit
+Someone with backstage DM me some cool findings till I get my backstage 😭
+
+
+[09/14/2023 20:01] 0xkazimm
+if one of my HMs accepted i will reward myself with new iphone lol
+
+{Reactions}
+❤️ 
+
+[09/14/2023 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺wardens The **Centrifuge** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+{Reactions}
+C4Keycap (8) 
+
+[09/14/2023 20:02] 0xkazimm
+as the contest ends, special thanks to all team sponsors specially @hieronx who answered most of the question, the codebase was builtproof and it was one of the best codebase i worked on till now🫡 🔥
+
+{Reactions}
+👍 (7) 
+
+[09/14/2023 20:02] gumgumzum
+Is this how it usually goes?
+
+{Reactions}
+👍 
+
+[09/14/2023 20:02] 0xkral
+Can't beat the number of dupes for ERC20 slippage from beedle contest in Codehawks🫡
+
+
+[09/14/2023 20:02] nethoxa
+nah, there may be a few more but no more than 6 or so
+
+
+[09/14/2023 20:02] minh___
+thats not allowed, someone did that once and caused the whole backstage to be closed for weeks 🙃
+
+{Reactions}
+👆 
+
+[09/14/2023 20:02] hieronx
+Huge thanks to everyone for participating in the contest, from @Stoxophone @ilinz and myself!
+
+It's been a really nice experience watching everyone dive into different parts of the codebase. I'm really impressed by how deep of an understanding some wardens got in the last few days.
+
+We're looking forward to seeing all of the findings 🙂
+
+{Reactions}
+🫡 (11) hi5 (6) 
+
+[09/14/2023 20:02] catscanaudit
+damn didn't know, i take that back lol
+
+
+[09/14/2023 20:03] mrudenko
+thank you!
+
+
+[09/14/2023 20:03] 0xkazimm
+yeah not all submissions are valid and most of time half of it rejected at least
+
+
+[09/14/2023 20:03] nethoxa
+lol
+
+
+[09/14/2023 20:03] t1moh
+One of the most responsive sponsors I worked with 🫡
+
+{Reactions}
+👍 (19) 
+
+[09/14/2023 20:03] road220
+exactly!!!
+
+
+[09/14/2023 20:03] catscanaudit
+Yeah sponsors were great answering constantly
+
+
+[09/14/2023 20:04] 0xkazimm
+thanks for the centrifuge team to allow us working on such a codebase like this it was really a good experience for all of us, hope we can work on centrifuge contests in future
+
+
+[09/14/2023 20:04] 0xkazimm
+agreed %100
+
+
+[09/14/2023 20:04] lsaudit
+yeah, it was really fun-to-do-security-review contest, I enjoyed reading the codebase
+
+
+[09/14/2023 20:04] 0xstalin
+Thanks to the sponsors for hosting this contest, you guys really did a great job with your codebase, I'd like to emphasize that I love the initiative taken by @hieronx of creating a group with all the sponsors, that was a really cool experience, I needed to ask the question one time and any of the sponsors who saw the question first would answer it 🫡
+
+{Reactions}
+👀 (2) 👍 (4) 💯 (2) 
+
+[09/14/2023 20:05] lsaudit
+yeah, having group chat was very clever idea!
+
+
+[09/14/2023 20:05] j4x_98
+Thanks for answering all my question @hieronx, had a lot of fun working on your codebase 🙂
+
+
+[09/14/2023 20:05] pabloeksdi
+There was a direct link to submitting
+
+
+[09/14/2023 20:05] gumgumzum
+I see, thank you. This one is very interesting as it seemed pretty tight, can't wait to see the findings.
+
+{Reactions}
+🫡 (2) 
+
+[09/14/2023 20:07] 0xkral
+How many total submissions?
+
+
+[09/14/2023 20:07] mrudenko
+@hieronx will your team print public audit report after checking  results?
+
+
+[09/14/2023 20:09] shubh0412
+Maybe between 790-800
+
+
+[09/14/2023 20:17] kaveyjoe
+764
+
+
+[09/14/2023 20:21] nethoxa
+do they appear ??
+
+
+[09/14/2023 20:23] chrisapostolov
+:DSKtrollgeSad:
+
+{Reactions}
+4739_Skeletor 
+
+[09/14/2023 20:48] tamayonft
+If you set two or more lines in the top of the su submittin page in link code it's gonna give you a error
+
+{Reactions}
+gummy_bear 
+
+[09/14/2023 21:57] vangrim
+What happens if your headline is wrong from the actual content of a report (the content being the actual finding)? Asking for a very stupid friend...
+
+
+[09/14/2023 22:19] olanre_waju
+if the bug was well described with sufficient proof g2g imo.......
+
+
+[09/15/2023 05:50] norush8194
+When will the report ready for audit? I want to see the findings. The codebase was well written 🙂
+
+
+[09/15/2023 06:15] t1moh
+Get ready to wait several months
+
+
+[09/15/2023 06:45] 0xdalla
+why several months ? is it because the axelar also took quite some time (actually still not out) ?
+
+
+[09/15/2023 06:47] t1moh
+Check the statistics, check which projects are now in "reporting" stage
+
+
+[09/15/2023 06:51] 0xdalla
+Oh right there was chainlink not long ago there is quite some judging to do indeed
+
+
+[09/15/2023 07:38] mrudenko
+Avg time is 30-40 days
+
+
+[09/15/2023 07:39] mrudenko
+But it depends on count of submitted issues
+
+
+[09/15/2023 13:13] uncle Jeff#4407
+where can I check this?
+
+
+[09/15/2023 15:14] t1moh
+There is no such a place, C4 Rollup message in Announcements contains which projects are on Reporting stage. And there are old projects on this stage like Popcorn
+
+
+[09/15/2023 15:15] uncle Jeff#4407
+thanks
+
+
+[09/17/2023 14:46] .hihow
+Guys it's my first time i submit in code4rena...I recently joined Centrifuge and submited some issues...Why can i see them in my account now that the audit ended?
+
+
+[09/17/2023 14:47] uncle Jeff#4407
+u gotta wait till the results come out
+
+{Reactions}
+✅ 
+
+[09/17/2023 14:47] uncle Jeff#4407
+they probably have to be valid to appear to your profile
+
+
+[09/17/2023 14:49] .hihow
+ok got it... no need to do anything else in order to participate on the upcoming audits?i thought that my profile should had something no matter the validity of my submisions
+
+
+[09/17/2023 14:50] uncle Jeff#4407
+nope, all good
+
+
+[09/17/2023 21:34] 0xkazimm
+you should wait till QA peroid as  i know if you have backstage rule then you can ask judges about it.
+
+
+[09/18/2023 00:05] kaveyjoe
+Judging from judge isn't started yet  and you have no right to discuss your finding outside anywhere until Report is published, if you  have any question Regarding this  , you can direct ask to judge during Post QA peroid.
+
+{Reactions}
+💯 
+
+[09/18/2023 00:08] uncle Jeff#4407
+it could be a mistake
+
+
+[09/18/2023 07:14] lourenslinde
+Hi friend, this is a very recent contest so what you're probably seeing is the pre-sort from the lookout that tags your issue as a duplicate of another and then closes it. This doesn't mean it's invalid (only that it is a duplicate). 
+
+Also, bear in mind that comments and questions about findings should not be done publicly (even in this channel). Questions about judgments can be raised during the Post-Judging QA period which will be announced in the backstage channel :gummy_bear:
+
+{Reactions}
+👆 (2) ❤️ 
+
+[09/18/2023 10:56] cloudellie
+@SovaSlava I've deleted your message since it is a violation of our [submission guidelines](https://docs.code4rena.com/roles/wardens/submission-policy#audit-contest-guidelines) to discuss any findings until the report has been published.
+
+
+[09/18/2023 10:56] cloudellie
+And thanks to all community members who have provided helpful guidance here :cyberheart:
+
+{Reactions}
+C4Keycap (18) 
+
+[09/26/2023 13:40] thetechnofeak
+i participated in this contest and i want to know when can i read its report??
+
+
+[09/26/2023 13:40] thetechnofeak
+any idea
+
+
+[09/26/2023 13:41] thebrittfactor
+We are still in the judging stage. Probably a few weeks out from the report.
+
+
+[09/26/2023 13:48] thetechnofeak
+okay
+
+
+[09/26/2023 16:14] j4x_98
+When do you expect that prices will be announced?
+
+
+[09/26/2023 16:26] thebrittfactor
+I would say late next week at the earliest. We'll still need to finish judging and then have Post-Judging QA.
+
+{Reactions}
+👍🏻 (4) 🔥 (4) 
+
+[09/26/2023 16:56] j4x_98
+Sounds great, thanks for the quick reply 😀
+
+
+[09/27/2023 12:10] shubh0412
+Shouldn't this be in backstage channel?
+
+{Reactions}
+✅ 
+
+[09/27/2023 12:18] thekmj
+Lmao everyone gets a free update then
+
+
+[09/27/2023 12:29] kaveyjoe
+You can get free update from https://www.dailywarden.com/
+
+{Embed}
+https://www.dailywarden.com/
+Daily Warden - Active and upcoming contests sent to you daily
+8 Active and Upcoming Contests
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/d9zjlrJR-3ED74.png
+
+{Reactions}
+🔥 (7) 
+
+[10/02/2023 09:03] hunter_w3b
+https://tenor.com/view/nervous-shy-kermit-terrified-scared-gif-17697469
+
+{Embed}
+https://tenor.com/view/nervous-shy-kermit-terrified-scared-gif-17697469
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/nervous-shy-ADBD7.png
+
+{Reactions}
+😂 (7) 
+
+[10/02/2023 09:34] versiyon1
+When do you think the rewards are announced and on which network the rewards are distributed
+
+
+[10/02/2023 10:00] kaveyjoe
+Polygon Network
+
+{Reactions}
+👍 
+
+[10/02/2023 11:10] josephdara
+:4739_Skeletor:
+
+
+[10/02/2023 11:17] 0x3b
+https://tenor.com/view/hot-summer-scary-scared-creepy-gif-17494278817868935582
+
+{Embed}
+https://tenor.com/view/hot-summer-scary-scared-creepy-gif-17494278817868935582
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/hot-summer-6161F.png
+
+
+[10/02/2023 13:22] 7a4raf
+any chances results come out this week ?
+
+
+[10/02/2023 13:28] kaveyjoe
+Lets Hope😜
+
+
+[10/02/2023 17:13] _paperparachute
+🤑 🎉  Awards for **Centrifuge**:
+
+$11,760.72 USDC » @ciphermarco 
+$11,324.58 USDC » @alexfilippov314 
+$3,092.32 USDC » @0x3b 
+$2,386.72 USDC » @Jaraxxus775 
+$2,352.03 USDC » @twicek 
+$1,663.90 USDC » @J4X 
+$1,486.01 USDC » @0xStalin 
+$1,275.94 USDC » @code-cipher 
+$1,247.37 USDC » @bin2chen 
+$1,155.88 USDC » @imtybik 
+$1,154.54 USDC » @castle_chain 
+$1,143.09 USDC » @HChang26 
+$920.54 USDC » @merlin 
+$907.75 USDC » @maanas 
+$870.11 USDC » @nobody2018 
+$869.10 USDC » @0xnev 
+$857.31 USDC » @mert_eren 
+$840.22 USDC » @Bauchibred 
+$704.11 USDC » @josephdara 
+$683.97 USDC » BARW (@BenRai, @albertwhite) 
+$533.61 USDC » @degensec.eth 
+$533.61 USDC » @Ch301 
+$533.61 USDC » @ast3ros 
+$348.28 USDC » @Sathish9098 
+$348.28 USDC » catellatech
+$335.49 USDC » @0xbrett8571 
+$335.49 USDC » @kaveyjoe 
+$335.49 USDC » @cats 
+$296.01 USDC » @0xfuje 
+$296.01 USDC » @0xpiken 
+$230.77 USDC » @lsaudit 
+$197.84 USDC » @0xmystery 
+$172.71 USDC » @Kow 
+$145.65 USDC » @rvierdiiev 
+$132.86 USDC » @ravikiranweb3 
+$132.86 USDC » @T1MOH 
+$132.86 USDC » @gumgumzum 
+$132.86 USDC » @nmirchev8 
+$132.86 USDC » @0xkazim 
+$132.86 USDC » @codegpt 
+$132.86 USDC » @0xRobsol 
+$85.12 USDC » @Kral01 
+$65.56 USDC » @pipidu83 
+$50.43 USDC » @MaslarovK 
+$50.43 USDC » @0xPacelli 
+$50.43 USDC » @iceBear 
+$50.43 USDC » @deth 
+$50.43 USDC » @0xladboy | Sparkware 
+$50.43 USDC » @nonce 
+$50.43 USDC » @0xklh 
+$50.43 USDC » @ether_sky 
+$50.43 USDC » @bitsurfer 
+$50.43 USDC » @PENGUN 
+$50.43 USDC » @0xgrbr 
+$50.43 USDC » @0xTiwa 
+$50.43 USDC » @KrisApostolov 
+$50.43 USDC » @Vagner 
+$47.48 USDC » @rokinot 
+$47.48 USDC » @grearlake 
+$34.69 USDC » @foxb868 
+$34.69 USDC » @emerald7017 
+$34.69 USDC » @hals 
+$34.69 USDC » @K42 Ψ 
+$34.69 USDC » @Fouzantanveer 
+$12.79 USDC » @0xHelium 
+$12.79 USDC » @Santiago Moreno 
+$12.79 USDC » @mrudenko 
+$12.79 USDC » @Krace 
+$12.79 USDC » @0xSmartContractSamurai 
+$12.79 USDC » @7ashraf 
+$12.79 USDC » @m_Rassska 
+$12.79 USDC » @SanketKogekar 
+$12.79 USDC » @0xblackskull 
+$12.79 USDC » @Bughunter101 
+$12.79 USDC » @0xAadi 
+$12.79 USDC » @klau5 
+$12.79 USDC » @Kaysoft 
+$12.79 USDC » @btk 
+$12.79 USDC » @sandy 
+$12.79 USDC » @alexzoid 
+$12.79 USDC » @Jolah1 
+$12.79 USDC » @jkoppel  
+$12.79 USDC » @MohammedRizwan 
+$12.79 USDC » @0xLook 
+
+🏁 Findings summary
+--------------------------------------—
+High risk findings: 0
+Med risk findings: 8 unique (60 total)
+QA reports: 39 total (Best: @castle_chain) 
+Advanced Analysis reports: 20 total (Best: @ciphermarco) 
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🔥 (8) 🚀 (4) 🫡 (3) 
+
+[10/02/2023 17:14] j4x_98
+GG guys 🙂 had a lot of fun on this one :chefskiss:
+
+
+[10/02/2023 17:15] castle_chain
+Wow,  I have the best QA report 🥂🫠
+
+{Reactions}
+10_10 (9) 
+
+[10/02/2023 17:18] castle_chain
+Congratulations to all winners ❤️🥂
+
+
+[10/02/2023 17:20] josephdara
+GG
+
+{Reactions}
+👍 
+
+[10/02/2023 17:20] gumgumzum
+Gj everyone 👍, the findings on this one are going to be interesting to read
+
+{Reactions}
+👍🏻 
+
+[10/02/2023 17:25] 0xkazimm
+Feel proud to be in this list, it was solid one 🔥
+
+
+[10/02/2023 17:26] castle_chain
+I got my first 4 digits  payout 🫠🔥
+
+{Reactions}
+gummy_bear (3) 🔥 (3) 
+
+[10/02/2023 17:30] visualbits
+According to the number of findings on the profile page of both wardens (1 medium solo), the reward distribution is not correct.
+There is a problem with calculations or the profile page has a bug.
+
+p.s: I didn't participate in this contest
+
+
+[10/02/2023 17:30] t1moh
+Why you are proud?
+
+
+[10/02/2023 17:30] 7a4raf
+First pyaout ever 🔥🔥
+Ain't much but definitely a start of something
+
+{Reactions}
+10_10 (2) 
+
+[10/02/2023 17:30] 7a4raf
+Gg everyone
+
+
+[10/02/2023 17:30] j4x_98
+What exactly do you mean?
+
+
+[10/02/2023 17:31] 0xkazimm
+Being on list, solid codebase , i think I mentioned it 🫠
+
+{Reactions}
+👏 
+
+[10/02/2023 17:32] superman_i4g
+https://tenor.com/view/deep-sigh-albert-wesker-lance-reddick-resident-evil-inhale-exhale-gif-26399289
+
+{Embed}
+https://tenor.com/view/deep-sigh-albert-wesker-lance-reddick-resident-evil-inhale-exhale-gif-26399289
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/deep-sigh-albert-wesker-F11BF.png
+
+
+[10/02/2023 17:35] nmirchev8
+Those without backstage should wait for the final report?
+
+{Reactions}
+👍 
+
+[10/02/2023 17:37] visualbits
+8 medium findings and 49300$ -> ~6000$ per finding
+Duo to the 2nd warden profile @alexfilippov314 has only 1 medium (solo).
+I think profile page has bug​🤔
+
+
+[10/02/2023 17:38] eme0242
+that's not how reward calculation works
+
+
+[10/02/2023 17:40] visualbits
+Yes, but maximum reward per finding doesn't exceeds ~6500$ for 8 findings
+`Total H/M reward / 8`
+
+
+[10/02/2023 17:42] 0xstalin
+The more dups a finding has, the less worth it, the value lost by the duplicates goes to the more rare findings
+
+
+[10/02/2023 17:42] eme0242
+c4 algorithm incentivizes finding unique(or less common bugs)
+
+{Reactions}
+👍 
+
+[10/02/2023 17:43] nmirchev8
+52  medium findings have dublicates and 8 are unique, right?
+
+
+[10/02/2023 17:44] 0xstalin
+Example, if pot is 10k, and there are 2 valid findings, but one of the two got duplicates and the other is unique, the pot of the valid with dups won’t be 5k split among all those who find it, the pot will be less than 5k, and the other unique will be worth more than 5k
+
+
+[10/02/2023 17:45] 0xstalin
+8 valid mediums, some of them have duplicates, in total 52 valid findings
+
+{Reactions}
+✅ 🫡 
+
+[10/02/2023 17:48] visualbits
+Ohh I had misunderstood the documentation and thought that the rewards were divided equally between the findings👍
+
+
+[10/02/2023 17:50] visualbits
+Congrats to all winners❤
+
+{Reactions}
+🥳 (2) 
+
+[10/02/2023 18:01] thetechnofeak
+I submitted few issues,but didnt got rewards,mannnnnnn this is so disappointing!
+
+
+[10/02/2023 18:02] uncle Jeff#4407
+could be invalid, did u make some PoCs to ensure they work? anyway man keep up the work, and you'll get it eventually
+
+
+[10/02/2023 18:03] thetechnofeak
+No i didnt write POCs, was it conpulsory
+
+
+[10/02/2023 18:03] thetechnofeak
+Yeah it could be invalid ig
+
+
+[10/02/2023 18:03] thetechnofeak
+Thats why it wasnt not considered maybe
+
+
+[10/02/2023 18:04] thetechnofeak
+This was my first contest
+
+
+[10/02/2023 18:04] uncle Jeff#4407
+it is not, but sometimes the bug won't be feasible so u have to write a PoC to check its validity
+
+
+[10/02/2023 18:04] thetechnofeak
+So i didnt know how to write tests properly
+
+
+[10/02/2023 18:05] uncle Jeff#4407
+eh, everyone starts like this, just keep up the good work
+
+{Reactions}
+❤️ 
+
+[10/02/2023 18:05] thetechnofeak
+Yess i know thatz i need to get back stronger with foundry
+
+
+[10/02/2023 18:05] thetechnofeak
+Yeah ser ,i will
+
+
+[10/02/2023 18:05] uncle Jeff#4407
+good luck ^^
+
+{Reactions}
+❤️ 
+
+[10/02/2023 18:06] 0xhelium
+$12 for a first win
+
+
+[10/02/2023 18:07] 0xhelium
+QA report hit hard
+
+
+[10/02/2023 18:07] 0xkral
+I wrote PoC for one of my finding.
+
+Don't know why it wasn't validated though👀.
+
+Can't do anything unless I have backstage ig🫡
+
+
+[10/02/2023 18:10] thetechnofeak
+How many contests u gave before this
+
+
+[10/02/2023 18:10] 0xkral
+This is the 4th one IIRC
+
+
+[10/02/2023 18:12] thetechnofeak
+Ohh nice
+
+
+[10/02/2023 18:12] thetechnofeak
+Keep up man!
+
+{Reactions}
+🫡 
+
+[10/02/2023 18:54] 0xhelium
+Is there a payout criteria also on C4 like on Sherlock ?
+
+
+[10/02/2023 18:54] hieronx
+Congrats to the winners, and thanks again to everyone for participating!
+
+{Reactions}
+🫡 (10) 
+
+[10/02/2023 18:58] 0x3b
+nope
+
+
+[10/02/2023 19:44] franklin4121
+Hi @castle_chain  sent you a FR, kindly check 🙏
+
+{Reactions}
+🫡 
+
+[10/02/2023 19:44] j4x_98
+Thanks for the great support in answering questions during the contest 😊
+
+
+[10/02/2023 19:46] castle_chain
+Done
+
+
+[10/03/2023 02:08] kawaicho
+where i can see the findings?
+
+
+[10/03/2023 03:46] kaveyjoe
+Wait for the report publishing.
+
+
+[10/03/2023 04:34] kawaicho
+this will take months
+
+
+[10/03/2023 05:25] 0x3b
+the other option is backstage
+
+
+[10/03/2023 07:17] nmirchev8
+But in the leaderboard we can see how many of our findings were valid, sooner?
+
+{Reactions}
+👍 
+
+[10/03/2023 08:27] j4x_98
+You should see it when you look at your profile 😊
+
+{Reactions}
+❤️ 
+
+[10/03/2023 15:36] 7a4raf
+How to know if awards are sent ?
+
+
+[10/03/2023 15:42] visualbits
+Check #📢announcements
+
+
+[10/03/2023 15:48] 7a4raf
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/Screenshot_2023-10-03-18-48-17-09_572064f7-06356.jpg
+
+{Reactions}
+👍🏽 
+
+[10/03/2023 15:49] 7a4raf
+Does this mean they are sent?
+
+
+[10/03/2023 16:00] 0xbtk
+yeah
+
+
+[10/03/2023 16:05] 7a4raf
+If nothing was sent to me what should i do?
+
+
+[10/03/2023 16:10] itsmetechjay
+Open a [help desk](https://code4rena.com/help) please.
+
+{Embed}
+https://code4rena.com/help
+Help | Code4rena
+Need help as a developer looking to secure your project or as a Warden finding vulnerabilities? Contact us via our Help page today.
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/c4-og-banner-9A2EB.png
+
+
+[10/03/2023 16:30] maslarovk
+check for a transaction to your address here https://polygonscan.com/ and if there is one, just import USDC to your polygon metamask
+
+{Embed}
+https://polygonscan.com/
+Polygon (MATIC) Blockchain Explorer
+PolygonScan allows you to explore and search the Polygon blockchain for transactions, addresses, tokens, prices and other activities taking place on Polygon (MATIC)
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/PolygonScan-logo-circle-6FDB5.jpg
+
+
+[10/03/2023 17:50] 7a4raf
+done
+
+
+[10/03/2023 17:52] 7a4raf
+i found this
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/image-F99E4.png
+
+
+[10/03/2023 17:54] maslarovk
+Seems they are sent, google how to add usdc to your polygon metamask and they will be there
+
+
+[10/03/2023 18:03] 7a4raf
+i just did, balance still 0 for usdc on polygon
+
+
+[10/03/2023 18:27] 7a4raf
+@Jay | C4 should I wait now or what?
+
+
+[10/03/2023 18:36] itsmetechjay
+Yes - we'll get back to you within the next 24 hours, if not sooner.
+
+
+[10/03/2023 19:02] kaveyjoe
+Reward was Already sent and Instantly moved from your wallet to another wallet  (0xd1... to 0x57...)
+
+
+[10/03/2023 19:40] 7a4raf
+what does this mean, I still don't know why would this happen
+
+
+[10/03/2023 19:44] castle_chain
+How can I know if my analysis report is accepted or not?
+
+
+[10/04/2023 06:44] lourenslinde
+Hi friend, your wallet is likely compromised (hacked) and is being drained by a bot that monitors it for any incoming funds.
+
+{Reactions}
+👍 (3) 
+
+[10/04/2023 10:21] uncle Jeff#4407
+or they need to import the tokens from polygon network
+
+{Reactions}
+👍 
+
+[10/12/2023 05:02] 0xkral
+Hey, I noticed that the report is out. Now we can discuss about the findings right👀 ? More specifically, I want to learn why one of my issue was deemed invalid:gummy_wink: .
+
+This is the issue [633](https://github.com/code-423n4/2023-09-centrifuge-findings/issues/633) can anyone help me understand why this was invalid😄 .
+
+{Embed}
+https://github.com/code-423n4/2023-09-centrifuge-findings/issues/633
+Any user can drain the escrow contract by calling `decreaseDepositR...
+Lines of code https://github.com/code-423n4/2023-09-centrifuge/blob/512e7a71ebd9ae76384f837204216f26380c9f91/src/LiquidityPool.sol#L247-L250 https://github.com/code-423n4/2023-09-centrifuge/blob/51...
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/633-39C58
+
+
+[10/12/2023 05:23] 0xsandy
+https://github.com/code-423n4/2023-09-centrifuge-findings/issues/205 see the comment
+
+{Embed}
+https://github.com/code-423n4/2023-09-centrifuge-findings/issues/205
+Assets in Escrow.sol can be drained via decreaseDepositRequest · Is...
+Lines of code https://github.com/code-423n4/2023-09-centrifuge/blob/main/src/LiquidityPool.sol#L247 Vulnerability details Impact All assets in Escrow.sol can be drained via decreaseDepositRequest. ...
+Code4rena - ARCHIVE-Q3-2023 - centrifuge-sep08 [1148615978704453739].txt_Files/205-A48E2
+
+{Reactions}
+4739_Skeletor 
+
+[10/12/2023 05:24] 0xkral
+Oh I see.. thank you mate.
+
+Much appreciated 🫡
+
+
+[10/12/2023 07:07] 0x11singh99
+Hats off 🫡 to Centrifuge sponsors and C4 Judges who judged it.    
+One month hasn't passed yet when it was submitted , results and report both are out.
+
+{Reactions}
+🫡 
+
+[10/13/2023 13:15] wisdomn_
+Hi, how can I see my findings in centrifuge? The report is out
+
+
+[10/13/2023 13:58] lsaudit
+https://github.com/code-423n4/2023-09-centrifuge-findings/tree/main/data  - look for .json files with your username. They contain links to your issues
+
+
+[10/13/2023 14:10] wisdomn_
+Ok thanks
+
+
+[10/13/2023 15:04] bowtiedvirus
+Have a question about this finding: https://github.com/code-423n4/2023-09-centrifuge-findings/issues/553
+
+It was marked as duplicate of https://github.com/code-423n4/2023-09-centrifuge-findings/issues/78 but they are imo completely different issues.
+
+I couldn't find comments about why 553 and other findings similar to it were invalidated though.  Anybody know why findings similar to 553 (but not 78) were invalid?
+
+
+[10/13/2023 15:08] bowtiedvirus
+Maybe it makes sense that it was invalidated because it was due to user mistake?
+
+{Reactions}
+👆 
+
+[10/13/2023 15:40] 0xbtk
+https://github.com/code-423n4/org/issues/53
+
+
+[10/13/2023 15:46] bowtiedvirus
+Thanks for the link. Fwiw, if I had backstage, I think I might have escalated on this. All good though. 😎
+
+
+==============================================================
+Exported 708 message(s)
+==============================================================
